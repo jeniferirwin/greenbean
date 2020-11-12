@@ -1,0 +1,24 @@
+PPU for all sprites: 16
+Orthographic camera size: 25
+
+All sprites will be exported in PNG format with GIMP's default export settings.
+
+Texture Type: Sprite (2D and UI)
+Sprite Mode: Single
+Pixels Per Unit: 16
+Mesh Type: Tight
+Extrude Edges: 0
+
+SRGB: Yes
+Alpha Source: Input Texture Alpha
+Alpha Is Transparent: Yes
+Read/Write Enable: No
+Generate Mip Map: No
+
+Pivot: Center
+Wrap Mode: Clamp
+Filter Mode: Point
+Max Size: 2048
+Resize Algorithm: Mitchell
+Format: Automatic
+Compression: None
