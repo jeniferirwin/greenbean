@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 246365956}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4470,7 +4470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 320490793}
   - component: {fileID: 320490794}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6091,7 +6091,10 @@ GameObject:
   - component: {fileID: 2099332727}
   - component: {fileID: 2099332729}
   - component: {fileID: 2099332728}
-  m_Layer: 11
+  - component: {fileID: 2099332730}
+  - component: {fileID: 2099332731}
+  - component: {fileID: 2099332732}
+  m_Layer: 13
   m_Name: Green Bean Eater
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6106,7 +6109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099332726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.22, y: 10.7, z: 0}
+  m_LocalPosition: {x: -27.9, y: 10.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 320490793}
@@ -6127,7 +6130,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.24460983, y: -0.9953098}
+  m_Offset: {x: 0.18557835, y: -0.9953098}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6138,7 +6141,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4798393, y: 2.9906197}
+  m_Size: {x: 2.8108158, y: 2.9906197}
   m_EdgeRadius: 0
 --- !u!50 &2099332729
 Rigidbody2D:
@@ -6160,7 +6163,118 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &2099332730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099332726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c950b4f3194cd7d49adf931c6abae542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 2099332729}
+  groundCollider: {fileID: 2099332728}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  wallCastDistance: 0.55
+  groundCastDistance: 0.1
+  jumpForce: 3000
+  jumpHeight: 4
+  moveSpeed: 20
+  fallSpeed: 70
+  defaultGravity: 4
+  droppingGravity: 18
+  DebugIsGrounded: 0
+--- !u!114 &2099332731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099332726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 470b7525c17d9e3419bd2a9bbef8237d,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2099332730}
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 86590fe7-757a-4aff-a6ce-d60de2849e9d
+    m_ActionName: Movement/Jump[/USB gamepad           /button2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2099332730}
+        m_MethodName: Walk
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 74e0f2a3-04b1-477f-8e95-02e4cba07df9
+    m_ActionName: Movement/Move[/USB gamepad           /stick]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Movement
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &2099332732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099332726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04f2e5f031415a1428e39f86376064ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 2099332730}
+  spriteRenderer: {fileID: 320490794}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  groundedColor: {r: 0.018116832, g: 1, b: 0, a: 0}
+  leftBlockedColor: {r: 1, g: 0, b: 0, a: 0}
+  rightBlockedColor: {r: 0, g: 0.00002193451, b: 1, a: 0}
+  debugGroundCast: 1
+  debugLeftWallCast: 1
+  debugRightWallCast: 1
 --- !u!1 &2133648034
 GameObject:
   m_ObjectHideFlags: 0
