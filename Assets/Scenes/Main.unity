@@ -6182,7 +6182,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.18557835, y: -0.9953098}
+  m_Offset: {x: 0.15485191, y: -0.9953098}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6193,7 +6193,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8108158, y: 2.9906197}
+  m_Size: {x: 1.6022224, y: 2.9906197}
   m_EdgeRadius: 0
 --- !u!50 &2099332729
 Rigidbody2D:
@@ -6299,7 +6299,7 @@ MonoBehaviour:
     m_ActionId: 74e0f2a3-04b1-477f-8e95-02e4cba07df9
     m_ActionName: Movement/Move[/USB gamepad           /stick]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

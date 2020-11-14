@@ -11,6 +11,7 @@ namespace GreenBean.Helpers
         public bool leftBlocked;
         public bool grounded;
         public bool canJump;
+        public Vector2 lastGroundedPosition;
         public LayerMask whatIsGround;
         public BoxCollider2D groundCollider;
 
@@ -25,6 +26,11 @@ namespace GreenBean.Helpers
             groundCastDistance = groundCastDist;
             whatIsGround = groundMask;
             groundCollider = playerGroundCollider;
+            
+            // setting the initial grounded position very low so that the player
+            // doesn't just instantly die when they spawn in, if they spawn in above the
+            // ground for some reason
+            lastGroundedPosition = new Vector2(0,-300);
         }
         
         public void Update()
@@ -34,6 +40,10 @@ namespace GreenBean.Helpers
             IsBlocked(Vector2.right, wallCastDistance);
             IsBlocked(Vector2.left, wallCastDistance);
             IsGrounded(groundCastDistance);
+            if (grounded)
+            {
+                lastGroundedPosition = player.transform.position;
+            }
         }
         
         public void IsBlocked(Vector2 direction, float distance)

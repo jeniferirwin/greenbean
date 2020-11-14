@@ -25,6 +25,7 @@ namespace GreenBean.Player
         private JumpData jumpData;
         private EnvData envData; 
         private Vector2 moveDirection;
+        private Vector2 lastGroundedPosition;
 
         private void Start()
         {
@@ -79,6 +80,7 @@ namespace GreenBean.Player
                 rb.velocity = Vector2.right * moveSpeed;
             else
                 rb.velocity = new Vector2(0,rb.velocity.y);
+            
         }
         
         private void ProcessAirState()
@@ -105,6 +107,10 @@ namespace GreenBean.Player
                 if (rb.velocity.x != 0)
                 {
                     rb.velocity = new Vector2(0,rb.velocity.y);
+                }
+                if (rb.velocity.y > -9.81f)
+                {
+                    rb.velocity = new Vector2(0,-9.81f);
                 }
                 rb.gravityScale = droppingGravity;
             }
