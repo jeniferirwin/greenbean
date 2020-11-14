@@ -102,6 +102,10 @@ namespace GreenBean.Player
             }
             else
             {
+                if (rb.velocity.x != 0)
+                {
+                    rb.velocity = new Vector2(0,rb.velocity.y);
+                }
                 rb.gravityScale = droppingGravity;
             }
         }

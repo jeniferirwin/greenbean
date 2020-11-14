@@ -5604,15 +5604,51 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 2147483649
+  - first: {x: -16, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 2147483649
+  - first: {x: -16, y: 4, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 2147483649
+  - first: {x: -16, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 2147483649
+  - first: {x: -16, y: 6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 2147483649
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 108
+  - m_RefCount: 112
     m_Data: {fileID: 11400000, guid: addb4265f2ddc6f48a3f79af9d27e626, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 108
+  - m_RefCount: 112
     m_Data: {fileID: 21300000, guid: dd3878b3cc5e6e849849aea824b78780, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 108
+  - m_RefCount: 112
     m_Data:
       e00: 1
       e01: 0
@@ -5631,7 +5667,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 108
+  - m_RefCount: 112
     m_Data: {r: 1, g: 1, b: 1, a: 0}
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
@@ -5639,7 +5675,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -20, y: -12, z: 0}
-  m_Size: {x: 40, y: 15, z: 1}
+  m_Size: {x: 40, y: 19, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -5684,6 +5720,18 @@ CompositeCollider2D:
       - X: -79999900
         Y: 60000041
       - X: -79999959
+        Y: 60000100
+      - X: -299999900
+        Y: 60000100
+      - X: -299999900
+        Y: 140000041
+      - X: -299999959
+        Y: 140000100
+      - X: -320000041
+        Y: 140000100
+      - X: -320000100
+        Y: 140000041
+      - X: -320000100
         Y: 60000100
       - X: -400000041
         Y: 60000100
@@ -5851,6 +5899,10 @@ CompositeCollider2D:
     m_Paths:
     - - {x: -8.000026, y: 3.99999}
       - {x: -8.000026, y: 6.00001}
+      - {x: -29.99999, y: 6.000039}
+      - {x: -30.000027, y: 14.00001}
+      - {x: -32.00001, y: 13.999974}
+      - {x: -32.00004, y: 6.00001}
       - {x: -40.00001, y: 5.9999747}
       - {x: -39.999973, y: 3.99999}
     - - {x: 3.9999747, y: 3.99999}
@@ -6181,11 +6233,11 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  wallCastDistance: 0.55
+  wallCastDistance: 0.5
   groundCastDistance: 0.1
   jumpForce: 3000
-  jumpHeight: 4
-  moveSpeed: 20
+  jumpHeight: 2.5
+  moveSpeed: 28
   fallSpeed: 70
   defaultGravity: 4
   droppingGravity: 18
@@ -6246,8 +6298,8 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 74e0f2a3-04b1-477f-8e95-02e4cba07df9
     m_ActionName: Movement/Move[/USB gamepad           /stick]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
