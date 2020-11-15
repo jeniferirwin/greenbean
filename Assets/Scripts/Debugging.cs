@@ -60,8 +60,8 @@ namespace GreenBean.Debugging
             }
             if (debugLeftWallCast)
             {
-                DrawBoxCast(movement.groundCollider, Vector2.left, movement.wallCastDistance, Color.red);
-                BoxColliderCast cast = new BoxColliderCast(movement.groundCollider,Vector2.left,movement.groundCastDistance,whatIsGround);
+                DrawBoxCast(movement.wallCollider, Vector2.left, movement.wallCastDistance, Color.red);
+                BoxColliderCast cast = new BoxColliderCast(movement.wallCollider,Vector2.left,movement.wallCastDistance,whatIsGround);
                 if (cast.didHit)
                 {
                     spriteRenderer.color = Color.red;
@@ -69,8 +69,8 @@ namespace GreenBean.Debugging
             }
             if (debugRightWallCast)
             {
-                DrawBoxCast(movement.groundCollider, Vector2.right, movement.wallCastDistance, Color.blue);
-                BoxColliderCast cast = new BoxColliderCast(movement.groundCollider,Vector2.right,movement.groundCastDistance,whatIsGround);
+                DrawBoxCast(movement.wallCollider, Vector2.right, movement.wallCastDistance, Color.blue);
+                BoxColliderCast cast = new BoxColliderCast(movement.wallCollider,Vector2.right,movement.wallCastDistance,whatIsGround);
                 if (cast.didHit)
                 {
                     spriteRenderer.color = Color.blue;

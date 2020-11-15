@@ -14,9 +14,10 @@ namespace GreenBean.Helpers
         public Vector2 lastGroundedPosition;
         public LayerMask whatIsGround;
         public BoxCollider2D groundCollider;
+        public BoxCollider2D wallCollider;
 
 
-        public EnvData(GameObject thisPlayer, BoxCollider2D playerGroundCollider, float wallCastDist, float groundCastDist, LayerMask groundMask)
+        public EnvData(GameObject thisPlayer, BoxCollider2D playerGroundCollider, BoxCollider2D playerWallCollider, float wallCastDist, float groundCastDist, LayerMask groundMask)
         {
             player = thisPlayer;
             rightBlocked = false;
@@ -26,6 +27,7 @@ namespace GreenBean.Helpers
             groundCastDistance = groundCastDist;
             whatIsGround = groundMask;
             groundCollider = playerGroundCollider;
+            wallCollider = playerWallCollider;
             
             // setting the initial grounded position very low so that the player
             // doesn't just instantly die when they spawn in, if they spawn in above the
@@ -48,7 +50,7 @@ namespace GreenBean.Helpers
         
         public void IsBlocked(Vector2 direction, float distance)
         {
-            if (Physics2D.BoxCast(groundCollider.bounds.center, groundCollider.size, 0f, direction, distance, whatIsGround))
+            if (Physics2D.BoxCast(wallCollider.bounds.center, wallCollider.size, 0f, direction, distance, whatIsGround))
             {
                 if (direction.x > 0)
                 {

@@ -8,6 +8,7 @@ namespace GreenBean.Player
     {
         public Rigidbody2D rb;
         public BoxCollider2D groundCollider;
+        public BoxCollider2D wallCollider;
         public LayerMask whatIsGround;
         public float wallCastDistance;
         public float groundCastDistance;
@@ -17,19 +18,15 @@ namespace GreenBean.Player
         public float fallSpeed;
         public float defaultGravity;
         public float droppingGravity;
-        
-
-        public bool DebugIsGrounded;
 
         private KeyData keyData;
         private JumpData jumpData;
         private EnvData envData; 
         private Vector2 moveDirection;
-        private Vector2 lastGroundedPosition;
 
         private void Start()
         {
-            envData = new EnvData(gameObject, groundCollider, wallCastDistance, groundCastDistance, whatIsGround);
+            envData = new EnvData(gameObject, groundCollider, wallCollider, wallCastDistance, groundCastDistance, whatIsGround);
             keyData = new KeyData();
         }
 
