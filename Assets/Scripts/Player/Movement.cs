@@ -1,53 +1,67 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using GreenBean.Helpers;
+using GreenBean.EnvironmentData;
 
 namespace GreenBean.Player
 {
     public class Movement : MonoBehaviour
     {
+        [Header("Setup")]
         public Rigidbody2D rb;
-        public BoxCollider2D groundCollider;
-        public BoxCollider2D wallCollider;
+        [Header("Walking")]
+        public WallChecker leftWallChecker;
+        public WallChecker rightWallChecker;
         public LayerMask whatIsGround;
-        public float wallCastDistance;
-        public float groundCastDistance;
+        public GroundChecker groundChecker;
+        public float moveSpeed;
+        [Header("Jumping")]
         public float jumpForce;
         public float jumpHeight;
-        public float moveSpeed;
-        public float fallSpeed;
+        public float jumpQueueLength;
+        public float maxFallDistance;
         public float defaultGravity;
         public float droppingGravity;
+        [Header("Climbing")]
+        public float climbSpeed;
 
-        private KeyData keyData;
+        private InputData inputData;
         private JumpData jumpData;
-        private EnvData envData; 
         private Vector2 moveDirection;
 
         private void Start()
         {
-            envData = new EnvData(gameObject, groundCollider, wallCollider, wallCastDistance, groundCastDistance, whatIsGround);
-            keyData = new KeyData();
+            inputData = new InputData(jumpQueueLength);
         }
 
-        public void Walk(InputAction.CallbackContext context)
+        public void OnMovement(InputAction.CallbackContext context)
         {
-            moveDirection = context.ReadValue<Vector2>();
-            keyData.UpdateDpad(moveDirection);
+            Vector2 value = context.ReadValue<Vector2>();
+            moveDirection = inputData.GetMoveDirection(value);
         }
-        
-        public void Jump(InputAction.CallbackContext context)
+
+        public void OnJump(InputAction.CallbackContext context)
         {
-            keyData.UpdateJump(context.ReadValue<float>());
+            if (context.started)
+            {
+                inputData.QueueJump();
+            }
+            else if (context.canceled)
+            {
+                inputData.UnQueueJump();
+            }
         }
-        
+
         private void Update()
         {
-            envData.Update();
-            if (jumpData != null)
-                jumpData.Update();
+            inputData.Update();
 
-            if (envData.grounded)
+            if (jumpData != null)
+            {
+                jumpData.Update();
+            }
+
+            if (groundChecker.isGrounded)
             {
                 rb.gravityScale = defaultGravity;
                 ProcessGroundState();
@@ -57,29 +71,29 @@ namespace GreenBean.Player
                 ProcessAirState();
             }
         }
-        
+
         private void ProcessGroundState()
         {
-            if (jumpData == null && keyData.jump)
+            if (jumpData == null && inputData.wantsJump)
             {
                 InitiateJump();
+                inputData.UnQueueJump();
                 return;
             }
 
-            if (jumpData != null && jumpData.leaveGroundTimer > 0f)
-                return;
-            else if (jumpData != null && jumpData.leaveGroundTimer <= 0f)
+            if (jumpData != null && jumpData.leaveGroundTimer <= 0f && groundChecker.isGrounded)
+            {
                 jumpData = null;
-                
-            if (keyData.left && !envData.leftBlocked)
-                rb.velocity = Vector2.left * moveSpeed;
-            else if (keyData.right && !envData.rightBlocked)
-                rb.velocity = Vector2.right * moveSpeed;
-            else
-                rb.velocity = new Vector2(0,rb.velocity.y);
+            }
             
+            rb.velocity = moveDirection;
         }
-        
+
+        private void ProcessClimbingState()
+        {
+
+        }
+
         private void ProcessAirState()
         {
             if (jumpData != null)
@@ -90,11 +104,11 @@ namespace GreenBean.Player
                 {
                     rb.gravityScale = droppingGravity;
                 }
-                if (jumpData.direction.x > 0f && absVel < minVel && !envData.rightBlocked)
+                if (jumpData.direction.x > 0f && absVel < minVel)
                 {
                     rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
                 }
-                else if (jumpData.direction.x < 0f && absVel < minVel && !envData.leftBlocked)
+                else if (jumpData.direction.x < 0f && absVel < minVel)
                 {
                     rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
                 }
@@ -103,23 +117,19 @@ namespace GreenBean.Player
             {
                 if (rb.velocity.x != 0)
                 {
-                    rb.velocity = new Vector2(0,rb.velocity.y);
+                    rb.velocity = new Vector2(0, rb.velocity.y);
                 }
                 if (rb.velocity.y > -9.81f)
                 {
-                    rb.velocity = new Vector2(0,-9.81f);
+                    rb.velocity = new Vector2(0, -9.81f);
                 }
                 rb.gravityScale = droppingGravity;
             }
         }
-        
+
         private void InitiateJump()
         {
-            Vector2 direction = Vector2.zero;
-            if (keyData.right)
-                direction = Vector2.right;
-            if (keyData.left)
-                direction = Vector2.left;
+            Vector2 direction = moveDirection;
 
             jumpData = new JumpData(gameObject, jumpHeight, direction);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
