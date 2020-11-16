@@ -14,6 +14,8 @@ namespace GreenBean.Player
         public WallChecker rightWallChecker;
         public LayerMask whatIsGround;
         public GroundChecker groundChecker;
+        public LadderChecker ladderChecker;
+        public RopeChecker ropeChecker;
         public float moveSpeed;
         [Header("Jumping")]
         public float jumpForce;
@@ -32,6 +34,7 @@ namespace GreenBean.Player
         private void Start()
         {
             inputData = new InputData(jumpQueueLength);
+            jumpData = null;
         }
 
         public void OnMovement(InputAction.CallbackContext context)
@@ -55,15 +58,18 @@ namespace GreenBean.Player
         private void Update()
         {
             inputData.Update();
+        }
 
+        private void FixedUpdate()
+        {
             if (jumpData != null)
             {
-                jumpData.Update();
+                ProcessAirState();
+                return;
             }
 
             if (groundChecker.isGrounded)
             {
-                rb.gravityScale = defaultGravity;
                 ProcessGroundState();
             }
             else
@@ -76,17 +82,26 @@ namespace GreenBean.Player
         {
             if (jumpData == null && inputData.wantsJump)
             {
+                Debug.Log("Trying to jump.");
                 InitiateJump();
                 inputData.UnQueueJump();
                 return;
             }
 
-            if (jumpData != null && jumpData.leaveGroundTimer <= 0f && groundChecker.isGrounded)
+            if (jumpData != null && jumpData.counter > 3)
             {
+                Debug.Log("Canceling jump.");
                 jumpData = null;
             }
-            
-            rb.velocity = moveDirection;
+
+            if (Mathf.Abs(moveDirection.x) == 1f)
+            {
+                rb.velocity = moveDirection * moveSpeed;
+            }
+            else
+            {
+                rb.velocity = Vector2.zero;
+            }
         }
 
         private void ProcessClimbingState()
@@ -98,41 +113,25 @@ namespace GreenBean.Player
         {
             if (jumpData != null)
             {
-                float absVel = Mathf.Abs(rb.velocity.x);
-                float minVel = 0.1f;
-                if (jumpData.peaked)
+                rb.gravityScale = 0;
+                if (jumpData.counter >= jumpData.velocityPerFixedUpdate.Length)
                 {
-                    rb.gravityScale = droppingGravity;
+                    jumpData = null;
+                    return;
                 }
-                if (jumpData.direction.x > 0f && absVel < minVel)
-                {
-                    rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-                }
-                else if (jumpData.direction.x < 0f && absVel < minVel)
-                {
-                    rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
-                }
+                rb.velocity = jumpData.velocityPerFixedUpdate[jumpData.counter];
+                jumpData.counter++;
             }
             else
             {
-                if (rb.velocity.x != 0)
-                {
-                    rb.velocity = new Vector2(0, rb.velocity.y);
-                }
-                if (rb.velocity.y > -9.81f)
-                {
-                    rb.velocity = new Vector2(0, -9.81f);
-                }
-                rb.gravityScale = droppingGravity;
+                rb.velocity = Physics2D.gravity;
             }
         }
 
         private void InitiateJump()
         {
-            Vector2 direction = moveDirection;
-
-            jumpData = new JumpData(gameObject, jumpHeight, direction);
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            Debug.Log("Jump initiated.");
+            jumpData = new JumpData(gameObject, moveDirection);
         }
     }
 }
