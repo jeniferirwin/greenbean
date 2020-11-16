@@ -6,14 +6,29 @@ namespace GreenBean.Helpers
     {
         public GameObject player;
         public Vector2 direction;
-        public Vector2[] velocityPerFixedUpdate;
+        public Vector2[] movementPerFixedUpdate;
         public int counter;
+        
+        public bool IsLateral
+        {
+            get
+            {
+                if (Mathf.Abs(direction.x) > 0.1f)
+                    return true;
+                else
+                    return false;
+            }
+        }
 
         private float maxYPoint;
 
-        public JumpData(GameObject thisPlayer, Vector2 initDirection)
+        public JumpData(GameObject thisPlayer, float initXDirection)
         {
-            if (Mathf.Abs(initDirection.x) > 0.1f)
+            if (initXDirection < -0.1)
+                direction = new Vector2(0,-1f);
+            else if (initXDirection > 0.1)
+                direction = new Vector2(0,1f);
+            if (IsLateral)
             {
                 InitializeLateralJumpPoints();
             }
@@ -22,13 +37,36 @@ namespace GreenBean.Helpers
                 InitializeStandingJumpPoints();
             }
             player = thisPlayer;
-            direction = initDirection;
             counter = 0;
         }
 
         private void InitializeLateralJumpPoints()
         {
-            velocityPerFixedUpdate = new Vector2[26];
+            movementPerFixedUpdate = new Vector2[25];
+            for (int i = 0; i < movementPerFixedUpdate.Length; i++)
+            {
+                float xMov = 2f;
+                float yMov;
+                if (i < 2)
+                    yMov = 3f;
+                else if (i >= 2 && i < 6)
+                    yMov = 2f;
+                else if (i >= 6 && i < 11)
+                    yMov = 1f;
+                else if (i >= 11 && i < 15)
+                    yMov = 0f;
+                else if (i >= 15 && i < 20)
+                    yMov = -1f;
+                else if (i >= 20 && i < 24)
+                    yMov = -2f;
+                else if (i == 24)
+                    yMov = -3f;
+                else
+                    yMov = -2f;
+                
+                movementPerFixedUpdate[i] = new Vector2(xMov/8f, yMov/8f);
+            }
+            /*
             velocityPerFixedUpdate[0] = new Vector2(8f/2f, 8f/3f);
             velocityPerFixedUpdate[1] = new Vector2(8f/2f, 8f/3f);
             velocityPerFixedUpdate[2] = new Vector2(8f/2f, 8f/2f);
@@ -55,12 +93,38 @@ namespace GreenBean.Helpers
             velocityPerFixedUpdate[23] = new Vector2(8f/2f, 8f/2f);
             velocityPerFixedUpdate[24] = new Vector2(8f/2f, 8f/4f);
             velocityPerFixedUpdate[25] = new Vector2(0f, 8f/2f);
+            */
         }
         
         private void InitializeStandingJumpPoints()
         {
+            movementPerFixedUpdate = new Vector2[24];
+            for (int i = 0; i < movementPerFixedUpdate.Length; i++)
+            {
+                float xMov = 0f;
+                float yMov;
+                if (i < 2)
+                    yMov = 3f;
+                else if (i >= 2 && i < 6)
+                    yMov = 2f;
+                else if (i >= 6 && i < 10)
+                    yMov = 1f;
+                else if (i >= 10 && i < 15)
+                    yMov = 0f;
+                else if (i >= 15 && i < 20)
+                    yMov = -1f;
+                else if (i >= 20 && i < 24)
+                    yMov = -2f;
+                else if (i == 24)
+                    yMov = -3f;
+                else
+                    yMov = -2f;
+                
+                movementPerFixedUpdate[i] = new Vector2(xMov/8f, yMov/8f);
+            }
+            /*
             velocityPerFixedUpdate = new Vector2[25];
-            velocityPerFixedUpdate[0] = new Vector2(0f, 8f/3f);
+            velocityPerFixedUpdate[0] = new Vector2(0f, 8.00f/3.00f);
             velocityPerFixedUpdate[1] = new Vector2(0f, 8f/3f);
             velocityPerFixedUpdate[2] = new Vector2(0f, 8f/2f);
             velocityPerFixedUpdate[3] = new Vector2(0f, 8f/2f);
@@ -85,6 +149,12 @@ namespace GreenBean.Helpers
             velocityPerFixedUpdate[22] = new Vector2(0f, 8f/2f);
             velocityPerFixedUpdate[23] = new Vector2(0f, 8f/2f);
             velocityPerFixedUpdate[24] = new Vector2(0f, 8f/4f);
+            for (int i = 0; i < velocityPerFixedUpdate.Length; i++)
+            {
+                Vector2 vel = velocityPerFixedUpdate[i];
+                Debug.Log("Added translation: " + vel.x + " / " + vel.y);
+            }
+            */
         }
     }
 }

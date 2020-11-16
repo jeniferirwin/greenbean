@@ -30,34 +30,49 @@ namespace GreenBean.Player
         private InputData inputData;
         private JumpData jumpData;
         private Vector2 moveDirection;
+        private bool wantsJump;
 
         private void Start()
         {
             inputData = new InputData(jumpQueueLength);
             jumpData = null;
+            rb.gravityScale = 0;
         }
 
         public void OnMovement(InputAction.CallbackContext context)
         {
             Vector2 value = context.ReadValue<Vector2>();
-            moveDirection = inputData.GetMoveDirection(value);
+            inputData.GetAxis(value);
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.started)
             {
-                inputData.QueueJump();
+                inputData.hasJump = true;
             }
             else if (context.canceled)
             {
-                inputData.UnQueueJump();
+                inputData.hasJump = false;
             }
         }
 
         private void Update()
         {
             inputData.Update();
+            if (inputData.cycleFinished)
+            {
+                moveDirection = inputData.currentAxis;
+                inputData.currentAxis = Vector2.zero;
+
+                if (inputData.hasJump)
+                {
+                    inputData.hasJump = false;
+                    wantsJump = true;
+                }
+
+                inputData.cycleFinished = false;
+            }
         }
 
         private void FixedUpdate()
@@ -80,11 +95,11 @@ namespace GreenBean.Player
 
         private void ProcessGroundState()
         {
-            if (jumpData == null && inputData.wantsJump)
+            if (jumpData == null && wantsJump)
             {
                 Debug.Log("Trying to jump.");
                 InitiateJump();
-                inputData.UnQueueJump();
+                wantsJump = false;
                 return;
             }
 
@@ -113,13 +128,13 @@ namespace GreenBean.Player
         {
             if (jumpData != null)
             {
-                rb.gravityScale = 0;
-                if (jumpData.counter >= jumpData.velocityPerFixedUpdate.Length)
+                if (jumpData.counter >= jumpData.movementPerFixedUpdate.Length)
                 {
                     jumpData = null;
                     return;
                 }
-                rb.velocity = jumpData.velocityPerFixedUpdate[jumpData.counter];
+                Vector2 movement = jumpData.movementPerFixedUpdate[jumpData.counter];
+                transform.Translate(movement);
                 jumpData.counter++;
             }
             else
@@ -131,7 +146,7 @@ namespace GreenBean.Player
         private void InitiateJump()
         {
             Debug.Log("Jump initiated.");
-            jumpData = new JumpData(gameObject, moveDirection);
+            jumpData = new JumpData(gameObject, moveDirection.x);
         }
     }
 }
