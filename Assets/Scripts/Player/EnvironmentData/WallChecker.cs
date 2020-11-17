@@ -6,17 +6,17 @@ namespace GreenBean.EnvironmentData
     {
         public bool blocked;
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D()
         {
             blocked = true;
         }
 
-        private void OnCollisionStay2D(Collision2D collision)
+        private void OnTriggerStay2D()
         {
             blocked = true;
         }
         
-        private void OnCollisionExit2D(Collision2D collision)
+        private void OnTriggerExit2D()
         {
             blocked = false;    
         }

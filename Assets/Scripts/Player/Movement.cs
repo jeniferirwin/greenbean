@@ -2,6 +2,7 @@
 using UnityEngine.InputSystem;
 using GreenBean.Helpers;
 using GreenBean.EnvironmentData;
+using GreenBean.InputHandling;
 
 namespace GreenBean.Player
 {
@@ -9,6 +10,7 @@ namespace GreenBean.Player
     {
         [Header("Setup")]
         public Rigidbody2D rb;
+        public InputHandler inputHandler;
         [Header("Walking")]
         public WallChecker leftWallChecker;
         public WallChecker rightWallChecker;
@@ -18,65 +20,35 @@ namespace GreenBean.Player
         public RopeChecker ropeChecker;
         public float moveSpeed;
         [Header("Jumping")]
-        public float jumpForce;
-        public float jumpHeight;
-        public float jumpQueueLength;
         public float maxFallDistance;
-        public float defaultGravity;
-        public float droppingGravity;
         [Header("Climbing")]
         public float climbSpeed;
 
-        private InputData inputData;
         private JumpData jumpData;
         private Vector2 moveDirection;
-        private bool wantsJump;
+        private float residualJumpXDirection;
+        private Vector2 initPosition;
 
         private void Start()
         {
-            inputData = new InputData(jumpQueueLength);
             jumpData = null;
-            rb.gravityScale = 0;
+            rb.gravityScale = 1;
+            initPosition = transform.position;
         }
-
-        public void OnMovement(InputAction.CallbackContext context)
-        {
-            Vector2 value = context.ReadValue<Vector2>();
-            inputData.GetAxis(value);
-        }
-
-        public void OnJump(InputAction.CallbackContext context)
+        
+        public void Reset(InputAction.CallbackContext context)
         {
             if (context.started)
             {
-                inputData.hasJump = true;
-            }
-            else if (context.canceled)
-            {
-                inputData.hasJump = false;
-            }
-        }
-
-        private void Update()
-        {
-            inputData.Update();
-            if (inputData.cycleFinished)
-            {
-                moveDirection = inputData.currentAxis;
-                inputData.currentAxis = Vector2.zero;
-
-                if (inputData.hasJump)
-                {
-                    inputData.hasJump = false;
-                    wantsJump = true;
-                }
-
-                inputData.cycleFinished = false;
+                transform.position = initPosition;
+                jumpData = null;
+                rb.gravityScale = 1;
             }
         }
 
         private void FixedUpdate()
         {
+            moveDirection = inputHandler.queuedDirection;
             if (jumpData != null)
             {
                 ProcessAirState();
@@ -95,28 +67,28 @@ namespace GreenBean.Player
 
         private void ProcessGroundState()
         {
-            if (jumpData == null && wantsJump)
+            if (jumpData == null && inputHandler.jumpQueued)
             {
-                Debug.Log("Trying to jump.");
                 InitiateJump();
-                wantsJump = false;
                 return;
             }
 
-            if (jumpData != null && jumpData.counter > 3)
-            {
-                Debug.Log("Canceling jump.");
-                jumpData = null;
-            }
+            if (residualJumpXDirection != 0)
+                residualJumpXDirection = 0;
 
             if (Mathf.Abs(moveDirection.x) == 1f)
             {
-                rb.velocity = moveDirection * moveSpeed;
+                if (moveDirection.x > 0 && rightWallChecker.blocked)
+                    return;
+
+                if (moveDirection.x < 0 && leftWallChecker.blocked)
+                    return;
+
+                transform.Translate(moveDirection * moveSpeed * Time.fixedDeltaTime);
+                return;
             }
-            else
-            {
-                rb.velocity = Vector2.zero;
-            }
+
+            transform.Translate(Vector2.zero);
         }
 
         private void ProcessClimbingState()
@@ -130,23 +102,54 @@ namespace GreenBean.Player
             {
                 if (jumpData.counter >= jumpData.movementPerFixedUpdate.Length)
                 {
+                    residualJumpXDirection = jumpData.xval;
                     jumpData = null;
                     return;
                 }
+                rb.gravityScale = 0;
                 Vector2 movement = jumpData.movementPerFixedUpdate[jumpData.counter];
+                if (movement.x > 0 && rightWallChecker.blocked)
+                {
+                    movement.x = 0;
+                }
+                if (movement.x < 0 && leftWallChecker.blocked)
+                {
+                    movement.x = 0;
+                }
+                if (Physics2D.Raycast(transform.position, Vector2.down, 0.25f, whatIsGround) && jumpData.counter > 5)
+                {
+                    jumpData = null;
+                    return;
+                }
                 transform.Translate(movement);
                 jumpData.counter++;
+                if (groundChecker.isGrounded && jumpData.counter > 3)
+                {
+                    jumpData = null;
+                    rb.gravityScale = 1;
+                }
+            }
+            else if (residualJumpXDirection != 0 && !groundChecker.isGrounded)
+            {
+                Vector2 fallDirection = new Vector2(residualJumpXDirection, Physics2D.gravity.y);
+                if (Physics2D.Raycast(transform.position, Vector2.down, 0.25f, whatIsGround))
+                {
+                    residualJumpXDirection = 0;
+                    return;
+                }
+                transform.Translate(fallDirection * Time.fixedDeltaTime);
             }
             else
             {
+                rb.gravityScale = 1;
                 rb.velocity = Physics2D.gravity;
             }
         }
 
         private void InitiateJump()
         {
-            Debug.Log("Jump initiated.");
             jumpData = new JumpData(gameObject, moveDirection.x);
+            inputHandler.jumpQueued = false;
         }
     }
 }

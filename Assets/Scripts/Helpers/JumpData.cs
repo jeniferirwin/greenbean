@@ -5,7 +5,7 @@ namespace GreenBean.Helpers
     public class JumpData
     {
         public GameObject player;
-        public Vector2 direction;
+        public float xval;
         public Vector2[] movementPerFixedUpdate;
         public int counter;
         
@@ -13,7 +13,7 @@ namespace GreenBean.Helpers
         {
             get
             {
-                if (Mathf.Abs(direction.x) > 0.1f)
+                if (Mathf.Abs(xval) > 0.1f)
                     return true;
                 else
                     return false;
@@ -23,11 +23,11 @@ namespace GreenBean.Helpers
         private float maxYPoint;
 
         public JumpData(GameObject thisPlayer, float initXDirection)
-        {
+        {   
             if (initXDirection < -0.1)
-                direction = new Vector2(0,-1f);
+                xval = -1;
             else if (initXDirection > 0.1)
-                direction = new Vector2(0,1f);
+                xval = 1;
             if (IsLateral)
             {
                 InitializeLateralJumpPoints();
@@ -45,7 +45,7 @@ namespace GreenBean.Helpers
             movementPerFixedUpdate = new Vector2[25];
             for (int i = 0; i < movementPerFixedUpdate.Length; i++)
             {
-                float xMov = 2f;
+                float xMov = xval * 2f;
                 float yMov;
                 if (i < 2)
                     yMov = 3f;
@@ -59,10 +59,8 @@ namespace GreenBean.Helpers
                     yMov = -1f;
                 else if (i >= 20 && i < 24)
                     yMov = -2f;
-                else if (i == 24)
-                    yMov = -3f;
                 else
-                    yMov = -2f;
+                    yMov = -3f;
                 
                 movementPerFixedUpdate[i] = new Vector2(xMov/8f, yMov/8f);
             }
@@ -115,10 +113,8 @@ namespace GreenBean.Helpers
                     yMov = -1f;
                 else if (i >= 20 && i < 24)
                     yMov = -2f;
-                else if (i == 24)
-                    yMov = -3f;
                 else
-                    yMov = -2f;
+                    yMov = -3f;
                 
                 movementPerFixedUpdate[i] = new Vector2(xMov/8f, yMov/8f);
             }
