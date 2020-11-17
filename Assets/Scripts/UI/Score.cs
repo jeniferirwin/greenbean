@@ -9,12 +9,13 @@ namespace GreenBean.UI
         public Image[] slots;
         public Sprite[] sprites;
         public Sprite blank;
+        public int maxValue;
         
         public void SetText(int inputVal)
         {
-            if (inputVal > 999999)
+            if (inputVal > maxValue)
             {
-                inputVal = 999999;
+                inputVal = maxValue;
             }
 
             BlankScore();
