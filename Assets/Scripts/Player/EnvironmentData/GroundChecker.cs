@@ -5,18 +5,21 @@ namespace GreenBean.EnvironmentData
     public class GroundChecker : MonoBehaviour
     {
         public bool isGrounded;
+        public float yPoint;
         
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
             isGrounded = true;
+            yPoint = collider.ClosestPoint(transform.position).y;
         }
 
-        private void OnCollisionStay2D(Collision2D collision)
+        private void OnTriggerStay2D(Collider2D collider)
         {
             isGrounded = true;
+            yPoint = collider.ClosestPoint(transform.position).y;
         }
         
-        private void OnCollisionExit2D(Collision2D collision)
+        private void OnTriggerExit2D(Collider2D collider)
         {
             isGrounded = false;    
         }

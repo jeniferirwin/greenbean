@@ -17,6 +17,7 @@ namespace GreenBean.Player
         public LayerMask whatIsLadders;
         public LayerMask whatIsCollectibles;
         public LayerMask whatIsGround;
+        public LayerMask whatIsBelts;
         [Header("Walking")]
         public WallChecker leftWallChecker;
         public WallChecker rightWallChecker;
@@ -40,63 +41,57 @@ namespace GreenBean.Player
         private void Start()
         {
             jumpData = null;
-            rb.gravityScale = 1;
+            rb.gravityScale = 0;
             initPosition = transform.position;
         }
-        
+
         public void Reset(InputAction.CallbackContext context)
         {
             if (context.started)
             {
                 transform.position = initPosition;
                 jumpData = null;
-                rb.gravityScale = 1;
+                rb.gravityScale = 0;
             }
         }
 
         private void FixedUpdate()
         {
-            moveDirection = inputHandler.queuedDirection;
-            if (jumpData != null)
-            {
-                ProcessAirState();
-                return;
-            }
-
-            if (groundChecker.isGrounded)
-            {
-                ProcessGroundState();
-            }
-            else
-            {
-                ProcessAirState();
-            }
+            ProcessAirState();
+            ProcessGroundState();
         }
 
         private void ProcessGroundState()
         {
-            if (jumpData == null && inputHandler.jumpQueued)
+            if (!groundChecker.isGrounded)
             {
-                InitiateJump();
                 return;
             }
-
-            if (residualJumpXDirection != 0)
-                residualJumpXDirection = 0;
-
-            if (Mathf.Abs(moveDirection.x) == 1f)
+            else
             {
-                if (moveDirection.x > 0 && rightWallChecker.blocked)
-                    return;
-
-                if (moveDirection.x < 0 && leftWallChecker.blocked)
-                    return;
-
-                transform.Translate(moveDirection * moveSpeed * Time.fixedDeltaTime);
-                return;
+                GroundSnap();
             }
 
-            transform.Translate(Vector2.zero);
+            if (inputHandler.canGetValues)
+            {
+                inputHandler.canGetValues = false;
+                moveDirection = inputHandler.desiredDirection;
+                if (inputHandler.desiredJump)
+                {
+                    inputHandler.desiredJump = false;
+                    InitiateJump(moveDirection);
+                    return;
+                }
+            }
+            if (moveDirection != Vector2.zero)
+            {
+                transform.position = (Vector2) transform.position + (moveDirection / 8f);
+            }
+        }
+        
+        private void GroundSnap()
+        {
+            transform.position = new Vector2(transform.position.x, groundChecker.yPoint);
         }
 
         private void ProcessClimbingState()
@@ -106,58 +101,41 @@ namespace GreenBean.Player
 
         private void ProcessAirState()
         {
+            Debug.Log("Processing air state...");
+            if (groundChecker.isGrounded)
+            {
+                Debug.Log("We are grounded.");
+                GroundSnap();
+                return;
+            }
             if (jumpData != null)
             {
-                if (jumpData.counter >= jumpData.movementPerFixedUpdate.Length)
-                {
-                    residualJumpXDirection = jumpData.xval;
-                    jumpData = null;
-                    return;
-                }
-                rb.gravityScale = 0;
-                Vector2 movement = jumpData.movementPerFixedUpdate[jumpData.counter];
-                if (movement.x > 0 && rightWallChecker.blocked)
-                {
-                    movement.x = 0;
-                }
-                if (movement.x < 0 && leftWallChecker.blocked)
-                {
-                    movement.x = 0;
-                }
-                if (Physics2D.Raycast(transform.position, Vector2.down, 0.25f, whatIsGround) && jumpData.counter > 5)
-                {
-                    jumpData = null;
-                    return;
-                }
-                transform.Translate(movement);
-                jumpData.counter++;
-                if (groundChecker.isGrounded && jumpData.counter > 3)
-                {
-                    jumpData = null;
-                    rb.gravityScale = 1;
-                }
-            }
-            else if (residualJumpXDirection != 0 && !groundChecker.isGrounded)
-            {
-                Vector2 fallDirection = new Vector2(residualJumpXDirection, Physics2D.gravity.y);
-                if (Physics2D.Raycast(transform.position, Vector2.down, 0.25f, whatIsGround))
-                {
-                    residualJumpXDirection = 0;
-                    return;
-                }
-                transform.Translate(fallDirection * Time.fixedDeltaTime);
+                MoveJumpStep(jumpData);
             }
             else
             {
-                rb.gravityScale = 1;
-                rb.velocity = Physics2D.gravity;
+                transform.position = (Vector2) transform.position + (Vector2.down / 8f);
             }
         }
 
-        private void InitiateJump()
+        private void InitiateJump(Vector2 dir)
         {
-            jumpData = new JumpData(gameObject, moveDirection.x);
-            inputHandler.jumpQueued = false;
+            jumpData = new JumpData(dir.x);
+            MoveJumpStep(jumpData);
+        }
+
+        private void MoveJumpStep(JumpData data)
+        {
+            Vector2 change = data.GetNextChange();
+            if (change.x > 0 && rightWallChecker.blocked)
+            {
+                change.x = 0;
+            }
+            if (change.x < 0 && leftWallChecker.blocked)
+            {
+                change.x = 0;
+            }
+            transform.position = (Vector2)transform.position + change;
         }
     }
 }

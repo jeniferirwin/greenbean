@@ -5,82 +5,65 @@ namespace GreenBean.InputHandling
 {
     public class InputHandler : MonoBehaviour
     {
-        public float bufferLength;
-        public float currentBuffer;
-
-        public Vector2 bufferedDirection;
-        public bool bufferedJump;
+        public int bufferLength;
         
-        public bool jumpQueued;
-        public Vector2 queuedDirection;
-
-        public bool leftPressed;
-        public bool rightPressed;
-        public bool upPressed;
-        public bool downPressed;
-        public bool jumpPressed;
+        public Vector2 desiredDirection;
+        public bool desiredJump;
+        
+        private int moveWait;
+        private int jumpWait;
+        
+        public bool canGetValues;
 
         public void OnMovement(InputAction.CallbackContext context)
         {
             if (context.started)
             {
                 Vector2 input = context.ReadValue<Vector2>();
-                bufferedDirection = SanitizeInput(input);
+                desiredDirection = SanitizeInput(input);
             }
             else if (context.canceled)
             {
-                bufferedDirection = Vector2.zero;
+                desiredDirection = Vector2.zero;
             }
-            StartBuffer();
+            moveWait = bufferLength;
+            canGetValues = false;
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.started)
             {
-                bufferedJump = true;
-                StartBuffer();
+                desiredJump = true;
             }
-        }
-
-        private void StartBuffer()
-        {
-            if (currentBuffer > 0)
-            {
-                return;
-            }
-            else
-            {
-                queuedDirection = bufferedDirection;
-                currentBuffer = bufferLength;
-            }
+            jumpWait = bufferLength;
+            canGetValues = false;
         }
 
         private void Start()
         {
-            currentBuffer = bufferLength;
-            bufferedDirection = Vector2.zero;
-            jumpQueued = false;
-            bufferedJump = false;
-            bufferedDirection = Vector2.zero;
+            desiredDirection = Vector2.zero;
+            desiredJump = false;
+            canGetValues = false;
         }
 
         private void FixedUpdate()
         {
-            if (currentBuffer > 0)
+            if (canGetValues)
+                return;
+
+            if (jumpWait > 0 || moveWait > 0)
             {
-                currentBuffer--;
+                jumpWait--;
+                moveWait--;
+                return;
             }
             else
             {
-                if (bufferedJump)
-                {
-                    jumpQueued = true;
-                    bufferedJump = false;
-                }
+                canGetValues = true;
             }
         }
-
+        
         public Vector2 SanitizeInput(Vector2 input)
         {
             if (input.x < 0)
