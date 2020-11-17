@@ -11,10 +11,15 @@ namespace GreenBean.Player
         [Header("Setup")]
         public Rigidbody2D rb;
         public InputHandler inputHandler;
+        [Header("LayerMasks")]
+        public LayerMask whatIsRopes;
+        public LayerMask whatIsDoors;
+        public LayerMask whatIsLadders;
+        public LayerMask whatIsCollectibles;
+        public LayerMask whatIsGround;
         [Header("Walking")]
         public WallChecker leftWallChecker;
         public WallChecker rightWallChecker;
-        public LayerMask whatIsGround;
         public GroundChecker groundChecker;
         public LadderChecker ladderChecker;
         public RopeChecker ropeChecker;
@@ -22,7 +27,10 @@ namespace GreenBean.Player
         [Header("Jumping")]
         public float maxFallDistance;
         [Header("Climbing")]
-        public float climbSpeed;
+        public float ladderClimbSpeed;
+        public float ropeClimbSpeed;
+        public bool canClimbLadder;
+        public bool canClimbRope;
 
         private JumpData jumpData;
         private Vector2 moveDirection;
