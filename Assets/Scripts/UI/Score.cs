@@ -6,15 +6,9 @@ namespace GreenBean.UI
 {
     public class Score : MonoBehaviour
     {
-        public int value;
-        
         public Image[] slots;
         public Sprite[] sprites;
         public Sprite blank;
-        
-        private float debugTimerLength = 0.15f;
-        private float currentDebugTimer;
-        private int currentDebugScore;
         
         public void SetText(int inputVal)
         {
@@ -44,23 +38,7 @@ namespace GreenBean.UI
         
         public void Start()
         {
-            currentDebugScore = 0;
-            SetText(currentDebugScore);
-            currentDebugTimer = debugTimerLength;
-        }
-        
-        public void Update()
-        {
-            if (currentDebugTimer <= 0)
-            {
-                currentDebugTimer = debugTimerLength;
-                currentDebugScore += 5;
-                SetText(currentDebugScore);
-            }
-            else
-            {
-                currentDebugTimer -= Time.deltaTime;
-            }
+            SetText(0);
         }
     }
 }
