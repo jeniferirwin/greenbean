@@ -7,6 +7,7 @@ namespace GreenBean.Helpers
         public float[] pixelChange = new float[25];
         public float xdir;
         public int counter;
+        public bool hasPeaked;
         
         public JumpData(float dir)
         {
@@ -34,6 +35,10 @@ namespace GreenBean.Helpers
                 counter = pixelChange.Length - 1;
 
             float yUnits = pixelChange[counter] / 8f;
+
+            if (yUnits == 0 && !hasPeaked)
+                hasPeaked = true;
+
             float xUnits = (xdir * 2) / 8f;
             counter++;
             return new Vector2(xUnits, yUnits);

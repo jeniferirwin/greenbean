@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using GreenBean.Helpers;
-using GreenBean.EnvironmentData;
 using GreenBean.InputHandling;
 
 namespace GreenBean.Player
@@ -11,32 +10,17 @@ namespace GreenBean.Player
         [Header("Setup")]
         public Rigidbody2D rb;
         public InputHandler inputHandler;
-        [Header("LayerMasks")]
-        public LayerMask whatIsRopes;
-        public LayerMask whatIsDoors;
-        public LayerMask whatIsLadders;
-        public LayerMask whatIsCollectibles;
-        public LayerMask whatIsGround;
-        public LayerMask whatIsBelts;
-        [Header("Walking")]
-        public WallChecker leftWallChecker;
-        public WallChecker rightWallChecker;
-        public GroundChecker groundChecker;
-        public LadderChecker ladderChecker;
-        public RopeChecker ropeChecker;
-        public float moveSpeed;
-        [Header("Jumping")]
-        public float maxFallDistance;
+        public EnvironmentCheck envCheck;
         [Header("Climbing")]
-        public float ladderClimbSpeed;
-        public float ropeClimbSpeed;
         public bool canClimbLadder;
         public bool canClimbRope;
 
         private JumpData jumpData;
         private Vector2 moveDirection;
-        private float residualJumpXDirection;
         private Vector2 initPosition;
+        
+        private Vector2 walkVector = new Vector2(2f / 8f, 0f);
+        private Vector2 fallVector = new Vector2(0f, -4f / 8f);
 
         private void Start()
         {
@@ -57,55 +41,45 @@ namespace GreenBean.Player
 
         private void FixedUpdate()
         {
-            ProcessAirState();
+            // TODO: ProcessAirState();
             ProcessGroundState();
         }
 
-        private Vector2 WillCollide(Vector2 dest)
-        {
-            RaycastHit2D hit;
-            Vector2 difference = dest - (Vector2) transform.position;
-            hit = Physics2D.Raycast(transform.position, difference.normalized, difference.magnitude, whatIsGround + whatIsBelts);
-            if (hit.rigidbody != null)
-            {
-                Debug.Log(hit.point);
-                return hit.point;
-            }
-            else
-            {
-                return new Vector2(-32500, 32500);
-            }
-        }
 
         private void ProcessGroundState()
         {
-            if (!Physics2D.Raycast(transform.position,Vector2.down,0.05f,whatIsGround + whatIsBelts))
-            {
-                return;
-            }
-            else
-            {
-                GroundSnap();
-            }
             if (inputHandler.canGetValues)
             {
                 inputHandler.canGetValues = false;
                 moveDirection = inputHandler.desiredDirection;
+                transform.position = (Vector2) transform.position + (moveDirection * 2 / 8f);
+                RaycastHit2D hitInfo;
+                hitInfo = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, envCheck.whatIsGround + envCheck.whatIsBelts);
+                if (hitInfo.rigidbody != null)
+                {
+                    Debug.Log(hitInfo.point);
+                    Debug.Log(hitInfo.collider);
+                    Debug.Log(hitInfo.collider.bounds);
+                }
+                //  TODO:
+                /*
                 if (inputHandler.desiredJump)
                 {
                     inputHandler.desiredJump = false;
                     InitiateJump(moveDirection);
                     return;
                 }
+                */
             }
+            return;
             if (moveDirection != Vector2.zero)
             {
                 Vector2 newPosition = (Vector2) transform.position + (moveDirection * 2 / 8f);
-                if (rightWallChecker.blocked && moveDirection.x > 0)
+                if (moveDirection.x > 0) // TODO: RIGHT WALL CHECKER
                 {
                     newPosition.x = transform.position.x;
                 }
-                if (leftWallChecker.blocked && moveDirection.x < 0)
+                if (moveDirection.x < 0) // TODO: LEFT WALL CHECKER
                 {
                     newPosition.x = transform.position.x;
                 }
@@ -119,20 +93,8 @@ namespace GreenBean.Player
             transform.position = new Vector2(transform.position.x, nearestUp);
         }
 
-        private void ProcessClimbingState()
-        {
-
-        }
-
         private void ProcessAirState()
         {
-            Debug.Log("Processing air state...");
-            if (Physics2D.Raycast(transform.position,Vector2.down,0.05f,whatIsGround + whatIsBelts))
-            {
-                Debug.Log("We are grounded.");
-                GroundSnap();
-                return;
-            }
             if (jumpData != null)
             {
                 MoveJumpStep(jumpData);
@@ -140,7 +102,7 @@ namespace GreenBean.Player
             else
             {
             Vector2 dest = (Vector2) transform.position + (Vector2.down * 4 / 8f);
-            Vector2 collPoint = WillCollide(dest);
+            Vector2 collPoint = envCheck.CollisionIntersect(transform.position, dest);
             Debug.Log(collPoint);
             if (collPoint.x == -32500 && collPoint.y == 32500)
             {
@@ -161,20 +123,30 @@ namespace GreenBean.Player
         private void MoveJumpStep(JumpData data)
         {
             Vector2 change = data.GetNextChange();
-            if (change.x > 0 && rightWallChecker.blocked)
+            if (change.x > 0) // TODO: LEFT WALL CHECKER
             {
                 change.x = 0;
             }
-            if (change.x < 0 && leftWallChecker.blocked)
+            if (change.x < 0) // TODO: RIGHT WALL CHECKER
             {
                 change.x = 0;
             }
             Vector2 dest = (Vector2) transform.position + change;
-            Vector2 collPoint = WillCollide(dest);
+            Vector2 collPoint = envCheck.CollisionIntersect(transform.position, dest);
             if (collPoint.x == -32500 && collPoint.y == 32500)
                 transform.position = (Vector2) transform.position + change;
             else
                 transform.position = collPoint;
+        }
+        
+        private void TryMove(Vector2 change)
+        {
+            Vector2 dest = (Vector2) transform.position + change;
+            Vector2 collPoint = envCheck.CollisionIntersect(transform.position, dest);
+        }
+        
+        private void Fall()
+        {
         }
     }
 }
