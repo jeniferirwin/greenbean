@@ -6241,7 +6241,7 @@ GameObject:
   - component: {fileID: 932150056}
   - component: {fileID: 932150055}
   m_Layer: 8
-  m_Name: Solid
+  m_Name: SolidGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8522,7 +8522,7 @@ GameObject:
   - component: {fileID: 1068420700}
   - component: {fileID: 1068420702}
   - component: {fileID: 1068420701}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Ropes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11128,7 +11128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &2065683709
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11142,7 +11142,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3724422, y: -0.9444394}
+  m_Offset: {x: 0.25547832, y: -1.1857648}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11153,7 +11153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3626448, y: 0.6514139}
+  m_Size: {x: 0.009956688, y: 0.1265297}
   m_EdgeRadius: 0
 --- !u!4 &2065683710
 Transform:
@@ -11212,7 +11212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099332726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.77, z: 0}
+  m_LocalPosition: {x: 0, y: 3.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 320490793}

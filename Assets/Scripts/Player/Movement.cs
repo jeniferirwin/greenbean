@@ -61,9 +61,25 @@ namespace GreenBean.Player
             ProcessGroundState();
         }
 
+        private Vector2 WillCollide(Vector2 dest)
+        {
+            RaycastHit2D hit;
+            Vector2 difference = dest - (Vector2) transform.position;
+            hit = Physics2D.Raycast(transform.position, difference.normalized, difference.magnitude, whatIsGround + whatIsBelts);
+            if (hit.rigidbody != null)
+            {
+                Debug.Log(hit.point);
+                return hit.point;
+            }
+            else
+            {
+                return new Vector2(-32500, 32500);
+            }
+        }
+
         private void ProcessGroundState()
         {
-            if (!groundChecker.isGrounded)
+            if (!Physics2D.Raycast(transform.position,Vector2.down,0.05f,whatIsGround + whatIsBelts))
             {
                 return;
             }
@@ -71,7 +87,6 @@ namespace GreenBean.Player
             {
                 GroundSnap();
             }
-
             if (inputHandler.canGetValues)
             {
                 inputHandler.canGetValues = false;
@@ -85,13 +100,23 @@ namespace GreenBean.Player
             }
             if (moveDirection != Vector2.zero)
             {
-                transform.position = (Vector2) transform.position + (moveDirection / 8f);
+                Vector2 newPosition = (Vector2) transform.position + (moveDirection * 2 / 8f);
+                if (rightWallChecker.blocked && moveDirection.x > 0)
+                {
+                    newPosition.x = transform.position.x;
+                }
+                if (leftWallChecker.blocked && moveDirection.x < 0)
+                {
+                    newPosition.x = transform.position.x;
+                }
+                transform.position = newPosition;
             }
         }
         
         private void GroundSnap()
         {
-            transform.position = new Vector2(transform.position.x, groundChecker.yPoint);
+            float nearestUp = Mathf.Ceil(transform.position.y);
+            transform.position = new Vector2(transform.position.x, nearestUp);
         }
 
         private void ProcessClimbingState()
@@ -102,7 +127,7 @@ namespace GreenBean.Player
         private void ProcessAirState()
         {
             Debug.Log("Processing air state...");
-            if (groundChecker.isGrounded)
+            if (Physics2D.Raycast(transform.position,Vector2.down,0.05f,whatIsGround + whatIsBelts))
             {
                 Debug.Log("We are grounded.");
                 GroundSnap();
@@ -114,7 +139,16 @@ namespace GreenBean.Player
             }
             else
             {
-                transform.position = (Vector2) transform.position + (Vector2.down / 8f);
+            Vector2 dest = (Vector2) transform.position + (Vector2.down * 4 / 8f);
+            Vector2 collPoint = WillCollide(dest);
+            Debug.Log(collPoint);
+            if (collPoint.x == -32500 && collPoint.y == 32500)
+            {
+                Debug.Log("From " + transform.position + " to " + dest);
+                transform.position = dest;
+            }
+            else
+                transform.position = collPoint;
             }
         }
 
@@ -135,7 +169,12 @@ namespace GreenBean.Player
             {
                 change.x = 0;
             }
-            transform.position = (Vector2)transform.position + change;
+            Vector2 dest = (Vector2) transform.position + change;
+            Vector2 collPoint = WillCollide(dest);
+            if (collPoint.x == -32500 && collPoint.y == 32500)
+                transform.position = (Vector2) transform.position + change;
+            else
+                transform.position = collPoint;
         }
     }
 }
