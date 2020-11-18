@@ -2,6 +2,7 @@
 using UnityEngine.InputSystem;
 using GreenBean.Helpers;
 using GreenBean.InputHandling;
+using GreenBean.C64;
 
 namespace GreenBean.Player
 {
@@ -11,9 +12,20 @@ namespace GreenBean.Player
         public Rigidbody2D rb;
         public InputHandler inputHandler;
         public EnvironmentCheck envCheck;
+        public GameObject wallCastOrigin;
         [Header("Climbing")]
         public bool canClimbLadder;
         public bool canClimbRope;
+
+        public bool onLadder;
+        public bool onRope;
+        public bool onPole;
+
+        [Header("Debug")]
+        public bool isAtLadder;
+        public bool isAtRope;
+        public bool hasLadderAbove;
+        public bool hasLadderBelow;
 
         private JumpData jumpData;
         private Vector2 moveDirection;
@@ -42,47 +54,130 @@ namespace GreenBean.Player
 
         private void FixedUpdate()
         {
+            envCheck.LastPosition = transform.position;
+            GetInputInfo();
+            if (onLadder || onPole || jumpData != null)
+                inputHandler.desiredJump = false;
+
+            hasLadderAbove = envCheck.LadderAbove;
+            hasLadderBelow = envCheck.LadderBelow;
+
+            if (onLadder)
+            {
+                ProcessLadderClimbing();
+                return;
+            }
+
+            if (onRope)
+            {
+                ProcessRopeClimbing();
+                return;
+            }
+
+            if (onPole)
+            {
+                ProcessPoleSliding();
+                return;
+            }
+
             if (envCheck.Grounded && jumpData == null)
             {
                 ProcessGroundState();
+                return;
             }
             else
             {
                 ProcessAirState();
             }
-
-            envCheck.LastPosition = transform.position;
         }
 
+        private void ProcessLadderClimbing()
+        {
+            if (moveDirection.y < 0)
+            {
+                if (envCheck.LadderBelow)
+                {
+                    transform.position = (Vector2)transform.position + (Vector2.down * PixConvert.PixelsToUnits(1));
+                }
+                else
+                {
+                    onLadder = false;
+                }
+            }
+            if (moveDirection.y > 0)
+            {
+                if (envCheck.LadderAbove)
+                {
+                    transform.position = (Vector2)transform.position + (Vector2.up * PixConvert.PixelsToUnits(1));
+                }
+                else
+                {
+                    onLadder = false;
+                }
+            }
+        }
 
-        private void ProcessGroundState()
+        private void ProcessRopeClimbing()
+        {
+
+        }
+        private void ProcessPoleSliding()
+        {
+
+        }
+
+        private void GetInputInfo()
         {
             if (inputHandler.canGetValues)
             {
                 inputHandler.canGetValues = false;
                 moveDirection = inputHandler.desiredDirection;
 
-                if (inputHandler.desiredJump)
+                if (inputHandler.desiredJump && envCheck.Grounded && !onLadder)
                 {
                     inputHandler.desiredJump = false;
                     InitiateJump(moveDirection);
                     return;
                 }
             }
+        }
+
+        private void ProcessGroundState()
+        {
+            VerticalSnap();
+            if (moveDirection.y != 0)
+            {
+                if (envCheck.LadderAbove && moveDirection.y > 0 || envCheck.LadderBelow && moveDirection.y < 0)
+                {
+                    HorizontalSnap();
+                    onLadder = true;
+                }
+            }
+
+            if (onLadder || onRope)
+                return;
 
             if (moveDirection != Vector2.zero)
             {
-                Vector2 change = moveDirection * 2 / 8f;
+                Vector2 lateralDir = moveDirection;
+                lateralDir.y = 0;
+                Vector2 change = lateralDir * 2 / 8f;
                 change = SetBlocks(change);
                 Vector2 newPosition = (Vector2)transform.position + change;
                 transform.position = newPosition;
             }
         }
 
-        private void GroundSnap()
+        private void VerticalSnap()
         {
-            float nearestUp = Mathf.Ceil(transform.position.y);
-            transform.position = new Vector2(transform.position.x, nearestUp);
+            float nearestWhole = Mathf.Round(transform.position.y);
+            transform.position = new Vector2(transform.position.x, nearestWhole);
+        }
+
+        private void HorizontalSnap()
+        {
+            float nearestWhole = Mathf.Round(transform.position.x);
+            transform.position = new Vector2(nearestWhole, transform.position.y);
         }
 
         private Vector2 SetBlocks(Vector2 change)
@@ -90,7 +185,6 @@ namespace GreenBean.Player
             float wantX = change.x;
             if (wantX > 0 && envCheck.RightBlocked || wantX < 0 && envCheck.LeftBlocked)
             {
-                Debug.Log("Setting block...");
                 change.x = 0;
             }
             return change;
@@ -113,6 +207,7 @@ namespace GreenBean.Player
                 else
                 {
                     transform.position = collPoint;
+                    VerticalSnap(); // TODO: This might cause problems, must evaluate
                 }
             }
         }
@@ -146,6 +241,13 @@ namespace GreenBean.Player
                 transform.position = collPoint;
                 jumpData = null;
             }
+        }
+
+        private void OnDrawGizmos()
+        {
+            /*
+            Gizmos.DrawWireSphere(wallCastOrigin.transform.position, PixConvert.PixelsToUnits(1));
+            */
         }
     }
 }
