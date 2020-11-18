@@ -18,9 +18,10 @@ namespace GreenBean.Player
         private JumpData jumpData;
         private Vector2 moveDirection;
         private Vector2 initPosition;
-        
+
         private Vector2 walkVector = new Vector2(2f / 8f, 0f);
         private Vector2 fallVector = new Vector2(0f, -4f / 8f);
+        private Vector2 falseVector = new Vector2(-32500f, 32500f);
 
         private void Start()
         {
@@ -41,8 +42,16 @@ namespace GreenBean.Player
 
         private void FixedUpdate()
         {
-            // TODO: ProcessAirState();
-            ProcessGroundState();
+            if (envCheck.Grounded && jumpData == null)
+            {
+                ProcessGroundState();
+            }
+            else
+            {
+                ProcessAirState();
+            }
+
+            envCheck.LastPosition = transform.position;
         }
 
 
@@ -52,45 +61,39 @@ namespace GreenBean.Player
             {
                 inputHandler.canGetValues = false;
                 moveDirection = inputHandler.desiredDirection;
-                transform.position = (Vector2) transform.position + (moveDirection * 2 / 8f);
-                RaycastHit2D hitInfo;
-                hitInfo = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, envCheck.whatIsGround + envCheck.whatIsBelts);
-                if (hitInfo.rigidbody != null)
-                {
-                    Debug.Log(hitInfo.point);
-                    Debug.Log(hitInfo.collider);
-                    Debug.Log(hitInfo.collider.bounds);
-                }
-                //  TODO:
-                /*
+
                 if (inputHandler.desiredJump)
                 {
                     inputHandler.desiredJump = false;
                     InitiateJump(moveDirection);
                     return;
                 }
-                */
             }
-            return;
+
             if (moveDirection != Vector2.zero)
             {
-                Vector2 newPosition = (Vector2) transform.position + (moveDirection * 2 / 8f);
-                if (moveDirection.x > 0) // TODO: RIGHT WALL CHECKER
-                {
-                    newPosition.x = transform.position.x;
-                }
-                if (moveDirection.x < 0) // TODO: LEFT WALL CHECKER
-                {
-                    newPosition.x = transform.position.x;
-                }
+                Vector2 change = moveDirection * 2 / 8f;
+                change = SetBlocks(change);
+                Vector2 newPosition = (Vector2)transform.position + change;
                 transform.position = newPosition;
             }
         }
-        
+
         private void GroundSnap()
         {
             float nearestUp = Mathf.Ceil(transform.position.y);
             transform.position = new Vector2(transform.position.x, nearestUp);
+        }
+
+        private Vector2 SetBlocks(Vector2 change)
+        {
+            float wantX = change.x;
+            if (wantX > 0 && envCheck.RightBlocked || wantX < 0 && envCheck.LeftBlocked)
+            {
+                Debug.Log("Setting block...");
+                change.x = 0;
+            }
+            return change;
         }
 
         private void ProcessAirState()
@@ -101,16 +104,16 @@ namespace GreenBean.Player
             }
             else
             {
-            Vector2 dest = (Vector2) transform.position + (Vector2.down * 4 / 8f);
-            Vector2 collPoint = envCheck.CollisionIntersect(transform.position, dest);
-            Debug.Log(collPoint);
-            if (collPoint.x == -32500 && collPoint.y == 32500)
-            {
-                Debug.Log("From " + transform.position + " to " + dest);
-                transform.position = dest;
-            }
-            else
-                transform.position = collPoint;
+                Vector2 dest = (Vector2)transform.position + (Vector2.down * 4 / 8f);
+                Vector2 collPoint = envCheck.CollisionIntersect(transform.position, dest);
+                if (collPoint == falseVector)
+                {
+                    transform.position = dest;
+                }
+                else
+                {
+                    transform.position = collPoint;
+                }
             }
         }
 
@@ -123,30 +126,26 @@ namespace GreenBean.Player
         private void MoveJumpStep(JumpData data)
         {
             Vector2 change = data.GetNextChange();
-            if (change.x > 0) // TODO: LEFT WALL CHECKER
+            change = SetBlocks(change);
+            Vector2 dest = (Vector2)transform.position + change;
+            Debug.Log(dest);
+
+            if (!jumpData.hasPeaked)
             {
-                change.x = 0;
+                transform.position = dest;
+                return;
             }
-            if (change.x < 0) // TODO: RIGHT WALL CHECKER
-            {
-                change.x = 0;
-            }
-            Vector2 dest = (Vector2) transform.position + change;
+
             Vector2 collPoint = envCheck.CollisionIntersect(transform.position, dest);
-            if (collPoint.x == -32500 && collPoint.y == 32500)
-                transform.position = (Vector2) transform.position + change;
+            if (collPoint == falseVector)
+            {
+                transform.position = dest;
+            }
             else
+            {
                 transform.position = collPoint;
-        }
-        
-        private void TryMove(Vector2 change)
-        {
-            Vector2 dest = (Vector2) transform.position + change;
-            Vector2 collPoint = envCheck.CollisionIntersect(transform.position, dest);
-        }
-        
-        private void Fall()
-        {
+                jumpData = null;
+            }
         }
     }
 }

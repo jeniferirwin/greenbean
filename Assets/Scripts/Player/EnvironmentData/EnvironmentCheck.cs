@@ -36,7 +36,7 @@ public class EnvironmentCheck : MonoBehaviour
     {
         get
         {
-            return Physics2D.Raycast(transform.position, Vector2.down, 0.05f, whatIsGround + whatIsBelts);
+            return Physics2D.Raycast(transform.position, Vector2.down, 0.05f, whatIsGround);
         }
     }
     
@@ -88,8 +88,7 @@ public class EnvironmentCheck : MonoBehaviour
     {
         RaycastHit2D hit;
         Vector2 difference = dest - (Vector2) source;
-        LayerMask landables = whatIsGround + whatIsBelts;
-        hit = Physics2D.Raycast(source, difference.normalized, difference.magnitude, landables);
+        hit = Physics2D.Raycast(source, difference.normalized, difference.magnitude, whatIsGround);
         if (hit.rigidbody != null)
         {
             return hit.point;
