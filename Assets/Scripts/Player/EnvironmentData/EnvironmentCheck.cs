@@ -143,7 +143,7 @@ public class EnvironmentCheck : MonoBehaviour
     {
         get
         {
-            return Physics2D.Raycast(transform.position, Vector2.down, PixConvert.PixelsToUnits(1), whatIsRightBelts);
+            return Physics2D.CircleCast(transform.position, PixConvert.PixelsToUnits(1), Vector2.zero, 0f, whatIsRightBelts);
         }
     }
 
@@ -151,7 +151,7 @@ public class EnvironmentCheck : MonoBehaviour
     {
         get
         {
-            return Physics2D.Raycast(transform.position, Vector2.down, PixConvert.PixelsToUnits(1), whatIsLeftBelts);
+            return Physics2D.CircleCast(transform.position, PixConvert.PixelsToUnits(1), Vector2.zero, 0f, whatIsLeftBelts);
         }
     }
 }

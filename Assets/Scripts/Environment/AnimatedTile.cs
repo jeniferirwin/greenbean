@@ -15,6 +15,7 @@ public class AnimatedTile : TileBase
         {
             tileData.sprite = animatedSprites[animatedSprites.Length - 1];
         }
+        tileData.colliderType = Tile.ColliderType.Grid;
     }
 
     public override bool GetTileAnimationData(Vector3Int position, ITilemap tilemap, ref TileAnimationData tileAnimationData)

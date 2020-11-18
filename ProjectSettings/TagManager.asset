@@ -26,8 +26,8 @@ TagManager:
   - PlayerRopeChecker
   - PlayerLadderChecker
   - Doors
-  - Belts
-  - 
+  - LeftBelts
+  - RightBelts
   - 
   - 
   - 

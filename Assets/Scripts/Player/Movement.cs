@@ -26,6 +26,9 @@ namespace GreenBean.Player
         public bool isAtRope;
         public bool hasLadderAbove;
         public bool hasLadderBelow;
+        
+        public bool onLeftBelt;
+        public bool onRightBelt;
 
         private JumpData jumpData;
         private Vector2 moveDirection;
@@ -61,6 +64,8 @@ namespace GreenBean.Player
 
             hasLadderAbove = envCheck.LadderAbove;
             hasLadderBelow = envCheck.LadderBelow;
+            onLeftBelt = envCheck.OnLeftBelt;
+            onRightBelt = envCheck.OnRightBelt;
 
             if (onLadder)
             {
@@ -161,10 +166,28 @@ namespace GreenBean.Player
             {
                 Vector2 lateralDir = moveDirection;
                 lateralDir.y = 0;
-                Vector2 change = lateralDir * 2 / 8f;
+                Vector2 change = lateralDir * PixConvert.PixelsToUnits(2);
+                if (envCheck.OnRightBelt)
+                    change.x += PixConvert.PixelsToUnits(1);
+                else if (envCheck.OnLeftBelt)
+                    change.x -= PixConvert.PixelsToUnits(1);
                 change = SetBlocks(change);
                 Vector2 newPosition = (Vector2)transform.position + change;
                 transform.position = newPosition;
+                return;
+            }
+            
+            if (moveDirection == Vector2.zero && (envCheck.OnLeftBelt || envCheck.OnRightBelt))
+            {
+                Vector2 change = new Vector2(0,0);
+                if (envCheck.OnRightBelt)
+                    change.x += PixConvert.PixelsToUnits(1);
+                else if (envCheck.OnLeftBelt)
+                    change.x -= PixConvert.PixelsToUnits(1);
+                change = SetBlocks(change);
+                Vector2 newPosition = (Vector2)transform.position + change;
+                transform.position = newPosition;
+                
             }
         }
 
