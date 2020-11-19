@@ -22,3 +22,6 @@ Max Size: 2048
 Resize Algorithm: Mitchell
 Format: Automatic
 Compression: None
+
+
+When the camera switches, reset position of all enemies game-wide
