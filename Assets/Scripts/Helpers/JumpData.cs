@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GreenBean.Helpers
+namespace Com.Technitaur.GreenBean.Helpers
 {
     public class JumpData
     {

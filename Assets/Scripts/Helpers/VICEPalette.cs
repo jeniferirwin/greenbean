@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GreenBean.C64
+namespace Com.Technitaur.GreenBean.Helpers
 {
     public class VICEPalette : MonoBehaviour
     {

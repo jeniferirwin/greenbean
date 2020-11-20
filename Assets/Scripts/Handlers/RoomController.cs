@@ -1,20 +1,15 @@
 ﻿using UnityEngine;
-using GreenBean.C64;
+using UnityEngine.Tilemaps;
 
-namespace GreenBean.Handlers
+namespace Com.Technitaur.GreenBean.Handlers
 {
     public class RoomController : MonoBehaviour
     {
-        public Palette palette;
-
-        void Start()
+        public int level;
+        
+        public void Start()
         {
-
-        }
-
-        void Update()
-        {
-
+            gameObject.GetComponent<Tilemap>().RefreshAllTiles();
         }
     }
 }
