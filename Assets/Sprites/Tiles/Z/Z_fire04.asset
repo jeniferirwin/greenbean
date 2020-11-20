@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d61d52d39077f4bb2644ef2ca42e26, type: 3}
+  m_Name: Z_fire04
+  m_EditorClassIdentifier: 
+  animatedSprites:
+  - {fileID: 8726639172421447926, guid: eb4a2add339166f4ab74958ed637be8f, type: 3}
+  - {fileID: 1570263802781586269, guid: eb4a2add339166f4ab74958ed637be8f, type: 3}
+  - {fileID: -1045295799498658440, guid: eb4a2add339166f4ab74958ed637be8f, type: 3}
+  - {fileID: -4258057047419265978, guid: eb4a2add339166f4ab74958ed637be8f, type: 3}
+  - {fileID: 2920888755069844061, guid: eb4a2add339166f4ab74958ed637be8f, type: 3}
+  - {fileID: -4586338570307321779, guid: eb4a2add339166f4ab74958ed637be8f, type: 3}
+  - {fileID: -2192330198477924538, guid: eb4a2add339166f4ab74958ed637be8f, type: 3}
+  animationSpeed: 25
+  animationStartTime: 0

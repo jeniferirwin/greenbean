@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace GreenBean.InputHandling
+namespace Com.Technitaur.GreenBean
 {
     public class InputHandler : MonoBehaviour
     {
         public int bufferLength;
         
-        public Vector2 desiredDirection;
+        public Vector2 Direction;
         public bool desiredJump;
         
         private int moveWait;
@@ -20,11 +20,11 @@ namespace GreenBean.InputHandling
             if (context.started)
             {
                 Vector2 input = context.ReadValue<Vector2>();
-                desiredDirection = SanitizeInput(input);
+                Direction = SanitizeInput(input);
             }
             else if (context.canceled)
             {
-                desiredDirection = Vector2.zero;
+                Direction = Vector2.zero;
             }
             moveWait = bufferLength;
             canGetValues = false;
@@ -42,7 +42,7 @@ namespace GreenBean.InputHandling
 
         private void Start()
         {
-            desiredDirection = Vector2.zero;
+            Direction = Vector2.zero;
             desiredJump = false;
             canGetValues = false;
         }
