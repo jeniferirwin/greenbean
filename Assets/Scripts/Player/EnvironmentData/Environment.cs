@@ -10,6 +10,8 @@ namespace Com.Technitaur.GreenBean
         public Vector2 lastFramePos;
         public float pixel = 0.125f;
         public float wallCastPixels = 8;
+        public enum TileType { FullBrick, PartialBrick, LadderTopLeft, LadderTopRight, LadderLeft, LadderRight, RopeTop, Rope, Belt, Pole };
+        public enum BeltType { None, Left, Right };
 
         #region Pixels
         public Vector2 pos
@@ -53,69 +55,22 @@ namespace Com.Technitaur.GreenBean
         }
         #endregion
 
+        public System.Type GetCustomTile(Vector3Int cell)
+        {
+            TileBase tileData;
+            tileData = map.GetTile<Tile>(cell);
+
+            return tileData.GetType();
+        }
+
         public bool IsGrounded
         {
             get
             {
                 Vector2 point = DownPixel;
                 Vector3Int cell = grid.WorldToCell(point);
-                if (map.HasTile(cell))
-                {
-                    TileBase tileData;
-                    tileData = map.GetTile<FullBrickTile>(cell);
-                    if (tileData != null)
-                    {
-                        Debug.Log("Full Brick Detected");
-                        return true;
-                    }
-                    tileData = map.GetTile<PartialBrickTile>(cell);
-                    if (tileData != null)
-                    {
-                        Debug.Log("Partial Brick Detected");
-                        return true;
-                    }
-                    tileData = map.GetTile<LadderTopLeftTile>(cell);
-                    if (tileData != null)
-                    {
-                        Debug.Log("Ladder Top Left Detected");
-                        return true;
-                    }
-                    tileData = map.GetTile<LadderTopRightTile>(cell);
-                    if (tileData != null)
-                    {
-                        Debug.Log("Ladder Top Right Detected");
-                        return true;
-                    }
-                    tileData = map.GetTile<LadderRightTile>(cell);
-                    if (tileData != null)
-                    {
-                        Debug.Log("Ladder Right Detected");
-                        return true;
-                    }
-                    tileData = map.GetTile<LadderLeftTile>(cell);
-                    if (tileData != null)
-                    {
-                        Debug.Log("Ladder Top Right Detected");
-                        return true;
-                    }
-                    tileData = map.GetTile<BeltTile>(cell);
-                    if (tileData != null)
-                    {
-                        Debug.Log("Belt Detected");
-                        return true;
-                    }
-                    tileData = map.GetTile<RopeTopTile>(cell);
-                    if (tileData != null)
-                    {
-                        Debug.Log("Rope Top Detected");
-                        return true;
-                    }
-                    return false;
-                }
-                else
-                {
-                    return false;
-                }
+                var tileBase = map.GetTile(cell);
+                return true; // TODO
             }
         }
         
