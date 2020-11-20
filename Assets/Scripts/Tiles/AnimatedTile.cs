@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
+using Com.Technitaur.GreenBean.Handlers;
+using System.Collections.Generic;
 
 namespace Com.Technitaur.GreenBean
 {
-    [CreateAssetMenu(fileName = "AnimatedTile", menuName = "Animated Tile")]
+    [CreateAssetMenu(fileName = "AnimatedTile", menuName = "MRTiles/Animated Tile")]
     public class AnimatedTile : TileBase
     {
         public Sprite[] animatedSprites;
@@ -21,7 +23,12 @@ namespace Com.Technitaur.GreenBean
 
         public override bool GetTileAnimationData(Vector3Int position, ITilemap tilemap, ref TileAnimationData tileAnimationData)
         {
-            if (animatedSprites != null && animatedSprites.Length > 0)
+            int level = 0;
+            RoomController controller = tilemap.GetComponent<RoomController>();
+            if (controller != null && controller.level > 0)
+                level = controller.level - 1;
+
+            if (animatedSprites != null && animatedSprites[animatedSprites.Length - 1])
             {
                 tileAnimationData.animatedSprites = animatedSprites;
                 tileAnimationData.animationSpeed = animationSpeed;

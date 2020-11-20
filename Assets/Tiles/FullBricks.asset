@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481907b42e487db40b653f8fdd4411a9, type: 3}
+  m_Name: FullBricks
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -6099916256071586637, guid: 671dbe801cf253f428074cac7e307353, type: 3}
+  - {fileID: -3709053257060381686, guid: 671dbe801cf253f428074cac7e307353, type: 3}
+  - {fileID: 2432029964764782449, guid: 671dbe801cf253f428074cac7e307353, type: 3}
+  - {fileID: 158502602436884185, guid: 671dbe801cf253f428074cac7e307353, type: 3}
+  - {fileID: -3970250307676831758, guid: 671dbe801cf253f428074cac7e307353, type: 3}
+  - {fileID: 1579218150267203056, guid: 671dbe801cf253f428074cac7e307353, type: 3}
+  - {fileID: -2754825478075217173, guid: 671dbe801cf253f428074cac7e307353, type: 3}
+  - {fileID: -5116247649943809904, guid: 671dbe801cf253f428074cac7e307353, type: 3}
+  - {fileID: 5866631918367613507, guid: 671dbe801cf253f428074cac7e307353, type: 3}
+  - {fileID: -8741894996977623712, guid: 671dbe801cf253f428074cac7e307353, type: 3}

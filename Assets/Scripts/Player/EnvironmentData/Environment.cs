@@ -61,7 +61,56 @@ namespace Com.Technitaur.GreenBean
                 Vector3Int cell = grid.WorldToCell(point);
                 if (map.HasTile(cell))
                 {
-                    return true;
+                    TileBase tileData;
+                    tileData = map.GetTile<FullBrickTile>(cell);
+                    if (tileData != null)
+                    {
+                        Debug.Log("Full Brick Detected");
+                        return true;
+                    }
+                    tileData = map.GetTile<PartialBrickTile>(cell);
+                    if (tileData != null)
+                    {
+                        Debug.Log("Partial Brick Detected");
+                        return true;
+                    }
+                    tileData = map.GetTile<LadderTopLeftTile>(cell);
+                    if (tileData != null)
+                    {
+                        Debug.Log("Ladder Top Left Detected");
+                        return true;
+                    }
+                    tileData = map.GetTile<LadderTopRightTile>(cell);
+                    if (tileData != null)
+                    {
+                        Debug.Log("Ladder Top Right Detected");
+                        return true;
+                    }
+                    tileData = map.GetTile<LadderRightTile>(cell);
+                    if (tileData != null)
+                    {
+                        Debug.Log("Ladder Right Detected");
+                        return true;
+                    }
+                    tileData = map.GetTile<LadderLeftTile>(cell);
+                    if (tileData != null)
+                    {
+                        Debug.Log("Ladder Top Right Detected");
+                        return true;
+                    }
+                    tileData = map.GetTile<BeltTile>(cell);
+                    if (tileData != null)
+                    {
+                        Debug.Log("Belt Detected");
+                        return true;
+                    }
+                    tileData = map.GetTile<RopeTopTile>(cell);
+                    if (tileData != null)
+                    {
+                        Debug.Log("Rope Top Detected");
+                        return true;
+                    }
+                    return false;
                 }
                 else
                 {

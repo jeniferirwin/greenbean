@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d38d3132df429d428b531f626effad8, type: 3}
+  m_Name: UIBottom
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 5161189461771409656, guid: 83430a6cf95bc9d4ea5c40529e1b2693, type: 3}
+  - {fileID: -2165239428162857486, guid: 83430a6cf95bc9d4ea5c40529e1b2693, type: 3}
+  - {fileID: 3600686240900545954, guid: 83430a6cf95bc9d4ea5c40529e1b2693, type: 3}
+  - {fileID: -1640304762935268377, guid: 83430a6cf95bc9d4ea5c40529e1b2693, type: 3}
+  - {fileID: -3364910121117763944, guid: 83430a6cf95bc9d4ea5c40529e1b2693, type: 3}
+  - {fileID: 2012359968278472091, guid: 83430a6cf95bc9d4ea5c40529e1b2693, type: 3}
+  - {fileID: -9212526215233478565, guid: 83430a6cf95bc9d4ea5c40529e1b2693, type: 3}
+  - {fileID: 6551184503376429261, guid: 83430a6cf95bc9d4ea5c40529e1b2693, type: 3}
+  - {fileID: 8580174425970687318, guid: 83430a6cf95bc9d4ea5c40529e1b2693, type: 3}
+  - {fileID: -1309547783774002170, guid: 83430a6cf95bc9d4ea5c40529e1b2693, type: 3}

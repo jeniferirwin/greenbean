@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b7688bd6b7edf843abe49cf5b7ce624, type: 3}
+  m_Name: RightBeltRight
+  m_EditorClassIdentifier: 
+  animatedSpritesLeft:
+  - {fileID: 9054739485789527706, guid: 57e01f04362e8144d8ee65351c3dbaec, type: 3}
+  - {fileID: 8314077481779942893, guid: 57e01f04362e8144d8ee65351c3dbaec, type: 3}
+  - {fileID: -4503434632777708470, guid: 57e01f04362e8144d8ee65351c3dbaec, type: 3}
+  - {fileID: 8431382888786210858, guid: 57e01f04362e8144d8ee65351c3dbaec, type: 3}
+  animatedSpritesMiddle:
+  - {fileID: 4349594797142181684, guid: 7b2bf320a85e76a45a8e075ea2b920e6, type: 3}
+  - {fileID: 3021816603597188371, guid: 7b2bf320a85e76a45a8e075ea2b920e6, type: 3}
+  - {fileID: 7643095219570388951, guid: 7b2bf320a85e76a45a8e075ea2b920e6, type: 3}
+  - {fileID: 6697165282752544847, guid: 7b2bf320a85e76a45a8e075ea2b920e6, type: 3}
+  animatedSpritesRight:
+  - {fileID: 2090453429370857164, guid: 9810b55b1a68e764787c8621444d1f69, type: 3}
+  - {fileID: 4914381968835927294, guid: 9810b55b1a68e764787c8621444d1f69, type: 3}
+  - {fileID: 885652956364302788, guid: 9810b55b1a68e764787c8621444d1f69, type: 3}
+  - {fileID: -1749759186406783646, guid: 9810b55b1a68e764787c8621444d1f69, type: 3}
+  animationSpeed: 25
+  animationStartTime: 0
+  beltDir: 1
+  beltSection: 2
