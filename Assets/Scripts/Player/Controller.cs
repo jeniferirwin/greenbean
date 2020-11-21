@@ -89,7 +89,6 @@ namespace Com.Technitaur.GreenBean
                     transform.position = GetJumpDestination();
                     if (env.IsGrounded)
                     {
-                        Debug.Log("Grounding");
                         jumpData = null;
                         state = States.Idle;
                         transform.position = env.SnapToFloor(env.pos);
@@ -137,7 +136,13 @@ namespace Com.Technitaur.GreenBean
                 if (canMoveRight || canMoveLeft)
                 {
                     SetLastGroundedPos();
-                    PixelMove(horizontal, ppfWalk);
+                    int speed = ppfWalk;
+                    if (env.IsOnLeftBelt && canMoveRight) speed--;
+                    if (env.IsOnLeftBelt && canMoveLeft) speed++;
+                    if (env.IsOnRightBelt && canMoveRight) speed++;
+                    if (env.IsOnRightBelt && canMoveLeft) speed--;
+                    PixelMove(horizontal, speed);
+                    SetLastFramePos();
 
                     if (!env.IsGrounded)
                     {
@@ -145,8 +150,23 @@ namespace Com.Technitaur.GreenBean
                     }
                     return;
                 }
+                if (env.IsOnLeftBelt)
+                {
+                    SetLastGroundedPos();
+                    PixelMove(new Vector2(-1,0),1);
+                    if (!env.IsGrounded) state = States.Falling;
+                    SetLastFramePos();
+                    return;
+                }
+                if (env.IsOnRightBelt)
+                {
+                    SetLastGroundedPos();
+                    PixelMove(new Vector2(1,0),1);
+                    if (!env.IsGrounded) state = States.Falling;
+                    SetLastFramePos();
+                    return;
+                }
             }
-            env.lastFramePos = env.pos;
         }
 
         public Vector2 GetJumpDestination()
