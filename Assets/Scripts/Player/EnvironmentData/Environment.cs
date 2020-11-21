@@ -15,31 +15,17 @@ namespace Com.Technitaur.GreenBean
 
         public GridLayout grid;
         public Tilemap map;
-        public Vector2 lastFramePos;
-        public float pixel = 0.125f;
-        public float wallCastPixels = 7;
-        public Vector2 lastGroundedPosition;
+        public Vector3Int lastGroundedPosition;
+        public Vector3Int lastFramePos;
+        public int wallCastPixels = 7;
         public enum TileType { FullBrick, PartialBrick, LadderTopLeft, LadderTopRight, LadderLeft, LadderRight, RopeTop, Rope, Belt, Pole };
         public enum BeltType { None, Left, Right };
 
-        public Vector2 pos { get { return (Vector2)transform.position; } }
-        public Vector2 UpPixel { get { return pos + Vector2.up * pixel; } }
-        public Vector2 DownPixel { get { return pos + Vector2.down * pixel; } }
-        public Vector2 LeftPixel { get { return pos + Vector2.left * pixel; } }
-        public Vector2 RightPixel { get { return pos + Vector2.right * pixel; } }
-
-        public void CurrentPosModulos()
-        {
-            float xmod = transform.position.x % 1;
-            float ymod = transform.position.y % 1;
-            moduloX.text = "Modulo X: " + xmod.ToString();
-            moduloY.text = "Modulo Y: " + ymod.ToString();
-        }
+        public Vector3Int pos { get { return Vector3Int.RoundToInt(transform.position); } }
 
         public void EnvUpdate()
         {
-            CurrentPosModulos();
-            vecStatus.text = "Vector2" + pos.ToString();
+            vecStatus.text = "Vector3" + pos.ToString();
             groundStatus.text = "IsGrounded: " + IsGrounded.ToString();
             string text = "null";
             MRTile tileData = GetTileAtPosition(pos);
@@ -49,7 +35,7 @@ namespace Com.Technitaur.GreenBean
             }
             tileStatus.text = "Current Tile At Feet: " + text;
             string textBelow = "null";
-            MRTile tileDataBelow = GetTileAtPosition(pos + Vector2.down * pixel);
+            MRTile tileDataBelow = GetTileAtPosition(pos + Vector3Int.down);
             if (tileDataBelow != null)
             {
                 textBelow = tileDataBelow.name;
@@ -57,51 +43,16 @@ namespace Com.Technitaur.GreenBean
             belowTileStatus.text = "Below Feet: " + textBelow;
         }
 
-        /*
-        public Vector2 TileLookahead(Vector2 destination)
-        {
-            Vector2 seeking = transform.position;
-            bool found = false;
-            while (!found)
-            {
-                float xdist = destination.x - seeking.x;
-                float ydist = destination.y - seeking.y;
-                if (xdist < pixel && ydist < pixel)
-                {
-                    found = true;
-                }
-                if (destination.x - seeking.x > pixel)
-                    seeking.x += pixel;
-                if (destination.y - seeking.y > pixel)
-                    seeking.y += pixel;    
-
-
-                
-            }
-            
-        }
-        */
-
-        public MRTile GetTileAtPosition(Vector2 pos)
+        public MRTile GetTileAtPosition(Vector3Int pos)
         {
             Vector3Int cell = grid.WorldToCell(pos);
             if (!map.HasTile(cell)) return null;
             return map.GetTile<MRTile>(cell);
         }
 
-        public MRTile TileAtFeet { get { return GetTileAtPosition(transform.position); } }
-        public MRTile TileUnderFeet { get { return GetTileAtPosition((Vector2) transform.position + Vector2.down * pixel); } }
+        public MRTile TileAtFeet { get { return GetTileAtPosition(pos); } }
+        public MRTile TileUnderFeet { get { return GetTileAtPosition(pos + Vector3Int.down); } }
         
-        public bool IsAtUpperPixel
-        {
-            get
-            {
-                float mod = Mathf.Abs(transform.position.y) % 1;
-                if (mod > pixel * 7) return true;
-                return false;
-            }
-        }
-
         public bool IsGrounded
         {
             get
@@ -116,7 +67,7 @@ namespace Com.Technitaur.GreenBean
                 if (atTileData != null)
                 {
                     bool insideTile = atTileData.GetInstanceID() == underTileData.GetInstanceID();
-                    if (insideTile && underTileData.solidity == MRTile.Solidity.Semisolid && !IsAtUpperPixel) return false;
+                    if (insideTile && underTileData.solidity == MRTile.Solidity.Semisolid) return false;
                 }
                 return true;
             }
@@ -127,9 +78,7 @@ namespace Com.Technitaur.GreenBean
             get
             {
                 if (!IsGrounded) return false;
-                Vector2 point = DownPixel;
-                Vector3Int cell = grid.WorldToCell(point);
-                MRTile mrTile = map.GetTile<MRTile>(cell);
+                MRTile mrTile = TileUnderFeet;
                 switch (mrTile.tileType)
                 {
                     case MRTile.TileType.LeftBeltLeft:
@@ -175,15 +124,26 @@ namespace Com.Technitaur.GreenBean
                 }
             }
         }
+        
+        public bool IsAboveRopeTop
+        {
+            get
+            {
+                MRTile mrTile = TileUnderFeet;
+                if (mrTile == null) return false;
+                if (mrTile.tileType == MRTile.TileType.RopeTop)
+                    return true;
+                else
+                    return false;
+            }
+        }
 
         public bool IsOnRightBelt
         {
             get
             {
                 if (!IsGrounded) return false;
-                Vector2 point = DownPixel;
-                Vector3Int cell = grid.WorldToCell(point);
-                MRTile mrTile = map.GetTile<MRTile>(cell);
+                MRTile mrTile = TileUnderFeet;
                 switch (mrTile.tileType)
                 {
                     case MRTile.TileType.RightBeltLeft:
@@ -211,7 +171,7 @@ namespace Com.Technitaur.GreenBean
         {
             get
             {
-                return IsBlocked(pos, Vector2.left, pixel * wallCastPixels);
+                return IsBlocked(pos, Vector3Int.left, wallCastPixels);
             }
         }
 
@@ -219,50 +179,40 @@ namespace Com.Technitaur.GreenBean
         {
             get
             {
-                return IsBlocked(pos, Vector2.right, pixel * wallCastPixels);
+                return IsBlocked(pos, Vector3Int.right, wallCastPixels);
             }
         }
 
 
-        public bool IsBlocked(Vector2 pos, Vector2 dir, float distance)
+        public bool IsBlocked(Vector3Int pos, Vector3Int dir, int distance)
         {
-            float covered = 0f;
+            int covered = 0;
             int pixels = 2;
             bool blocked = false;
             while (Mathf.Abs(covered) < distance && !blocked)
             {
-                Vector2 newPoint = pos;
-                newPoint.x += dir.x * pixel * pixels;
+                Vector3 newPoint = pos;
+                newPoint.x += dir.x * pixels;
                 Vector3Int cell = grid.WorldToCell(newPoint);
                 if (map.HasTile(cell))
                 {
                     MRTile mrTile = map.GetTile<MRTile>(cell);
                     if (mrTile.solidity == MRTile.Solidity.Solid)
+                    {
+                        Debug.Log("Blocked");
                         return true;
+                    }
                 }
                 pixels++;
-                covered += pixel;
+                covered++;
             }
             return false;
         }
 
-        public Vector2 SnapToFloor(Vector2 point)
+        public Vector3Int SnapToFloor(Vector3Int point)
         {
-            if (Mathf.Abs(point.y % 1) <= (float.Epsilon * 100)) return point;
-            float ysnap = Mathf.Ceil(point.y);
-            Vector2 newPos = new Vector2(point.x, ysnap);
-            Debug.Log(newPos);
-            return newPos;
-        }
-
-        public Vector2 Pixelize(Vector2 point)
-        {
-            return new Vector2(NearestPixel(point.x), NearestPixel(point.y));
-        }
-
-        public float NearestPixel(float val)
-        {
-            return Mathf.Round(val * 8) / 8;
+            // TODO
+            return Vector3Int.zero;
         }
     }
 }

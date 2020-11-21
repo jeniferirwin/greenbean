@@ -7,7 +7,7 @@ namespace Com.Technitaur.GreenBean
     {
         public int bufferLength;
         
-        public Vector2 Direction;
+        public Vector3Int Direction;
         public bool desiredJump;
         
         private int moveWait;
@@ -24,7 +24,7 @@ namespace Com.Technitaur.GreenBean
             }
             else if (context.canceled)
             {
-                Direction = Vector2.zero;
+                Direction = Vector3Int.zero;
             }
             moveWait = bufferLength;
             canGetValues = false;
@@ -42,7 +42,7 @@ namespace Com.Technitaur.GreenBean
 
         private void Start()
         {
-            Direction = Vector2.zero;
+            Direction = Vector3Int.zero;
             desiredJump = false;
             canGetValues = false;
         }
@@ -64,27 +64,27 @@ namespace Com.Technitaur.GreenBean
             }
         }
         
-        public Vector2 SanitizeInput(Vector2 input)
+        public Vector3Int SanitizeInput(Vector2 input)
         {
             if (input.x < 0)
             {
-                return Vector2.left;
+                return Vector3Int.left;
             }
             else if (input.x > 0)
             {
-                return Vector2.right;
+                return Vector3Int.right;
             }
             else if (input.y > 0)
             {
-                return Vector2.up;
+                return Vector3Int.up;
             }
             else if (input.y < 0)
             {
-                return Vector2.down;
+                return Vector3Int.down;
             }
             else
             {
-                return Vector2.zero;
+                return Vector3Int.zero;
             }
         }
     }

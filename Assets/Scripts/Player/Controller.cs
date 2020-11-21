@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 using Com.Technitaur.GreenBean.Helpers;
+using TMPro;
 
 namespace Com.Technitaur.GreenBean
 {
     public class Controller : MonoBehaviour
     {
+        public TMP_Text stateStatus;
         private InputHandler input;
         private Environment env;
-        private int ppfWalk = 2;
-        private int ppfFall = 4;
-        private int ppfBelt = 1;
-        private int ppfClimbLadder = 1;
-        private bool frameProcessed;
+        private int walkSpeed = 2;
+        private int fallSpeed = 4;
+        private int beltSpeedModifier = 1;
+        private int ladderClimbSpeed = 1;
+        private int ropeClimbUpSpeed = 1;
+        private int ropeClimbDownSpeed = 2;
 
-        private Vector2 moveDirection;
+        private Vector3Int moveDirection;
         private bool wantsJump;
         private States state;
         private JumpData jumpData;
@@ -33,10 +36,15 @@ namespace Com.Technitaur.GreenBean
 
         public void Start()
         {
-            frameProcessed = false;
             input = GetComponent<InputHandler>();
             env = GetComponent<Environment>();
             state = States.Idle;
+        }
+        
+        public void Update()
+        {
+            InputUpdate();
+            stateStatus.text = "State: " + state;
         }
 
 
@@ -53,16 +61,8 @@ namespace Com.Technitaur.GreenBean
             }
         }
 
-        public void FixedUpdate()
+        public void InputUpdate()
         {
-            env.EnvUpdate();
-            
-            if (env.IsGrounded && Mathf.Abs(env.pos.y) % 1 > 0)
-            {
-                transform.position = env.SnapToFloor(env.pos);
-                return;
-            }
-
             if (input.canGetValues)
             {
                 moveDirection = input.Direction;
@@ -70,145 +70,322 @@ namespace Com.Technitaur.GreenBean
                 input.desiredJump = false;
                 input.canGetValues = false;
             }
-            Vector2 horizontal = new Vector2(moveDirection.x, 0);
-            Vector2 vertical = new Vector2(0, moveDirection.y);
 
-            if (!CanJump())
+            if (!CanJump()) wantsJump = false;
+        }
+
+        public bool DoJumpingUp()
+        {
+            if (state != States.JumpingUp) return false;
+            if (jumpData.hasPeaked)
             {
-                wantsJump = false;
+                state = States.JumpingDown;
+                return false;
             }
-            
+            else
+            {
+                jumpData.NextStep();
+                IncrementalMove(jumpData.xdir, jumpData.ydir, jumpData.xdist, jumpData.ydist);
+                return true;
+            }
+        }
+
+        public bool DoJumpingDown()
+        {
+            if (state != States.JumpingDown) return false;
+            jumpData.NextStep();
+            IncrementalMove(jumpData.xdir, jumpData.ydir, jumpData.xdist, Mathf.Abs(jumpData.ydist));
+            if (env.IsGrounded)
+            {
+                jumpData = null;
+                state = States.Idle;
+            }
+            return true;
+        }
+
+        public bool DoClimbingLadder()
+        {
+            if (state != States.ClimbingLadder) return false;
+            if (moveDirection.y != 0)
+            {
+                // TODO: movement code
+                if (env.IsGrounded)
+                {
+                    state = States.Idle;
+                    return true;
+                }
+            }
+            return true;
+        }
+
+        public bool DoClimbingRope()
+        {
+            if (state != States.ClimbingRope) return false;
+            SetLastGroundedPos();
+            if (moveDirection.y < 0)
+            {
+                IncrementalMove(0, -1, 0, 2);
+                return true;
+            }
+            if (moveDirection.y > 0)
+            {
+                IncrementalMove(0, 1, 0, 1);
+                return true;
+            }
+            return false;
+        }
+
+        public bool DoSliding()
+        {
+            if (state != States.Sliding) return false;
+            SetLastGroundedPos();
+            return false;
+        }
+
+        public bool DoFalling()
+        {
+            if (state != States.Falling) return false;
+            if (env.IsGrounded)
+            {
+                state = States.Idle;
+                return true;
+            }
+            IncrementalMove(0, -1, 0, 4);
+            return false;
+        }
+
+        public bool StartJump()
+        {
+            if (!wantsJump) return false;
+            wantsJump = false;
+            jumpData = new JumpData(moveDirection.x);
+            state = States.JumpingUp;
+            if (DoJumpingUp()) return true;
+            return false;
+        }
+
+        public bool StartClimbingLadder()
+        {
+            bool climbUp = moveDirection.y > 0 && env.IsAtLadder;
+            bool climbDown = moveDirection.y < 0 && env.IsAboveLadder;
+            if (!climbUp && !climbDown) return false;
+
+            state = States.ClimbingLadder;
+            IncrementalMove(0, moveDirection.y, 0, ladderClimbSpeed);
+            return true;
+        }
+
+        public bool StartClimbingRopeStanding()
+        {
+            bool climbDown = moveDirection.y < 0 && env.IsAboveRopeTop;
+            if (!climbDown) return false;
+            state = States.ClimbingRope;
+            IncrementalMove(0, -1, 0, ropeClimbDownSpeed);
+            return true;
+        }
+
+        public bool DoWalking()
+        {
+            if (moveDirection.x == 0)
+            {
+                Debug.Log("Setting idle state.");
+                state = States.Idle;
+                return false;
+            }
+            if (StartJump()) return true;
+            if (StartClimbingLadder()) return true;
+            if (StartClimbingRopeStanding()) return true;
+            if (moveDirection.x > 0)
+            {
+                if (env.RightBlocked) return false;
+                int speed = walkSpeed;
+                if (env.IsOnLeftBelt) speed--;
+                if (env.IsOnRightBelt) speed++;
+                IncrementalMove(1, 0, speed, 0);
+            }
+            if (moveDirection.x < 0)
+            {
+                if (env.LeftBlocked) return false;
+                int speed = walkSpeed;
+                if (env.IsOnLeftBelt) speed++;
+                if (env.IsOnRightBelt) speed--;
+                IncrementalMove(-1, 0, speed, 0);
+            }
+            if (!env.IsGrounded) state = States.Falling;
+            return true;
+        }
+
+        public bool IdleConveyed()
+        {
+            if (env.IsOnLeftBelt)
+            {
+                transform.position += Vector3Int.left;
+            }
+            if (env.IsOnRightBelt)
+            {
+                transform.position += Vector3Int.right;
+            }
+            if (!env.IsGrounded) state = States.Falling;
+            return true;
+        }
+
+        public bool DoIdle()
+        {
+            if (state != States.Idle) return false;
             if (!env.IsGrounded)
             {
-                if (state == States.JumpingUp)
-                {
-                    if (jumpData.hasPeaked)
-                    {
-                        state = States.JumpingDown;
-                    }
-                    else
-                    {
-                        transform.position = GetJumpDestination();
-                        return;
-                    }
-                }
-                if (state == States.JumpingDown)
-                {
-                    transform.position = GetJumpDestination();
-                    if (env.IsGrounded)
-                    {
-                        jumpData = null;
-                        state = States.Idle;
-                        transform.position = env.SnapToFloor(env.pos);
-                        return;
-                    }
-                    return;
-                }
-                if (state == States.ClimbingLadder)
-                {
-                    if (moveDirection.y != 0)
-                    {
-                        Vector2 climbDir = new Vector2(0,moveDirection.y);
-                        PixelMove(climbDir,ppfClimbLadder);
-                        if (env.IsGrounded)
-                        {
-                            state = States.Idle;
-                            return;
-                        }
-                    }
-                }
-                if (state == States.ClimbingRope)
-                {
-                    // TODO
-                }
-                if (state == States.Sliding)
-                {
-                    // TODO
-                }
-                if (state == States.Falling)
-                {
-                    PixelMove(Vector2.down, ppfFall);
-                    if (env.IsGrounded)
-                    {
-                        state = States.Idle;
-                    }
-                }
+                state = States.Falling;
+                return true;
+            }
+
+            if (moveDirection.x != 0)
+            {
+                Debug.Log("Set walking state.");
+                state = States.Walking;
+                return true;
+            }
+            if (StartJump()) return true;
+            if (StartClimbingLadder()) return true;
+            if (StartClimbingRopeStanding()) return true;
+            if (IdleConveyed()) return true;
+            return true;
+        }
+
+        public void FixedUpdate()
+        {
+            env.EnvUpdate();
+
+            int xdir = moveDirection.x;
+            int ydir = moveDirection.y;
+
+            if (!env.IsGrounded)
+            {
+                if (DoJumpingUp()) return;
+                if (DoJumpingDown()) return;
+                if (DoClimbingLadder()) return;
+                if (DoClimbingRope()) return;
+                if (DoSliding()) return;
+                if (DoFalling()) return;
             }
             else
             {
                 SetLastGroundedPos();
-                if (wantsJump)
-                {
-                    wantsJump = false;
-                    state = States.JumpingUp;
-                    jumpData = new JumpData(moveDirection.x);
-                    transform.position = GetJumpDestination();
-                    return;
-                }
-                if (moveDirection.y > 0 && env.IsAtLadder)
-                {
-                    state = States.ClimbingLadder;
-                    PixelMove(Vector2.up, ppfClimbLadder);
-                    return;
-                }
-                else if (moveDirection.y < 0 && env.IsAboveLadder)
-                {
-                    state = States.ClimbingLadder;
-                    PixelMove(Vector2.down, ppfClimbLadder);
-                    return;
-                }
-                bool canMoveRight = moveDirection.x > 0 && !env.RightBlocked;
-                bool canMoveLeft = moveDirection.x < 0 && !env.LeftBlocked;
-                if (canMoveRight || canMoveLeft)
-                {
-                    int speed = ppfWalk;
-                    if (env.IsOnLeftBelt && canMoveRight) speed--;
-                    if (env.IsOnLeftBelt && canMoveLeft) speed++;
-                    if (env.IsOnRightBelt && canMoveRight) speed++;
-                    if (env.IsOnRightBelt && canMoveLeft) speed--;
-                    PixelMove(horizontal, speed);
-
-                    if (!env.IsGrounded)
-                    {
-                        state = States.Falling;
-                    }
-                    return;
-                }
-                if (env.IsOnLeftBelt)
-                {
-                    PixelMove(new Vector2(-1,0),1);
-                    if (!env.IsGrounded) state = States.Falling;
-                    return;
-                }
-                if (env.IsOnRightBelt)
-                {
-                    PixelMove(new Vector2(1,0),1);
-                    if (!env.IsGrounded) state = States.Falling;
-                    return;
-                }
+                if (DoWalking()) return;
+                if (DoClimbingLadder()) return;
             }
+            DoIdle();
         }
 
-        public Vector2 GetJumpDestination()
+        public Vector3Int GetJumpDestination()
         {
-            float addX = jumpData.XPPF * env.pixel * jumpData.xdir;
-            float addY = jumpData.YPPF * env.pixel;
-            Vector2 newPos = env.pos;
-            newPos += new Vector2(addX, addY);
-            if (addX > 0 && env.RightBlocked)
-                newPos.x = env.pos.x;
-            if (addX < 0 && env.LeftBlocked)
-                newPos.x = env.pos.x;
-
-            newPos = env.Pixelize(newPos);
-            return newPos;
+            return Vector3Int.zero;
         }
 
-        public void PixelMove(Vector2 direction, int speed)
+        public bool CheckGroundedChange(bool current)
+        {
+            if (env.IsGrounded != current)
+                return true;
+            else
+                return false;
+        }
+
+        public bool TryMoveHorizontal(int dir)
+        {
+            if (dir == 0) return false;
+
+            if (dir < 0 && !env.LeftBlocked)
+            {
+                MoveLeft();
+                return true;
+            }
+
+            if (dir > 0 && !env.RightBlocked)
+            {
+                MoveRight();
+                return true;
+            }
+            return false;
+        }
+
+        public bool TryMoveVertical(int dir)
+        {
+            if (dir == 0) return false;
+
+            bool conditionsMet = false;
+            if (dir > 0)
+            {
+                if (env.IsAtLadder) conditionsMet = true;
+                switch (state)
+                {
+                    case States.ClimbingLadder:
+                    case States.ClimbingRope:
+                    case States.JumpingUp:
+                        {
+                            conditionsMet = true;
+                            break;
+                        }
+                    default: break;
+                }
+
+                if (!conditionsMet) return false;
+
+                MoveUp();
+                return true;
+            }
+            else if (dir < 0)
+            {
+                if (env.IsAboveLadder || env.IsAboveRopeTop) conditionsMet = true;
+                switch (state)
+                {
+                    case States.ClimbingLadder:
+                    case States.ClimbingRope:
+                    case States.Falling:
+                    case States.JumpingDown:
+                    case States.Sliding:
+                        {
+                            conditionsMet = true;
+                            break;
+                        }
+                    default: break;
+                }
+
+                if (!conditionsMet) return false;
+
+                MoveDown();
+                return true;
+            }
+            return false;
+        }
+
+        public void MoveUp() => transform.position += Vector3Int.up;
+        public void MoveRight() => transform.position += Vector3Int.right;
+        public void MoveLeft() => transform.position += Vector3Int.left;
+        public void MoveDown() => transform.position += Vector3Int.down;
+
+        public void IncrementalMove(int xdir, int ydir, int xunits, int yunits)
         {
             SetLastFramePos();
-            float distance = speed * env.pixel;
-            transform.position = env.Pixelize(env.pos + direction * speed * env.pixel);
+            bool startingGroundedState = env.IsGrounded;
+            while (xunits > 0 || yunits > 0)
+            {
+                if (xunits > 0)
+                {
+                    TryMoveHorizontal(xdir);
+                    if (CheckGroundedChange(startingGroundedState)) break;
+                    xunits--;
+                }
+                if (yunits > 0)
+                {
+                    TryMoveVertical(ydir);
+                    if (CheckGroundedChange(startingGroundedState)) break;
+                    yunits--;
+                }
+            }
+            if (!startingGroundedState && env.IsGrounded)
+            {
+                state = States.Idle;
+                transform.position = Vector3Int.RoundToInt(transform.position);
+            }
         }
 
         public void SetLastFramePos()
@@ -219,6 +396,11 @@ namespace Com.Technitaur.GreenBean
         public void SetLastGroundedPos()
         {
             env.lastGroundedPosition = env.pos;
+        }
+
+        public void Fall()
+        {
+            transform.position = transform.position - Vector3Int.down * fallSpeed;
         }
 
     }

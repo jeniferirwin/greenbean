@@ -4,35 +4,28 @@ namespace Com.Technitaur.GreenBean.Helpers
 {
     public class JumpData
     {
-        public float[] yPpfTable = new float[25];
-        public float xdir;
+        public int[] distTable = new int[25];
+        public int xdir;
+        public int ydir;
+        public int xdist;
+        public int ydist;
         public int counter;
         public bool hasPeaked;
-
-        public float XPPF { get { if ( xdir != 0 ) { return 2; } else { return 0; } } }
-        public float YPPF
-        {
-            get
-            {
-                float curPpf = yPpfTable[counter];
-                if (counter < yPpfTable.Length - 1)
-                    counter++;
-                if (counter > 10 && !hasPeaked)
-                    hasPeaked = true;
-                return curPpf;
-            }
-        }
         
-        public JumpData(float dir)
+        public JumpData(int dir)
         {
             xdir = dir;
+            if (xdir != 0)
+                xdist = 2;
+            else
+                xdist = 0;
             InitializeArray();
             counter = 0;
         }
         
         public void InitializeArray()
         {
-            yPpfTable = new float[] {
+            distTable = new int[] {
                 3, 3,
                 2, 2, 2, 2,
                 1, 1, 1, 1, 1,
@@ -43,21 +36,16 @@ namespace Com.Technitaur.GreenBean.Helpers
             };
         }
         
-        /*
-        public Vector2 GetNextChange()
+        public void NextStep()
         {
-            if (counter >= yPpfTable.Length)
-                counter = yPpfTable.Length - 1;
-
-            float yUnits = yPpfTable[counter] / 8f;
-
-            if (yUnits == 0 && !hasPeaked)
+            ydist = distTable[counter];
+            ydir = ydist / 1;
+            if (counter < distTable.Length - 1) counter++;
+            if (!hasPeaked && ydist == 0)
+            {
+                Debug.Log("Peaked");
                 hasPeaked = true;
-
-            float xUnits = (xdir * 2) / 8f;
-            counter++;
-            return new Vector2(xUnits, yUnits);
+            }
         }
-        */
     }
 }
