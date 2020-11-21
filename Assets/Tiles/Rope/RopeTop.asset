@@ -15,3 +15,5 @@ MonoBehaviour:
   sprites:
   - {fileID: -8852230285008876594, guid: 12c5ff10b66ad2246b8f2e5cbfd1756a, type: 3}
   tileType: 8
+  animatedSprites: []
+  solidity: 1

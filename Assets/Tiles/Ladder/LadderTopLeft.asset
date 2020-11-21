@@ -24,3 +24,5 @@ MonoBehaviour:
   - {fileID: -831024919754883984, guid: 571db3a83fe247045a6a418c6936cd09, type: 3}
   - {fileID: -7141074193014852796, guid: 571db3a83fe247045a6a418c6936cd09, type: 3}
   tileType: 2
+  animatedSprites: []
+  solidity: 1

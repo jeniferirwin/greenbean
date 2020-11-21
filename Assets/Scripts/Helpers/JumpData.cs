@@ -4,10 +4,24 @@ namespace Com.Technitaur.GreenBean.Helpers
 {
     public class JumpData
     {
-        public float[] pixelChange = new float[25];
+        public float[] yPpfTable = new float[25];
         public float xdir;
         public int counter;
         public bool hasPeaked;
+
+        public float XPPF { get { if ( xdir != 0 ) { return 2; } else { return 0; } } }
+        public float YPPF
+        {
+            get
+            {
+                float curPpf = yPpfTable[counter];
+                if (counter < yPpfTable.Length - 1)
+                    counter++;
+                if (counter > 10 && !hasPeaked)
+                    hasPeaked = true;
+                return curPpf;
+            }
+        }
         
         public JumpData(float dir)
         {
@@ -18,7 +32,7 @@ namespace Com.Technitaur.GreenBean.Helpers
         
         public void InitializeArray()
         {
-            pixelChange = new float[] {
+            yPpfTable = new float[] {
                 3, 3,
                 2, 2, 2, 2,
                 1, 1, 1, 1, 1,
@@ -29,12 +43,13 @@ namespace Com.Technitaur.GreenBean.Helpers
             };
         }
         
+        /*
         public Vector2 GetNextChange()
         {
-            if (counter >= pixelChange.Length)
-                counter = pixelChange.Length - 1;
+            if (counter >= yPpfTable.Length)
+                counter = yPpfTable.Length - 1;
 
-            float yUnits = pixelChange[counter] / 8f;
+            float yUnits = yPpfTable[counter] / 8f;
 
             if (yUnits == 0 && !hasPeaked)
                 hasPeaked = true;
@@ -43,5 +58,6 @@ namespace Com.Technitaur.GreenBean.Helpers
             counter++;
             return new Vector2(xUnits, yUnits);
         }
+        */
     }
 }
