@@ -108,7 +108,7 @@ namespace Com.Technitaur.GreenBean
             if (state != States.ClimbingLadder) return false;
             if (moveDirection.y != 0)
             {
-                // TODO: movement code
+                IncrementalMove(0,moveDirection.y,0,ladderClimbSpeed);
                 if (env.IsGrounded)
                 {
                     state = States.Idle;
@@ -171,6 +171,7 @@ namespace Com.Technitaur.GreenBean
             if (!climbUp && !climbDown) return false;
 
             state = States.ClimbingLadder;
+            transform.position = new Vector3Int(env.LadderSnap(), Mathf.RoundToInt(transform.position.y), 0);
             IncrementalMove(0, moveDirection.y, 0, ladderClimbSpeed);
             return true;
         }

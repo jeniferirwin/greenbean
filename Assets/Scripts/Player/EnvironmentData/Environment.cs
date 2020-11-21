@@ -209,6 +209,30 @@ namespace Com.Technitaur.GreenBean
             return false;
         }
 
+        public int LadderSnap()
+        {
+            var cell = grid.WorldToCell(transform.position);
+            var coords = grid.CellToWorld(cell);
+            var at = TileAtFeet;
+            var under = TileUnderFeet;
+            bool snapRight = false;
+            if (at != null)
+            {
+                if (at.tileType == MRTile.TileType.LadderBottomLeft) snapRight = true;
+            }
+            if (under != null && !snapRight)
+            {
+                if (under.tileType == MRTile.TileType.LadderTopLeft) snapRight = true;
+            }
+
+            int snapPoint = Mathf.RoundToInt(coords.x);
+            if (snapRight)
+            {
+                snapPoint += 8;
+            }
+            return snapPoint;
+        }
+
         public Vector3Int SnapToFloor(Vector3Int point)
         {
             // TODO
