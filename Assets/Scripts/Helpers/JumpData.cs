@@ -43,7 +43,6 @@ namespace Com.Technitaur.GreenBean.Helpers
             if (counter < distTable.Length - 1) counter++;
             if (!hasPeaked && ydist == 0)
             {
-                Debug.Log("Peaked");
                 hasPeaked = true;
             }
         }

@@ -34,6 +34,12 @@ namespace Com.Technitaur.GreenBean
             Dead
         }
 
+        public void MoveUp() => transform.position += Vector3Int.up;
+        public void MoveRight() => transform.position += Vector3Int.right;
+        public void MoveLeft() => transform.position += Vector3Int.left;
+        public void MoveDown() => transform.position += Vector3Int.down;
+        public void SetLastGroundedPos() => env.lastGroundedPosition = env.pos;
+
         public void Start()
         {
             input = GetComponent<InputHandler>();
@@ -45,20 +51,6 @@ namespace Com.Technitaur.GreenBean
         {
             InputUpdate();
             stateStatus.text = "State: " + state;
-        }
-
-
-        public bool CanJump()
-        {
-            switch (state)
-            {
-                case States.Walking:
-                case States.Idle:
-                case States.ClimbingRope:
-                    return true;
-                default:
-                    return false;
-            }
         }
 
         public void InputUpdate()
@@ -74,7 +66,44 @@ namespace Com.Technitaur.GreenBean
             if (!CanJump()) wantsJump = false;
         }
 
-        public bool DoJumpingUp()
+        public void FixedUpdate()
+        {
+            env.EnvUpdate();
+
+            int xdir = moveDirection.x;
+            int ydir = moveDirection.y;
+
+            if (!env.IsGrounded)
+            {
+                if (DoJumpingUp()) return;
+                if (DoJumpingDown()) return;
+                if (DoClimbingLadder()) return;
+                if (DoClimbingRope()) return;
+                if (DoSliding()) return;
+                if (DoFalling()) return;
+            }
+            else
+            {
+                SetLastGroundedPos();
+                if (DoWalking()) return;
+            }
+            DoIdle();
+        }
+
+        private bool CanJump()
+        {
+            switch (state)
+            {
+                case States.Walking:
+                case States.Idle:
+                case States.ClimbingRope:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        private bool DoJumpingUp()
         {
             if (state != States.JumpingUp) return false;
             if (jumpData.hasPeaked)
@@ -90,7 +119,7 @@ namespace Com.Technitaur.GreenBean
             }
         }
 
-        public bool DoJumpingDown()
+        private bool DoJumpingDown()
         {
             if (state != States.JumpingDown) return false;
             jumpData.NextStep();
@@ -103,7 +132,7 @@ namespace Com.Technitaur.GreenBean
             return true;
         }
 
-        public bool DoClimbingLadder()
+        private bool DoClimbingLadder()
         {
             if (state != States.ClimbingLadder) return false;
             if (moveDirection.y != 0)
@@ -118,7 +147,7 @@ namespace Com.Technitaur.GreenBean
             return true;
         }
 
-        public bool DoClimbingRope()
+        private bool DoClimbingRope()
         {
             if (state != States.ClimbingRope) return false;
             SetLastGroundedPos();
@@ -135,14 +164,15 @@ namespace Com.Technitaur.GreenBean
             return false;
         }
 
-        public bool DoSliding()
+        private bool DoSliding()
         {
             if (state != States.Sliding) return false;
             SetLastGroundedPos();
+            IncrementalMove(0, -1, 0, 4);
             return false;
         }
 
-        public bool DoFalling()
+        private bool DoFalling()
         {
             if (state != States.Falling) return false;
             if (env.IsGrounded)
@@ -154,42 +184,10 @@ namespace Com.Technitaur.GreenBean
             return false;
         }
 
-        public bool StartJump()
-        {
-            if (!wantsJump) return false;
-            wantsJump = false;
-            jumpData = new JumpData(moveDirection.x);
-            state = States.JumpingUp;
-            if (DoJumpingUp()) return true;
-            return false;
-        }
-
-        public bool StartClimbingLadder()
-        {
-            bool climbUp = moveDirection.y > 0 && env.IsAtLadder;
-            bool climbDown = moveDirection.y < 0 && env.IsAboveLadder;
-            if (!climbUp && !climbDown) return false;
-
-            state = States.ClimbingLadder;
-            transform.position = new Vector3Int(env.LadderSnap(), Mathf.RoundToInt(transform.position.y), 0);
-            IncrementalMove(0, moveDirection.y, 0, ladderClimbSpeed);
-            return true;
-        }
-
-        public bool StartClimbingRopeStanding()
-        {
-            bool climbDown = moveDirection.y < 0 && env.IsAboveRopeTop;
-            if (!climbDown) return false;
-            state = States.ClimbingRope;
-            IncrementalMove(0, -1, 0, ropeClimbDownSpeed);
-            return true;
-        }
-
-        public bool DoWalking()
+        private bool DoWalking()
         {
             if (moveDirection.x == 0)
             {
-                Debug.Log("Setting idle state.");
                 state = States.Idle;
                 return false;
             }
@@ -216,7 +214,28 @@ namespace Com.Technitaur.GreenBean
             return true;
         }
 
-        public bool IdleConveyed()
+        private bool DoIdle()
+        {
+            if (state != States.Idle) return false;
+            if (!env.IsGrounded)
+            {
+                state = States.Falling;
+                return true;
+            }
+
+            if (moveDirection.x != 0)
+            {
+                state = States.Walking;
+                return true;
+            }
+            if (StartJump()) return true;
+            if (StartClimbingLadder()) return true;
+            if (StartClimbingRopeStanding()) return true;
+            if (IdleConveyed()) return true;
+            return true;
+        }
+
+        private bool IdleConveyed()
         {
             if (env.IsOnLeftBelt)
             {
@@ -230,59 +249,41 @@ namespace Com.Technitaur.GreenBean
             return true;
         }
 
-        public bool DoIdle()
+        #region Start Movement Functions
+        private bool StartJump()
         {
-            if (state != States.Idle) return false;
-            if (!env.IsGrounded)
-            {
-                state = States.Falling;
-                return true;
-            }
+            if (!wantsJump) return false;
+            wantsJump = false;
+            jumpData = new JumpData(moveDirection.x);
+            state = States.JumpingUp;
+            if (DoJumpingUp()) return true;
+            return false;
+        }
 
-            if (moveDirection.x != 0)
-            {
-                Debug.Log("Set walking state.");
-                state = States.Walking;
-                return true;
-            }
-            if (StartJump()) return true;
-            if (StartClimbingLadder()) return true;
-            if (StartClimbingRopeStanding()) return true;
-            if (IdleConveyed()) return true;
+        private bool StartClimbingLadder()
+        {
+            bool climbUp = moveDirection.y > 0 && env.IsAtLadder;
+            bool climbDown = moveDirection.y < 0 && env.IsAboveLadder;
+            if (!climbUp && !climbDown) return false;
+
+            state = States.ClimbingLadder;
+            transform.position = new Vector3Int(env.LadderSnap(), Mathf.RoundToInt(transform.position.y), 0);
+            IncrementalMove(0, moveDirection.y, 0, ladderClimbSpeed);
             return true;
         }
 
-        public void FixedUpdate()
+        private bool StartClimbingRopeStanding()
         {
-            env.EnvUpdate();
-
-            int xdir = moveDirection.x;
-            int ydir = moveDirection.y;
-
-            if (!env.IsGrounded)
-            {
-                if (DoJumpingUp()) return;
-                if (DoJumpingDown()) return;
-                if (DoClimbingLadder()) return;
-                if (DoClimbingRope()) return;
-                if (DoSliding()) return;
-                if (DoFalling()) return;
-            }
-            else
-            {
-                SetLastGroundedPos();
-                if (DoWalking()) return;
-                if (DoClimbingLadder()) return;
-            }
-            DoIdle();
+            bool climbDown = moveDirection.y < 0 && env.IsAboveRopeTop;
+            if (!climbDown) return false;
+            state = States.ClimbingRope;
+            IncrementalMove(0, -1, 0, ropeClimbDownSpeed);
+            return true;
         }
+        #endregion
 
-        public Vector3Int GetJumpDestination()
-        {
-            return Vector3Int.zero;
-        }
-
-        public bool CheckGroundedChange(bool current)
+        #region Helper Functions
+        private bool CheckGroundedChange(bool current)
         {
             if (env.IsGrounded != current)
                 return true;
@@ -290,7 +291,7 @@ namespace Com.Technitaur.GreenBean
                 return false;
         }
 
-        public bool TryMoveHorizontal(int dir)
+        private bool TryMoveHorizontal(int dir)
         {
             if (dir == 0) return false;
 
@@ -308,7 +309,7 @@ namespace Com.Technitaur.GreenBean
             return false;
         }
 
-        public bool TryMoveVertical(int dir)
+        private bool TryMoveVertical(int dir)
         {
             if (dir == 0) return false;
 
@@ -358,14 +359,9 @@ namespace Com.Technitaur.GreenBean
             return false;
         }
 
-        public void MoveUp() => transform.position += Vector3Int.up;
-        public void MoveRight() => transform.position += Vector3Int.right;
-        public void MoveLeft() => transform.position += Vector3Int.left;
-        public void MoveDown() => transform.position += Vector3Int.down;
 
         public void IncrementalMove(int xdir, int ydir, int xunits, int yunits)
         {
-            SetLastFramePos();
             bool startingGroundedState = env.IsGrounded;
             while (xunits > 0 || yunits > 0)
             {
@@ -388,21 +384,6 @@ namespace Com.Technitaur.GreenBean
                 transform.position = Vector3Int.RoundToInt(transform.position);
             }
         }
-
-        public void SetLastFramePos()
-        {
-            env.lastFramePos = env.pos;
-        }
-
-        public void SetLastGroundedPos()
-        {
-            env.lastGroundedPosition = env.pos;
-        }
-
-        public void Fall()
-        {
-            transform.position = transform.position - Vector3Int.down * fallSpeed;
-        }
-
+        #endregion
     }
 }
