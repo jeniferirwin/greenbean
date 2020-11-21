@@ -13,55 +13,11 @@ namespace Com.Technitaur.GreenBean
         public enum TileType { FullBrick, PartialBrick, LadderTopLeft, LadderTopRight, LadderLeft, LadderRight, RopeTop, Rope, Belt, Pole };
         public enum BeltType { None, Left, Right };
 
-        #region Pixels
-        public Vector2 pos
-        {
-            get
-            {
-                return (Vector2)transform.position;
-            }
-        }
-
-        public Vector2 DownPixel
-        {
-            get
-            {
-                return pos + Vector2.down * pixel;
-            }
-        }
-
-        public Vector2 LeftPixel
-        {
-            get
-            {
-                return pos + Vector2.left * pixel;
-            }
-        }
-
-        public Vector2 RightPixel
-        {
-            get
-            {
-                return pos + Vector2.right * pixel;
-            }
-        }
-
-        public Vector2 UpPixel
-        {
-            get
-            {
-                return pos + Vector2.up * pixel;
-            }
-        }
-        #endregion
-
-        public System.Type GetCustomTile(Vector3Int cell)
-        {
-            TileBase tileData;
-            tileData = map.GetTile<Tile>(cell);
-
-            return tileData.GetType();
-        }
+        public Vector2 pos { get { return (Vector2) transform.position; } }
+        public Vector2 UpPixel { get { return pos + Vector2.up * pixel; } }
+        public Vector2 DownPixel { get { return pos + Vector2.down * pixel; } }
+        public Vector2 LeftPixel { get { return pos + Vector2.left * pixel; } }
+        public Vector2 RightPixel { get { return pos + Vector2.right * pixel; } }
 
         public bool IsGrounded
         {
@@ -69,11 +25,31 @@ namespace Com.Technitaur.GreenBean
             {
                 Vector2 point = DownPixel;
                 Vector3Int cell = grid.WorldToCell(point);
-                var tileBase = map.GetTile(cell);
-                return true; // TODO
+                return HasSolidTile(cell);
             }
         }
         
+        public bool HasSolidTile(Vector3Int cell)
+        {
+            MRTile mrTile = map.GetTile<MRTile>(cell);
+            BeltTile beltTile = map.GetTile<BeltTile>(cell);
+
+            if (beltTile != null) return true;
+
+            switch (mrTile.tileType)
+            {
+                case MRTile.TileType.Brick:
+                case MRTile.TileType.LadderTopLeft:
+                case MRTile.TileType.LadderTopRight:
+                case MRTile.TileType.PartialBrick:
+                case MRTile.TileType.RopeTop:
+                    return true;
+                default:
+                    return false;
+            }
+
+        }
+
         public bool LeftBlocked
         {
             get
@@ -89,7 +65,7 @@ namespace Com.Technitaur.GreenBean
                 return IsBlocked(pos, Vector2.right, pixel * wallCastPixels);
             }
         }
-        
+
 
         public bool IsBlocked(Vector2 pos, Vector2 dir, float distance)
         {
@@ -103,14 +79,14 @@ namespace Com.Technitaur.GreenBean
                 Vector3Int cell = grid.WorldToCell(newPoint);
                 if (map.HasTile(cell))
                 {
-                    return true;
+                    if (HasSolidTile(cell)) return true;
                 }
                 pixels++;
                 covered += pixel;
             }
             return false;
         }
-        
+
         public Vector2 SnapToFloor(Vector2 point)
         {
             Vector2 newPoint = point;

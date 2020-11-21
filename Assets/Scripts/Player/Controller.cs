@@ -13,16 +13,20 @@ namespace Com.Technitaur.GreenBean
 
         private Vector2 moveDirection;
         private bool wantsJump;
+        private States state;
 
-        private bool isIdle;
-        private bool isWalking;
-        private bool isSliding;
-        private bool isJumpingUp;
-        private bool isJumpingDown;
-        private bool isClimbingRope;
-        private bool isClimbingLadder;
-        private bool isFalling;
-        private bool isDead;
+        public enum States
+        {
+            Idle,
+            Walking,
+            Sliding,
+            JumpingUp,
+            JumpingDown,
+            ClimbingRope,
+            ClimbingLadder,
+            Falling,
+            Dead
+        }
 
         public void Start()
         {
@@ -33,25 +37,18 @@ namespace Com.Technitaur.GreenBean
 
         public void FixedUpdate()
         {
-            frameProcessed = false;
-
             if (input.canGetValues)
             {
                 moveDirection = input.Direction;
                 wantsJump = input.desiredJump;
                 input.canGetValues = false;
             }
+            Vector2 horizontal = new Vector2(moveDirection.x, 0);
+            Vector2 vertical = new Vector2(0, moveDirection.y);
             
-            if (env.IsGrounded) return;
-
-            return;
-
             if (!env.IsGrounded)
             {
-                if (!isClimbingRope)
-                {
-                    wantsJump = false;
-                }
+
             }
             else
             {
@@ -59,7 +56,7 @@ namespace Com.Technitaur.GreenBean
                 bool canMoveLeft = moveDirection.x != 0 && !env.LeftBlocked;
                 if (canMoveRight || canMoveLeft)
                 {
-                    
+                    transform.position = env.Pixelize(env.pos + horizontal * ppfWalk * env.pixel);
                 }
             }
             ProcessWalking();
