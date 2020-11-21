@@ -10,6 +10,7 @@ namespace Com.Technitaur.GreenBean
         private int ppfWalk = 2;
         private int ppfFall = 4;
         private int ppfBelt = 1;
+        private int ppfClimbLadder = 1;
         private bool frameProcessed;
 
         private Vector2 moveDirection;
@@ -54,6 +55,14 @@ namespace Com.Technitaur.GreenBean
 
         public void FixedUpdate()
         {
+            env.EnvUpdate();
+            
+            if (env.IsGrounded && Mathf.Abs(env.pos.y) % 1 > 0)
+            {
+                transform.position = env.SnapToFloor(env.pos);
+                return;
+            }
+
             if (input.canGetValues)
             {
                 moveDirection = input.Direction;
@@ -68,7 +77,7 @@ namespace Com.Technitaur.GreenBean
             {
                 wantsJump = false;
             }
-
+            
             if (!env.IsGrounded)
             {
                 if (state == States.JumpingUp)
@@ -80,7 +89,6 @@ namespace Com.Technitaur.GreenBean
                     else
                     {
                         transform.position = GetJumpDestination();
-                        SetLastFramePos();
                         return;
                     }
                 }
@@ -92,15 +100,22 @@ namespace Com.Technitaur.GreenBean
                         jumpData = null;
                         state = States.Idle;
                         transform.position = env.SnapToFloor(env.pos);
-                        SetLastFramePos();
                         return;
                     }
-                    SetLastFramePos();
                     return;
                 }
                 if (state == States.ClimbingLadder)
                 {
-                    // TODO
+                    if (moveDirection.y != 0)
+                    {
+                        Vector2 climbDir = new Vector2(0,moveDirection.y);
+                        PixelMove(climbDir,ppfClimbLadder);
+                        if (env.IsGrounded)
+                        {
+                            state = States.Idle;
+                            return;
+                        }
+                    }
                 }
                 if (state == States.ClimbingRope)
                 {
@@ -121,28 +136,37 @@ namespace Com.Technitaur.GreenBean
             }
             else
             {
+                SetLastGroundedPos();
                 if (wantsJump)
                 {
                     wantsJump = false;
                     state = States.JumpingUp;
                     jumpData = new JumpData(moveDirection.x);
-                    SetLastGroundedPos();
                     transform.position = GetJumpDestination();
-                    SetLastFramePos();
+                    return;
+                }
+                if (moveDirection.y > 0 && env.IsAtLadder)
+                {
+                    state = States.ClimbingLadder;
+                    PixelMove(Vector2.up, ppfClimbLadder);
+                    return;
+                }
+                else if (moveDirection.y < 0 && env.IsAboveLadder)
+                {
+                    state = States.ClimbingLadder;
+                    PixelMove(Vector2.down, ppfClimbLadder);
                     return;
                 }
                 bool canMoveRight = moveDirection.x > 0 && !env.RightBlocked;
                 bool canMoveLeft = moveDirection.x < 0 && !env.LeftBlocked;
                 if (canMoveRight || canMoveLeft)
                 {
-                    SetLastGroundedPos();
                     int speed = ppfWalk;
                     if (env.IsOnLeftBelt && canMoveRight) speed--;
                     if (env.IsOnLeftBelt && canMoveLeft) speed++;
                     if (env.IsOnRightBelt && canMoveRight) speed++;
                     if (env.IsOnRightBelt && canMoveLeft) speed--;
                     PixelMove(horizontal, speed);
-                    SetLastFramePos();
 
                     if (!env.IsGrounded)
                     {
@@ -152,18 +176,14 @@ namespace Com.Technitaur.GreenBean
                 }
                 if (env.IsOnLeftBelt)
                 {
-                    SetLastGroundedPos();
                     PixelMove(new Vector2(-1,0),1);
                     if (!env.IsGrounded) state = States.Falling;
-                    SetLastFramePos();
                     return;
                 }
                 if (env.IsOnRightBelt)
                 {
-                    SetLastGroundedPos();
                     PixelMove(new Vector2(1,0),1);
                     if (!env.IsGrounded) state = States.Falling;
-                    SetLastFramePos();
                     return;
                 }
             }

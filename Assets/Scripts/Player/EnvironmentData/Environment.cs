@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 namespace Com.Technitaur.GreenBean
 {
     public class Environment : MonoBehaviour
     {
+        public TMP_Text vecStatus;
+        public TMP_Text groundStatus;
+        public TMP_Text tileStatus;
+        public TMP_Text moduloX;
+        public TMP_Text moduloY;
+        public TMP_Text belowTileStatus;
+
         public GridLayout grid;
         public Tilemap map;
         public Vector2 lastFramePos;
@@ -14,30 +22,106 @@ namespace Com.Technitaur.GreenBean
         public enum TileType { FullBrick, PartialBrick, LadderTopLeft, LadderTopRight, LadderLeft, LadderRight, RopeTop, Rope, Belt, Pole };
         public enum BeltType { None, Left, Right };
 
-        public Vector2 pos { get { return (Vector2) transform.position; } }
+        public Vector2 pos { get { return (Vector2)transform.position; } }
         public Vector2 UpPixel { get { return pos + Vector2.up * pixel; } }
         public Vector2 DownPixel { get { return pos + Vector2.down * pixel; } }
         public Vector2 LeftPixel { get { return pos + Vector2.left * pixel; } }
         public Vector2 RightPixel { get { return pos + Vector2.right * pixel; } }
 
+        public void CurrentPosModulos()
+        {
+            float xmod = transform.position.x % 1;
+            float ymod = transform.position.y % 1;
+            moduloX.text = "Modulo X: " + xmod.ToString();
+            moduloY.text = "Modulo Y: " + ymod.ToString();
+        }
+
+        public void EnvUpdate()
+        {
+            CurrentPosModulos();
+            vecStatus.text = "Vector2" + pos.ToString();
+            groundStatus.text = "IsGrounded: " + IsGrounded.ToString();
+            string text = "null";
+            MRTile tileData = GetTileAtPosition(pos);
+            if (tileData != null)
+            {
+                text = tileData.name;
+            }
+            tileStatus.text = "Current Tile At Feet: " + text;
+            string textBelow = "null";
+            MRTile tileDataBelow = GetTileAtPosition(pos + Vector2.down * pixel);
+            if (tileDataBelow != null)
+            {
+                textBelow = tileDataBelow.name;
+            }
+            belowTileStatus.text = "Below Feet: " + textBelow;
+        }
+
+        /*
+        public Vector2 TileLookahead(Vector2 destination)
+        {
+            Vector2 seeking = transform.position;
+            bool found = false;
+            while (!found)
+            {
+                float xdist = destination.x - seeking.x;
+                float ydist = destination.y - seeking.y;
+                if (xdist < pixel && ydist < pixel)
+                {
+                    found = true;
+                }
+                if (destination.x - seeking.x > pixel)
+                    seeking.x += pixel;
+                if (destination.y - seeking.y > pixel)
+                    seeking.y += pixel;    
+
+
+                
+            }
+            
+        }
+        */
+
+        public MRTile GetTileAtPosition(Vector2 pos)
+        {
+            Vector3Int cell = grid.WorldToCell(pos);
+            if (!map.HasTile(cell)) return null;
+            return map.GetTile<MRTile>(cell);
+        }
+
+        public MRTile TileAtFeet { get { return GetTileAtPosition(transform.position); } }
+        public MRTile TileUnderFeet { get { return GetTileAtPosition((Vector2) transform.position + Vector2.down * pixel); } }
+        
+        public bool IsAtUpperPixel
+        {
+            get
+            {
+                float mod = Mathf.Abs(transform.position.y) % 1;
+                if (mod > pixel * 7) return true;
+                return false;
+            }
+        }
+
         public bool IsGrounded
         {
             get
             {
-                Vector2 point = DownPixel;
-                Vector3Int cell = grid.WorldToCell(point);
-                if (!map.HasTile(cell)) return false;
-                MRTile tileData = map.GetTile<MRTile>(cell);
+                MRTile underTileData = TileUnderFeet;
+                MRTile atTileData = TileAtFeet;
 
-                if (tileData.solidity == MRTile.Solidity.None) return false;
+                if (underTileData == null) return false;
+
+                if (underTileData.solidity == MRTile.Solidity.None) return false;
                 
-                float upperPixel = cell.y + 6 * pixel;
-                if (pos.y < upperPixel) return false;
-
+                if (atTileData != null)
+                {
+                    bool insideTile = atTileData.GetInstanceID() == underTileData.GetInstanceID();
+                    if (insideTile && underTileData.solidity == MRTile.Solidity.Semisolid && !IsAtUpperPixel) return false;
+                }
                 return true;
             }
         }
-        
+
         public bool IsOnLeftBelt
         {
             get
@@ -51,6 +135,40 @@ namespace Com.Technitaur.GreenBean
                     case MRTile.TileType.LeftBeltLeft:
                     case MRTile.TileType.LeftBeltRight:
                     case MRTile.TileType.LeftBeltMiddle:
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        }
+
+        public bool IsAtLadder
+        {
+            get
+            {
+                MRTile mrTile = TileAtFeet;
+                if (mrTile == null) return false;
+                switch (mrTile.tileType)
+                {
+                    case MRTile.TileType.LadderBottomLeft:
+                    case MRTile.TileType.LadderBottomRight:
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        }
+
+        public bool IsAboveLadder
+        {
+            get
+            {
+                MRTile mrTile = TileUnderFeet;
+                if (mrTile == null) return false;
+                switch (mrTile.tileType)
+                {
+                    case MRTile.TileType.LadderTopLeft:
+                    case MRTile.TileType.LadderTopRight:
                         return true;
                     default:
                         return false;
@@ -77,7 +195,7 @@ namespace Com.Technitaur.GreenBean
                 }
             }
         }
-        
+
         public bool HasSolidTile(Vector3Int cell)
         {
             if (!map.HasTile(cell)) return false;
