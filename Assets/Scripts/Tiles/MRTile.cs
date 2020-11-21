@@ -8,8 +8,34 @@ namespace Com.Technitaur.GreenBean
     [CreateAssetMenu(fileName = "MRTile", menuName = "MRTiles/MRTile")]
     public class MRTile : TileBase
     {
+        public InteractableType objType;
         public Sprite[] sprites;
+        public Quadrant quadrant;
+        public TileType tileType;
+        public Sprite[] animatedSprites;
+        public Solidity solidity;
+
+        public enum Quadrant
+        {
+            None,
+            UpperLeft,
+            UpperRight,
+            LowerLeft,
+            LowerRight
+        }
+
+        public enum InteractableType
+        {
+            ClosedDoor,
+            OpenDoor,
+            Key,
+            Coin,
+            Wand,
+            Torch
+        }
+        
         public enum TileType {
+            Interactable,
             Brick,
             PartialBrick,
             LadderTopLeft,
@@ -34,15 +60,13 @@ namespace Com.Technitaur.GreenBean
             RightBeltRight,
             SemiSolidBrick
         };
+
         public enum Solidity
         {
             None,
             Semisolid,
             Solid
         }
-        public TileType tileType;
-        public Sprite[] animatedSprites;
-        public Solidity solidity;
 
         public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
         {

@@ -199,7 +199,6 @@ namespace Com.Technitaur.GreenBean
                     MRTile mrTile = map.GetTile<MRTile>(cell);
                     if (mrTile.solidity == MRTile.Solidity.Solid)
                     {
-                        Debug.Log("Blocked");
                         return true;
                     }
                 }
