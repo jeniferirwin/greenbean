@@ -15,6 +15,7 @@ namespace Com.Technitaur.GreenBean.Handlers
             tilemap = GetComponent<Tilemap>();
             tilemap.RefreshAllTiles();
             // tilemap.GetTilesBlock() -- this will be useful for the multi-part tiles
+            
         }
         
         public void OnCollectItem()

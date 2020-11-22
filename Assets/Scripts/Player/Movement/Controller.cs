@@ -6,6 +6,8 @@ namespace Com.Technitaur.GreenBean
 {
     public class Controller : MonoBehaviour
     {
+        public delegate void OnCollectItem(MRTile tile);
+
         public TMP_Text stateStatus;
         private InputHandler input;
         private Environment env;

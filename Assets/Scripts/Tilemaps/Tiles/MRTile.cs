@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
-using Com.Technitaur.GreenBean.Handlers;
 using System;
 
 namespace Com.Technitaur.GreenBean
@@ -8,6 +7,7 @@ namespace Com.Technitaur.GreenBean
     [CreateAssetMenu(fileName = "MRTile", menuName = "MRTiles/MRTile")]
     public class MRTile : TileBase
     {
+        public int level = 0;
         public InteractableType objType;
         public Sprite[] sprites;
         public Quadrant quadrant;
@@ -82,11 +82,7 @@ namespace Com.Technitaur.GreenBean
             }
             if (sprites.Length > 1)
             {
-                RoomController controller = tilemap.GetComponent<RoomController>();
-                if (controller != null)
-                    tileData.sprite = sprites[controller.level - 1];
-                else
-                    tileData.sprite = sprites[0];
+                tileData.sprite = sprites[level - 1];
             }
             else
             {
