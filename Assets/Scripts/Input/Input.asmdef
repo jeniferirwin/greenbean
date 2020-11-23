@@ -1,7 +1,7 @@
 {
-    "name": "Player",
+    "name": "Input",
     "references": [
-        "GUID:610d303c81d1add428e24805723da6ba"
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

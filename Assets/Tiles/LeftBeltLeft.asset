@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a64613f9688dec46901e000f8998a84, type: 3}
+  m_Name: LeftBeltLeft
+  m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0, z: 0}
+  sprites:
+  - {fileID: -1243035604522699380, guid: 3f690f76ddcf2864996d43c65b6de451, type: 3}
+  isLadder: 0
+  isHazard: 0
+  isRope: 0
+  isPole: 0
+  isSolid: 0
+  isSemiSolid: 0
+  isDoor: 0
+  isClosed: 0
+  isCollectible: 0
+  isLeftBelt: 1
+  isRightBelt: 0
+  level: 0
+  spritesA:
+  - {fileID: -1243035604522699380, guid: 3f690f76ddcf2864996d43c65b6de451, type: 3}
+  - {fileID: -6942572834926989504, guid: 3f690f76ddcf2864996d43c65b6de451, type: 3}
+  - {fileID: -6323213059827734356, guid: 3f690f76ddcf2864996d43c65b6de451, type: 3}
+  - {fileID: 2406116266568290337, guid: 3f690f76ddcf2864996d43c65b6de451, type: 3}
+  spritesB:
+  - {fileID: -427170249564045534, guid: 3583dbfdb0318eb409b3a47a89ce7936, type: 3}
+  - {fileID: -7634825416119783662, guid: 3583dbfdb0318eb409b3a47a89ce7936, type: 3}
+  - {fileID: 2880551849876936911, guid: 3583dbfdb0318eb409b3a47a89ce7936, type: 3}
+  - {fileID: -7079259682547245827, guid: 3583dbfdb0318eb409b3a47a89ce7936, type: 3}
+  spritesC:
+  - {fileID: -3531465487197310946, guid: 10eaf1118c5159c468256a909120cc83, type: 3}
+  - {fileID: -5592026604744463368, guid: 10eaf1118c5159c468256a909120cc83, type: 3}
+  - {fileID: -3739956188657067937, guid: 10eaf1118c5159c468256a909120cc83, type: 3}
+  - {fileID: 8614903371063789023, guid: 10eaf1118c5159c468256a909120cc83, type: 3}
+  spritesD:
+  - {fileID: 5476355238733938841, guid: b0a9b47f188bbe846b34544b35ecc6d7, type: 3}
+  - {fileID: 4552934434117440178, guid: b0a9b47f188bbe846b34544b35ecc6d7, type: 3}
+  - {fileID: -3483003673225860720, guid: b0a9b47f188bbe846b34544b35ecc6d7, type: 3}
+  - {fileID: -3044547912003536577, guid: b0a9b47f188bbe846b34544b35ecc6d7, type: 3}
+  spritesE:
+  - {fileID: 7109903385066745307, guid: c38dd59e7d21c5540a03e990ecb6ff05, type: 3}
+  - {fileID: 6729663159664329946, guid: c38dd59e7d21c5540a03e990ecb6ff05, type: 3}
+  - {fileID: -4991922656800462870, guid: c38dd59e7d21c5540a03e990ecb6ff05, type: 3}
+  - {fileID: 7645053486816498937, guid: c38dd59e7d21c5540a03e990ecb6ff05, type: 3}
+  spritesF:
+  - {fileID: -9056429296431837775, guid: 179c7b2eb0241584e9ac4eea19f7f55d, type: 3}
+  - {fileID: -5099462942243997536, guid: 179c7b2eb0241584e9ac4eea19f7f55d, type: 3}
+  - {fileID: -2686024826559249, guid: 179c7b2eb0241584e9ac4eea19f7f55d, type: 3}
+  - {fileID: -1387575554484682984, guid: 179c7b2eb0241584e9ac4eea19f7f55d, type: 3}
+  spritesG:
+  - {fileID: -6647832304244482309, guid: 553d28ffdd3b7964e910affc3379046d, type: 3}
+  - {fileID: 845413024939777137, guid: 553d28ffdd3b7964e910affc3379046d, type: 3}
+  - {fileID: 8327468524360871676, guid: 553d28ffdd3b7964e910affc3379046d, type: 3}
+  - {fileID: 2208887627629359930, guid: 553d28ffdd3b7964e910affc3379046d, type: 3}
+  spritesH:
+  - {fileID: 6356289065060665437, guid: 75042d2cfe5de9d44aea925a1863b988, type: 3}
+  - {fileID: 9007020173257573260, guid: 75042d2cfe5de9d44aea925a1863b988, type: 3}
+  - {fileID: 1785040612705086057, guid: 75042d2cfe5de9d44aea925a1863b988, type: 3}
+  - {fileID: 8050189455369818850, guid: 75042d2cfe5de9d44aea925a1863b988, type: 3}
+  spritesI:
+  - {fileID: 4492247430085081572, guid: 046e651d99a417a4083e55917b879ee6, type: 3}
+  - {fileID: 527535736693435831, guid: 046e651d99a417a4083e55917b879ee6, type: 3}
+  - {fileID: -2198502308725096075, guid: 046e651d99a417a4083e55917b879ee6, type: 3}
+  - {fileID: -4032058998348579413, guid: 046e651d99a417a4083e55917b879ee6, type: 3}
+  spritesJ:
+  - {fileID: -8857192081786472268, guid: eecedf8b7e5ce3d41b713b35a6240e65, type: 3}
+  - {fileID: 4852372876131995619, guid: eecedf8b7e5ce3d41b713b35a6240e65, type: 3}
+  - {fileID: -699182994240697317, guid: eecedf8b7e5ce3d41b713b35a6240e65, type: 3}
+  - {fileID: 8980623074248041759, guid: eecedf8b7e5ce3d41b713b35a6240e65, type: 3}

@@ -1,3 +1,17 @@
-﻿{
-	"name": "Tilemaps"
+{
+    "name": "Tilemaps",
+    "references": [
+        "GUID:979fd6bf8ff1e1a4fb3b63731806eb18",
+        "GUID:610d303c81d1add428e24805723da6ba",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
