@@ -12,5 +12,9 @@ namespace Com.Technitaur.GreenBean.Core
         bool AtCollectible { get; }
         bool AtPole { get; }
         bool AtClosedDoor { get; }
+        bool AtLeftBelt { get; }
+        bool AtRightBelt { get; }
+        
+        void SensorUpdate();
     }
 }

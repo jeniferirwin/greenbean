@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
 using Com.Technitaur.GreenBean.Core;
 using UnityEngine.Tilemaps;
-using TMPro;
 
 namespace Com.Technitaur.GreenBean.Tilemaps
 {
     public class Sensor : MonoBehaviour, ISensor
     {
-
-        public TMP_Text text;
         public Tilemap map;
         public Grid grid;
         
@@ -20,16 +17,15 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool AtCollectible { get; private set; }
         public bool AtPole { get; private set; }
         public bool AtClosedDoor { get; private set; }
+        public bool AtLeftBelt { get; private set; }
+        public bool AtRightBelt { get; private set; }
         
-        public void Update()
+        public void SensorUpdate()
         {
+            ResetVariables();
             CustomTile tile = TileAtLoc();
-            if (tile == null)
-            {
-                text.text = "Null";
-                return;
-            }
-            text.text = tile.name;
+            TileData tileData = tile.GetTileData(tile.pos, (ITilemap) map, ref tileData)
+            GetVariables(tile);
         }
 
         public CustomTile TileAtLoc()
@@ -41,6 +37,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         
         public void GetVariables(CustomTile tile)
         {
+            if (tile == null) return;
             AtLadder = tile.isLadder;
             AtRope = tile.isRope;
             AtSolid = tile.isSolid;
@@ -49,6 +46,9 @@ namespace Com.Technitaur.GreenBean.Tilemaps
             AtCollectible = tile.isCollectible;
             AtPole = tile.isPole;
             AtClosedDoor = (tile.isDoor && tile.isClosed);
+            AtSolid = AtClosedDoor;
+            AtLeftBelt = tile.isLeftBelt;
+            AtRightBelt = tile.isRightBelt;
         }
         
         public void ResetVariables()

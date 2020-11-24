@@ -28,6 +28,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Vertical Lock",
+                    "type": "Button",
+                    "id": "42902e52-d1cd-4bf5-864b-07533799bf21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Horizontal Lock",
+                    "type": "Button",
+                    "id": "4077dbe4-686a-4407-89ae-53e2bee48435",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -182,6 +198,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c955b9ce-dd70-454a-b777-db53749e275b",
+                    "path": "<HID::USB gamepad           >/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Vertical Lock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2030faea-4668-4521-a364-959f95142f99",
+                    "path": "<HID::USB gamepad           >/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Horizontal Lock",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

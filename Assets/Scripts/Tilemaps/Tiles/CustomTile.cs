@@ -8,18 +8,6 @@ namespace Com.Technitaur.GreenBean.Tilemaps
     {
         public Vector3Int pos;
         public Sprite[] sprites;
-        public bool isLadder;
-        public bool isHazard;
-        public bool isRope;
-        public bool isPole;
-        public bool isSolid;
-        public bool isSemiSolid;
-        public bool isDoor;
-        public bool isClosed;
-        public bool isCollectible;
-        public bool isLeftBelt;
-        public bool isRightBelt;
-        public int level;
 
         public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
         {

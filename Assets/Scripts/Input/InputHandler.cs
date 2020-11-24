@@ -6,85 +6,102 @@ namespace Com.Technitaur.GreenBean.Input
     public class InputHandler : MonoBehaviour
     {
         public int bufferLength;
+
+        private InputData bufData;
+        private Buffer buf;
+
+        public struct InputData
+        {
+            public Vector2Int dir;
+            public bool jump;
+            public bool hLock;
+            public bool vLock;
+        }
+
+        public struct Buffer
+        {
+            public int frames;
+
+            public Buffer(int length)
+            {
+                frames = length;
+            }
+        }
         
-        public Vector3Int Direction;
-        public bool desiredJump;
+        public void Start()
+        {
+            buf = new Buffer();
+            buf.frames = 0;
+        }
+
+        public void FixedUpdate()
+        {
+            if (buf.frames > 0) buf.frames--;
+        }
+
+        public void StartBuffer()
+        {
+            if (buf.frames == 0)
+                buf = new Buffer(bufferLength);
+        }
         
-        private int moveWait;
-        private int jumpWait;
-        
-        public bool canGetValues;
+        public bool HasData()
+        {
+            if (buf.frames > 0) return false;
+            return true;
+        }
+
+        public InputData GetData()
+        {
+            if (bufData.hLock) bufData.dir.y = 0;
+            if (bufData.vLock) bufData.dir.x = 0;
+            InputData copy = bufData;
+            bufData = new InputData();
+            return copy;
+        }
 
         public void OnMovement(InputAction.CallbackContext context)
         {
+            StartBuffer();
+            Vector2 input = context.ReadValue<Vector2>();
+            int x = (int)Mathf.Ceil(input.x);
+            int y = (int)Mathf.Ceil(input.y);
+            Vector2Int rounded = new Vector2Int(x, y);
+            bufData.dir = rounded;
+        }
+
+        public void OnVerticalLock(InputAction.CallbackContext context)
+        {
+            StartBuffer();
             if (context.started)
             {
-                Vector2 input = context.ReadValue<Vector2>();
-                Direction = SanitizeInput(input);
+                bufData.vLock = true;
             }
-            else if (context.canceled)
+            if (context.canceled)
             {
-                Direction = Vector3Int.zero;
+                bufData.vLock = false;
             }
-            moveWait = bufferLength;
-            canGetValues = false;
+        }
+
+        public void OnHorizontalLock(InputAction.CallbackContext context)
+        {
+            StartBuffer();
+            if (context.started)
+            {
+                bufData.hLock = true;
+            }
+            if (context.canceled)
+            {
+                bufData.hLock = false;
+            }
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
+            StartBuffer();
             if (context.started)
             {
-                desiredJump = true;
-            }
-            jumpWait = bufferLength;
-            canGetValues = false;
-        }
-
-        private void Start()
-        {
-            Direction = Vector3Int.zero;
-            desiredJump = false;
-            canGetValues = false;
-        }
-
-        private void FixedUpdate()
-        {
-            if (canGetValues)
-                return;
-
-            if (jumpWait > 0 || moveWait > 0)
-            {
-                jumpWait--;
-                moveWait--;
-                return;
-            }
-            else
-            {
-                canGetValues = true;
-            }
-        }
-        
-        public Vector3Int SanitizeInput(Vector2 input)
-        {
-            if (input.x < 0)
-            {
-                return Vector3Int.left;
-            }
-            else if (input.x > 0)
-            {
-                return Vector3Int.right;
-            }
-            else if (input.y > 0)
-            {
-                return Vector3Int.up;
-            }
-            else if (input.y < 0)
-            {
-                return Vector3Int.down;
-            }
-            else
-            {
-                return Vector3Int.zero;
+                bufData.jump = true;
             }
         }
     }
