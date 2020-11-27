@@ -7,7 +7,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
     {
         int GetLevel { get; }
         int SetLevel { set; }
-        bool IsLadder { get; }
+        bool IsLeftLadder { get; }
+        bool IsRightLadder { get; }
         bool IsRope { get; }
         bool IsSolid { get; }
         bool IsSemisolid { get; }

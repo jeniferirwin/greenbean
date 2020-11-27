@@ -35,13 +35,24 @@ namespace Com.Technitaur.GreenBean.Player
                 return false;
             }
         }
+        
+        public bool LadderSnapRight
+        {
+            get
+            {
+                atFeet.SensorUpdate();
+                belowFeet.SensorUpdate();
+                if (atFeet.AtLeftLadder || belowFeet.AtLeftLadder) return true;
+                return false;
+            }
+        }
 
         public bool CanClimbUpLadder
         {
             get
             {
                 atFeet.SensorUpdate();
-                if (atFeet.AtLadder) return true;
+                if (atFeet.AtLeftLadder || atFeet.AtRightLadder) return true;
                 return false;
             }
         }
@@ -51,7 +62,7 @@ namespace Com.Technitaur.GreenBean.Player
             get
             {
                 belowFeet.SensorUpdate();
-                if (belowFeet.AtLadder) return true;
+                if (belowFeet.AtLeftLadder || atFeet.AtRightLadder) return true;
                 return false;
             }
         }
@@ -125,6 +136,25 @@ namespace Com.Technitaur.GreenBean.Player
                 if (belowFeet.AtRightBelt) return true;
                 return false;
             }
+        }
+        
+        public Vector2Int HorizontalSnap(Vector2Int pos, bool right)
+        {
+            if (right)
+            {
+                while (pos.x % 8 != 0)
+                {
+                    pos.x++;
+                }
+            }
+            else
+            {
+                while (pos.x % 8 != 0)
+                {
+                    pos.x--;
+                }
+            }
+            return pos;
         }
     }
 }

@@ -9,7 +9,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public Tilemap map;
         public Grid grid;
         
-        public bool AtLadder { get; private set; }
+        public bool AtLeftLadder { get; private set; }
+        public bool AtRightLadder { get; private set; }
         public bool AtRope { get; private set; }
         public bool AtSolid { get; private set; }
         public bool AtSemisolid { get; private set; }
@@ -37,7 +38,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
             if (tile is ICustomTile)
             {
                 ICustomTile newTile = (ICustomTile) tile;
-                AtLadder = newTile.IsLadder;
+                AtLeftLadder = newTile.IsLeftLadder;
+                AtRightLadder = newTile.IsRightLadder;
                 AtRope = newTile.IsRope;
                 AtSolid = newTile.IsSolid;
                 AtSemisolid = newTile.IsSemisolid;
@@ -53,7 +55,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         
         public void ResetVariables()
         {
-            AtLadder = false;
+            AtLeftLadder = false;
+            AtRightLadder = false;
             AtRope = false;
             AtSolid = false;
             AtSemisolid = false;

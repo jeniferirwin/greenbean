@@ -18,7 +18,8 @@ MonoBehaviour:
   level: 0
   isSolid: 0
   isSemisolid: 0
-  isLadder: 1
+  isLeftLadder: 1
+  isRightLadder: 0
   isRope: 0
   isPole: 0
   isLeftBelt: 0

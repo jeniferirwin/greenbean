@@ -14,7 +14,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         [Header("Types")]
         public bool isSolid;
         public bool isSemisolid;
-        public bool isLadder;
+        public bool isLeftLadder;
+        public bool isRightLadder;
         public bool isRope;
         public bool isPole;
         public bool isLeftBelt;
@@ -22,7 +23,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
 
         public int GetLevel { get { return level; } }
         public int SetLevel { set { level = value; } }
-        public bool IsLadder { get { return isLadder; } }
+        public bool IsLeftLadder { get { return isLeftLadder; } }
+        public bool IsRightLadder { get { return isRightLadder; } }
         public bool IsPole { get { return isPole; } }
         public bool IsRope { get { return isRope; } }
         public bool IsSolid { get { return isSolid; } }
