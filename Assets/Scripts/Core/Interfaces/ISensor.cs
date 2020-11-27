@@ -4,6 +4,8 @@ namespace Com.Technitaur.GreenBean.Core
 {
     public interface ISensor
     {
+        bool AtLeftLadderTop { get; } 
+        bool AtRightLadderTop { get; } 
         bool AtLeftLadder { get; }
         bool AtRightLadder { get; }
         bool AtRope { get; }

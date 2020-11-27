@@ -5,38 +5,40 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class ClimbingLadder : PlayerBaseState
     {
-        public override void EnterState(Controller controller, InputHandler.InputData input)
+        public override void EnterState(Controller player, InputHandler.InputData input)
         {
-            Vector2Int rounded = Vector2Int.RoundToInt(controller.transform.position);
-            bool snapDir = controller.env.LadderSnapRight;
-            Vector2Int snapped = controller.env.HorizontalSnap(rounded, snapDir);
-            controller.gameObject.transform.position = (Vector3Int) snapped;
+            Vector2Int rounded = Vector2Int.RoundToInt(player.transform.position);
+            bool snapDir = player.env.LadderSnapRight;
+            Vector2Int snapped = player.env.HorizontalSnap(rounded, snapDir);
+            player.gameObject.transform.position = (Vector3Int)snapped;
         }
-        
+
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
         {
-            if (input.dir.y > 0 && player.env.CanClimbUpLadder)
+            if (input.dir.y > 0)
             {
-                if (player.IncrementalMove(Vector2Int.up, 1, true, false))
+                if (player.env.CanClimbUpLadder)
+                {
+                    player.IncrementalMove(Vector2Int.up, 1, false, false);
+                    return;
+                }
+                else
                 {
                     player.Transition(player.IdleState);
                     return;
                 }
             }
-            else if (input.dir.y < 0 && player.env.CanClimbDownLadder)
+            if (input.dir.y < 0)
             {
-                if (player.IncrementalMove(Vector2Int.down, 1, true, true))
+                if (player.env.CanClimbDownLadder)
                 {
-                    if (player.env.IsGrounded)
-                    {
-                        player.Transition(player.IdleState);
-                        return;
-                    }
-                    if (!player.env.CanClimbDownLadder)
-                    {
-                        player.Transition(player.FallingState);
-                        return;
-                    }
+                    player.IncrementalMove(Vector2Int.down, 1, false, false);
+                    return;
+                }
+                else
+                {
+                    player.Transition(player.IdleState);
+                    return;
                 }
             }
         }

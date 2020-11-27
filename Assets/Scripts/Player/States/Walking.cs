@@ -46,7 +46,12 @@ namespace Com.Technitaur.GreenBean.Player
             }
 
             Vector2Int dir = new Vector2Int(input.dir.x, 0);
-            if (player.IncrementalMove(input.dir, 2, false, true))
+            int speed = 2;
+            if (dir.x < 0 && player.env.IsOnLeftBelt) speed = 3;
+            if (dir.x < 0 && player.env.IsOnRightBelt) speed = 1;
+            if (dir.x > 0 && player.env.IsOnLeftBelt) speed = 1;
+            if (dir.x > 0 && player.env.IsOnRightBelt) speed = 3;
+            if (player.IncrementalMove(dir, speed, false, true))
             {
                 player.Transition(player.FallingState);
                 return;

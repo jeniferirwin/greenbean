@@ -7,6 +7,7 @@ namespace Com.Technitaur.GreenBean.Player
     {
         public override void EnterState(Controller player, InputHandler.InputData input)
         {
+
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
@@ -28,6 +29,7 @@ namespace Com.Technitaur.GreenBean.Player
                 player.Transition(player.ClimbingLadderState);
                 return;
             }
+
             if (input.dir.y < 0 && player.env.CanClimbDownLadder)
             {
                 player.Transition(player.ClimbingLadderState);

@@ -28,9 +28,10 @@ namespace Com.Technitaur.GreenBean.Player
             get
             {
                 belowFeet.SensorUpdate();
+                atFeet.SensorUpdate();
                 if (belowFeet.AtSemisolid || belowFeet.AtSolid)
                 {
-                    return true;
+                    if (!atFeet.AtSemisolid) return true;
                 }
                 return false;
             }
@@ -52,7 +53,7 @@ namespace Com.Technitaur.GreenBean.Player
             get
             {
                 atFeet.SensorUpdate();
-                if (atFeet.AtLeftLadder || atFeet.AtRightLadder) return true;
+                if (atFeet.AtLeftLadder || atFeet.AtRightLadder || atFeet.AtRightLadderTop || atFeet.AtLeftLadderTop) return true;
                 return false;
             }
         }
@@ -62,7 +63,7 @@ namespace Com.Technitaur.GreenBean.Player
             get
             {
                 belowFeet.SensorUpdate();
-                if (belowFeet.AtLeftLadder || atFeet.AtRightLadder) return true;
+                if (belowFeet.AtLeftLadder || belowFeet.AtRightLadder || belowFeet.AtLeftLadderTop || belowFeet.AtRightLadderTop) return true;
                 return false;
             }
         }
