@@ -5,105 +5,85 @@ namespace Com.Technitaur.GreenBean.Input
 {
     public class InputHandler : MonoBehaviour
     {
-        public int bufferLength;
+        public int frameBufferLength;
+        public Vector2Int dir;
+        public bool jump;
 
-        private InputData bufData;
-        private Buffer buf;
+        private bool bufferedJump;
+        private Vector2Int bufferedDir;
 
+        private bool hLock;
+        private bool vLock;
+        
+        private int currentFrameBuffer;
+        
         public struct InputData
         {
             public Vector2Int dir;
             public bool jump;
-            public bool hLock;
-            public bool vLock;
+        }
+        
+        public InputData GetData()
+        {
+            InputData newData = new InputData();
+            newData.dir = dir;
+            newData.jump = jump;
+            return newData;
         }
 
-        public struct Buffer
+        private void Start()
         {
-            public int frames;
-
-            public Buffer(int length)
+            hLock = false;
+            vLock = false;
+            currentFrameBuffer = frameBufferLength;
+        }
+        
+        private void FixedUpdate()
+        {
+            if (currentFrameBuffer <= 0)
             {
-                frames = length;
+                currentFrameBuffer = frameBufferLength;
+                dir = bufferedDir;
+                jump = bufferedJump;
+            }
+            else
+            {
+                currentFrameBuffer--;
             }
         }
         
-        public void Start()
-        {
-            buf = new Buffer();
-            buf.frames = 0;
-        }
-
-        public void FixedUpdate()
-        {
-            if (buf.frames > 0) buf.frames--;
-        }
-
-        public void StartBuffer()
-        {
-            if (buf.frames == 0)
-                buf = new Buffer(bufferLength);
-        }
-        
-        public bool HasData()
-        {
-            if (buf.frames > 0) return false;
-            return true;
-        }
-
-        public InputData GetData()
-        {
-            if (bufData.hLock) bufData.dir.y = 0;
-            if (bufData.vLock) bufData.dir.x = 0;
-            InputData copy = bufData;
-            bufData = new InputData();
-            bufData.dir = copy.dir;
-            return copy;
-        }
-
         public void OnMovement(InputAction.CallbackContext context)
         {
-            StartBuffer();
             Vector2 input = context.ReadValue<Vector2>();
-            Debug.Log(input);
             int x = (int)Mathf.Ceil(input.x);
             int y = (int)Mathf.Ceil(input.y);
             Vector2Int rounded = new Vector2Int(x, y);
-            bufData.dir = rounded;
+            if (vLock) rounded.x = 0;
+            if (hLock) rounded.y = 0;
+            bufferedDir = rounded;
         }
 
         public void OnVerticalLock(InputAction.CallbackContext context)
         {
-            StartBuffer();
-            if (context.started)
-            {
-                bufData.vLock = true;
-            }
-            if (context.canceled)
-            {
-                bufData.vLock = false;
-            }
+            if (context.started) vLock = true;
+            if (context.canceled) vLock = false;
         }
 
         public void OnHorizontalLock(InputAction.CallbackContext context)
         {
-            StartBuffer();
-            if (context.started)
-            {
-                bufData.hLock = true;
-            }
-            if (context.canceled)
-            {
-                bufData.hLock = false;
-            }
+            if (context.started) hLock = true;
+            if (context.canceled) hLock = false;
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
-            StartBuffer();
             if (context.started)
             {
-                bufData.jump = true;
+                bufferedJump = true;
+            }
+            else if (context.canceled)
+            {
+                bufferedJump = false;
             }
         }
     }

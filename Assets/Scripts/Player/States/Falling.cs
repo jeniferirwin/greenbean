@@ -19,10 +19,12 @@ namespace Com.Technitaur.GreenBean.Player
                 if (player.transform.position.y < startingPosition.y - 32)
                 {
                     player.Transition(player.FallingDeadState);
+                    return;
                 }
                 else
                 {
                     player.Transition(player.IdleState);
+                    return;
                 }
             }
         }

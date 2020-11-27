@@ -37,11 +37,12 @@ namespace Com.Technitaur.GreenBean.Player
         
         public void Update()
         {
-            if (inputHandler.HasData()) input = inputHandler.GetData();
+            input = inputHandler.GetData();
         }
         
         public void Transition(PlayerBaseState state)
         {
+            Debug.Log("Entering state: " + state);
             state.EnterState(this, input);
             this.state = state;
         }

@@ -36,8 +36,16 @@ namespace Com.Technitaur.GreenBean.Player
 
             if (player.IncrementalMove(yaxis, 1, true, true))
             {
-                if (player.env.IsGrounded) player.Transition(player.IdleState);
-                else player.Transition(player.FallingState);
+                if (player.env.IsGrounded)
+                {
+                    player.Transition(player.IdleState);
+                    return;
+                }
+                else 
+                {
+                    player.Transition(player.FallingState);
+                    return;
+                }
             }
         }
     }
