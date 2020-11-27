@@ -7,15 +7,12 @@ namespace Com.Technitaur.GreenBean.Player
     {
         public override void EnterState(Controller player, InputHandler.InputData input)
         {
+            Debug.Log("Idle now");
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
         {
-            if (!player.env.IsGrounded)
-            {
-                Debug.Log("Falling now");
-                player.Transition(player.FallingState);
-            }
+            if (!player.env.IsGrounded) player.Transition(player.FallingState);
 
             if (input.jump && player.env.IsGrounded) player.Transition(player.JumpingState);
 

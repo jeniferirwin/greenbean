@@ -57,6 +57,7 @@ namespace Com.Technitaur.GreenBean.Input
             if (bufData.vLock) bufData.dir.x = 0;
             InputData copy = bufData;
             bufData = new InputData();
+            bufData.dir = copy.dir;
             return copy;
         }
 
@@ -64,6 +65,7 @@ namespace Com.Technitaur.GreenBean.Input
         {
             StartBuffer();
             Vector2 input = context.ReadValue<Vector2>();
+            Debug.Log(input);
             int x = (int)Mathf.Ceil(input.x);
             int y = (int)Mathf.Ceil(input.y);
             Vector2Int rounded = new Vector2Int(x, y);

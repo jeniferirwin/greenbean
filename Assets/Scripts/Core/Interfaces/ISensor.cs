@@ -7,11 +7,8 @@ namespace Com.Technitaur.GreenBean.Core
         bool AtLadder { get; }
         bool AtRope { get; }
         bool AtSolid { get; }
-        bool AtSemiSolid { get; }
-        bool AtHazard { get; }
-        bool AtCollectible { get; }
+        bool AtSemisolid { get; }
         bool AtPole { get; }
-        bool AtClosedDoor { get; }
         bool AtLeftBelt { get; }
         bool AtRightBelt { get; }
         

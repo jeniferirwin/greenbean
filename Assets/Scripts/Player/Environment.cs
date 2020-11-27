@@ -28,10 +28,8 @@ namespace Com.Technitaur.GreenBean.Player
             get
             {
                 belowFeet.SensorUpdate();
-                Debug.Log("GroundCheck");
-                if (belowFeet.AtSemiSolid || belowFeet.AtSolid)
+                if (belowFeet.AtSemisolid || belowFeet.AtSolid)
                 {
-                    Debug.Log("IsGrounded");
                     return true;
                 }
                 return false;

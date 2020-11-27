@@ -4,20 +4,30 @@ using UnityEngine.Tilemaps;
 namespace Com.Technitaur.GreenBean.Tilemaps
 {
     [CreateAssetMenu(fileName = "CustomTile", menuName = "Custom Tile", order = 1)]
-    public class CustomTile : TileBase
+    public abstract class CustomTile : TileBase, ICustomTile
     {
+        [Header("Basic")]
+        public Sprite sprite;
+        public Texture2D texture;
         public Vector3Int pos;
-        public Sprite[] sprites;
+        public int level;
+        [Header("Types")]
+        public bool isSolid;
+        public bool isSemisolid;
+        public bool isLadder;
+        public bool isRope;
+        public bool isPole;
+        public bool isLeftBelt;
+        public bool isRightBelt;
 
-        public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
-        {
-            tileData.sprite = sprites[0];
-        }
-
-        public override bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
-        {
-            pos = position;
-            return true;
-        }
+        public int GetLevel { get { return level; } }
+        public int SetLevel { set { level = value; } }
+        public bool IsLadder { get { return isLadder; } }
+        public bool IsPole { get { return isPole; } }
+        public bool IsRope { get { return isRope; } }
+        public bool IsSolid { get { return isSolid; } }
+        public bool IsSemisolid { get { return isSemisolid; } }
+        public bool IsLeftBelt { get { return isLeftBelt; } }
+        public bool IsRightBelt { get { return isRightBelt; } }
     }
 }
