@@ -143,6 +143,7 @@ namespace Com.Technitaur.GreenBean.Player
         {
             if (right)
             {
+                pos.x++;
                 while (pos.x % 8 != 0)
                 {
                     pos.x++;
