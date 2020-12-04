@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bbf790ab8932ea4b9792be9bd232902, type: 3}
-  m_Name: PartialBrick
+  m_Script: {fileID: 11500000, guid: 93ce85ed968ca7a4f952a080e04d1792, type: 3}
+  m_Name: UIBottom
   m_EditorClassIdentifier: 
-  sprite: {fileID: 266245614654623995, guid: 40cf1a60c385ee54aae983e10f7b4e1e, type: 3}
-  texture: {fileID: 2800000, guid: 40cf1a60c385ee54aae983e10f7b4e1e, type: 3}
+  sprite: {fileID: 5161189461771409656, guid: f51f05c0e445bef4f86111dbd22818a4, type: 3}
+  texture: {fileID: 2800000, guid: f51f05c0e445bef4f86111dbd22818a4, type: 3}
   pos: {x: 0, y: 0, z: 0}
   level: 0
   isSolid: 0
-  isSemisolid: 1
-  isLadder: 0
+  isSemisolid: 0
+  isLeftLadder: 0
+  isRightLadder: 0
   isRope: 0
   isPole: 0
   isLeftBelt: 0

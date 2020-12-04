@@ -3,7 +3,6 @@ using UnityEngine.Tilemaps;
 
 namespace Com.Technitaur.GreenBean.Tilemaps
 {
-    [CreateAssetMenu(fileName = "CustomTile", menuName = "Custom Tile", order = 1)]
     public abstract class CustomTile : TileBase, ICustomTile
     {
         [Header("Basic")]

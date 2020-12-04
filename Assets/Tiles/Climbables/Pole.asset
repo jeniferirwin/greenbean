@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93ce85ed968ca7a4f952a080e04d1792, type: 3}
-  m_Name: RopeMid
+  m_Name: Pole
   m_EditorClassIdentifier: 
-  sprite: {fileID: -1350243068379591384, guid: 3be9e10ff5a7cfd4eab6fef238736d9f, type: 3}
-  texture: {fileID: 2800000, guid: 3be9e10ff5a7cfd4eab6fef238736d9f, type: 3}
+  sprite: {fileID: -5753253687218841029, guid: 5233a21ae5342ae4ab7364d52b7a64e7, type: 3}
+  texture: {fileID: 2800000, guid: 5233a21ae5342ae4ab7364d52b7a64e7, type: 3}
   pos: {x: 0, y: 0, z: 0}
   level: 0
   isSolid: 0
   isSemisolid: 0
-  isLadder: 0
-  isRope: 1
-  isPole: 0
+  isLeftLadder: 0
+  isRightLadder: 0
+  isRope: 0
+  isPole: 1
   isLeftBelt: 0
   isRightBelt: 0

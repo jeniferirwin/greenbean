@@ -3,5 +3,6 @@
     public interface ICollectible
     {
         int Score { get; }
+        Tables.Item itemType { get; }
     }
 }

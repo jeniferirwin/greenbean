@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Com.Technitaur.GreenBean.UI
+namespace Com.Technitaur.GreenBean.Graphics
 {
-    public class Barrel : MonoBehaviour
+    public class LeveledSprite : MonoBehaviour
     {
         public SpriteRenderer spriteRenderer;
         public Texture2D texture;
