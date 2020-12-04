@@ -18,18 +18,18 @@ TagManager:
   - Enemies
   - Collectibles
   - Player
-  - PlayerDamageCollider
-  - PlayerGroundCollider
-  - Ladders
-  - Ropes
-  - Hazards
-  - PlayerRopeChecker
-  - PlayerLadderChecker
-  - Doors
-  - LeftBelts
-  - RightBelts
-  - Poles
-  - Holographic Platforms
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
