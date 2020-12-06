@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b95a9df5f9e6b745a065106d9fbec61, type: 3}
+  m_Name: SpriteDB
+  m_EditorClassIdentifier: 
+  none:
+  - {fileID: 21300000, guid: 452a4aca0c7d491459de1c2ebac3cc35, type: 3}
+  sword:
+  - {fileID: 6708393288449726188, guid: c9f44e6bca642c8468acad38eb6b90e8, type: 3}
+  redKey:
+  - {fileID: 4490064725167305839, guid: c9f44e6bca642c8468acad38eb6b90e8, type: 3}
+  cyanKey:
+  - {fileID: -7812521777529569593, guid: c9f44e6bca642c8468acad38eb6b90e8, type: 3}
+  violetKey:
+  - {fileID: 6295283925938539866, guid: c9f44e6bca642c8468acad38eb6b90e8, type: 3}
+  coin:
+  - {fileID: 6029138797551954474, guid: c9f44e6bca642c8468acad38eb6b90e8, type: 3}
+  wand:
+  - {fileID: -6808571558370413574, guid: c9f44e6bca642c8468acad38eb6b90e8, type: 3}
+  torch:
+  - {fileID: 8161464157371448445, guid: c9f44e6bca642c8468acad38eb6b90e8, type: 3}
+  - {fileID: 4208554055920421237, guid: c9f44e6bca642c8468acad38eb6b90e8, type: 3}
+  - {fileID: 1419472164490053369, guid: c9f44e6bca642c8468acad38eb6b90e8, type: 3}
+  - {fileID: -4179269109479195497, guid: c9f44e6bca642c8468acad38eb6b90e8, type: 3}

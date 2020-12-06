@@ -4,6 +4,7 @@ namespace Com.Technitaur.GreenBean.Core
 {
     public enum ItemType
     {
+        None,
         RedKey,
         CyanKey,
         VioletKey,
@@ -15,6 +16,6 @@ namespace Com.Technitaur.GreenBean.Core
 
     public interface ICollectible
     {
-        ItemType ItemType { get; }
+        ItemType Item { get; }
     }
 }
