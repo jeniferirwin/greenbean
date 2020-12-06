@@ -17,5 +17,6 @@ namespace Com.Technitaur.GreenBean.Core
     public interface ICollectible
     {
         ItemType Item { get; }
+        int VanishTimer { get; }
     }
 }
