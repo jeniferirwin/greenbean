@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Com.Technitaur.GreenBean.Helpers
+namespace Com.Technitaur.GreenBean.Graphics
 {
     public class Palette : MonoBehaviour
     {

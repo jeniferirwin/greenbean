@@ -1,3 +1,15 @@
-﻿{
-	"name": "Graphics"
+{
+    "name": "Graphics",
+    "references": [
+        "GUID:610d303c81d1add428e24805723da6ba"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace Com.Technitaur.GreenBean.ReTex
+namespace Com.Technitaur.GreenBean.Graphics
 {
     public static class VICEPalette
     {
