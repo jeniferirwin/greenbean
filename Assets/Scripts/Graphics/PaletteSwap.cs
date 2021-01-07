@@ -5,17 +5,16 @@ namespace Com.Technitaur.GreenBean.Graphics
 {
     public static class PaletteSwap
     {
-        public static Sprite SpriteSwap(Sprite inputSprite, Color[] scheme)
+        public static void ColorSwap(SpriteRenderer renderer, int level)
         {
-            Rect rect = inputSprite.rect;
-            Vector2 pivot = inputSprite.pivot;
-            float ppu = inputSprite.pixelsPerUnit;
-            Texture2D newTex = TexSwap(inputSprite.texture,scheme);
-            Sprite newSprite = Sprite.Create(newTex,rect,pivot,ppu,0,SpriteMeshType.Tight);
-            return newSprite;
+            var block = new MaterialPropertyBlock();
+            var tex = renderer.sprite.texture;
+            var schemes = VICEPalette.schemes;
+            block.SetTexture("_MainTex",RecolorBaseTexture(tex, schemes[level]));
+            renderer.SetPropertyBlock(block);
         }
         
-        public static Texture2D TexSwap(Texture2D texture, Color[] scheme)
+        public static Texture2D RecolorBaseTexture(Texture2D texture, Color[] scheme)
         {
             Color[] pixels = texture.GetPixels(0, 0, texture.width, texture.height);
             for (int i = 0; i < pixels.Length; i++)
