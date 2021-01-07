@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using Com.Technitaur.GreenBean.Core;
+using UnityEngine.Tilemaps;
 
 namespace Com.Technitaur.GreenBean.Graphics
 {
-    [RequireComponent(typeof(SpriteRenderer))]
-    public class Swappable : MonoBehaviour
+    [RequireComponent(typeof(TilemapRenderer))]
+    public class SwappableTilemap : MonoBehaviour
     {
         private void Start()
         {
             var room = GameObject.FindGameObjectWithTag("RoomData");
             var roomData = room.GetComponent<RoomData>();
-            var renderer = GetComponent<SpriteRenderer>();
-            PaletteSwap.ColorSwap(renderer, roomData.level);
+            var renderer = GetComponent<TilemapRenderer>();
         }
     }
 }

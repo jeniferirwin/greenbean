@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
+using Com.Technitaur.GreenBean.Graphics;
+using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Tilemaps
 {
@@ -8,11 +10,17 @@ namespace Com.Technitaur.GreenBean.Tilemaps
     {
         public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
         {
-            int section = level * 8;
-            Rect rect = new Rect(section, 0, 8, 8);
-            Vector2 pivot = new Vector2(0.5f, 0.5f);
-            int ppu = 1;
-            tileData.sprite = Sprite.Create(texture, rect, pivot, ppu, 0, SpriteMeshType.Tight);
+            tileData.sprite = PaletteSwap.SwappedSprite(sprite, texture);
+        }
+
+        public override void RefreshTile(Vector3Int position, ITilemap tilemap)
+        {
+            tilemap.RefreshTile(position);
+        }
+
+        public override bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
+        {
+            return base.StartUp(position, tilemap, go);
         }
     }
 }
