@@ -169,52 +169,52 @@ TextureImporter:
     second: twotone_sprites_54
   - first:
       213: -9070236489248246069
-    second: twotone_sprites_55
+    second: brick_full
   - first:
       213: -6240223958932478029
-    second: twotone_sprites_56
+    second: brick_partial
   - first:
       213: 2969996548014385461
-    second: twotone_sprites_57
+    second: laddertop_left
   - first:
       213: 3431553203059362071
-    second: twotone_sprites_58
+    second: laddertop_right
   - first:
       213: 7766215609699554074
-    second: twotone_sprites_59
+    second: ui_side
   - first:
       213: 8997275098653118123
-    second: twotone_sprites_60
+    second: ui_bottom
   - first:
       213: -2820423051115071032
-    second: twotone_sprites_61
+    second: barrel
   - first:
       213: -8393302589448585112
     second: twotone_sprites_62
   - first:
       213: 124839718404662683
-    second: twotone_sprites_63
+    second: wand
   - first:
       213: -862105520245018613
     second: twotone_sprites_64
   - first:
       213: -7239797246455097130
-    second: twotone_sprites_65
+    second: odoor_upperleft
   - first:
       213: 455873900945161939
-    second: twotone_sprites_66
+    second: odoor_uppermiddle
   - first:
       213: 3301417552836544149
-    second: twotone_sprites_67
+    second: odoor_upperright
   - first:
       213: -3177546366037117029
-    second: twotone_sprites_68
+    second: belt_A0_left
   - first:
       213: 7852842214467924057
-    second: twotone_sprites_69
+    second: belt_A0_middle
   - first:
       213: -8275250076392020722
-    second: twotone_sprites_70
+    second: belt_A0_right
   - first:
       213: -5476865288702183368
     second: twotone_sprites_71
@@ -235,70 +235,70 @@ TextureImporter:
     second: twotone_sprites_76
   - first:
       213: -3185500715483023868
-    second: twotone_sprites_77
+    second: odoor_lowerleft
   - first:
       213: -8032089402933205295
-    second: twotone_sprites_78
+    second: odoor_lowermiddle
   - first:
       213: -4913162411671542598
-    second: twotone_sprites_79
+    second: odoor_lowerright
   - first:
       213: -4406961771088407705
-    second: twotone_sprites_80
+    second: belt_A1_left
   - first:
       213: 8947135912107075840
-    second: twotone_sprites_81
+    second: belt_A1_middle
   - first:
       213: 4238845822706786702
-    second: twotone_sprites_82
+    second: belt_A1_right
   - first:
       213: 4198896181990316413
-    second: twotone_sprites_83
+    second: sword
   - first:
       213: 5160323485202972476
     second: twotone_sprites_84
   - first:
       213: -5141307082286268907
-    second: twotone_sprites_85
+    second: coin
   - first:
       213: -5808553829564652596
     second: twotone_sprites_86
   - first:
       213: 2813356486045828731
-    second: twotone_sprites_87
+    second: black_large
   - first:
       213: 6165485399092068362
     second: twotone_sprites_88
   - first:
       213: 5452548053346508205
-    second: twotone_sprites_89
+    second: black_small
   - first:
       213: 6271366882346424845
     second: twotone_sprites_90
   - first:
       213: 7763599026528219405
-    second: twotone_sprites_91
+    second: key
   - first:
       213: 8567972204920266405
     second: twotone_sprites_92
   - first:
       213: 2561163997411767056
-    second: twotone_sprites_93
+    second: web_left
   - first:
       213: -8108309598316842364
-    second: twotone_sprites_94
+    second: web_right
   - first:
       213: 3820160419073517312
-    second: twotone_sprites_95
+    second: door_closed
   - first:
       213: -7760891824806457414
-    second: twotone_sprites_96
+    second: belt_A2_left
   - first:
       213: -7674027447386788434
-    second: twotone_sprites_97
+    second: belt_A2_middle
   - first:
       213: -7313472141542372044
-    second: twotone_sprites_98
+    second: belt_A2_right
   - first:
       213: 6032879953512094580
     second: twotone_sprites_99
@@ -331,52 +331,52 @@ TextureImporter:
     second: twotone_sprites_108
   - first:
       213: -527588770494619687
-    second: twotone_sprites_109
+    second: rope_top
   - first:
       213: -8984325151154089716
-    second: twotone_sprites_110
+    second: rope_mid
   - first:
       213: 6445787501512374921
-    second: twotone_sprites_111
+    second: belt_A3_left
   - first:
       213: -2947234207552656002
-    second: twotone_sprites_112
+    second: belt_A3_middle
   - first:
       213: -3148745848880905443
-    second: twotone_sprites_113
+    second: belt_A3_right
   - first:
       213: 6938969642973678870
-    second: twotone_sprites_114
+    second: torch_A0
   - first:
       213: -3737205197329535348
     second: twotone_sprites_115
   - first:
       213: 1247477203065865268
-    second: twotone_sprites_116
+    second: torch_A1
   - first:
       213: -7179724165562943092
     second: twotone_sprites_117
   - first:
       213: 1935602525839127331
-    second: twotone_sprites_118
+    second: torch_A2
   - first:
       213: 3179585528779317996
     second: twotone_sprites_119
   - first:
       213: -8741292661953957258
-    second: twotone_sprites_120
+    second: torch_A3
   - first:
       213: 6369265140105832969
     second: twotone_sprites_121
   - first:
       213: 6277236838774598117
-    second: twotone_sprites_122
+    second: ui_top
   - first:
       213: -378972367918281467
-    second: twotone_sprites_123
+    second: ladder_left
   - first:
       213: -7261543884379688678
-    second: twotone_sprites_124
+    second: ladder_right
   - first:
       213: -6848666957852787826
     second: twotone_sprites_125
@@ -401,6 +401,12 @@ TextureImporter:
   - first:
       213: 5570278744295319128
     second: twotone_sprites_132
+  - first:
+      213: 7672064755138430786
+    second: pole
+  - first:
+      213: -2744459860488241012
+    second: environment_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1023,7 +1029,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_55
+      name: brick_full
       rect:
         serializedVersion: 2
         x: 0
@@ -1044,7 +1050,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_56
+      name: brick_partial
       rect:
         serializedVersion: 2
         x: 8
@@ -1065,7 +1071,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_57
+      name: laddertop_left
       rect:
         serializedVersion: 2
         x: 16
@@ -1086,7 +1092,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_58
+      name: laddertop_right
       rect:
         serializedVersion: 2
         x: 24
@@ -1107,7 +1113,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_59
+      name: ui_side
       rect:
         serializedVersion: 2
         x: 32
@@ -1128,7 +1134,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_60
+      name: ui_bottom
       rect:
         serializedVersion: 2
         x: 40
@@ -1149,7 +1155,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_61
+      name: barrel
       rect:
         serializedVersion: 2
         x: 48
@@ -1170,7 +1176,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_63
+      name: wand
       rect:
         serializedVersion: 2
         x: 64
@@ -1191,7 +1197,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_65
+      name: odoor_upperleft
       rect:
         serializedVersion: 2
         x: 80
@@ -1212,7 +1218,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_66
+      name: odoor_uppermiddle
       rect:
         serializedVersion: 2
         x: 88
@@ -1233,7 +1239,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_67
+      name: odoor_upperright
       rect:
         serializedVersion: 2
         x: 96
@@ -1254,7 +1260,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_68
+      name: belt_A0_left
       rect:
         serializedVersion: 2
         x: 104
@@ -1275,7 +1281,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_69
+      name: belt_A0_middle
       rect:
         serializedVersion: 2
         x: 112
@@ -1296,7 +1302,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_70
+      name: belt_A0_right
       rect:
         serializedVersion: 2
         x: 120
@@ -1338,7 +1344,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_77
+      name: odoor_lowerleft
       rect:
         serializedVersion: 2
         x: 80
@@ -1359,7 +1365,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_78
+      name: odoor_lowermiddle
       rect:
         serializedVersion: 2
         x: 88
@@ -1380,7 +1386,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_79
+      name: odoor_lowerright
       rect:
         serializedVersion: 2
         x: 96
@@ -1401,7 +1407,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_80
+      name: belt_A1_left
       rect:
         serializedVersion: 2
         x: 104
@@ -1422,7 +1428,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_81
+      name: belt_A1_middle
       rect:
         serializedVersion: 2
         x: 112
@@ -1443,7 +1449,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_82
+      name: belt_A1_right
       rect:
         serializedVersion: 2
         x: 120
@@ -1464,7 +1470,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_83
+      name: sword
       rect:
         serializedVersion: 2
         x: 0
@@ -1485,7 +1491,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_85
+      name: coin
       rect:
         serializedVersion: 2
         x: 16
@@ -1506,7 +1512,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_87
+      name: black_large
       rect:
         serializedVersion: 2
         x: 32
@@ -1527,13 +1533,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_89
+      name: black_small
       rect:
         serializedVersion: 2
         x: 48
-        y: 16
-        width: 16
-        height: 16
+        y: 24
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1548,7 +1554,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_91
+      name: key
       rect:
         serializedVersion: 2
         x: 64
@@ -1569,7 +1575,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_93
+      name: web_left
       rect:
         serializedVersion: 2
         x: 80
@@ -1590,7 +1596,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_94
+      name: web_right
       rect:
         serializedVersion: 2
         x: 88
@@ -1611,7 +1617,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_95
+      name: door_closed
       rect:
         serializedVersion: 2
         x: 96
@@ -1632,7 +1638,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_96
+      name: belt_A2_left
       rect:
         serializedVersion: 2
         x: 104
@@ -1653,7 +1659,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_97
+      name: belt_A2_middle
       rect:
         serializedVersion: 2
         x: 112
@@ -1674,7 +1680,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_98
+      name: belt_A2_right
       rect:
         serializedVersion: 2
         x: 120
@@ -1695,7 +1701,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_109
+      name: rope_top
       rect:
         serializedVersion: 2
         x: 80
@@ -1716,7 +1722,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_110
+      name: rope_mid
       rect:
         serializedVersion: 2
         x: 88
@@ -1737,7 +1743,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_111
+      name: belt_A3_left
       rect:
         serializedVersion: 2
         x: 104
@@ -1758,7 +1764,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_112
+      name: belt_A3_middle
       rect:
         serializedVersion: 2
         x: 112
@@ -1779,7 +1785,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_113
+      name: belt_A3_right
       rect:
         serializedVersion: 2
         x: 120
@@ -1800,7 +1806,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_114
+      name: torch_A0
       rect:
         serializedVersion: 2
         x: 0
@@ -1821,7 +1827,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_116
+      name: torch_A1
       rect:
         serializedVersion: 2
         x: 16
@@ -1842,7 +1848,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_118
+      name: torch_A2
       rect:
         serializedVersion: 2
         x: 32
@@ -1863,7 +1869,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_120
+      name: torch_A3
       rect:
         serializedVersion: 2
         x: 48
@@ -1884,7 +1890,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_122
+      name: ui_top
       rect:
         serializedVersion: 2
         x: 72
@@ -1905,7 +1911,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_123
+      name: ladder_left
       rect:
         serializedVersion: 2
         x: 80
@@ -1926,7 +1932,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: twotone_sprites_124
+      name: ladder_right
       rect:
         serializedVersion: 2
         x: 88
@@ -1942,6 +1948,27 @@ TextureImporter:
       bones: []
       spriteID: a1173aa7f40d93b90800000000000000
       internalID: -7261543884379688678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pole
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24702d71f36a87a60800000000000000
+      internalID: 7672064755138430786
       vertices: []
       indices: 
       edges: []
