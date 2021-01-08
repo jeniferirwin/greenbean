@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Com.Technitaur
+namespace Com.Technitaur.GreenBean.Tilemaps
 {
     public class InitializeLeveledTiles : MonoBehaviour
     {
