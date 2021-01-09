@@ -38,11 +38,11 @@ namespace Com.Technitaur.GreenBean.Graphics
             Color[] pixels = texture.GetPixels(0, 0, texture.width, texture.height);
             for (int i = 0; i < pixels.Length; i++)
             {
-                if (pixels[i].r == 1.0f && pixels[i].a > 0.5f)
+                if (pixels[i].r == 1.0f && pixels[i].b == 0f && pixels[i].g == 0f && pixels[i].a > 0.5f)
                 {
                     pixels[i] = scheme[0];
                 }
-                else if (pixels[i].g == 1.0f && pixels[i].a > 0.5f)
+                else if (pixels[i].g == 1.0f && pixels[i].b == 0f && pixels[i].r == 0f && pixels[i].a > 0.5f)
                 {
                     pixels[i] = scheme[1];
                 }
