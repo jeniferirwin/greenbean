@@ -19,6 +19,10 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool isPole;
         public bool isLeftBelt;
         public bool isRightBelt;
+        [Header("Doors")]
+        public bool isCyanDoor;
+        public bool isRedDoor;
+        public bool isVioletDoor;
 
         public int GetLevel { get { return level; } }
         public int SetLevel { set { level = value; } }
@@ -30,5 +34,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool IsSemisolid { get { return isSemisolid; } }
         public bool IsLeftBelt { get { return isLeftBelt; } }
         public bool IsRightBelt { get { return isRightBelt; } }
+        public bool IsCyanDoor { get { return isCyanDoor; } }
+        public bool IsRedDoor { get { return isCyanDoor; } }
+        public bool IsVioletDoor { get { return isCyanDoor; } }
     }
 }

@@ -15,5 +15,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         bool IsPole { get; }
         bool IsLeftBelt { get; }
         bool IsRightBelt { get; }
+        bool IsCyanDoor { get; }
+        bool IsRedDoor { get; }
+        bool IsVioletDoor { get; }
     }
 }
