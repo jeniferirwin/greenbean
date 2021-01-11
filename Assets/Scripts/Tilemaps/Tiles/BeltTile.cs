@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 using System;
-using Com.Technitaur.GreenBean.Graphics;
 
 namespace Com.Technitaur.GreenBean.Tilemaps
 {
@@ -26,15 +25,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public Sprite[] BeltTileArray(bool isRightBelt)
         {
             Sprite[] tiles = new Sprite[4];
-            for (int i = 0; i < tiles.Length; i++)
-            {
-                var newSprite = PaletteSwap.SwappedSprite(frames[i], frames[i].texture);
-                tiles[i] = newSprite;
-            }
-            if (!isRightBelt)
-            {
-                Array.Reverse(tiles);
-            }
+            frames.CopyTo(tiles,0);
+            if (!isRightBelt) Array.Reverse(tiles);
             return tiles;
         }
     }

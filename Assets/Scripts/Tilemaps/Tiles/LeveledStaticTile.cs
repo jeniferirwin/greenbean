@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
-using Com.Technitaur.GreenBean.Graphics;
-using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Tilemaps
 {
@@ -10,7 +8,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
     {
         public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
         {
-            tileData.sprite = PaletteSwap.SwappedSprite(sprite, texture);
+            tileData.sprite = sprite;
         }
 
         public override void RefreshTile(Vector3Int position, ITilemap tilemap)
