@@ -852,7 +852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liveTexture: {fileID: 2800000, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
   baseTexture: {fileID: 2800000, guid: b4a957a5b266c4b4ca2279863992dba8, type: 3}
-  level: 6
+  level: 2
 --- !u!4 &1376677199
 Transform:
   m_ObjectHideFlags: 0

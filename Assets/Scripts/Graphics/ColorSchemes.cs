@@ -51,16 +51,8 @@ namespace Com.Technitaur.GreenBean.Graphics
 				var isRed = pixels[i].r == 1.0f && pixels[i].b == 0f && pixels[i].g == 0f && pixels[i].a > 0.5f;
 				var isGreen = pixels[i].g == 1.0f && pixels[i].b == 0f && pixels[i].r == 0f && pixels[i].a > 0.5f;
 
-                if (isRed)
-				{
-					pixels[i] = primaryColor;
-					Debug.Log($"Pixel {pixels[i]} is red; changing to {primaryColor}.");
-				}
-                else if (isGreen)
-				{
-					pixels[i] = secondaryColor;
-					Debug.Log($"Pixel {pixels[i]} is green; changing to {secondaryColor}.");
-				}
+                if (isRed) pixels[i] = primaryColor;
+                else if (isGreen) pixels[i] = secondaryColor;
             }
 
             liveTexture.SetPixels(0, 0, baseTexture.width, baseTexture.height, pixels);
