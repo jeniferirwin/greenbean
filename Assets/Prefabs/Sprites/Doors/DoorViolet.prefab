@@ -24,6 +24,12 @@ PrefabInstance:
       propertyPath: keyColor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8108871380687066206, guid: da2ad8aa44b708544af55f721befa456,
+        type: 3}
+      propertyPath: unlockedBy
+      value: 
+      objectReference: {fileID: 1740261539715701713, guid: 6db70a8f5230c8f4b840034ba01772b0,
+        type: 3}
     - target: {fileID: 8108871380687066208, guid: da2ad8aa44b708544af55f721befa456,
         type: 3}
       propertyPath: m_LocalPosition.x

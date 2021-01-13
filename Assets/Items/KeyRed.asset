@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3a993006e0c8a4dadd076b5138567d, type: 3}
   m_Name: KeyRed
   m_EditorClassIdentifier: 
+  type: 2
   Sprite: {fileID: 3662989982615374409, guid: cea196bd2accff6409c602c6daa76ed8, type: 3}
   Worth: 100

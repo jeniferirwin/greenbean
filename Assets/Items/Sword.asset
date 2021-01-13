@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a3a993006e0c8a4dadd076b5138567d, type: 3}
-  m_Name: KeyCyan
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  type: 1
-  Sprite: {fileID: 5240553953119698082, guid: cea196bd2accff6409c602c6daa76ed8, type: 3}
+  type: 3
+  Sprite: {fileID: 4198896181990316413, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
   Worth: 100
