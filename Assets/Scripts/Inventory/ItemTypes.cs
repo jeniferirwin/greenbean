@@ -9,6 +9,7 @@ namespace Com.Technitaur.GreenBean.Inventory
         KeyRed,
         Sword,
         Torch,
-        Wand
+        Wand,
+        None
     }
 }

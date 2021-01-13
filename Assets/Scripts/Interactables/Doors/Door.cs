@@ -7,6 +7,6 @@ namespace Com.Technitaur.GreenBean.Interactables
         public Inventory.ItemType UnlockedBy { get { return unlockedBy; } }
 
         [Header("Door")]
-        [SerializeField] private Inventory.ItemType unlockedBy;
+        [SerializeField] private Inventory.ItemType unlockedBy = Inventory.ItemType.None;
     }
 }

@@ -7,10 +7,10 @@ namespace Com.Technitaur.GreenBean.Interactables
         public bool IsDirty { get; private set; }
 
         [Header("Trackable")]
-        [SerializeField] private Sprite dirtySprite;
-        [SerializeField] private Sprite cleanSprite;
-        [SerializeField] private SpriteRenderer rend;
-        [SerializeField] private BoxCollider2D objCollider;
+        [SerializeField] private Sprite dirtySprite = null;
+        [SerializeField] private Sprite cleanSprite = null;
+        [SerializeField] private SpriteRenderer rend = null;
+        [SerializeField] private BoxCollider2D objCollider = null;
         
         public GameObject GetGameObject() => gameObject;
         

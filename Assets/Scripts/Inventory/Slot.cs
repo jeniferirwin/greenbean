@@ -6,7 +6,7 @@ namespace Com.Technitaur.GreenBean.Inventory
     {
         public Item slotItem;
         
-        [SerializeField] private SpriteRenderer rend;
+        [SerializeField] private SpriteRenderer rend = null;
         
         public void Clear()
         {
