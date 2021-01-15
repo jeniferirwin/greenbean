@@ -68,14 +68,14 @@ namespace Tests
         public void InventoryCanReceiveNewItems()
         {
             inventory.Add(items[ItemType.Sword]);
-            Assert.IsTrue(inventory.Count > 0);
+            Assert.AreNotEqual(0, inventory.Count);
         }
 
         [Test]
         [Order(2)]
         public void InventoryCountIsAccurateTo1()
         {
-            Assert.IsTrue(inventory.Count == 1);
+            Assert.AreEqual(1, inventory.Count);
         }
 
         [Test]
@@ -83,7 +83,7 @@ namespace Tests
         public void InventoryCountIsAccurateTo2()
         {
             inventory.Add(items[ItemType.KeyCyan]);
-            Assert.IsTrue(inventory.Count == 2);
+            Assert.AreEqual(2, inventory.Count);
         }
 
         [Test]
@@ -91,7 +91,7 @@ namespace Tests
         public void InventoryCountIsAccurateTo3()
         {
             inventory.Add(items[ItemType.KeyViolet]);
-            Assert.IsTrue(inventory.Count == 3);
+            Assert.AreEqual(3, inventory.Count);
         }
 
         [Test]
@@ -99,7 +99,7 @@ namespace Tests
         public void InventoryCountIsAccurateTo4()
         {
             inventory.Add(items[ItemType.KeyRed]);
-            Assert.IsTrue(inventory.Count == 4);
+            Assert.AreEqual(4, inventory.Count);
         }
 
         [Test]
@@ -107,18 +107,18 @@ namespace Tests
         public void InventoryCountIsAccurateTo5()
         {
             inventory.Add(items[ItemType.Torch]);
-            Assert.IsTrue(inventory.Count == 5);
+            Assert.AreEqual(5, inventory.Count);
         }
         
         [Test]
         [Order(7)]
         public void ItemsAreInOrderEntered()
         {
-            Assert.IsTrue(inventory.items[0].Name == "sword");
-            Assert.IsTrue(inventory.items[1].Name == "cyan key");
-            Assert.IsTrue(inventory.items[2].Name == "violet key");
-            Assert.IsTrue(inventory.items[3].Name == "red key");
-            Assert.IsTrue(inventory.items[4].Name == "torch");
+            Assert.AreEqual("sword", inventory.items[0].Name);
+            Assert.AreEqual("cyan key", inventory.items[1].Name);
+            Assert.AreEqual("violet key", inventory.items[2].Name);
+            Assert.AreEqual("red key", inventory.items[3].Name);
+            Assert.AreEqual("torch", inventory.items[4].Name);
         }
     }
 }
