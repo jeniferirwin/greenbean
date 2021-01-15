@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Inventory
 {

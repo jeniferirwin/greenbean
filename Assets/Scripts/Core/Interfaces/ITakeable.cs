@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Com.Technitaur.GreenBean.Interactables
+namespace Com.Technitaur.GreenBean.Core
 {
     public interface ITakeable
     {

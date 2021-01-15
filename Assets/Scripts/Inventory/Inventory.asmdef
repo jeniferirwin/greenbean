@@ -1,6 +1,8 @@
 {
     "name": "Inventory",
-    "references": [],
+    "references": [
+        "GUID:610d303c81d1add428e24805723da6ba"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

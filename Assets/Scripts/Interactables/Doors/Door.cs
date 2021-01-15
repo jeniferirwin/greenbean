@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
+using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Interactables
 {
     public class Door : Trackable
     {
-        public Inventory.ItemType UnlockedBy { get { return unlockedBy; } }
+        public ItemType UnlockedBy { get { return unlockedBy; } }
 
         [Header("Door")]
-        [SerializeField] private Inventory.ItemType unlockedBy = Inventory.ItemType.None;
+        [SerializeField] private ItemType unlockedBy = ItemType.None;
     }
 }

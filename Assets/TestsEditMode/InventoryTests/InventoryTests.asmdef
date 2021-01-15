@@ -1,12 +1,14 @@
 {
-    "name": "PlayTests",
+    "name": "InventoryTests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "Core",
-        "Player"
+        "Inventory",
+        "Core"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,

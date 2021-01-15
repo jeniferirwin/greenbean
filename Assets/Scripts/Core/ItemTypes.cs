@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Com.Technitaur.GreenBean.Inventory
+namespace Com.Technitaur.GreenBean.Core
 {
     public enum ItemType
     {
