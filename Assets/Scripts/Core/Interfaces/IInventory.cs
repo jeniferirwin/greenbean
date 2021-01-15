@@ -6,5 +6,7 @@ namespace Com.Technitaur.GreenBean.Core
     {
         bool IsFull { get; }
         int Count { get; }
+        bool Add(IInventoryItem item);
+        bool Consume(ItemType itemType);
     }
 }

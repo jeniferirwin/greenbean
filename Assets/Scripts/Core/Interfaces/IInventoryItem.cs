@@ -8,6 +8,7 @@ namespace Com.Technitaur.GreenBean.Core
         ItemType ItemType { get; }
         int PickupWorth { get; }   // score addition when picked up
         int ConsumeWorth { get; }  // score addition when consumed
+        Sprite Sprite { get; }
         
         void OnPickup();
         void OnConsume();

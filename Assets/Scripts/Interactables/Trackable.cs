@@ -5,6 +5,7 @@ namespace Com.Technitaur.GreenBean.Interactables
     public class Trackable : MonoBehaviour
     {
         public bool IsDirty { get; private set; }
+        public Sprite CleanSprite { get { return cleanSprite; } private set { cleanSprite = value; } }
 
         [Header("Trackable")]
         [SerializeField] private Sprite dirtySprite = null;

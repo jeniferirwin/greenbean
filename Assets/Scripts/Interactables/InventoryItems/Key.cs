@@ -3,13 +3,28 @@ using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Interactables
 {
-    public class Key : Trackable, ITakeable
+    public class Key : Trackable, IInventoryItem
     {
-        public ItemType Color { get { return keyType; } }
-        public int Worth { get { return worth; } }
+        public string Name { get { return itemName; } }
+        public ItemType ItemType { get { return itemType; }}
+        public int PickupWorth { get { return pickupWorth; }}
+        public int ConsumeWorth { get { return consumeWorth; }}
+        public Sprite Sprite { get { return CleanSprite; }}
 
         [Header("Key")]
-        [SerializeField] private ItemType keyType = ItemType.None;
-        [SerializeField] private int worth = 0;
+        [SerializeField] private string itemName = "Key";
+        [SerializeField] private ItemType itemType = ItemType.None;
+        [SerializeField] private int pickupWorth = 0;
+        [SerializeField] private int consumeWorth = 0;
+
+        public void OnPickup()
+        {
+            SetDirty();
+        }
+
+        public void OnConsume()
+        {
+            // TODO: figure out if I even need this function
+        }
     }
 }

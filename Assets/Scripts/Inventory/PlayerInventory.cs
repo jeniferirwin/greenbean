@@ -6,6 +6,9 @@ namespace Com.Technitaur.GreenBean.Inventory
 {
     public class PlayerInventory : MonoBehaviour, IInventory
     {
+        public delegate void InventoryUpdate(List<IInventoryItem> items);
+        public static event InventoryUpdate OnInventoryUpdate;
+
         public List<IInventoryItem> items = new List<IInventoryItem>();
 
         public int Count { get { return items.Count; } }
@@ -27,6 +30,7 @@ namespace Com.Technitaur.GreenBean.Inventory
                 {
                     AddWorth(items[i].ConsumeWorth);
                     items.RemoveAt(i);
+                    OnInventoryUpdate?.Invoke(items);
                     return true;
                 }
             }
@@ -39,6 +43,7 @@ namespace Com.Technitaur.GreenBean.Inventory
             
             AddWorth(item.PickupWorth);
             items.Add(item);
+            OnInventoryUpdate?.Invoke(items);
             return true;
         }
         

@@ -18,6 +18,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5240553953119698082, guid: cea196bd2accff6409c602c6daa76ed8,
         type: 3}
+    - target: {fileID: 6684187851333845352, guid: c397d87808e523b4e85a63f22d8cfc0c,
+        type: 3}
+      propertyPath: itemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684187851333845352, guid: c397d87808e523b4e85a63f22d8cfc0c,
+        type: 3}
+      propertyPath: pickupWorth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684187851333845352, guid: c397d87808e523b4e85a63f22d8cfc0c,
+        type: 3}
+      propertyPath: consumeWorth
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 6684187851333845358, guid: c397d87808e523b4e85a63f22d8cfc0c,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -10,6 +10,7 @@ namespace Com.Technitaur.GreenBean.Core
         Sword,
         Torch,
         Wand,
-        None
+        None,
+        Coin
     }
 }

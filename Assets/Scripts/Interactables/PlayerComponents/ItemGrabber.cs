@@ -17,9 +17,12 @@ namespace Com.Technitaur.GreenBean.Interactables
         private void OnTriggerEnter2D(Collider2D collider)
         {
             if (_inventory.IsFull) return;
+            IInventoryItem item = collider.gameObject.GetComponentInParent<IInventoryItem>();
             
-            if (collider.gameObject.TryGetComponent<ITakeable>(out ITakeable takeable))
+            if (item != null)
             {
+                if (item.ItemType != ItemType.Coin) _inventory.Add(item);
+                item.OnPickup();
             }
         }
     }
