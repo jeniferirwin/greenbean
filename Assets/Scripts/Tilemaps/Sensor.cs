@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Com.Technitaur.GreenBean.Core;
 using UnityEngine.Tilemaps;
+using System;
 
 namespace Com.Technitaur.GreenBean.Tilemaps
 {
@@ -8,6 +9,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
     {
         public Tilemap map;
         public Grid grid;
+        [SerializeField] private Vector2 castDirection;
+        [SerializeField] private LayerMask doorMask;
 
         public bool IsNull { get; private set; }
         public bool AtLeftLadderTop { get; private set; }
@@ -20,12 +23,40 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool AtPole { get; private set; }
         public bool AtLeftBelt { get; private set; }
         public bool AtRightBelt { get; private set; }
+        public bool AtClosedDoor { get; private set; }
 
+        public void Start() { Debug.Log(doorMask.value); }
         public void SensorUpdate()
         {
             ResetVariables();
             TileBase tile = TileAtLoc();
-            GetVariables(tile);
+            bool isDoorHere = DoorAtLoc();
+            if (tile == null && !isDoorHere)
+            {
+                IsNull = true;
+                return;
+            }
+            if (tile != null)
+            {
+                GetVariables(tile);
+            }
+            if (isDoorHere)
+            {
+                AtClosedDoor = true;
+            }
+        }
+
+        private bool DoorAtLoc()
+        {
+            var hit = Physics2D.CircleCast(transform.position, 1f, castDirection, 1f, doorMask);
+
+            if (hit.collider == null)
+            {
+                return false;
+            }
+            bool isDoorClosed = hit.collider.gameObject.activeSelf;
+            if (!isDoorClosed) return false;
+            return true;
         }
 
         public TileBase TileAtLoc()
@@ -37,11 +68,6 @@ namespace Com.Technitaur.GreenBean.Tilemaps
 
         public void GetVariables(TileBase tile)
         {
-            if (tile == null)
-            {
-                IsNull = true;
-                return;
-            }
             if (tile is ICustomTile)
             {
                 ICustomTile newTile = (ICustomTile) tile;
@@ -74,6 +100,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
             AtPole = false;
             AtLeftBelt = false;
             AtRightBelt = false;
+            AtClosedDoor = false;
+            IsNull = false;
         }
     }
 }

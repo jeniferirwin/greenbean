@@ -104,7 +104,7 @@ namespace Com.Technitaur.GreenBean.Player
             get
             {
                 atRight.SensorUpdate();
-                if (atRight.AtSolid) return false;
+                if (atRight.AtSolid || atRight.AtClosedDoor) return false;
                 return true;
             }
         }
@@ -114,7 +114,7 @@ namespace Com.Technitaur.GreenBean.Player
             get
             {
                 atLeft.SensorUpdate();
-                if (atLeft.AtSolid) return false;
+                if (atLeft.AtSolid || atLeft.AtClosedDoor) return false;
                 return true;
             }
         }

@@ -132,7 +132,7 @@ MonoBehaviour:
     type: 3}
   rend: {fileID: 5966782341675517296}
   objCollider: {fileID: 5966782342922483644}
-  keyColor: 1
+  unlockedBy: 6
 --- !u!1 &5966782342922483645
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5966782342922483643}
   - component: {fileID: 5966782342922483644}
+  - component: {fileID: 6516528911087631480}
   m_Layer: 12
   m_Name: Collider
   m_TagString: Untagged
@@ -190,3 +191,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 32}
   m_EdgeRadius: 0
+--- !u!50 &6516528911087631480
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5966782342922483645}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -166,6 +166,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 1963769076}
   grid: {fileID: 1323303560}
+  castDirection: {x: -1, y: 0}
+  doorMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &174196393
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +344,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 1963769076}
   grid: {fileID: 1323303560}
+  castDirection: {x: 1, y: 0}
+  doorMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &320490792
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +788,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 1963769076}
   grid: {fileID: 1323303560}
+  castDirection: {x: 0, y: 0}
+  doorMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &958261914
 GameObject:
   m_ObjectHideFlags: 0
@@ -8413,6 +8425,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 1963769076}
   grid: {fileID: 1323303560}
+  castDirection: {x: 0, y: 0}
+  doorMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &2099332726
 GameObject:
   m_ObjectHideFlags: 0
@@ -8442,7 +8458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099332726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: -56.04, z: 0}
+  m_LocalPosition: {x: 48, y: 32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 320490793}
