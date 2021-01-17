@@ -25,7 +25,6 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool AtRightBelt { get; private set; }
         public bool AtClosedDoor { get; private set; }
 
-        public void Start() { Debug.Log(doorMask.value); }
         public void SensorUpdate()
         {
             ResetVariables();

@@ -30,7 +30,6 @@ namespace Com.Technitaur.GreenBean.Player
             sideways = new Vector2Int(0, 0);
             vertical = new Vector2Int(0, 1);
             if (input.dir.x != 0) sideways = new Vector2Int(input.dir.x, 0);
-            Debug.Log(sideways);
             groundAware = false;
             currentStep = 0;
             tooFar = false;

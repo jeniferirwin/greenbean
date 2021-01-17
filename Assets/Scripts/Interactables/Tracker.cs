@@ -55,7 +55,6 @@ namespace Com.Technitaur.GreenBean.Interactables
             item.pos = pos;
             item.isDirty = false;
             tracked.Add(item);
-            Debug.Log($"{item.name} was added to the list of tracked items.");
             trackedItem.SetClean();
         }
     }
