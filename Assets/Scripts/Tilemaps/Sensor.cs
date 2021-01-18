@@ -25,6 +25,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool AtRightBelt { get; private set; }
         public bool AtClosedDoor { get; private set; }
 
+        private void Update() => SensorUpdate();
         public void SensorUpdate()
         {
             ResetVariables();
@@ -43,6 +44,16 @@ namespace Com.Technitaur.GreenBean.Tilemaps
             {
                 AtClosedDoor = true;
             }
+        }
+
+        private bool IsLocInMiddleOfTile() {
+            var loc = Vector2Int.RoundToInt(transform.position);
+            var cell = grid.WorldToCell(transform.position);
+            var cellLoc = grid.CellToWorld(cell);
+            var cellCenter = cellLoc + new Vector3(4, 4, 0);
+            var distance = Mathf.Abs(cellCenter.x - loc.x);
+            if (distance < 2) return true;
+            return false;
         }
 
         private bool DoorAtLoc()
@@ -77,7 +88,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
                 AtRope = newTile.IsRope;
                 AtSolid = newTile.IsSolid;
                 AtSemisolid = newTile.IsSemisolid;
-                AtPole = newTile.IsPole;
+                AtPole = newTile.IsPole && IsLocInMiddleOfTile();
                 AtLeftBelt = newTile.IsLeftBelt;
                 AtRightBelt = newTile.IsRightBelt;
             }
