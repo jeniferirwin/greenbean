@@ -28,6 +28,10 @@ namespace Com.Technitaur.GreenBean.Inventory
             {
                 rend.sprite = items[index].Sprite;
             }
+            else
+            {
+                Clear();
+            }
         }
         
     }

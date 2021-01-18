@@ -599,6 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715784037}
   - component: {fileID: 715784038}
+  - component: {fileID: 715784039}
   m_Layer: 11
   m_Name: LeftDoorOpener
   m_TagString: Untagged
@@ -646,6 +647,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1, y: 17.75}
   m_EdgeRadius: 0
+--- !u!114 &715784039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715784036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ed17769c304304987da07316d0de5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openerCollider: {fileID: 715784038}
+  playerInventoryObject: {fileID: 1898411235}
 --- !u!1 &752721838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,7 +1708,7 @@ PrefabInstance:
     - target: {fileID: 5966782342728758158, guid: 66b2c781b06ca0a488994ffd6a0e1793,
         type: 3}
       propertyPath: unlockedBy
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5966782342728758192, guid: 66b2c781b06ca0a488994ffd6a0e1793,
         type: 3}
@@ -1773,6 +1788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1656012252}
   - component: {fileID: 1656012253}
+  - component: {fileID: 1656012254}
   m_Layer: 11
   m_Name: RightDoorOpener
   m_TagString: Untagged
@@ -1820,6 +1836,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1, y: 17.75}
   m_EdgeRadius: 0
+--- !u!114 &1656012254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656012251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ed17769c304304987da07316d0de5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openerCollider: {fileID: 1656012253}
+  playerInventoryObject: {fileID: 1898411235}
 --- !u!1001 &1671017251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1830,7 +1860,7 @@ PrefabInstance:
     - target: {fileID: 5966782342728758158, guid: 66b2c781b06ca0a488994ffd6a0e1793,
         type: 3}
       propertyPath: unlockedBy
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5966782342728758192, guid: 66b2c781b06ca0a488994ffd6a0e1793,
         type: 3}
