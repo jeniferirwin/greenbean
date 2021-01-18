@@ -92,9 +92,8 @@ namespace Com.Technitaur.GreenBean.Player
         {
             get
             {
-                atFeet.SensorUpdate();
                 belowFeet.SensorUpdate();
-                if (atFeet.AtPole || belowFeet.AtPole) return true;
+                if (belowFeet.AtPole) return true;
                 return false;
             }
         }
@@ -157,6 +156,11 @@ namespace Com.Technitaur.GreenBean.Player
                 }
             }
             return pos;
+        }
+        
+        public Vector2Int CenterSnap(Vector2Int pos)
+        {
+            return Vector2Int.RoundToInt(atFeet.CurrentTileCenter());
         }
     }
 }

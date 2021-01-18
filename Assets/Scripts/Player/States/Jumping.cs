@@ -74,6 +74,10 @@ namespace Com.Technitaur.GreenBean.Player
             if (currentStep < JumpInfo.Length - 1) currentStep++;
             if (vertical.y > 0 && currentStep > 10) vertical = new Vector2Int(0, -1);
             if (!groundAware && currentStep > 10) groundAware = true;
+            if (player.env.CanSlide)
+            {
+                player.Transition(player.SlidingState);
+            }
         }
 
         public bool HasDied(Controller player)

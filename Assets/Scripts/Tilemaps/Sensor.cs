@@ -46,11 +46,18 @@ namespace Com.Technitaur.GreenBean.Tilemaps
             }
         }
 
-        private bool IsLocInMiddleOfTile() {
+        public Vector2 CurrentTileCenter()
+        {
             var loc = Vector2Int.RoundToInt(transform.position);
             var cell = grid.WorldToCell(transform.position);
             var cellLoc = grid.CellToWorld(cell);
             var cellCenter = cellLoc + new Vector3(4, 4, 0);
+            return cellCenter;
+        }
+
+        private bool IsLocInMiddleOfTile() {
+            var loc = Vector2Int.RoundToInt(transform.position);
+            var cellCenter = CurrentTileCenter();
             var distance = Mathf.Abs(cellCenter.x - loc.x);
             if (distance < 2) return true;
             return false;

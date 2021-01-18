@@ -17,5 +17,6 @@ namespace Com.Technitaur.GreenBean.Core
         bool AtClosedDoor { get; }
         
         void SensorUpdate();
+        Vector2 CurrentTileCenter();
     }
 }
