@@ -9,8 +9,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
     {
         public Tilemap map;
         public Grid grid;
-        [SerializeField] private Vector2 castDirection;
-        [SerializeField] private LayerMask doorMask;
+        [SerializeField] private Vector2 castDirection = Vector2.zero;
+        [SerializeField] private LayerMask doorMask = 0;
 
         public bool IsNull { get; private set; }
         public bool AtLeftLadderTop { get; private set; }
@@ -25,7 +25,11 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool AtRightBelt { get; private set; }
         public bool AtClosedDoor { get; private set; }
 
-        private void Update() => SensorUpdate();
+        public void Start()
+        {
+            map = GameObject.Find("8x8").GetComponent<Tilemap>();
+            grid = GameObject.Find("Grid").GetComponent<Grid>();
+        }
         public void SensorUpdate()
         {
             ResetVariables();

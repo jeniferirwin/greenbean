@@ -5,12 +5,12 @@ namespace Com.Technitaur.GreenBean.Interactables
 {
     public class DoorOpener : MonoBehaviour
     {
-        [SerializeField] private BoxCollider2D openerCollider;
-        [SerializeField] private GameObject playerInventoryObject;
+        [SerializeField] private GameObject playerInventoryObject = null;
         private IInventory inv;
         
         private void Start()
         {
+            playerInventoryObject = GameObject.Find("Inventory");
             if (!playerInventoryObject.TryGetComponent<IInventory>(out inv))
             {
                 throw new System.Exception("Player inventory was not found.");

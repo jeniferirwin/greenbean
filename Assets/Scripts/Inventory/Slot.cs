@@ -8,9 +8,8 @@ namespace Com.Technitaur.GreenBean.Inventory
     {
         public IInventoryItem slotItem;
         
-        [SerializeField] private int index;
+        [SerializeField] private int index = 0;
         [SerializeField] private SpriteRenderer rend = null;
-        [SerializeField] private PlayerInventory inv = null;
         
         public void Start()
         {
