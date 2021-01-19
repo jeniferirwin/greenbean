@@ -50,7 +50,6 @@ namespace Com.Technitaur.GreenBean.Inventory
         public void AddWorth(int worth)
         {
             // TODO
-            Debug.Log($"This will add {worth} to score.");
         }
     }
 }

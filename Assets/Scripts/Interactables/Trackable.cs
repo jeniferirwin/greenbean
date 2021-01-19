@@ -19,7 +19,6 @@ namespace Com.Technitaur.GreenBean.Interactables
         public void OnEnable()
         {
             tracker = GameObject.FindObjectOfType<Tracker>();
-            Debug.Log($"{gameObject.name} adding itself to the list.");
             tracker.AddToList(gameObject);
             if (tracker.IsObjectDirty(gameObject)) SetDirty();
             else SetClean();
