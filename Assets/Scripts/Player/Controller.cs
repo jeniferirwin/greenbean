@@ -34,7 +34,7 @@ namespace Com.Technitaur.GreenBean.Player
             inputHandler = GetComponent<InputHandler>();
             Transition(IdleState);
         }
-
+        
         public void Update()
         {
             input = inputHandler.GetData();

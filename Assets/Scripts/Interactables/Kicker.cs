@@ -7,7 +7,6 @@ namespace Com.Technitaur.GreenBean.Interactables
         private void Start()
         {
             var tracker = GameObject.FindObjectOfType<Tracker>();
-            tracker.CheckScene();
             gameObject.SetActive(false);
         }
     }

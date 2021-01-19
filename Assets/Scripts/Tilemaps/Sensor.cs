@@ -25,13 +25,14 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool AtRightBelt { get; private set; }
         public bool AtClosedDoor { get; private set; }
 
-        public void Start()
+        public void OnEnable()
         {
             map = GameObject.Find("8x8").GetComponent<Tilemap>();
             grid = GameObject.Find("Grid").GetComponent<Grid>();
         }
         public void SensorUpdate()
         {
+            if (grid == null || map == null) OnEnable();
             ResetVariables();
             TileBase tile = TileAtLoc();
             bool isDoorHere = DoorAtLoc();

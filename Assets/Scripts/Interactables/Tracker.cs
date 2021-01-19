@@ -6,7 +6,7 @@ namespace Com.Technitaur.GreenBean.Interactables
 {
     public class Tracker : MonoBehaviour
     {
-        public struct TrackedObject
+        private struct TrackedObject
         {
             public string name;
             public Vector2Int pos;
@@ -15,47 +15,50 @@ namespace Com.Technitaur.GreenBean.Interactables
 
         private List<TrackedObject> tracked = new List<TrackedObject>();
         
-        public void CheckScene()
+        public void AddToList(GameObject obj)
         {
-            var trackables = FindObjectsOfType<Trackable>();
-            foreach (var trackable in trackables)
+            if (FindIndexOfObject(obj) == -1)
             {
-                var gameObject = trackable.GetGameObject();
-                if (IsInList(gameObject))
-                {
-                    if (trackable.IsDirty) trackable.SetDirty();
-                    else trackable.SetClean();
-                }
-                else
-                {
-                    AddToList(trackable);
-                }
+                var newTracked = NewTrackedObject(obj);                
+                tracked.Add(newTracked);
             }
         }
-
-        public bool IsInList(GameObject obj)
+        
+        public bool IsObjectDirty(GameObject obj)
         {
-            var pos = Vector2Int.RoundToInt(obj.transform.position);
-            var name = obj.name;
-
-            foreach (var item in tracked)
-            {
-                if (pos == item.pos && name == item.name) return true;
-            }
+            var idx = FindIndexOfObject(obj);
+            if (idx >= 0) return tracked[idx].isDirty;
             return false;
         }
-
-        public void AddToList(Trackable trackedItem)
+        
+        private int FindIndexOfObject(GameObject obj)
         {
-            var trackedGameObject = trackedItem.GetGameObject();
-            if (IsInList(trackedGameObject)) return;
-            var pos = Vector2Int.RoundToInt(trackedGameObject.transform.position);
-            TrackedObject item;
-            item.name = trackedGameObject.name;
-            item.pos = pos;
-            item.isDirty = false;
-            tracked.Add(item);
-            trackedItem.SetClean();
+            for (int i = 0; i < tracked.Count; i++)
+            {
+                var rounded = Vector2Int.RoundToInt(obj.transform.position);
+                if (obj.name == tracked[i].name && rounded == tracked[i].pos)
+                    return i;
+            }
+            return -1;
+        }
+        
+        public void SetObjectDirty(GameObject obj)
+        {
+            if (IsObjectDirty(obj)) return;
+            var idx = FindIndexOfObject(obj);
+            var newObj = NewTrackedObject(obj);
+            newObj.isDirty = true;
+            tracked.RemoveAt(idx);
+            tracked.Add(newObj);
+        }
+        
+        private TrackedObject NewTrackedObject(GameObject obj)
+        {
+            TrackedObject newObj;
+            newObj.name = obj.name;
+            newObj.pos = Vector2Int.RoundToInt(obj.transform.position);
+            newObj.isDirty = false;
+            return newObj;
         }
     }
 }
