@@ -35,6 +35,11 @@ namespace Com.Technitaur.GreenBean.Player
             Transition(IdleState);
         }
         
+        public void DieInAFire()
+        {
+            Transition(FireDeadState);
+        }
+        
         public void Update()
         {
             input = inputHandler.GetData();
@@ -49,6 +54,10 @@ namespace Com.Technitaur.GreenBean.Player
         public void FixedUpdate()
         {
             state.FixedUpdate(this, input);
+            if (env.IsOnFire)
+            {
+                Transition(FireDeadState);
+            }
         }
 
         // returns true if we get grounded before we've finished the sequence

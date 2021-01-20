@@ -10,6 +10,7 @@ namespace Com.Technitaur.GreenBean.Player
         }
         public override void EnterState(Controller controller, InputHandler.InputData input)
         {
+            Debug.Log("Player died in a fire.");
         }
     }
 }

@@ -37,6 +37,19 @@ namespace Com.Technitaur.GreenBean.Player
             }
         }
         
+        public bool IsOnFire
+        {
+            get
+            {
+                atFeet.SensorUpdate();
+                belowFeet.SensorUpdate();
+                atRight.SensorUpdate();
+                atLeft.SensorUpdate();
+                if (atFeet.AtHazard || belowFeet.AtHazard || atRight.AtHazard || atLeft.AtHazard) return true;
+                return false;
+            }
+        }
+        
         public bool LadderSnapRight
         {
             get

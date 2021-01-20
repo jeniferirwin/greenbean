@@ -24,12 +24,14 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool AtLeftBelt { get; private set; }
         public bool AtRightBelt { get; private set; }
         public bool AtClosedDoor { get; private set; }
+        public bool AtHazard { get; private set; }
 
         public void OnEnable()
         {
             map = GameObject.Find("8x8").GetComponent<Tilemap>();
             grid = GameObject.Find("Grid").GetComponent<Grid>();
         }
+
         public void SensorUpdate()
         {
             if (grid == null || map == null) OnEnable();
@@ -103,6 +105,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
                 AtPole = newTile.IsPole && IsLocInMiddleOfTile();
                 AtLeftBelt = newTile.IsLeftBelt;
                 AtRightBelt = newTile.IsRightBelt;
+                AtHazard = newTile.IsHazard;
             }
             else
             {

@@ -17,7 +17,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public override bool GetTileAnimationData(Vector3Int position, ITilemap tilemap, ref TileAnimationData tileAnimationData)
         {
             tileAnimationData.animatedSprites = BeltTileArray(this.isRightBelt);
-            tileAnimationData.animationSpeed = 25;
+            tileAnimationData.animationSpeed = 50;
             tileAnimationData.animationStartTime = 0;
             return true;
         }

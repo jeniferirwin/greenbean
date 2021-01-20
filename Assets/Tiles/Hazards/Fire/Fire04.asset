@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd3e6bfa999dc2e4fb9a9a114782a980, type: 3}
+  m_Name: Fire04
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  texture: {fileID: 0}
+  pos: {x: 0, y: 0, z: 0}
+  level: 0
+  isSolid: 0
+  isSemisolid: 0
+  isLeftLadder: 0
+  isRightLadder: 0
+  isRope: 0
+  isPole: 0
+  isLeftBelt: 0
+  isRightBelt: 0
+  isHazard: 1
+  isCyanDoor: 0
+  isRedDoor: 0
+  isVioletDoor: 0
+  frames:
+  - {fileID: 8334651344603559088, guid: c9ad5932a1c6fc846b8f21f71fe2e0e1, type: 3}
+  - {fileID: 9204931480678746970, guid: c9ad5932a1c6fc846b8f21f71fe2e0e1, type: 3}
+  - {fileID: -8359625512513901107, guid: c9ad5932a1c6fc846b8f21f71fe2e0e1, type: 3}
+  - {fileID: 7804807344221744696, guid: c9ad5932a1c6fc846b8f21f71fe2e0e1, type: 3}
+  - {fileID: -9112466456087325836, guid: c9ad5932a1c6fc846b8f21f71fe2e0e1, type: 3}
+  - {fileID: 173077104931781641, guid: c9ad5932a1c6fc846b8f21f71fe2e0e1, type: 3}
+  speed: 10
+  frameStart: 3
+  reverse: 0

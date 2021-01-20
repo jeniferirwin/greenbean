@@ -15,6 +15,7 @@ namespace Com.Technitaur.GreenBean.Core
         bool AtLeftBelt { get; }
         bool AtRightBelt { get; }
         bool AtClosedDoor { get; }
+        bool AtHazard { get; }
         
         void SensorUpdate();
         Vector2 CurrentTileCenter();
