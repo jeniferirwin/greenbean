@@ -782,6 +782,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: A10
       objectReference: {fileID: 0}
+    - target: {fileID: 1092644354055271898, guid: 33e9aff7f4c4e3b4a9a043c338d46eec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1520600932362048935, guid: 33e9aff7f4c4e3b4a9a043c338d46eec,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimatedSprites.Array.data[0]
@@ -2687,7 +2692,7 @@ PrefabInstance:
     - target: {fileID: 9195774959979198406, guid: 33e9aff7f4c4e3b4a9a043c338d46eec,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33e9aff7f4c4e3b4a9a043c338d46eec, type: 3}
@@ -4035,6 +4040,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1087381084}
+  - component: {fileID: 1087381085}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -4062,6 +4068,44 @@ Transform:
   m_Father: {fileID: 982350793}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1087381085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087381083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba16915ba7f34ec45a43f47d4759ae87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: -156468244336754868, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  - {fileID: -3831007062844272246, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  - {fileID: 4325393802297764623, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  - {fileID: -5644757435104134821, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  - {fileID: -17776734278405621, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  - {fileID: 7819084816808544745, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  - {fileID: -5432462328491499598, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  - {fileID: -8894585659570137187, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  - {fileID: 9095216957646620606, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  - {fileID: 5944070483392906273, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  Slots:
+  - {fileID: 892029908}
+  - {fileID: 227110611}
+  - {fileID: 926722519}
+  - {fileID: 610697092}
+  - {fileID: 527338695}
+  - {fileID: 292747518}
+  Renderers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Score: 0
 --- !u!1 &1093031631
 GameObject:
   m_ObjectHideFlags: 0
