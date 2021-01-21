@@ -28,7 +28,7 @@ namespace Com.Technitaur.GreenBean.Inventory
             {
                 if (items[i].ItemType == itemType)
                 {
-                    AddWorth(items[i].ConsumeWorth);
+                    Inventory.Events.ConsumeItem(items[i].ConsumeWorth);
                     items.RemoveAt(i);
                     OnInventoryUpdate?.Invoke(items);
                     return true;
@@ -41,15 +41,11 @@ namespace Com.Technitaur.GreenBean.Inventory
         {
             if (IsFull) return false;
             
-            AddWorth(item.PickupWorth);
+            Inventory.Events.PickupItem(item.PickupWorth);
+            Debug.Log($"Adding {item.PickupWorth} to score.");
             items.Add(item);
             OnInventoryUpdate?.Invoke(items);
             return true;
-        }
-        
-        public void AddWorth(int worth)
-        {
-            // TODO
         }
     }
 }
