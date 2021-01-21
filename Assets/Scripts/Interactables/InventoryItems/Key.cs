@@ -14,8 +14,8 @@ namespace Com.Technitaur.GreenBean.Interactables
         [Header("Key")]
         [SerializeField] private string itemName = "Key";
         [SerializeField] private ItemType itemType = ItemType.None;
-        [SerializeField] private int pickupWorth = 0;
-        [SerializeField] private int consumeWorth = 0;
+        [SerializeField] private int pickupWorth = 50;
+        [SerializeField] private int consumeWorth = 300;
 
         public void OnPickup()
         {

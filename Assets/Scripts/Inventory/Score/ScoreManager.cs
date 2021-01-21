@@ -20,10 +20,18 @@ namespace Com.Technitaur.GreenBean.Inventory
 
         public void Start()
         {
+            Inventory.Events.OnItemConsumed += AddScore;
+            Inventory.Events.OnItemPickedUp += AddScore;
             for (int i = 0; i < Slots.Length; i++)
             {
                 Renderers[i] = Slots[i].GetComponent<SpriteRenderer>();
             }
+            UpdateScore();
+        }
+        
+        public void AddScore(int worth)
+        {
+            Score += worth;
             UpdateScore();
         }
 
