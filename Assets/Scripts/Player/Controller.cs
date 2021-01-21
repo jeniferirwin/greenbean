@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Com.Technitaur.GreenBean.Input;
+using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Player
 {
@@ -54,7 +55,7 @@ namespace Com.Technitaur.GreenBean.Player
         public void FixedUpdate()
         {
             state.FixedUpdate(this, input);
-            if (env.IsOnFire)
+            if (env.IsOnFire && state != FireDeadState)
             {
                 Transition(FireDeadState);
             }
