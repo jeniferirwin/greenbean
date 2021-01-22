@@ -171,9 +171,15 @@ namespace Com.Technitaur.GreenBean.Player
             return pos;
         }
         
-        public Vector2Int CenterSnap(Vector2Int pos)
+        public Vector2Int CenterXYSnap(Vector2Int pos)
         {
             return Vector2Int.RoundToInt(atFeet.CurrentTileCenter());
+        }
+        
+        public Vector2Int CenterXSnap(Vector2Int pos)
+        {
+            var tileX = atFeet.CurrentTileCenter().x;
+            return Vector2Int.RoundToInt(new Vector2(tileX, pos.y));
         }
     }
 }

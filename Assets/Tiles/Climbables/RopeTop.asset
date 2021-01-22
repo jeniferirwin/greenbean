@@ -17,10 +17,14 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   level: 0
   isSolid: 0
-  isSemisolid: 0
+  isSemisolid: 1
   isLeftLadder: 0
   isRightLadder: 0
   isRope: 1
   isPole: 0
   isLeftBelt: 0
   isRightBelt: 0
+  isHazard: 0
+  isCyanDoor: 0
+  isRedDoor: 0
+  isVioletDoor: 0

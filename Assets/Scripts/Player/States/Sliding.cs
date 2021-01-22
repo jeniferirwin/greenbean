@@ -8,7 +8,7 @@ namespace Com.Technitaur.GreenBean.Player
         public override void EnterState(Controller player, InputHandler.InputData input)
         {
             var loc = Vector2Int.RoundToInt(player.gameObject.transform.position);
-            player.gameObject.transform.position = (Vector2) player.env.CenterSnap(loc);
+            player.gameObject.transform.position = (Vector2) player.env.CenterXYSnap(loc);
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
