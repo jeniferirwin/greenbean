@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1092644354055271896}
   - component: {fileID: 1092644354055271897}
+  - component: {fileID: 856009460084931081}
   m_Layer: 0
   m_Name: A11
   m_TagString: RoomData
@@ -50,6 +51,19 @@ MonoBehaviour:
   liveTexture: {fileID: 2800000, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
   baseTexture: {fileID: 2800000, guid: b4a957a5b266c4b4ca2279863992dba8, type: 3}
   level: 1
+--- !u!114 &856009460084931081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092644354055271898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c33866761087e24597a09ba7f452f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomName: 4
 --- !u!1 &1868137330611909199
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec393468e892e1e48b9a676ef844c964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room: 1
+  room: 3
   direction: 1
 --- !u!1 &5516189207880663904
 GameObject:

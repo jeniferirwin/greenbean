@@ -2,6 +2,8 @@ namespace Com.Technitaur.GreenBean.Core
 {
     public enum Room
     {
+        qasmoke,
+        Intro,
         A09,
         A10,
         A11,
