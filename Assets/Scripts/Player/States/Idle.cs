@@ -70,6 +70,11 @@ namespace Com.Technitaur.GreenBean.Player
                     return;
                 }
             }
+            
+            if (player.env.CanClimbDownRope && input.dir.y < 0)
+            {
+                player.Transition(player.ClimbingRopeState);
+            }
         }
     }
 }

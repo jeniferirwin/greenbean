@@ -78,6 +78,12 @@ namespace Com.Technitaur.GreenBean.Player
             {
                 player.Transition(player.SlidingState);
             }
+            
+            if (currentStep < 3) return;
+            if (player.env.CanClimbUpRope || player.env.CanClimbDownRope)
+            {
+                player.Transition(player.ClimbingRopeState);
+            }
         }
 
         public bool HasDied(Controller player)

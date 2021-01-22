@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Com.Technitaur.GreenBean.Input;
+using System;
 
 namespace Com.Technitaur.GreenBean.Player
 {
@@ -10,12 +11,14 @@ namespace Com.Technitaur.GreenBean.Player
 
         public override void EnterState(Controller controller, InputHandler.InputData input)
         {
-            // TODO: add ladder snap through ISensor
-            startedClimbing = Vector2Int.RoundToInt(controller.transform.position);
+            var pos = controller.gameObject.transform.position;
+            var rounded = Vector2Int.RoundToInt(pos);
+            controller.gameObject.transform.position = (Vector2) controller.env.CenterXSnap(rounded);
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
         {
+            CheckForJumpOff(player, input);
             if (frameSkip)
             {
                 // in the original game, he stays at each y position for two frames
@@ -32,10 +35,11 @@ namespace Com.Technitaur.GreenBean.Player
             }
 
             if (input.dir.y < 0) yaxis = Vector2Int.down;
-            else return;
 
             if (player.IncrementalMove(yaxis, 1, true, true))
             {
+                if (player.env.CanClimbDownRope && player.env.CanClimbUpRope) return;
+
                 if (player.env.IsGrounded)
                 {
                     player.Transition(player.IdleState);
@@ -46,6 +50,14 @@ namespace Com.Technitaur.GreenBean.Player
                     player.Transition(player.FallingState);
                     return;
                 }
+            }
+        }
+
+        private void CheckForJumpOff(Controller player, InputHandler.InputData input)
+        {
+            if (input.dir.x != 0 && input.jump)
+            {
+                player.Transition(player.JumpingState);
             }
         }
     }
