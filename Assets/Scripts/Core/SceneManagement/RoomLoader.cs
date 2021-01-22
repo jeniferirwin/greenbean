@@ -7,7 +7,6 @@ namespace Com.Technitaur.GreenBean.Core
         public static void Load(Room room, Direction direction, GameObject player)
         {
             player.SetActive(false);
-            Debug.Log("Loading room...");
             UnloadAll();
             InstantiateRoomPrefab(room);
             SetPlayerPosition(player, direction);
@@ -38,14 +37,13 @@ namespace Com.Technitaur.GreenBean.Core
 
         private static void UnloadAll()
         {
-            var oldRoom = FindRoomData();
-            Debug.Log(oldRoom);
-            GameObject.Destroy(oldRoom);
+            foreach (var data in FindAllRoomData())
+            {
+                GameObject.Destroy(data.gameObject);
+            }
         }
 
-        private static GameObject FindRoomData()
-        {
-            return GameObject.FindGameObjectWithTag("RoomData");
-        }
+        private static RoomData[] FindAllRoomData() => GameObject.FindObjectsOfType<RoomData>();
+        private static RoomData FindRoomData() => GameObject.FindObjectOfType<RoomData>();
     }
 }

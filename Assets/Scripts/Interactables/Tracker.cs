@@ -9,6 +9,7 @@ namespace Com.Technitaur.GreenBean.Interactables
         private struct TrackedObject
         {
             public string name;
+            public Room room;
             public Vector2Int pos;
             public bool isDirty;
         }
@@ -36,7 +37,10 @@ namespace Com.Technitaur.GreenBean.Interactables
             for (int i = 0; i < tracked.Count; i++)
             {
                 var rounded = Vector2Int.RoundToInt(obj.transform.position);
-                if (obj.name == tracked[i].name && rounded == tracked[i].pos)
+                var sameName = obj.name == tracked[i].name;
+                var samePos = rounded == tracked[i].pos;
+                var sameRoom = FindCurrentRoom() == tracked[i].room;
+                if (sameName && samePos)
                     return i;
             }
             return -1;
@@ -48,7 +52,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             var idx = FindIndexOfObject(obj);
             var newObj = NewTrackedObject(obj);
             newObj.isDirty = true;
-            tracked.RemoveAt(idx);
+            if (idx >= 0) tracked.RemoveAt(idx);
             tracked.Add(newObj);
         }
         
@@ -58,7 +62,13 @@ namespace Com.Technitaur.GreenBean.Interactables
             newObj.name = obj.name;
             newObj.pos = Vector2Int.RoundToInt(obj.transform.position);
             newObj.isDirty = false;
+            newObj.room = FindCurrentRoom();
             return newObj;
+        }
+        
+        private Room FindCurrentRoom()
+        {
+            return GameObject.FindObjectOfType<RoomData>().RoomName;
         }
     }
 }
