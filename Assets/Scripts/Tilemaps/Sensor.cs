@@ -30,6 +30,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         {
             map = GameObject.Find("8x8").GetComponent<Tilemap>();
             grid = GameObject.Find("Grid").GetComponent<Grid>();
+            SensorUpdate();
         }
 
         public void SensorUpdate()
@@ -127,6 +128,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
             AtRightBelt = false;
             AtClosedDoor = false;
             IsNull = false;
+            AtHazard = false;
         }
     }
 }

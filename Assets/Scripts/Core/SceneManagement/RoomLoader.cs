@@ -4,6 +4,8 @@ namespace Com.Technitaur.GreenBean.Core
 {
     public static class RoomLoader
     {
+        private static Vector2Int lastSpawnPos = Vector2Int.zero;
+
         public static void Load(Room room, Direction direction, GameObject player)
         {
             player.SetActive(false);
@@ -12,10 +14,19 @@ namespace Com.Technitaur.GreenBean.Core
             SetPlayerPosition(player, direction);
             player.SetActive(true);
         }
+        
+        public static void Reload(Room room, GameObject player)
+        {
+            player.SetActive(false);
+            UnloadAll();
+            InstantiateRoomPrefab(room);
+            player.transform.position = (Vector2) lastSpawnPos;
+            player.SetActive(true);
+        }
 
         private static void SetPlayerPosition(GameObject player, Direction direction)
         {
-            var newPos = player.transform.position;
+            var newPos = Vector2Int.RoundToInt(player.transform.position);
             switch (direction)
             {
                 case Direction.Right: newPos.x = -155; break;
@@ -24,7 +35,8 @@ namespace Com.Technitaur.GreenBean.Core
                 case Direction.Down: newPos.y = 95; break;
                 default: break;
             }
-            player.transform.position = newPos;
+            lastSpawnPos = newPos;
+            player.transform.position = (Vector2) newPos;
         }
         
         private static void InstantiateRoomPrefab(Room room)
