@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4958700662780026073}
   - component: {fileID: 4958700662780026072}
+  - component: {fileID: 4701737575120338017}
   m_Layer: 11
   m_Name: MobCollider
   m_TagString: Untagged
@@ -57,6 +58,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.0882583, y: 14.4021}
   m_EdgeRadius: 0
+--- !u!114 &4701737575120338017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958700662780026074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9380ab9d40d05b347a9db0706d69abce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4958700663040048584}
 --- !u!1 &4958700662941464468
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720686a1cced77042bc0440178938305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  env: {fileID: 4958700663040048585}
 --- !u!50 &4958700663040048590
 Rigidbody2D:
   serializedVersion: 4
@@ -823,4 +836,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d956871eeba3a7141bd522fcc90ef5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coll: {fileID: 7718403373102258010}

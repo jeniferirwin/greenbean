@@ -3,7 +3,7 @@ using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Player
 {
-    public class Environment : MonoBehaviour
+    public class Environment : MonoBehaviour, IEnvironment
     {
         public GameObject sensorAtFeet;
         public GameObject sensorBelowFeet;

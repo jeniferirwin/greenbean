@@ -4,9 +4,9 @@ using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Player
 {
-    public class Controller : MonoBehaviour
+    public class Controller : MonoBehaviour, IKillable
     {
-        public Environment env;
+        public IEnvironment env;
 
         public const int walkSpeed = 2;
         public const int fallSpeed = 4;
@@ -33,6 +33,7 @@ namespace Com.Technitaur.GreenBean.Player
         public void Start()
         {
             inputHandler = GetComponent<InputHandler>();
+            env = GetComponent<IEnvironment>();
         }
         
         public void OnEnable()
@@ -65,7 +66,7 @@ namespace Com.Technitaur.GreenBean.Player
                 Transition(FireDeadState);
             }
         }
-
+        
         // returns true if we get grounded before we've finished the sequence
         public bool IncrementalMove(Vector2Int dir, int upf, bool stopOnGrounded, bool stopOnNotGrounded)
         {
@@ -85,6 +86,11 @@ namespace Com.Technitaur.GreenBean.Player
                 if (!env.IsGrounded && stopOnNotGrounded) return true;
             }
             return false;
+        }
+
+        public void Kill()
+        {
+            Transition(DeadState);
         }
     }
 }
