@@ -4,15 +4,7 @@ using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Player
 {
-    public class FireDead : PlayerBaseState
+    public class FireDead : DeathState
     {
-        public override void FixedUpdate(Controller controller, InputHandler.InputData input)
-        {
-        }
-        public override void EnterState(Controller controller, InputHandler.InputData input)
-        {
-            Debug.Log("Player died in a fire.");
-            Lives.Decrement();
-        }
     }
 }
