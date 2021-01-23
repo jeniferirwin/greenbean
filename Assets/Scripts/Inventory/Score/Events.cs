@@ -12,7 +12,6 @@ namespace Com.Technitaur.GreenBean.Inventory
         
         public static void PickupItem(int worth)
         {
-            Debug.Log("Invoking pickup event.");
             OnItemPickedUp?.Invoke(worth);
         }
         

@@ -42,7 +42,6 @@ namespace Com.Technitaur.GreenBean.Inventory
             if (IsFull) return false;
             
             Inventory.Events.PickupItem(item.PickupWorth);
-            Debug.Log($"Adding {item.PickupWorth} to score.");
             items.Add(item);
             OnInventoryUpdate?.Invoke(items);
             return true;
