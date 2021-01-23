@@ -2,7 +2,7 @@
 
 namespace Com.Technitaur.GreenBean.Interactables
 {
-    public class Trackable : MonoBehaviour
+    public abstract class Trackable : MonoBehaviour
     {
         public bool IsDirty { get; private set; }
         public Sprite CleanSprite { get { return cleanSprite; } private set { cleanSprite = value; } }
@@ -14,9 +14,9 @@ namespace Com.Technitaur.GreenBean.Interactables
         [SerializeField] private SpriteRenderer rend = null;
         [SerializeField] private BoxCollider2D objCollider = null;
         
-        public GameObject GetGameObject() => gameObject;
+        public virtual GameObject GetGameObject() => gameObject;
         
-        public void OnEnable()
+        public virtual void OnEnable()
         {
             tracker = GameObject.FindObjectOfType<Tracker>();
             tracker.AddToList(gameObject);
@@ -24,7 +24,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             else SetClean();
         }
 
-        public void SetDirty()
+        public virtual void SetDirty()
         {
             rend.sprite = dirtySprite;
             objCollider.gameObject.SetActive(false);
@@ -32,7 +32,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             tracker.SetObjectDirty(gameObject);
         }
         
-        public void SetClean()
+        public virtual void SetClean()
         {
             rend.sprite = cleanSprite;
             objCollider.gameObject.SetActive(true);
