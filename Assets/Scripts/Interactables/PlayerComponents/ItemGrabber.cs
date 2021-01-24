@@ -9,7 +9,6 @@ namespace Com.Technitaur.GreenBean.Interactables
         [SerializeField] private BoxCollider2D grabber;
         
         private IInventory _inventory;
-        private Coroutine wandDecay;
         
         private void Start()
         {
@@ -29,17 +28,7 @@ namespace Com.Technitaur.GreenBean.Interactables
                 {
                     _inventory.Consume(ItemType.Coin);
                 }
-                if (item.ItemType == ItemType.Wand)
-                {
-                    wandDecay = StartCoroutine(WandDecay());
-                }
             }
-        }
-        
-        private IEnumerator WandDecay()
-        {
-            yield return new WaitForSeconds(4);
-            _inventory.Consume(ItemType.Wand);
         }
     }
 }

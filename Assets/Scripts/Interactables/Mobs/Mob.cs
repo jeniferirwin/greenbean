@@ -20,6 +20,7 @@ namespace Com.Technitaur.GreenBean.Interactables
         public bool CanDieToSword { get { return canDieToSword; } }
         public int PointValue { get { return pointValue; } }
         public MobType MobType { get { return mobType; } }
+        public bool Faded { get { return faded; } }
 
         [SerializeField] private MobType mobType;
         [SerializeField] private float ppf;
@@ -28,7 +29,12 @@ namespace Com.Technitaur.GreenBean.Interactables
         [SerializeField] private Vector2Int startDirection;
         [SerializeField] private IEnvironment _env;
         [SerializeField] private GameObject _spriteContainer;
+        [SerializeField] private Color fadedColor;
+        [SerializeField] private Color defaultColor;
+        [SerializeField] private Animator animator;
 
+        private bool faded;
+        private IWandStatus buffStatus;
         private Waypoint[] waypoints;
         private Vector2Int currentDirection;
 
@@ -36,7 +42,19 @@ namespace Com.Technitaur.GreenBean.Interactables
         {
             waypoints = null;
             waypoints = GameObject.FindObjectsOfType<Waypoint>();
+            defaultColor = Color.white;
             currentDirection = startDirection;
+        }
+        
+        public override void OnEnable()
+        {
+            base.OnEnable();
+            buffStatus = GameObject.Find("WandStatus").GetComponent<IWandStatus>();
+            if (buffStatus.IsBuffActive && !faded)
+            {
+                Fade(true);
+                Debug.Log("Fading mob.");
+            }
         }
         
         private void SetNewDirection(Vector2Int dir)
@@ -160,6 +178,22 @@ namespace Com.Technitaur.GreenBean.Interactables
         {
             IsDirty = false;
             currentDirection = startDirection;
+        }
+
+        internal void Fade(bool fading)
+        {
+            faded = fading;
+            var state = animator.GetCurrentAnimatorStateInfo(0);
+            if (faded)
+            {
+                animator.SetFloat("frame", state.normalizedTime);
+                animator.SetBool("faded", true);
+            }
+            else
+            {
+                animator.SetFloat("frame", state.normalizedTime);
+                animator.SetBool("faded", false);
+            }
         }
     }
 }

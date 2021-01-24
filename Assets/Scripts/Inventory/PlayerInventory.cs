@@ -26,7 +26,7 @@ namespace Com.Technitaur.GreenBean.Inventory
         {
             var idx = FindItemIndex(itemType);
             if (idx == -1) return false; 
-            Inventory.Events.ConsumeItem(items[idx].ConsumeWorth);
+            Inventory.Events.ConsumeItem(itemType, items[idx].ConsumeWorth);
             items.RemoveAt(idx);
             OnInventoryUpdate?.Invoke(items);
             return true;
@@ -36,7 +36,7 @@ namespace Com.Technitaur.GreenBean.Inventory
         {
             var idx = FindItemIndex(itemType);
             if (idx == -1) return false; 
-            Inventory.Events.ConsumeItem(worth);
+            Inventory.Events.ConsumeItem(itemType, worth);
             items.RemoveAt(idx);
             OnInventoryUpdate?.Invoke(items);
             return true;
@@ -58,7 +58,7 @@ namespace Com.Technitaur.GreenBean.Inventory
         {
             if (IsFull) return false;
             
-            Inventory.Events.PickupItem(item.PickupWorth);
+            Inventory.Events.PickupItem(item.ItemType, item.PickupWorth);
             items.Add(item);
             OnInventoryUpdate?.Invoke(items);
             return true;
