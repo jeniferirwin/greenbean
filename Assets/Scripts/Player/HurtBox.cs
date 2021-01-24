@@ -17,8 +17,14 @@ namespace Com.Technitaur.GreenBean.Player
         {
             if (other.gameObject.CompareTag("Mob"))
             {
-                other.GetComponentInParent<IKillable>().Kill();
-                if (!_inv.Consume(ItemType.Sword)) player.GetComponent<IKillable>().Kill();
+                var mobInfo = other.GetComponentInParent<IKillableMob>();
+                var worth = mobInfo.PointValue;
+                var playerInfo = player.GetComponent<IKillable>();
+                mobInfo.Kill();
+                if (!_inv.Consume(ItemType.Sword, worth))
+                {
+                    playerInfo.Kill();
+                }
             }
         }
     }

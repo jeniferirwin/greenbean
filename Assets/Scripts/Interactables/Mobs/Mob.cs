@@ -15,14 +15,16 @@ namespace Com.Technitaur.GreenBean.Interactables
         Snake
     }
 
-    public abstract class Mob : Trackable, IKillable
+    public abstract class Mob : Trackable, IKillableMob
     {
         public bool CanDieToSword { get { return canDieToSword; } }
+        public int PointValue { get { return pointValue; } }
         public MobType MobType { get { return mobType; } }
 
         [SerializeField] private MobType mobType;
         [SerializeField] private float ppf;
         [SerializeField] private bool canDieToSword;
+        [SerializeField] private int pointValue;
         [SerializeField] private Vector2Int startDirection;
         [SerializeField] private IEnvironment _env;
         [SerializeField] private GameObject _spriteContainer;

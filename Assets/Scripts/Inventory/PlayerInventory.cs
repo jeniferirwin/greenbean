@@ -24,17 +24,34 @@ namespace Com.Technitaur.GreenBean.Inventory
         
         public bool Consume(ItemType itemType)
         {
+            var idx = FindItemIndex(itemType);
+            if (idx == -1) return false; 
+            Inventory.Events.ConsumeItem(items[idx].ConsumeWorth);
+            items.RemoveAt(idx);
+            OnInventoryUpdate?.Invoke(items);
+            return true;
+        }
+        
+        public bool Consume(ItemType itemType, int worth)
+        {
+            var idx = FindItemIndex(itemType);
+            if (idx == -1) return false; 
+            Inventory.Events.ConsumeItem(worth);
+            items.RemoveAt(idx);
+            OnInventoryUpdate?.Invoke(items);
+            return true;
+        }
+        
+        public int FindItemIndex(ItemType itemType)
+        {
             for (int i = 0; i < items.Count; i++)
             {
                 if (items[i].ItemType == itemType)
                 {
-                    Inventory.Events.ConsumeItem(items[i].ConsumeWorth);
-                    items.RemoveAt(i);
-                    OnInventoryUpdate?.Invoke(items);
-                    return true;
+                    return i;
                 }
             }
-            return false;
+            return -1;
         }
         
         public bool Add(IInventoryItem item)
