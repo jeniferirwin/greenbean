@@ -25,15 +25,30 @@ namespace Com.Technitaur.GreenBean.Interactables
         [SerializeField] private bool canDieToSword;
         [SerializeField] private Vector2Int startDirection;
         [SerializeField] private IEnvironment _env;
+        [SerializeField] private GameObject _spriteContainer;
 
         private Waypoint[] waypoints;
         private Vector2Int currentDirection;
 
         public virtual void Start()
         {
-            _env = GetComponent<IEnvironment>();
+            waypoints = null;
             waypoints = GameObject.FindObjectsOfType<Waypoint>();
             currentDirection = startDirection;
+        }
+        
+        private void SetNewDirection(Vector2Int dir)
+        {
+            currentDirection = dir;
+            if (dir.x >= 0)
+            {
+                _spriteContainer.transform.rotation = Quaternion.identity;
+            }
+            else if (dir.x < 0)
+            {
+                _spriteContainer.transform.rotation = Quaternion.identity;
+                _spriteContainer.transform.Rotate(new Vector2(0,180));
+            }
         }
 
         public virtual void FixedUpdate()
@@ -48,7 +63,7 @@ namespace Com.Technitaur.GreenBean.Interactables
 
         public virtual void Move(Vector2Int dir)
         {
-            for (int i = 0; i <= ppf; i++)
+            for (int i = 1; i <= ppf; i++)
             {
                 Vector2 lastPos = transform.position;
                 transform.position += (Vector3)(Vector2)dir;
@@ -67,10 +82,10 @@ namespace Com.Technitaur.GreenBean.Interactables
             if (!way.gameObject.activeSelf) return;
             if (way.isAbsolute)
             {
-                if (way.left) currentDirection = Vector2Int.left;
-                else if (way.right) currentDirection = Vector2Int.right;
-                else if (way.up) currentDirection = Vector2Int.up;
-                else if (way.down) currentDirection = Vector2Int.down;
+                if (way.left) SetNewDirection(Vector2Int.left);
+                else if (way.right) SetNewDirection(Vector2Int.right);
+                else if (way.up) SetNewDirection(Vector2Int.up);
+                else if (way.down) SetNewDirection(Vector2Int.down);
                 return;
             }
             else
@@ -82,21 +97,21 @@ namespace Com.Technitaur.GreenBean.Interactables
                     if (UnityEngine.Random.Range(1, 101) < 50) return;
                     if (way.up && !way.down)
                     {
-                        currentDirection = new Vector2Int(currentDirection.x, 1);
+                        SetNewDirection(new Vector2Int(currentDirection.x, 1));
                     }
                     else if (!way.up && way.down)
                     {
-                        currentDirection = new Vector2Int(currentDirection.x, -1);
+                        SetNewDirection(new Vector2Int(currentDirection.x, -1));
                     }
                     else if (way.up && way.down)
                     {
                         if (UnityEngine.Random.Range(1, 101) < 50)
                         {
-                            currentDirection = new Vector2Int(currentDirection.x, 1);
+                            SetNewDirection(new Vector2Int(currentDirection.x, 1));
                         }
                         else
                         {
-                            currentDirection = new Vector2Int(currentDirection.x, -1);
+                            SetNewDirection(new Vector2Int(currentDirection.x, -1));
                         }
                     }
                 }
@@ -104,12 +119,12 @@ namespace Com.Technitaur.GreenBean.Interactables
                 {
                     if (way.left && currentDirection.x < 0)
                     {
-                        currentDirection = Vector2Int.left;
+                        SetNewDirection(Vector2Int.left);
                         return;
                     }
                     if (way.right && currentDirection.x > 0)
                     {
-                        currentDirection = Vector2Int.right;
+                        SetNewDirection(Vector2Int.right);
                         return;
                     }
                 }
@@ -118,32 +133,13 @@ namespace Com.Technitaur.GreenBean.Interactables
 
         private Waypoint IsWaypoint(Vector2Int curPos)
         {
+            if (waypoints.Length == 0 || waypoints == null) return null;
             foreach (var waypoint in waypoints)
             {
+                if (waypoint == null) return null;
                 if ((Vector3)(Vector2)curPos == waypoint.transform.position) return waypoint;
             }
             return null;
-        }
-
-        public virtual bool IsBlocked()
-        {
-            if (!_env.IsGrounded)
-            {
-                currentDirection.x = -currentDirection.x;
-                return true;
-            }
-            if (currentDirection.x > 0 && !_env.CanMoveRight)
-            {
-                currentDirection.x = -1;
-                return true;
-            }
-            if (currentDirection.x < 0 && !_env.CanMoveLeft)
-            {
-                currentDirection.x = 1;
-                return true;
-            }
-            // do extra stuff with y for spiders here later
-            return false;
         }
 
         public void Kill()
@@ -153,11 +149,14 @@ namespace Com.Technitaur.GreenBean.Interactables
 
         public override void SetDirty()
         {
+            IsDirty = true;
+            tracker.SetObjectDirty(gameObject, startPosition);
             gameObject.SetActive(false);
         }
 
         public override void SetClean()
         {
+            IsDirty = false;
             currentDirection = startDirection;
         }
     }

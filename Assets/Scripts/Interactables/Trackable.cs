@@ -4,23 +4,25 @@ namespace Com.Technitaur.GreenBean.Interactables
 {
     public abstract class Trackable : MonoBehaviour
     {
-        public bool IsDirty { get; private set; }
+        public bool IsDirty { get; protected set; }
         public Sprite CleanSprite { get { return cleanSprite; } private set { cleanSprite = value; } }
 
         [Header("Trackable")]
-        [SerializeField] private Tracker tracker;
-        [SerializeField] private Sprite dirtySprite = null;
-        [SerializeField] private Sprite cleanSprite = null;
-        [SerializeField] private SpriteRenderer rend = null;
-        [SerializeField] private BoxCollider2D objCollider = null;
+        [SerializeField] protected Tracker tracker;
+        [SerializeField] protected Sprite dirtySprite = null;
+        [SerializeField] protected Sprite cleanSprite = null;
+        [SerializeField] protected SpriteRenderer rend = null;
+        [SerializeField] protected BoxCollider2D objCollider = null;
+        [SerializeField] protected Vector2Int startPosition;
         
         public virtual GameObject GetGameObject() => gameObject;
         
         public virtual void OnEnable()
         {
+            startPosition = Vector2Int.RoundToInt(transform.position);
             tracker = GameObject.FindObjectOfType<Tracker>();
-            tracker.AddToList(gameObject);
-            if (tracker.IsObjectDirty(gameObject)) SetDirty();
+            tracker.AddToList(gameObject, startPosition);
+            if (tracker.IsObjectDirty(gameObject, startPosition)) SetDirty();
             else SetClean();
         }
 
@@ -29,7 +31,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             rend.sprite = dirtySprite;
             objCollider.gameObject.SetActive(false);
             IsDirty = true;
-            tracker.SetObjectDirty(gameObject);
+            tracker.SetObjectDirty(gameObject, startPosition);
         }
         
         public virtual void SetClean()
