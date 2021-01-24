@@ -50,11 +50,7 @@ namespace Com.Technitaur.GreenBean.Interactables
         {
             base.OnEnable();
             buffStatus = GameObject.Find("WandStatus").GetComponent<IWandStatus>();
-            if (buffStatus.IsBuffActive && !faded)
-            {
-                Fade(true);
-                Debug.Log("Fading mob.");
-            }
+            if (buffStatus.IsBuffActive && !faded) Fade(true);
         }
         
         private void SetNewDirection(Vector2Int dir)
