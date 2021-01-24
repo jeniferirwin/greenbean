@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Inventory
 {
@@ -29,7 +30,7 @@ namespace Com.Technitaur.GreenBean.Inventory
             UpdateScore();
         }
         
-        public void AddScore(int worth)
+        public void AddScore(ItemType itemType, int worth)
         {
             Score += worth;
             UpdateScore();
