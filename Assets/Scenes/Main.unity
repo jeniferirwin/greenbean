@@ -2538,6 +2538,11 @@ PrefabInstance:
       propertyPath: ppf
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1681263047193067495, guid: b8861c32f3d943843887e383cb65d528,
+        type: 3}
+      propertyPath: mobType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7653049372123730455, guid: b8861c32f3d943843887e383cb65d528,
         type: 3}
       propertyPath: m_LocalPosition.y

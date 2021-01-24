@@ -9,5 +9,15 @@ namespace Com.Technitaur.GreenBean.Interactables
 
         [Header("Door")]
         [SerializeField] private ItemType unlockedBy = ItemType.None;
+        
+        public override void SetDirty()
+        {
+            base.SetDirty();
+            var waypoints = gameObject.GetComponentsInChildren<Waypoint>();
+            foreach (var waypoint in waypoints)
+            {
+                waypoint.gameObject.SetActive(false);
+            }
+        }
     }
 }
