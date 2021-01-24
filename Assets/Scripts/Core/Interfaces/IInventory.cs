@@ -8,5 +8,6 @@ namespace Com.Technitaur.GreenBean.Core
         int Count { get; }
         bool Add(IInventoryItem item);
         bool Consume(ItemType itemType);
+        bool Consume(ItemType itemType, int worth);
     }
 }
