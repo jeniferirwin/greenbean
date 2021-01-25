@@ -406,7 +406,7 @@ TextureImporter:
     second: pole
   - first:
       213: -2744459860488241012
-    second: environment_1
+    second: notex
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1801,6 +1801,27 @@ TextureImporter:
       bones: []
       spriteID: 24702d71f36a87a60800000000000000
       internalID: 7672064755138430786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notex
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80c7433c48b9e9d0800000000000000
+      internalID: -2744459860488241012
       vertices: []
       indices: 
       edges: []
