@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -183,10 +183,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c921f72d3e7b414439684c2769ec37d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tracker: {fileID: 0}
   dirtySprite: {fileID: 2813356486045828731, guid: 35ca94fe734188c4eb6af96041795733,
     type: 3}
   cleanSprite: {fileID: 3662989982615374409, guid: cea196bd2accff6409c602c6daa76ed8,
     type: 3}
   rend: {fileID: 786234681966284585}
   objCollider: {fileID: 786234682875477477}
-  keyType: 2
+  startPosition: {x: 0, y: 0}
+  itemName: Key
+  itemType: 6
+  pickupWorth: 50
+  consumeWorth: 300
