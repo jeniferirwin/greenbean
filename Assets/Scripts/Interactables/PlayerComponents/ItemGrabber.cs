@@ -28,6 +28,11 @@ namespace Com.Technitaur.GreenBean.Interactables
                 {
                     _inventory.Consume(ItemType.Coin);
                 }
+                if (item.ItemType == ItemType.Torch)
+                {
+                    var darkness = FindObjectOfType<Darkness>();
+                    darkness.OnTorchPickup();
+                }
             }
         }
     }

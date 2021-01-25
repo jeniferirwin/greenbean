@@ -10,6 +10,7 @@ namespace Com.Technitaur.GreenBean.Inventory
         
         [SerializeField] private int index = 0;
         [SerializeField] private SpriteRenderer rend = null;
+        [SerializeField] private Animator anim = null;
         
         public void Start()
         {
@@ -18,6 +19,7 @@ namespace Com.Technitaur.GreenBean.Inventory
 
         public void Clear()
         {
+            anim.enabled = false;
             rend.sprite = null;
         }
         
@@ -25,7 +27,12 @@ namespace Com.Technitaur.GreenBean.Inventory
         {
             if (index <= items.Count - 1)
             {
-                rend.sprite = items[index].Sprite;
+                if (items[index].ItemType == ItemType.Torch) anim.enabled = true;
+                else
+                {
+                    anim.enabled = false;
+                    rend.sprite = items[index].Sprite;
+                }
             }
             else
             {

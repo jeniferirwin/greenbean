@@ -11,8 +11,16 @@ namespace Com.Technitaur.GreenBean.Inventory
 
         public List<IInventoryItem> items = new List<IInventoryItem>();
 
+        public bool HasItem(ItemType item)
+        {
+            var has = FindItemIndex(item);
+            if (has != -1) return true;
+            return false;
+        }
+
         public int Count { get { return items.Count; } }
 
+        public void Start() => OnInventoryUpdate?.Invoke(items);
         public bool IsFull
         {
             get
