@@ -9,6 +9,7 @@ TagManager:
   - RoomData
   - SpawnPoint
   - Mob
+  - Darkness
   layers:
   - Default
   - TransparentFX

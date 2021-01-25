@@ -407,6 +407,18 @@ TextureImporter:
   - first:
       213: -2744459860488241012
     second: notex
+  - first:
+      213: 689176432287940110
+    second: firebrick_01
+  - first:
+      213: -3465110836789601462
+    second: firebrick_02
+  - first:
+      213: -7163797405583273556
+    second: firebrick_03
+  - first:
+      213: -1112349361429245251
+    second: firebrick_04
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1645,8 +1657,8 @@ TextureImporter:
         y: 0
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1666,8 +1678,8 @@ TextureImporter:
         y: 0
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1687,8 +1699,8 @@ TextureImporter:
         y: 0
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1708,8 +1720,8 @@ TextureImporter:
         y: 0
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1814,7 +1826,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1822,6 +1834,90 @@ TextureImporter:
       bones: []
       spriteID: c80c7433c48b9e9d0800000000000000
       internalID: -2744459860488241012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firebrick_01
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0ef7125052709900800000000000000
+      internalID: 689176432287940110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firebrick_02
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b9cc98d0479efc0800000000000000
+      internalID: -3465110836789601462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firebrick_03
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1185d0734159c90800000000000000
+      internalID: -7163797405583273556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firebrick_04
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db290e536242090f0800000000000000
+      internalID: -1112349361429245251
       vertices: []
       indices: 
       edges: []

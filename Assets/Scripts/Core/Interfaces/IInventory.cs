@@ -9,5 +9,6 @@ namespace Com.Technitaur.GreenBean.Core
         bool Add(IInventoryItem item);
         bool Consume(ItemType itemType);
         bool Consume(ItemType itemType, int worth);
+        bool HasItem(ItemType itemType);
     }
 }
