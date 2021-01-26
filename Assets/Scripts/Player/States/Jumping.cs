@@ -35,12 +35,14 @@ namespace Com.Technitaur.GreenBean.Player
             currentStep = 0;
             tooFar = false;
             startPos = Vector2Int.RoundToInt(controller.gameObject.transform.position);
+            anim.Jump();
             IncrementalJump(controller);
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
         {
             IncrementalJump(player);
+            anim.Jump();
         }
 
         public void IncrementalJump(Controller player)
