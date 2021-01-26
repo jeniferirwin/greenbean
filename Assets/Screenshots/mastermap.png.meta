@@ -193,67 +193,67 @@ TextureImporter:
     second: B11
   - first:
       213: 3479024916740143596
-    second: mastermap_7
+    second: C07
   - first:
       213: 6558211949078902829
-    second: mastermap_8
+    second: C08
   - first:
       213: -3471164474950225582
-    second: mastermap_9
+    second: C09
   - first:
       213: -1809375887128074519
-    second: mastermap_10
+    second: C10
   - first:
       213: 3107855231959612539
-    second: mastermap_12
+    second: D06
   - first:
       213: 7622503944360600407
-    second: mastermap_13
+    second: D07
   - first:
       213: -3146738551611041797
-    second: mastermap_14
+    second: D08
   - first:
       213: 7977271129672485113
-    second: mastermap_15
+    second: D09
   - first:
       213: 2323326698628904958
-    second: mastermap_16
+    second: D10
   - first:
       213: 7379602851395383114
-    second: mastermap_17
+    second: E04
   - first:
       213: 2265434066722441989
-    second: mastermap_18
+    second: E06
   - first:
       213: 1615332028119841293
-    second: mastermap_19
+    second: E07
   - first:
       213: -7408784016434369469
-    second: mastermap_20
+    second: E08
   - first:
       213: 5509068357481860418
-    second: mastermap_21
+    second: E09
   - first:
       213: 4675957899822209152
-    second: mastermap_22
+    second: E10
   - first:
       213: 1316974839975899826
-    second: mastermap_23
+    second: F04
   - first:
       213: -1930923001336389923
-    second: mastermap_24
+    second: F06
   - first:
       213: 1964652089700736922
-    second: mastermap_25
+    second: F07
   - first:
       213: -7385643423374215107
-    second: mastermap_26
+    second: F08
   - first:
       213: 1274410023017207202
-    second: mastermap_27
+    second: F09
   - first:
       213: 6393069390300855655
-    second: mastermap_28
+    second: F10
   - first:
       213: 7808414725485908895
     second: mastermap_29
@@ -478,7 +478,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3200
-        y: 1601
+        y: 1599
         width: 320
         height: 200
       alignment: 0
@@ -541,7 +541,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2880
-        y: 1401
+        y: 1399
         width: 320
         height: 200
       alignment: 0
@@ -579,11 +579,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_7
+      name: C07
       rect:
         serializedVersion: 2
         x: 1920
-        y: 1201
+        y: 1199
         width: 320
         height: 200
       alignment: 0
@@ -600,7 +600,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_8
+      name: C08
       rect:
         serializedVersion: 2
         x: 2240
@@ -621,7 +621,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_9
+      name: C09
       rect:
         serializedVersion: 2
         x: 2560
@@ -642,7 +642,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_10
+      name: C10
       rect:
         serializedVersion: 2
         x: 2880
@@ -663,7 +663,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_12
+      name: D06
       rect:
         serializedVersion: 2
         x: 1600
@@ -684,7 +684,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_13
+      name: D07
       rect:
         serializedVersion: 2
         x: 1920
@@ -705,7 +705,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_14
+      name: D08
       rect:
         serializedVersion: 2
         x: 2240
@@ -726,7 +726,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_15
+      name: D09
       rect:
         serializedVersion: 2
         x: 2560
@@ -747,7 +747,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_16
+      name: D10
       rect:
         serializedVersion: 2
         x: 2880
@@ -768,7 +768,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_17
+      name: E04
       rect:
         serializedVersion: 2
         x: 960
@@ -789,7 +789,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_18
+      name: E06
       rect:
         serializedVersion: 2
         x: 1600
@@ -810,7 +810,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_19
+      name: E07
       rect:
         serializedVersion: 2
         x: 1920
@@ -831,7 +831,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_20
+      name: E08
       rect:
         serializedVersion: 2
         x: 2240
@@ -852,7 +852,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_21
+      name: E09
       rect:
         serializedVersion: 2
         x: 2560
@@ -873,7 +873,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_22
+      name: E10
       rect:
         serializedVersion: 2
         x: 2880
@@ -894,7 +894,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_23
+      name: F04
       rect:
         serializedVersion: 2
         x: 960
@@ -915,7 +915,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_24
+      name: F06
       rect:
         serializedVersion: 2
         x: 1600
@@ -936,7 +936,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_25
+      name: F07
       rect:
         serializedVersion: 2
         x: 1920
@@ -957,7 +957,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_26
+      name: F08
       rect:
         serializedVersion: 2
         x: 2240
@@ -978,7 +978,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_27
+      name: F09
       rect:
         serializedVersion: 2
         x: 2560
@@ -999,7 +999,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mastermap_28
+      name: F10
       rect:
         serializedVersion: 2
         x: 2880
