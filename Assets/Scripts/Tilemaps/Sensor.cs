@@ -11,6 +11,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public Grid grid;
         [SerializeField] private Vector2 castDirection = Vector2.zero;
         [SerializeField] private LayerMask doorMask = 0;
+        [SerializeField] private LayerMask holoMask = 0;
 
         public bool IsNull { get; private set; }
         public bool AtLeftLadderTop { get; private set; }
@@ -25,6 +26,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool AtRightBelt { get; private set; }
         public bool AtClosedDoor { get; private set; }
         public bool AtHazard { get; private set; }
+        public bool AtHoloplatform { get; private set; }
 
         public void OnEnable()
         {
@@ -39,7 +41,8 @@ namespace Com.Technitaur.GreenBean.Tilemaps
             ResetVariables();
             TileBase tile = TileAtLoc();
             bool isDoorHere = DoorAtLoc();
-            if (tile == null && !isDoorHere)
+            bool isHoloplatformHere = HoloplatformAtLoc();
+            if (tile == null && !isDoorHere && !isHoloplatformHere)
             {
                 IsNull = true;
                 return;
@@ -52,6 +55,27 @@ namespace Com.Technitaur.GreenBean.Tilemaps
             {
                 AtClosedDoor = true;
             }
+            if (isHoloplatformHere)
+            {
+                AtHoloplatform = true;
+            }
+        }
+        
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawWireSphere(transform.position, 0.5f);
+        }
+
+        private bool HoloplatformAtLoc()
+        {
+            if (holoMask == 0) return false;
+            var hit = Physics2D.CircleCast(transform.position, 0.2f, Vector2.down, 0.2f, holoMask);
+
+            if (hit.collider == null)
+            {
+                return false;
+            }
+            return true;
         }
 
         public Vector2 CurrentTileCenter()
@@ -129,6 +153,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
             AtClosedDoor = false;
             IsNull = false;
             AtHazard = false;
+            AtHoloplatform = false;
         }
     }
 }

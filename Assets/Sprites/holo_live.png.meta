@@ -1,0 +1,2660 @@
+fileFormatVersion: 2
+guid: e3fe6a58f63f4224ba9dfb4030337313
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6501803253149498413
+    second: holoplatform_0
+  - first:
+      213: 3555355013664164177
+    second: holoplatform_1
+  - first:
+      213: 1925877087486741531
+    second: holoplatform_2
+  - first:
+      213: -1914479664041397073
+    second: holoplatform_3
+  - first:
+      213: 6808153415249248994
+    second: holoplatform_4
+  - first:
+      213: 3802600922318201955
+    second: holoplatform_5
+  - first:
+      213: -4648102760665921335
+    second: holoplatform_6
+  - first:
+      213: 8065046106999025202
+    second: holoplatform_7
+  - first:
+      213: 2715169549737175996
+    second: holoplatform_8
+  - first:
+      213: 9218266594602134818
+    second: holoplatform_9
+  - first:
+      213: 4864074434945814951
+    second: holoplatform_10
+  - first:
+      213: -6788635021903340556
+    second: holoplatform_11
+  - first:
+      213: -5888246450129351287
+    second: holoplatform_12
+  - first:
+      213: 8467712825253826077
+    second: holoplatform_13
+  - first:
+      213: -6785186591100839085
+    second: holoplatform_14
+  - first:
+      213: 1995805366710004636
+    second: holoplatform_15
+  - first:
+      213: 8889063503493125797
+    second: holoplatform_16
+  - first:
+      213: 8775499572687116948
+    second: holoplatform_17
+  - first:
+      213: 356413744369936522
+    second: holoplatform_18
+  - first:
+      213: -7702369577824183560
+    second: holoplatform_19
+  - first:
+      213: 4293805052495906133
+    second: holoplatform_20
+  - first:
+      213: -64580242675905951
+    second: holoplatform_21
+  - first:
+      213: -849714476310365976
+    second: holoplatform_22
+  - first:
+      213: 1314508425575985215
+    second: holoplatform_23
+  - first:
+      213: 4294113119696790251
+    second: holoplatform_24
+  - first:
+      213: -2604934582875118311
+    second: holoplatform_25
+  - first:
+      213: -3271920031611465528
+    second: holoplatform_26
+  - first:
+      213: 2463733831830923926
+    second: holoplatform_27
+  - first:
+      213: 2147386083938458313
+    second: holoplatform_28
+  - first:
+      213: -2335787165332924807
+    second: holoplatform_29
+  - first:
+      213: 7696868573587993525
+    second: holoplatform_30
+  - first:
+      213: -2422234090311879724
+    second: holoplatform_31
+  - first:
+      213: -6772448208724033328
+    second: holoplatform_32
+  - first:
+      213: -3286697212498318048
+    second: holoplatform_33
+  - first:
+      213: 4958205669004920690
+    second: holoplatform_34
+  - first:
+      213: 5373238268937130799
+    second: holoplatform_35
+  - first:
+      213: 5585972707180812010
+    second: holoplatform_36
+  - first:
+      213: -5785651566328852793
+    second: holoplatform_37
+  - first:
+      213: -6479944207920738164
+    second: holoplatform_38
+  - first:
+      213: 7815816918272289697
+    second: holoplatform_39
+  - first:
+      213: 3887125913920618006
+    second: holoplatform_40
+  - first:
+      213: -3432666672050732352
+    second: holoplatform_41
+  - first:
+      213: -716125482646379042
+    second: holoplatform_42
+  - first:
+      213: -5974849120469173877
+    second: holoplatform_43
+  - first:
+      213: 4754823252229893302
+    second: holoplatform_44
+  - first:
+      213: -3939145459963649567
+    second: holoplatform_45
+  - first:
+      213: 2601531048444284085
+    second: holoplatform_46
+  - first:
+      213: -744632206082395654
+    second: holoplatform_47
+  - first:
+      213: -6748818229298402292
+    second: holoplatform_48
+  - first:
+      213: -6345308882876219121
+    second: holoplatform_49
+  - first:
+      213: -2088286627672342054
+    second: holoplatform_50
+  - first:
+      213: -8416288461330974152
+    second: holoplatform_51
+  - first:
+      213: -1213973963339185644
+    second: holoplatform_52
+  - first:
+      213: -5371303453185537564
+    second: holoplatform_53
+  - first:
+      213: -1832621424659124954
+    second: holoplatform_54
+  - first:
+      213: -2875398784113325295
+    second: holoplatform_55
+  - first:
+      213: 2422437244212094285
+    second: holoplatform_56
+  - first:
+      213: -6575179999778784534
+    second: holoplatform_57
+  - first:
+      213: -5298914187103781347
+    second: holoplatform_58
+  - first:
+      213: -7766618096349978954
+    second: holoplatform_59
+  - first:
+      213: 6687136899163053759
+    second: holoplatform_60
+  - first:
+      213: 936490112103536268
+    second: holoplatform_61
+  - first:
+      213: -319838625028274656
+    second: holoplatform_62
+  - first:
+      213: -4291791963729641709
+    second: holoplatform_63
+  - first:
+      213: 4147184780480522412
+    second: holoplatform_64
+  - first:
+      213: -4878426531664965398
+    second: holoplatform_65
+  - first:
+      213: -829014585573734301
+    second: holoplatform_66
+  - first:
+      213: -5069018798347848430
+    second: holoplatform_67
+  - first:
+      213: 5961945133107970884
+    second: holoplatform_68
+  - first:
+      213: -2627603288146722533
+    second: holoplatform_69
+  - first:
+      213: -8911371733225204076
+    second: holoplatform_70
+  - first:
+      213: 5731760093731994447
+    second: holoplatform_71
+  - first:
+      213: -3170691493862501549
+    second: holoplatform_72
+  - first:
+      213: -6593255345351635281
+    second: holoplatform_73
+  - first:
+      213: 8463655435976588503
+    second: holoplatform_74
+  - first:
+      213: 1275360280987289971
+    second: holoplatform_75
+  - first:
+      213: 8935234526628111334
+    second: holoplatform_76
+  - first:
+      213: -2955275559156312951
+    second: holoplatform_77
+  - first:
+      213: 7189155120796964362
+    second: holoplatform_78
+  - first:
+      213: -7417553191532275431
+    second: holoplatform_79
+  - first:
+      213: -1754297122694682053
+    second: holoplatform_80
+  - first:
+      213: -2814242516259314823
+    second: holoplatform_81
+  - first:
+      213: -6165806637109177268
+    second: holoplatform_82
+  - first:
+      213: -6522919846659431167
+    second: holoplatform_83
+  - first:
+      213: 2357211740024264277
+    second: holoplatform_84
+  - first:
+      213: -4385175164799553945
+    second: holoplatform_85
+  - first:
+      213: 5293908789479098564
+    second: holoplatform_86
+  - first:
+      213: 4750439079140983227
+    second: holoplatform_87
+  - first:
+      213: -6509075595350334487
+    second: holoplatform_88
+  - first:
+      213: -333520859543497702
+    second: holoplatform_89
+  - first:
+      213: 9030981750514150214
+    second: holoplatform_90
+  - first:
+      213: -8368512533525878817
+    second: holoplatform_91
+  - first:
+      213: 2014000309667929898
+    second: holoplatform_92
+  - first:
+      213: 7718791952205417567
+    second: holoplatform_93
+  - first:
+      213: -5704157457524517249
+    second: holoplatform_94
+  - first:
+      213: 2689000405201693311
+    second: holoplatform_95
+  - first:
+      213: 2760911004320355721
+    second: holoplatform_96
+  - first:
+      213: 2068396051281384531
+    second: holoplatform_97
+  - first:
+      213: 5562405488710642883
+    second: holoplatform_98
+  - first:
+      213: -1413957594190329383
+    second: holoplatform_99
+  - first:
+      213: -7935381094601375886
+    second: holoplatform_100
+  - first:
+      213: 1152294375731848750
+    second: holoplatform_101
+  - first:
+      213: -4175742233690586277
+    second: holoplatform_102
+  - first:
+      213: -888467803362316198
+    second: holoplatform_103
+  - first:
+      213: 514418236498415714
+    second: holoplatform_104
+  - first:
+      213: 4718727258992216394
+    second: holoplatform_105
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: holoplatform_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 840
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d38b88a364f4c5a0800000000000000
+      internalID: -6501803253149498413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1594bdf3c88275130800000000000000
+      internalID: 3555355013664164177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 824
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c06b0e1071aba10800000000000000
+      internalID: 1925877087486741531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 816
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa47a1f83e66e65e0800000000000000
+      internalID: -1914479664041397073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 808
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e24b44c57b6b7e50800000000000000
+      internalID: 6808153415249248994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 364695d446d85c430800000000000000
+      internalID: 3802600922318201955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 792
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8cef67a2f9e7fb0800000000000000
+      internalID: -4648102760665921335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 784
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ee2d034bcccef60800000000000000
+      internalID: 8065046106999025202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 776
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbaa05e1583ea520800000000000000
+      internalID: 2715169549737175996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22d2c1890acddef70800000000000000
+      internalID: 9218266594602134818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 760
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a111087de9a08340800000000000000
+      internalID: 4864074434945814951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 752
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fbdca15a6ce9c1a0800000000000000
+      internalID: -6788635021903340556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 744
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98dc5160d0fb84ea0800000000000000
+      internalID: -5888246450129351287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 736
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1e064163fb538570800000000000000
+      internalID: 8467712825253826077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 728
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35bd0beaebc26d1a0800000000000000
+      internalID: -6785186591100839085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b6193286682bb10800000000000000
+      internalID: 1995805366710004636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 712
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6d89ff82c4c5b70800000000000000
+      internalID: 8889063503493125797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a9b94ed56d8c970800000000000000
+      internalID: 8775499572687116948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 696
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a88ac32896c32f400800000000000000
+      internalID: 356413744369936522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 688
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa93098dafab1590800000000000000
+      internalID: -7702369577824183560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 680
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 555cbc812f8a69b30800000000000000
+      internalID: 4293805052495906133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a4bc78c909a1ff0800000000000000
+      internalID: -64580242675905951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 664
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8730f8f253534f0800000000000000
+      internalID: -849714476310365976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 656
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30f6b0d2721e3210800000000000000
+      internalID: 1314508425575985215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 648
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be22fd49121c79b30800000000000000
+      internalID: 4294113119696790251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91529946cc969dbd0800000000000000
+      internalID: -2604934582875118311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 632
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0505e011ec792d0800000000000000
+      internalID: -3271920031611465528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 624
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ae46bddd0f03220800000000000000
+      internalID: 2463733831830923926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 616
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cad4c8144c0dcd10800000000000000
+      internalID: 2147386083938458313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 608
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9761a6bd2fd959fd0800000000000000
+      internalID: -2335787165332924807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b3749b1035c0da60800000000000000
+      internalID: 7696868573587993525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 592
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d37e1cadee726ed0800000000000000
+      internalID: -2422234090311879724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 584
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d006437c3e6302a0800000000000000
+      internalID: -6772448208724033328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02d65c48c4e4362d0800000000000000
+      internalID: -3286697212498318048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 568
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 277cd5849c51fc440800000000000000
+      internalID: 4958205669004920690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f235889acb3919a40800000000000000
+      internalID: 5373238268937130799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 552
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae61a88d49c558d40800000000000000
+      internalID: 5585972707180812010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 544
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce49cadd8c35bfa0800000000000000
+      internalID: -5785651566328852793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 536
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80d88a331d9216a0800000000000000
+      internalID: -6479944207920738164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 528
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1abab13c31c577c60800000000000000
+      internalID: 7815816918272289697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 520
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e34708c68d1f530800000000000000
+      internalID: 3887125913920618006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2081c49d7bc50d0800000000000000
+      internalID: -3432666672050732352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 504
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5e140faafcf06f0800000000000000
+      internalID: -716125482646379042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 496
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8931eb8162151da0800000000000000
+      internalID: -5974849120469173877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 488
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc2ee64e868cf140800000000000000
+      internalID: 4754823252229893302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e1264c13185559c0800000000000000
+      internalID: -3939145459963649567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 472
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bccbae74be7a1420800000000000000
+      internalID: 2601531048444284085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 464
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1b42c24f88aa5f0800000000000000
+      internalID: -744632206082395654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 456
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0cecf4c3916752a0800000000000000
+      internalID: -6748818229298402292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01480e903fe0f7a0800000000000000
+      internalID: -6345308882876219121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad14468506ae403e0800000000000000
+      internalID: -2088286627672342054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 432
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83af52f5c36533b80800000000000000
+      internalID: -8416288461330974152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 424
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 412489cbc19172fe0800000000000000
+      internalID: -1213973963339185644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_53
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e90c0cb7fb4575b0800000000000000
+      internalID: -5371303453185537564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d2c6f16883196e0800000000000000
+      internalID: -1832621424659124954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11bc5555a088818d0800000000000000
+      internalID: -2875398784113325295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 392
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4520f7c6d93e9120800000000000000
+      internalID: 2422437244212094285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeabee280a440c4a0800000000000000
+      internalID: -6575179999778784534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_58
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 376
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1eb6662f997676b0800000000000000
+      internalID: -5298914187103781347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_59
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 368
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be50fc9dfd673490800000000000000
+      internalID: -7766618096349978954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe550f649b7dcc50800000000000000
+      internalID: 6687136899163053759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c86d8939bc41ffc00800000000000000
+      internalID: 936490112103536268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 344
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0268db11774bf8bf0800000000000000
+      internalID: -319838625028274656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 336
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31fb408a2fd7074c0800000000000000
+      internalID: -4291791963729641709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 328
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca8a27ac592cd8930800000000000000
+      internalID: 4147184780480522412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0d44d9ae85c4cb0800000000000000
+      internalID: -4878426531664965398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 312
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 368824170afbe74f0800000000000000
+      internalID: -829014585573734301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 215f2bc724a37a9b0800000000000000
+      internalID: -5069018798347848430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 296
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4430545c2851db250800000000000000
+      internalID: 5961945133107970884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_69
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b11cd572bb0e88bd0800000000000000
+      internalID: -2627603288146722533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49697a38f92745480800000000000000
+      internalID: -8911371733225204076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 272
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4bb7a4ef6d4b8f40800000000000000
+      internalID: 5731760093731994447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 264
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35319f7a2e07ff3d0800000000000000
+      internalID: -3170691493862501549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faeceda223d0084a0800000000000000
+      internalID: -6593255345351635281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 248
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc30b2d6c1f47570800000000000000
+      internalID: 8463655435976588503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379c3ec1b6df2b110800000000000000
+      internalID: 1275360280987289971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 232
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e369780674500c70800000000000000
+      internalID: 8935234526628111334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98418136980ccf6d0800000000000000
+      internalID: -2955275559156312951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06984a1e7205c360800000000000000
+      internalID: 7189155120796964362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91957241cae8f0990800000000000000
+      internalID: -7417553191532275431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a2b43cf0c77a7e0800000000000000
+      internalID: -1754297122694682053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 973ef8a875dc1f8d0800000000000000
+      internalID: -2814242516259314823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_82
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c449c590887ae6aa0800000000000000
+      internalID: -6165806637109177268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_83
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105e48995fee975a0800000000000000
+      internalID: -6522919846659431167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 168
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 556d688a69f76b020800000000000000
+      internalID: 2357211740024264277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ee148db6ab423c0800000000000000
+      internalID: -4385175164799553945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c84836eefdb77940800000000000000
+      internalID: 5293908789479098564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1055f6c23fce140800000000000000
+      internalID: 4750439079140983227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_88
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e3aafa8b3e1ba5a0800000000000000
+      internalID: -6509075595350334487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_89
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a141ab99b881f5bf0800000000000000
+      internalID: -333520859543497702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b6e6ccd0e745d70800000000000000
+      internalID: 9030981750514150214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd729c460321ddb80800000000000000
+      internalID: -8368512533525878817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_92
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f984b6c9a23fb10800000000000000
+      internalID: 2014000309667929898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_93
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c09567268ae1b60800000000000000
+      internalID: 7718791952205417567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_94
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f761b59a303c6d0b0800000000000000
+      internalID: -5704157457524517249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_95
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7aade02f9f315520800000000000000
+      internalID: 2689000405201693311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9855bf43ee9b05620800000000000000
+      internalID: 2760911004320355721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_97
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3549273ff3b64bc10800000000000000
+      internalID: 2068396051281384531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_98
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cce7433252a13d40800000000000000
+      internalID: 5562405488710642883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_99
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9c1de3f0d906ce0800000000000000
+      internalID: -1413957594190329383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27f3fea10fcdfd190800000000000000
+      internalID: -7935381094601375886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_101
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e266d2e21a5cdff00800000000000000
+      internalID: 1152294375731848750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_102
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b53c64fff88cc06c0800000000000000
+      internalID: -4175742233690586277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_103
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a50b73a7d378ba3f0800000000000000
+      internalID: -888467803362316198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_104
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260987c19a4932700800000000000000
+      internalID: 514418236498415714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holoplatform_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a490f20f0794c7140800000000000000
+      internalID: 4718727258992216394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
