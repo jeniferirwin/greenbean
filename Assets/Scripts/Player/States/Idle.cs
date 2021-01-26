@@ -13,6 +13,7 @@ namespace Com.Technitaur.GreenBean.Player
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
         {
+            anim.Idle();
             if (!player.env.IsGrounded)
             {
                 player.Transition(player.FallingState);

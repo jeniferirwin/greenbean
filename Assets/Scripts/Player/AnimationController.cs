@@ -31,20 +31,23 @@ namespace Com.Technitaur.GreenBean.Player
 
             if (isLadder)
             {
-                if (ticks == 0) ticks = climbingLadderFrames.Length - 1;
-                if (ticks == climbingLadderFrames.Length) ticks = 0;
+                if (ticks <= 0) ticks = climbingLadderFrames.Length - 1;
+                if (ticks >= climbingLadderFrames.Length) ticks = 0;
                 rend.sprite = climbingLadderFrames[ticks];
             }
             else
             {
-                if (ticks == 0) ticks = climbingRopeFrames.Length - 1;
-                if (ticks == climbingRopeFrames.Length) ticks = 0;
+                if (ticks <= 0) ticks = climbingRopeFrames.Length - 1;
+                if (ticks >= climbingRopeFrames.Length) ticks = 0;
                 rend.sprite = climbingRopeFrames[ticks];
             }
         }
 
         public void ResetTicks() => ticks = 0;
-        public void Idle() => rend.sprite = standingFrame;
+        public void Idle()
+        {
+            if (rend.sprite != standingFrame) rend.sprite = standingFrame;
+        }
 
         public void Walk()
         {

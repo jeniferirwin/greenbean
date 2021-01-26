@@ -155,8 +155,8 @@ namespace Com.Technitaur.GreenBean.Player
         {
             get
             {
-                belowFeet.SensorUpdate();
-                if (belowFeet.AtMountingLadder) return true;
+                atFeet.SensorUpdate();
+                if (atFeet.AtMountingLadder) return true;
                 return false;
             }
         }
@@ -178,6 +178,7 @@ namespace Com.Technitaur.GreenBean.Player
                     pos.x--;
                 }
             }
+            pos.x++;
             return pos;
         }
         

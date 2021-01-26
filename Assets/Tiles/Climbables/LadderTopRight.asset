@@ -20,7 +20,12 @@ MonoBehaviour:
   isSemisolid: 1
   isLeftLadder: 0
   isRightLadder: 1
+  isMountingLadder: 1
   isRope: 0
   isPole: 0
   isLeftBelt: 0
   isRightBelt: 0
+  isHazard: 0
+  isCyanDoor: 0
+  isRedDoor: 0
+  isVioletDoor: 0

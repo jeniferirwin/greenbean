@@ -27,12 +27,10 @@ namespace Com.Technitaur.GreenBean.Player
                 if (player.env.CanClimbUpLadder)
                 {
                     player.IncrementalMove(Vector2Int.up, 1, false, false);
-                    return;
                 }
                 else
                 {
                     player.Transition(player.IdleState);
-                    return;
                 }
             }
             if (input.dir.y < 0)
@@ -40,12 +38,10 @@ namespace Com.Technitaur.GreenBean.Player
                 if (player.env.CanClimbDownLadder)
                 {
                     player.IncrementalMove(Vector2Int.down, 1, false, false);
-                    return;
                 }
                 else
                 {
                     player.Transition(player.IdleState);
-                    return;
                 }
             }
             if (player.env.OnMountingLadder)
