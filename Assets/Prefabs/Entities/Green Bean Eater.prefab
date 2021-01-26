@@ -826,7 +826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4958700663040048584}
   rend: {fileID: 4958700664412042905}
-  jumpingFrame: {fileID: -2373947161172847283, guid: 41f361a71b378284f87e757e0e89d3c4,
+  jumpingFrame: {fileID: 2719421652528621227, guid: 41f361a71b378284f87e757e0e89d3c4,
     type: 3}
   standingFrame: {fileID: -5071563641634004584, guid: 41f361a71b378284f87e757e0e89d3c4,
     type: 3}

@@ -130,7 +130,7 @@ TextureImporter:
     second: climbrope2
   - first:
       213: 2719421652528621227
-    second: standing_18
+    second: jumping
   - first:
       213: 1717427683634986375
     second: standing_19
@@ -621,7 +621,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: standing_18
+      name: jumping
       rect:
         serializedVersion: 2
         x: 108
