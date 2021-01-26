@@ -7,6 +7,7 @@ namespace Com.Technitaur.GreenBean.Player
     public class Controller : MonoBehaviour, IKillable
     {
         public IEnvironment env;
+        public RoomLoader.Direction leavingDir;
 
         public const int walkSpeed = 2;
         public const int fallSpeed = 4;
@@ -82,9 +83,38 @@ namespace Com.Technitaur.GreenBean.Player
                     newPos += (Vector3Int)dir;
                 }
                 transform.position = newPos;
+                if (IsOutsideBounds(out leavingDir)) RoomLoader.Load(leavingDir, gameObject);
                 if (env.IsGrounded && stopOnGrounded) return true;
                 if (!env.IsGrounded && stopOnNotGrounded) return true;
             }
+            return false;
+        }
+        
+        private bool IsOutsideBounds(out RoomLoader.Direction dir)
+        {
+            var xBounds = 160;
+            var yBounds = 100;
+            if (transform.position.x >= xBounds)
+            {
+                dir = RoomLoader.Direction.Right;
+                return true;
+            }
+            if (transform.position.x <= -xBounds)
+            {
+                dir = RoomLoader.Direction.Left;
+                return true;
+            }
+            if (transform.position.y >= yBounds)
+            {
+                dir = RoomLoader.Direction.Up;
+                return true;
+            }
+            if (transform.position.y <= -yBounds)
+            {
+                dir = RoomLoader.Direction.Down;
+                return true;
+            }
+            dir = RoomLoader.Direction.None;
             return false;
         }
 
