@@ -151,6 +151,16 @@ namespace Com.Technitaur.GreenBean.Player
             }
         }
         
+        public bool OnMountingLadder
+        {
+            get
+            {
+                atFeet.SensorUpdate();
+                if (atFeet.AtMountingLadder) return true;
+                return false;
+            }
+        }
+        
         public Vector2Int HorizontalSnap(Vector2Int pos, bool right)
         {
             if (right)
@@ -168,6 +178,7 @@ namespace Com.Technitaur.GreenBean.Player
                     pos.x--;
                 }
             }
+            pos.x++;
             return pos;
         }
         

@@ -9,8 +9,9 @@ namespace Com.Technitaur.GreenBean.Player
         private Vector2Int startedClimbing;
         private bool frameSkip;
 
-        public override void EnterState(Controller controller, InputHandler.InputData input)
+        public override void EnterState(Controller controller, InputHandler.InputData input, AnimationController anim)
         {
+            base.EnterState(controller, input, anim);
             var pos = controller.gameObject.transform.position;
             var rounded = Vector2Int.RoundToInt(pos);
             controller.gameObject.transform.position = (Vector2) controller.env.CenterXSnap(rounded);
@@ -51,6 +52,7 @@ namespace Com.Technitaur.GreenBean.Player
                     return;
                 }
             }
+            anim.Climb(input.dir.y, false);
         }
 
         private void CheckForJumpOff(Controller player, InputHandler.InputData input)

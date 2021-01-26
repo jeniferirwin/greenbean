@@ -6,6 +6,8 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class Controller : MonoBehaviour, IKillable
     {
+        [SerializeField] private AnimationController anim;
+
         public IEnvironment env;
         public RoomLoader.Direction leavingDir;
 
@@ -41,6 +43,7 @@ namespace Com.Technitaur.GreenBean.Player
         public void OnEnable()
         {
             Transition(IdleState);
+            Debug.Log(state);
         }
         
         public void DieInAFire()
@@ -55,7 +58,7 @@ namespace Com.Technitaur.GreenBean.Player
 
         public void Transition(PlayerBaseState state)
         {
-            state.EnterState(this, input);
+            state.EnterState(this, input, anim);
             this.state = state;
         }
 

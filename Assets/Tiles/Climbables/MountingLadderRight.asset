@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bbf790ab8932ea4b9792be9bd232902, type: 3}
-  m_Name: LadderTopLeft
+  m_Name: MountingLadderRight
   m_EditorClassIdentifier: 
-  sprite: {fileID: 2969996548014385461, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
+  sprite: {fileID: -7261543884379688678, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
   texture: {fileID: 2800000, guid: 35ca94fe734188c4eb6af96041795733, type: 3}
   pos: {x: 0, y: 0, z: 0}
   level: 0
   isSolid: 0
-  isSemisolid: 1
-  isLeftLadder: 1
-  isRightLadder: 0
+  isSemisolid: 0
+  isLeftLadder: 0
+  isRightLadder: 1
   isMountingLadder: 1
   isRope: 0
   isPole: 0

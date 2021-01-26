@@ -5,9 +5,14 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class Walking : PlayerBaseState
     {
-        public override void EnterState(Controller controller, InputHandler.InputData input)
-        {
+        private int frame = 0;
+        private int lastX;
 
+        public override void EnterState(Controller controller, InputHandler.InputData input, AnimationController anim)
+        {
+            base.EnterState(controller, input, anim);
+            lastX = input.dir.x;
+            anim.Orient(input.dir.x);
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
@@ -56,6 +61,12 @@ namespace Com.Technitaur.GreenBean.Player
                 player.Transition(player.FallingState);
                 return;
             }
+            if (input.dir.x != lastX)
+            {
+                anim.Orient(input.dir.x);
+                lastX = input.dir.x;
+            }
+            anim.Walk();
         }
     }
 }

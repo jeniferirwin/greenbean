@@ -16,6 +16,7 @@ namespace Com.Technitaur.GreenBean.Core
         bool LadderSnapRight { get; }
         bool IsOnLeftBelt { get; }
         bool IsOnRightBelt { get; }
+        bool OnMountingLadder { get; }
         Vector2Int CenterXSnap(Vector2Int pos);
         Vector2Int CenterXYSnap(Vector2Int pos);
         Vector2Int HorizontalSnap(Vector2Int pos, bool right);

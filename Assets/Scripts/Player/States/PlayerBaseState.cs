@@ -1,10 +1,20 @@
-﻿using Com.Technitaur.GreenBean.Input;
+﻿using UnityEngine;
+using Com.Technitaur.GreenBean.Input;
 
 namespace Com.Technitaur.GreenBean.Player
 {
-    public abstract class PlayerBaseState
+    public class PlayerBaseState
     {
-        public abstract void FixedUpdate(Controller controller, InputHandler.InputData input);
-        public abstract void EnterState(Controller controller, InputHandler.InputData input);
+        protected AnimationController anim;
+
+        public virtual void FixedUpdate(Controller controller, InputHandler.InputData input)
+        {
+
+        }
+        public virtual void EnterState(Controller controller, InputHandler.InputData input, AnimationController anim)
+        {
+            this.anim = anim;
+            anim.ResetTicks();
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         public bool AtRightLadderTop { get; private set; }
         public bool AtLeftLadder { get; private set; }
         public bool AtRightLadder { get; private set; }
+        public bool AtMountingLadder { get; private set; }
         public bool AtRope { get; private set; }
         public bool AtSolid { get; private set; }
         public bool AtSemisolid { get; private set; }
@@ -131,6 +132,7 @@ namespace Com.Technitaur.GreenBean.Tilemaps
                 AtLeftBelt = newTile.IsLeftBelt;
                 AtRightBelt = newTile.IsRightBelt;
                 AtHazard = newTile.IsHazard;
+                AtMountingLadder = newTile.IsMountingLadder;
             }
             else
             {

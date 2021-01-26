@@ -8,8 +8,9 @@ namespace Com.Technitaur.GreenBean.Player
     {
         private float reloadDelay;
 
-        public override void EnterState(Controller controller, InputHandler.InputData input)
+        public override void EnterState(Controller controller, InputHandler.InputData input, AnimationController anim)
         {
+            base.EnterState(controller, input, anim);
             Lives.Decrement();
             reloadDelay = 4;
         }
