@@ -17,6 +17,7 @@ namespace Com.Technitaur.GreenBean.Core
         bool AtClosedDoor { get; }
         bool AtHazard { get; }
         bool AtHoloplatform { get; }
+        bool AtMountingLadder { get; }
         
         void SensorUpdate();
         Vector2 CurrentTileCenter();

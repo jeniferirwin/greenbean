@@ -25,8 +25,9 @@ namespace Com.Technitaur.GreenBean.Player
         };
 
         // do the sideways movement first, then the vertical movement
-        public override void EnterState(Controller controller, InputHandler.InputData input)
+        public override void EnterState(Controller controller, InputHandler.InputData input, AnimationController anim)
         {
+            base.EnterState(controller, input, anim);
             sideways = new Vector2Int(0, 0);
             vertical = new Vector2Int(0, 1);
             if (input.dir.x != 0) sideways = new Vector2Int(input.dir.x, 0);

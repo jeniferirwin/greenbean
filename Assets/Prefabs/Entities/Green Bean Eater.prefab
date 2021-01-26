@@ -164,6 +164,7 @@ Transform:
   - {fileID: 4958700663047128687}
   - {fileID: 4958700663998275554}
   - {fileID: 4958700662780026073}
+  - {fileID: 1508049809598785043}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -306,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720686a1cced77042bc0440178938305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 2147947688379078932}
   leavingDir: 0
 --- !u!50 &4958700663040048590
 Rigidbody2D:
@@ -670,7 +672,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4958700664412042907}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: -1, y: 10.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4958700663040048580}
@@ -715,12 +717,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 21300000, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  m_Sprite: {fileID: -5071563641634004584, guid: 41f361a71b378284f87e757e0e89d3c4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2.5}
+  m_Size: {x: 18, y: 21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -778,3 +781,87 @@ MonoBehaviour:
   holoMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!1 &5229647367218818344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1508049809598785043}
+  - component: {fileID: 2147947688379078932}
+  m_Layer: 11
+  m_Name: AnimationController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1508049809598785043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229647367218818344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4958700663040048580}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2147947688379078932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229647367218818344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49cc116af8b9154498e6c4a83a537c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4958700663040048584}
+  rend: {fileID: 4958700664412042905}
+  jumpingFrame: {fileID: -2373947161172847283, guid: 41f361a71b378284f87e757e0e89d3c4,
+    type: 3}
+  standingFrame: {fileID: -5071563641634004584, guid: 41f361a71b378284f87e757e0e89d3c4,
+    type: 3}
+  mountingLadderFrame: {fileID: 6815840325210497860, guid: 41f361a71b378284f87e757e0e89d3c4,
+    type: 3}
+  poleSlidingFrame: {fileID: -3732871835879831052, guid: 41f361a71b378284f87e757e0e89d3c4,
+    type: 3}
+  runningFrames:
+  - {fileID: -5071563641634004584, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -5071563641634004584, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: 4747966381423845036, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: 4747966381423845036, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: 4747966381423845036, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: 4747966381423845036, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2373947161172847283, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2373947161172847283, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2373947161172847283, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2373947161172847283, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -5071563641634004584, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -5071563641634004584, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  climbingLadderFrames:
+  - {fileID: -3379750940492491694, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -3379750940492491694, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -3379750940492491694, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -3379750940492491694, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2063053811069430701, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2063053811069430701, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2063053811069430701, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2063053811069430701, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  climbingRopeFrames:
+  - {fileID: -2235502955519922439, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2235502955519922439, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2235502955519922439, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -2235502955519922439, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -6793837566311217425, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -6793837566311217425, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -6793837566311217425, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -6793837566311217425, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}

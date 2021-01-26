@@ -19,5 +19,6 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         bool IsRedDoor { get; }
         bool IsVioletDoor { get; }
         bool IsHazard { get; }
+        bool IsMountingLadder { get;}
     }
 }

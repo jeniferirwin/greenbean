@@ -5,9 +5,10 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class Idle : PlayerBaseState
     {
-        public override void EnterState(Controller player, InputHandler.InputData input)
+        public override void EnterState(Controller player, InputHandler.InputData input, AnimationController anim)
         {
-
+            base.EnterState(player, input, anim);
+            anim.Idle();
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)

@@ -1346,16 +1346,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green Bean Eater
       objectReference: {fileID: 0}
-    - target: {fileID: 7718403373102258010, guid: 5be3c308b382c294fa9a3f95298c2a1b,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 1.028414
-      objectReference: {fileID: 0}
-    - target: {fileID: 7718403373102258010, guid: 5be3c308b382c294fa9a3f95298c2a1b,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 6.2180457
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5be3c308b382c294fa9a3f95298c2a1b, type: 3}
 --- !u!1 &752721838

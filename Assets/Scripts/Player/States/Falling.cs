@@ -7,8 +7,9 @@ namespace Com.Technitaur.GreenBean.Player
     {
         private Vector3Int startingPosition;
 
-        public override void EnterState(Controller player, InputHandler.InputData input)
+        public override void EnterState(Controller player, InputHandler.InputData input, AnimationController anim)
         {
+            base.EnterState(player, input, anim);
             startingPosition = Vector3Int.RoundToInt(player.gameObject.transform.position);
         }
 

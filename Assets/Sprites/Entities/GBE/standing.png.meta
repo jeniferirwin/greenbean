@@ -1,7 +1,151 @@
 fileFormatVersion: 2
 guid: 41f361a71b378284f87e757e0e89d3c4
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5071563641634004584
+    second: standing
+  - first:
+      213: -4856210911436824162
+    second: run1
+  - first:
+      213: -909366700539605688
+    second: run2
+  - first:
+      213: 6815840325210497860
+    second: mountladder
+  - first:
+      213: -3379750940492491694
+    second: climbladder1
+  - first:
+      213: -2063053811069430701
+    second: climbladder2
+  - first:
+      213: -3732871835879831052
+    second: poleslide
+  - first:
+      213: -2235502955519922439
+    second: climbrope1
+  - first:
+      213: -6793837566311217425
+    second: climbrope2
+  - first:
+      213: 2088878471938862477
+    second: standing_9
+  - first:
+      213: 8710681542949607846
+    second: standing
+  - first:
+      213: 4747966381423845036
+    second: run1
+  - first:
+      213: -2373947161172847283
+    second: run2
+  - first:
+      213: -1572952771883132052
+    second: mountladder
+  - first:
+      213: -1386229940255243402
+    second: climbladder1
+  - first:
+      213: -1618623121149925515
+    second: climbladder2
+  - first:
+      213: 4956953990153061188
+    second: poleslide
+  - first:
+      213: 4393139398029978155
+    second: climbrope1
+  - first:
+      213: 1513710754413759346
+    second: climbrope2
+  - first:
+      213: 8710681542949607846
+    second: falldeath2
+  - first:
+      213: 4747966381423845036
+    second: running1
+  - first:
+      213: -2373947161172847283
+    second: running2
+  - first:
+      213: -1572952771883132052
+    second: falldeath1
+  - first:
+      213: -1386229940255243402
+    second: falldeath2
+  - first:
+      213: -1618623121149925515
+    second: standing_5
+  - first:
+      213: 4956953990153061188
+    second: standing_6
+  - first:
+      213: 4393139398029978155
+    second: standing_7
+  - first:
+      213: 1513710754413759346
+    second: standing_8
+  - first:
+      213: 6926801081837438186
+    second: standing_10
+  - first:
+      213: -6456869831509990473
+    second: standing_11
+  - first:
+      213: 5192697554363827626
+    second: mountladder
+  - first:
+      213: -5071563641634004584
+    second: falldeath2
+  - first:
+      213: -5071563641634004584
+    second: standing
+  - first:
+      213: -4856210911436824162
+    second: running1
+  - first:
+      213: -909366700539605688
+    second: running2
+  - first:
+      213: 6815840325210497860
+    second: falldeath1
+  - first:
+      213: -3379750940492491694
+    second: falldeath2
+  - first:
+      213: -6194128035040395386
+    second: climbladder1
+  - first:
+      213: 3689896060017762009
+    second: climbladder2
+  - first:
+      213: -8124930252898540193
+    second: poleslide
+  - first:
+      213: 5770000330826106751
+    second: climbrope1
+  - first:
+      213: 1113226778693493202
+    second: climbrope2
+  - first:
+      213: 2719421652528621227
+    second: standing_18
+  - first:
+      213: 1717427683634986375
+    second: standing_19
+  - first:
+      213: -8761101407631704678
+    second: standing_20
+  - first:
+      213: 652109706874627031
+    second: standing_21
+  - first:
+      213: -413537914233745857
+    second: standing_22
+  - first:
+      213: -1100182207377665895
+    second: standing_23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +184,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
@@ -97,7 +241,511 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: standing_5
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 577ef9ed8de7989e0800000000000000
+      internalID: -1618623121149925515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_6
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44347071463aac440800000000000000
+      internalID: 4956953990153061188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_7
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2aa954b10197fc30800000000000000
+      internalID: 4393139398029978155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b458149e7c10510800000000000000
+      internalID: 1513710754413759346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8916e9cfcbf2e99b0800000000000000
+      internalID: -5071563641634004584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: running1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e91ae65c7e54b9cb0800000000000000
+      internalID: -4856210911436824162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: running2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d84cbcdc74163f0800000000000000
+      internalID: -909366700539605688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: falldeath1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44364f5f9aab69e50800000000000000
+      internalID: 6815840325210497860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: falldeath2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25417a22d66b811d0800000000000000
+      internalID: -3379750940492491694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_9
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8d60e227ef2dfc10800000000000000
+      internalID: 2088878471938862477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_10
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae446b852e0f02060800000000000000
+      internalID: 6926801081837438186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_11
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b329e329179466a0800000000000000
+      internalID: -6456869831509990473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mountladder
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa545e1e9ea201840800000000000000
+      internalID: 5192697554363827626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbladder1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ff02abe590a0aa0800000000000000
+      internalID: -6194128035040395386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbladder2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ded87baae4253330800000000000000
+      internalID: 3689896060017762009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poleslide
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5568239bf27e3f80800000000000000
+      internalID: -8124930252898540193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbrope1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f77c6c8eab8231050800000000000000
+      internalID: 5770000330826106751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbrope2
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d16a7a6bd9f27f00800000000000000
+      internalID: 1113226778693493202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_18
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba66979b5935db520800000000000000
+      internalID: 2719421652528621227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_19
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d3c72016785d710800000000000000
+      internalID: 1717427683634986375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9dffe420b05a6680800000000000000
+      internalID: -8761101407631704678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_21
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d3a8d8c252cc0900800000000000000
+      internalID: 652109706874627031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_22
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e01f04571d24af0800000000000000
+      internalID: -413537914233745857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: standing_23
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9909c058c1e5bb0f0800000000000000
+      internalID: -1100182207377665895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
