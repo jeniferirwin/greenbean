@@ -63,7 +63,6 @@ namespace Com.Technitaur.GreenBean.Player
             state.FixedUpdate(this, input);
             if (env.IsOnFire && state != FireDeadState)
             {
-                Debug.Log("Dying from fire.");
                 Transition(FireDeadState);
             }
         }

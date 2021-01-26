@@ -10,6 +10,7 @@ TagManager:
   - SpawnPoint
   - Mob
   - Darkness
+  - Killchain
   layers:
   - Default
   - TransparentFX

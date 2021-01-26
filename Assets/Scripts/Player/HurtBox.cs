@@ -29,6 +29,11 @@ namespace Com.Technitaur.GreenBean.Player
                     playerInfo.Kill();
                 }
             }
+            if (other.gameObject.CompareTag("Killchain"))
+            {
+                Debug.Log("Oh no!");
+                player.Transition(player.DeadState);
+            }
         }
     }
 }
