@@ -21,6 +21,7 @@ namespace Com.Technitaur.GreenBean.Interactables
         {
             startPosition = Vector2Int.RoundToInt(transform.position);
             tracker = GameObject.FindObjectOfType<Tracker>();
+            if (tracker == null) Debug.Log("WTF?");
             tracker.AddToList(gameObject, startPosition);
             if (tracker.IsObjectDirty(gameObject, startPosition)) SetDirty();
             else SetClean();

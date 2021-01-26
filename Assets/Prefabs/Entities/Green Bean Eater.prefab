@@ -120,6 +120,9 @@ MonoBehaviour:
   doorMask:
     serializedVersion: 2
     m_Bits: 0
+  holoMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4958700663040048581
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +448,9 @@ MonoBehaviour:
   doorMask:
     serializedVersion: 2
     m_Bits: 0
+  holoMask:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!1 &4958700663998275555
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +642,9 @@ MonoBehaviour:
   doorMask:
     serializedVersion: 2
     m_Bits: 4096
+  holoMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4958700664412042907
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +775,9 @@ MonoBehaviour:
   doorMask:
     serializedVersion: 2
     m_Bits: 4096
+  holoMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &5883226073218483615
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ namespace Com.Technitaur.GreenBean.Player
             {
                 belowFeet.SensorUpdate();
                 atFeet.SensorUpdate();
-                if (belowFeet.AtSemisolid || belowFeet.AtSolid)
+                if (belowFeet.AtSemisolid || belowFeet.AtSolid || atFeet.AtHoloplatform)
                 {
                     if (!atFeet.AtSemisolid) return true;
                 }

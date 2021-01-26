@@ -4,7 +4,12 @@ namespace Com.Technitaur.GreenBean.Core
 {
     public static class RoomLoader
     {
-        private static Vector2Int lastSpawnPos = Vector2Int.zero;
+        public static Vector2Int lastSpawnPos;
+        public delegate void UnloadingAll();
+        public static event UnloadingAll OnUnloadingAll;
+        
+        public delegate void FoundCyclicObjects();
+        public static event FoundCyclicObjects OnFoundCyclicObjects;
 
         public static void Load(Room room, Direction direction, GameObject player)
         {
@@ -49,6 +54,7 @@ namespace Com.Technitaur.GreenBean.Core
 
         private static void UnloadAll()
         {
+            OnUnloadingAll?.Invoke();
             foreach (var data in FindAllRoomData())
             {
                 GameObject.Destroy(data.gameObject);
