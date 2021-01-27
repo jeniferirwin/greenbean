@@ -86,5 +86,9 @@ namespace Com.Technitaur.GreenBean.Player
                 sprite.Rotate(new Vector3(0,180,0));
             }
         }
+        public void Slide()
+        {
+            rend.sprite = poleSlidingFrame;
+        }
     }
 }

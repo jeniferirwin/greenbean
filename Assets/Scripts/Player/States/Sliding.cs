@@ -14,6 +14,7 @@ namespace Com.Technitaur.GreenBean.Player
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
         {
+            anim.Slide();
             if (player.IncrementalMove(Vector2Int.down, 2, true, false))
             {
                 player.Transition(player.IdleState);
