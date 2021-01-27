@@ -58,7 +58,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             PauseCycle();
         }
         
-        private void PauseCycle()
+        public void PauseCycle()
         {
             HoloplatformAnchor.OnHoloplatformLoaded += StartCycle;
             KillchainAnchor.OnKillchainLoaded += StartCycle;

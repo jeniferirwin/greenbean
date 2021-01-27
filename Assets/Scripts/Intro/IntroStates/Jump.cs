@@ -12,7 +12,6 @@ namespace Com.Technitaur.GreenBean.Intro
             base.EnterState(player, intro);
             _player.input = GenerateInput();
             _player.Transition(player.JumpingState);
-            _intro.jumps--;
         }
         
         private InputHandler.InputData GenerateInput()
@@ -39,6 +38,7 @@ namespace Com.Technitaur.GreenBean.Intro
                 else
                 {
                     _intro.Transition(_intro.JumpState);
+                    _intro.jumps--;
                 }
             }
         }

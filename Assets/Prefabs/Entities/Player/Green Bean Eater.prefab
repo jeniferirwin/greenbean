@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 4958700663040048585}
   - component: {fileID: 4958700663040048584}
   - component: {fileID: 4958700663040048590}
+  - component: {fileID: 768549899}
   m_Layer: 11
   m_Name: Green Bean Eater
   m_TagString: Player
@@ -183,6 +184,8 @@ MonoBehaviour:
   frameBufferLength: 0
   dir: {x: 0, y: 0}
   jump: 0
+  start: 0
+  inIntro: 0
 --- !u!114 &4958700663040048586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +244,18 @@ MonoBehaviour:
     m_ActionName: Movement/Move[/USB gamepad           /stick/up,/USB gamepad          
       /stick/down,/USB gamepad           /stick/left,/USB gamepad           /stick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 768549899}
+        m_MethodName: StartGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b31c7e4a-c89a-441d-956a-9b052a5ea242
     m_ActionName: Movement/Reset[/USB gamepad           /button5]
   - m_PersistentCalls:
@@ -330,6 +344,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &768549899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958700663040048581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8c79d39fd51441afe48c61300e81f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _input: {fileID: 4958700663040048587}
+  _player: {fileID: 4958700663040048584}
 --- !u!1 &4958700663047128680
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49cc116af8b9154498e6c4a83a537c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4958700663040048584}
   rend: {fileID: 4958700664412042905}
   jumpingFrame: {fileID: 2719421652528621227, guid: 41f361a71b378284f87e757e0e89d3c4,
     type: 3}

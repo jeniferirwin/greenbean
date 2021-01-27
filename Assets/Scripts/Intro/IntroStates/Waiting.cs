@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Com.Technitaur.GreenBean.Interactables;
 
 namespace Com.Technitaur.GreenBean.Intro
 {
@@ -6,9 +7,10 @@ namespace Com.Technitaur.GreenBean.Intro
     {
         internal override void FixedUpdate()
         {
-            if (!_player.env.IsGrounded) return;
+            if (_intro.waiting) return;
             else
             {
+                _intro.cycle.StartCycle();
                 _intro.Transition(_intro.JumpState);
             }
         }
