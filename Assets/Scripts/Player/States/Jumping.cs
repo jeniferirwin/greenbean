@@ -35,6 +35,7 @@ namespace Com.Technitaur.GreenBean.Player
             currentStep = 0;
             tooFar = false;
             startPos = Vector2Int.RoundToInt(controller.gameObject.transform.position);
+            anim.Orient(input.dir.x);
             anim.Jump();
             IncrementalJump(controller);
         }
