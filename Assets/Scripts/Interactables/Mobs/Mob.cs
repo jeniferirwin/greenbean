@@ -56,7 +56,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             GameStatus.OnPlayerDied -= StopMoving;
         }
         
-        public void StopMoving()
+        public virtual void StopMoving()
         {
             animator.enabled = false;
             SetNewDirection(Vector2Int.zero);
