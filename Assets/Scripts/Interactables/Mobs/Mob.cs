@@ -68,6 +68,7 @@ namespace Com.Technitaur.GreenBean.Interactables
         private void SetNewDirection(Vector2Int dir)
         {
             currentDirection = dir;
+            Debug.Log($"New direction is X:{dir.x} and Y:{dir.y}");
             if (dir.x >= 0)
             {
                 _spriteContainer.transform.rotation = Quaternion.identity;
@@ -112,8 +113,8 @@ namespace Com.Technitaur.GreenBean.Interactables
             {
                 if (way.left) SetNewDirection(Vector2Int.left);
                 else if (way.right) SetNewDirection(Vector2Int.right);
-                else if (way.up) SetNewDirection(Vector2Int.up);
-                else if (way.down) SetNewDirection(Vector2Int.down);
+                else if (way.up) SetNewDirection(new Vector2Int(currentDirection.x, 1));
+                else if (way.down) SetNewDirection(new Vector2Int(currentDirection.x, -1));
                 return;
             }
             else
@@ -145,13 +146,16 @@ namespace Com.Technitaur.GreenBean.Interactables
                 }
                 else if (currentDirection.y != 0)
                 {
+                    Debug.Log("Trying to choose horizontal...");
                     if (way.left && currentDirection.x < 0)
                     {
+                        Debug.Log("Setting left.");
                         SetNewDirection(Vector2Int.left);
                         return;
                     }
                     if (way.right && currentDirection.x > 0)
                     {
+                        Debug.Log("Setting right.");
                         SetNewDirection(Vector2Int.right);
                         return;
                     }
