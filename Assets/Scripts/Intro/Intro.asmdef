@@ -1,0 +1,18 @@
+{
+    "name": "Intro",
+    "references": [
+        "GUID:610d303c81d1add428e24805723da6ba",
+        "GUID:7a53e780d00204041a8a99a88b1f1a02",
+        "GUID:6e807de7c290802469bc1633a20e9ea3",
+        "GUID:0caa89555ce60de4ab8bb96d876e6809"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -21,7 +21,8 @@ namespace Com.Technitaur.GreenBean.Player
 
         internal PlayerBaseState state;
         internal InputHandler inputHandler;
-        internal InputHandler.InputData input;
+        public InputHandler.InputData input;
+
 
         public Idle IdleState = new Idle();
         public Walking WalkingState = new Walking();

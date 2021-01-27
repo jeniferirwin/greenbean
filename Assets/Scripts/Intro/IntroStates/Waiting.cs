@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Com.Technitaur.GreenBean.Player
+namespace Com.Technitaur.GreenBean.Intro
 {
     public class Waiting : IntroBaseState
     {

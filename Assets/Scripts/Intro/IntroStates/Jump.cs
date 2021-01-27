@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using Com.Technitaur.GreenBean.Input;
+using Com.Technitaur.GreenBean.Player;
+using Com.Technitaur.GreenBean.Core;
 
-namespace Com.Technitaur.GreenBean.Player
+namespace Com.Technitaur.GreenBean.Intro
 {
     public class Jump : IntroBaseState
     {

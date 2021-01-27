@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using Com.Technitaur.GreenBean.Player;
 
-namespace Com.Technitaur.GreenBean.Player
+namespace Com.Technitaur.GreenBean.Intro
 {
     public class IntroBaseState
     {
