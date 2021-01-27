@@ -20,7 +20,7 @@ namespace Com.Technitaur.GreenBean.Player
         [SerializeField] private InputHandler _input = null;
         [SerializeField] private Controller _player = null;
         [SerializeField] private IEnvironment _env = null;
-        
+
         private IntroBaseState state;
         internal int jumps = 3;
         internal SlidingDownPole SlidingDownPoleState = new SlidingDownPole();
@@ -34,11 +34,15 @@ namespace Com.Technitaur.GreenBean.Player
         {
             _input.IntroState(true);
             transform.position = new Vector2(-148, 100);
-            _player.Transition(_player.SlidingState);
             _env = GetComponent<IEnvironment>();
-            state = SlidingDownPoleState;
+            if (_env == null)
+            {
+                Debug.Log("Environment not found.");
+                return;
+            }
+            Transition(SlidingDownPoleState);
         }
-        
+
         internal void Transition(IntroBaseState state)
         {
             this.state = state;
@@ -48,6 +52,6 @@ namespace Com.Technitaur.GreenBean.Player
         private void FixedUpdate()
         {
             state.FixedUpdate();
-        } 
+        }
     }
 }

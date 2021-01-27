@@ -1609,7 +1609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 768549897}
-  _controller: {fileID: 768549894}
+  _player: {fileID: 768549894}
 --- !u!1 &776867821
 GameObject:
   m_ObjectHideFlags: 0
