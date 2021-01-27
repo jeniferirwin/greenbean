@@ -22,7 +22,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Reset",
+                    "name": "Start",
                     "type": "Button",
                     "id": "b31c7e4a-c89a-441d-956a-9b052a5ea242",
                     "expectedControlType": "Button",
@@ -186,18 +186,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Reset",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "54b88f7c-a81f-4c0d-9f10-573a8e112202",
-                    "path": "<HID::USB gamepad           >/button5",
+                    "path": "<HID::USB gamepad           >/button10",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Reset",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

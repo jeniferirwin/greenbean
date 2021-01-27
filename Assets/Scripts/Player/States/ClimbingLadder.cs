@@ -5,8 +5,6 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class ClimbingLadder : PlayerBaseState
     {
-        private int frame = 0;
-
         public override void EnterState(Controller player, InputHandler.InputData input, AnimationController anim)
         {
             base.EnterState(player, input, anim);

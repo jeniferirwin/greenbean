@@ -8,9 +8,12 @@ namespace Com.Technitaur.GreenBean.Input
         public int frameBufferLength;
         public Vector2Int dir;
         public bool jump;
+        public bool start;
+        public bool inIntro;
 
         private bool bufferedJump;
         private Vector2Int bufferedDir;
+        private bool bufferedStart;
 
         private bool hLock;
         private bool vLock;
@@ -21,6 +24,12 @@ namespace Com.Technitaur.GreenBean.Input
         {
             public Vector2Int dir;
             public bool jump;
+            public bool start;
+        }
+        
+        public void IntroState(bool isInIntro)
+        {
+            inIntro = isInIntro;
         }
         
         public InputData GetData()
@@ -28,6 +37,7 @@ namespace Com.Technitaur.GreenBean.Input
             InputData newData = new InputData();
             newData.dir = dir;
             newData.jump = jump;
+            newData.start = start;
             return newData;
         }
 
@@ -45,6 +55,7 @@ namespace Com.Technitaur.GreenBean.Input
                 currentFrameBuffer = frameBufferLength;
                 dir = bufferedDir;
                 jump = bufferedJump;
+                start = bufferedStart;
             }
             else
             {
@@ -54,6 +65,11 @@ namespace Com.Technitaur.GreenBean.Input
         
         public void OnMovement(InputAction.CallbackContext context)
         {
+            if (inIntro)
+            {
+                bufferedDir = new Vector2Int(0,0);
+                return;
+            }
             Vector2 input = context.ReadValue<Vector2>();
             int x = (int)Mathf.Ceil(input.x);
             int y = (int)Mathf.Ceil(input.y);
@@ -75,8 +91,25 @@ namespace Com.Technitaur.GreenBean.Input
             if (context.canceled) hLock = false;
         }
 
+        public void OnStart(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                bufferedStart = true;        
+            }
+            else if (context.canceled)
+            {
+                bufferedStart = false;
+            }
+        }
         public void OnJump(InputAction.CallbackContext context)
         {
+            if (inIntro)
+            {
+                bufferedJump = false;
+                return;
+            }
+
             if (context.started)
             {
                 bufferedJump = true;

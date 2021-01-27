@@ -35,7 +35,7 @@ namespace Com.Technitaur.GreenBean.Core
             var currentRoom = GameObject.FindObjectOfType<RoomData>();
             string roomName = currentRoom.name;
             char colorGrade = roomName[0];
-            string alphabet = "ZABCDEFGHIJ";
+            string alphabet = "YZABCDEFGHIJ";
             int idx = alphabet.IndexOf(colorGrade);
             int roomNumber = 0;
             if (roomName[1].ToString() == "1") roomNumber += 10;

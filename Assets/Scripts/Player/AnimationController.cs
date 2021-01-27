@@ -4,24 +4,23 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class AnimationController : MonoBehaviour
     {
-        [SerializeField] private Controller player;
-        [SerializeField] private SpriteRenderer rend;
+        [SerializeField] private SpriteRenderer rend = null;
 
-        [SerializeField] private Sprite jumpingFrame;
-        [SerializeField] private Sprite standingFrame;
-        [SerializeField] private Sprite mountingLadderFrame;
-        [SerializeField] private Sprite poleSlidingFrame;
+        [SerializeField] private Sprite jumpingFrame = null;
+        [SerializeField] private Sprite standingFrame = null;
+        [SerializeField] private Sprite mountingLadderFrame = null;
+        [SerializeField] private Sprite poleSlidingFrame = null;
 
-        [SerializeField] private Sprite[] runningFrames;
-        [SerializeField] private Sprite[] climbingLadderFrames;
-        [SerializeField] private Sprite[] climbingRopeFrames;
-        [SerializeField] private Sprite[] fallingDeathFrames;
-        [SerializeField] private Sprite[] mobDeathFrames;
-        [SerializeField] private GameObject smokeParticle;
+        [SerializeField] private Sprite[] runningFrames = null;
+        [SerializeField] private Sprite[] climbingLadderFrames = null;
+        [SerializeField] private Sprite[] climbingRopeFrames = null;
+        [SerializeField] private Sprite[] fallingDeathFrames = null;
+        [SerializeField] private Sprite[] mobDeathFrames = null;
+        [SerializeField] private GameObject smokeParticle = null;
 
-        private int ticks;
-        private bool swap;
-        private int phase;
+        private int ticks = 0;
+        private bool swap = false;
+        private int phase = 0;
 
         public void MountLadder() => rend.sprite = mountingLadderFrame;
         public void Jump() => rend.sprite = jumpingFrame;

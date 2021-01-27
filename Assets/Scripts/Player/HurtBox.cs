@@ -5,9 +5,9 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class HurtBox : MonoBehaviour
     {
-        [SerializeField] private Controller player;
-        [SerializeField] private IInventory _inv;
-        [SerializeField] private IWandStatus _wandBuff;
+        [SerializeField] private Controller player = null;
+        [SerializeField] private IInventory _inv = null;
+        [SerializeField] private IWandStatus _wandBuff = null;
 
         private void Start()
         {

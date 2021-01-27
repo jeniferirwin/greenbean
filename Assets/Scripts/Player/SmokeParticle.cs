@@ -4,8 +4,8 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class SmokeParticle : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer rend;
-        [SerializeField] private Sprite[] sprites;
+        [SerializeField] private SpriteRenderer rend = null;
+        [SerializeField] private Sprite[] sprites = null;
         
         private bool started;
         private int frames;
