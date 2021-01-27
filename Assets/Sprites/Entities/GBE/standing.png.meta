@@ -133,13 +133,13 @@ TextureImporter:
     second: jumping
   - first:
       213: 1717427683634986375
-    second: standing_19
+    second: mobdeath1
   - first:
       213: -8761101407631704678
-    second: standing_20
+    second: mobdeath2
   - first:
       213: 652109706874627031
-    second: standing_21
+    second: mobdeath3
   - first:
       213: -413537914233745857
     second: standing_22
@@ -642,7 +642,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: standing_19
+      name: mobdeath1
       rect:
         serializedVersion: 2
         x: 126
@@ -663,7 +663,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: standing_20
+      name: mobdeath2
       rect:
         serializedVersion: 2
         x: 144
@@ -684,7 +684,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: standing_21
+      name: mobdeath3
       rect:
         serializedVersion: 2
         x: 162

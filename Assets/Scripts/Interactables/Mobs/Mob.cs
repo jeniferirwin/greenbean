@@ -51,6 +51,18 @@ namespace Com.Technitaur.GreenBean.Interactables
             base.OnEnable();
             buffStatus = GameObject.Find("WandStatus").GetComponent<IWandStatus>();
             if (buffStatus.IsBuffActive && !faded) Fade(true);
+            GameStatus.OnPlayerDied += StopMoving;
+        }
+        
+        public void OnDestroy()
+        {
+            GameStatus.OnPlayerDied -= StopMoving;
+        }
+        
+        public void StopMoving()
+        {
+            animator.enabled = false;
+            SetNewDirection(Vector2Int.zero);
         }
         
         private void SetNewDirection(Vector2Int dir)

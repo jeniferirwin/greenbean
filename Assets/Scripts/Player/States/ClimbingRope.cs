@@ -39,20 +39,21 @@ namespace Com.Technitaur.GreenBean.Player
 
             if (player.IncrementalMove(yaxis, 1, true, true))
             {
-                if (player.env.CanClimbDownRope && player.env.CanClimbUpRope) return;
+                if (player.env.CanClimbDownRope && player.env.CanClimbUpRope)
+                {
+                    anim.Climb(input.dir.y, false);
+                    return;
+                }
 
                 if (player.env.IsGrounded)
                 {
                     player.Transition(player.IdleState);
-                    return;
                 }
                 else 
                 {
                     player.Transition(player.FallingState);
-                    return;
                 }
             }
-            anim.Climb(input.dir.y, false);
         }
 
         private void CheckForJumpOff(Controller player, InputHandler.InputData input)

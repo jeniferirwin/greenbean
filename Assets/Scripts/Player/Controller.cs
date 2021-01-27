@@ -6,6 +6,7 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class Controller : MonoBehaviour, IKillable
     {
+        
         [SerializeField] private AnimationController anim;
 
         public IEnvironment env;
@@ -43,13 +44,13 @@ namespace Com.Technitaur.GreenBean.Player
         public void OnEnable()
         {
             Transition(IdleState);
-            Debug.Log(state);
         }
         
         public void DieInAFire()
         {
             Transition(FireDeadState);
         }
+        
         
         public void Update()
         {
