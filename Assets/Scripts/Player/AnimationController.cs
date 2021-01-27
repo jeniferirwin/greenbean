@@ -15,12 +15,33 @@ namespace Com.Technitaur.GreenBean.Player
         [SerializeField] private Sprite[] runningFrames;
         [SerializeField] private Sprite[] climbingLadderFrames;
         [SerializeField] private Sprite[] climbingRopeFrames;
+        [SerializeField] private Sprite[] fallingDeathFrames;
 
         private int ticks;
+        private bool swap;
 
         public void MountLadder() => rend.sprite = mountingLadderFrame;
         public void Jump() => rend.sprite = jumpingFrame;
         public void Start() => ticks = 0;
+        public void ClearSprite() => rend.sprite = null;
+        
+        public void FallDeath()
+        {
+            if (swap == false)
+            {
+                rend.sprite = fallingDeathFrames[0];
+            }
+            else
+            {
+                rend.sprite = fallingDeathFrames[1];
+            }
+            ticks++;
+            if (ticks == 3)
+            {
+                swap = !swap;
+                ticks = 0;
+            }
+        }
 
         public void Climb(int direction, bool isLadder)
         {

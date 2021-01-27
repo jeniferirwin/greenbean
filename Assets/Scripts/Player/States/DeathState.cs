@@ -6,24 +6,33 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class DeathState : PlayerBaseState
     {
-        private float reloadDelay;
+        protected float reloadDelayPhaseOne;
+        protected float reloadDelayPhaseTwo;
 
         public override void EnterState(Controller controller, InputHandler.InputData input, AnimationController anim)
         {
             base.EnterState(controller, input, anim);
             Lives.Decrement();
-            reloadDelay = 4;
+            reloadDelayPhaseOne = 62;
+            reloadDelayPhaseTwo = 65;
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
         {
-            if (reloadDelay > 0)
+            if (reloadDelayPhaseOne > 0)
             {
-                reloadDelay -= Time.deltaTime;
+                reloadDelayPhaseOne--;
+                return;
+            }
+            anim.ClearSprite();
+            GameStatus.DeclareDead();
+            if (reloadDelayPhaseTwo > 0)
+            {
+                reloadDelayPhaseTwo--;
                 return;
             }
             // TODO: Make this process a little nicer, we should probably have a global 'get this room'
-            RoomLoader.Reload(GameObject.FindObjectOfType<RoomData>().RoomName, player.gameObject);
+            RoomLoader.ReloadCurrentRoom(player.gameObject);
         }
     }
 }

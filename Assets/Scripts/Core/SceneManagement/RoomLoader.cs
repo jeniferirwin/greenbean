@@ -36,7 +36,6 @@ namespace Com.Technitaur.GreenBean.Core
             string roomName = currentRoom.name;
             char colorGrade = roomName[0];
             string alphabet = "ZABCDEFGHIJ";
-            Debug.Log($"{alphabet[2]}");
             int idx = alphabet.IndexOf(colorGrade);
             int roomNumber = 0;
             if (roomName[1].ToString() == "1") roomNumber += 10;
@@ -62,12 +61,16 @@ namespace Com.Technitaur.GreenBean.Core
                 case Direction.Right:
                     newName = neutYDirection + rightDirection.ToString().PadLeft(2,'0');
                     break;
+                default:
+                    newName = neutYDirection + neutXDirection.ToString().PadLeft(2,'0');
+                    break;
             }
             var pos = Vector3.zero;
             var rot = Quaternion.identity;
             return GameObject.Instantiate(Resources.Load<GameObject>($"Rooms/{newName}"), pos, rot);
         }
 
+        public static void ReloadCurrentRoom(GameObject player) => Load(Direction.None, player);
         public static void Reload(Room room, GameObject player)
         {
             player.SetActive(false);
@@ -79,6 +82,11 @@ namespace Com.Technitaur.GreenBean.Core
 
         private static void SetPlayerPosition(GameObject player, Direction direction)
         {
+            if (direction == Direction.None)
+            {
+                player.transform.position = (Vector2) lastSpawnPos;
+                return;
+            }
             var newPos = Vector2Int.RoundToInt(player.transform.position);
             switch (direction)
             {
