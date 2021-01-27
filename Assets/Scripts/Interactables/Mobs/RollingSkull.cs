@@ -2,7 +2,7 @@
 
 namespace Com.Technitaur.GreenBean.Interactables
 {
-    public class TestMob : Mob
+    public class RollingSkull : Mob
     {
     }
 }

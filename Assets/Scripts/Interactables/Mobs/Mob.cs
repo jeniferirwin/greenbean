@@ -22,15 +22,13 @@ namespace Com.Technitaur.GreenBean.Interactables
         public MobType MobType { get { return mobType; } }
         public bool Faded { get { return faded; } }
 
+        [SerializeField] protected GameObject _spriteContainer;
         [SerializeField] private MobType mobType;
         [SerializeField] private float ppf;
         [SerializeField] private bool canDieToSword;
         [SerializeField] private int pointValue;
         [SerializeField] private Vector2Int startDirection;
         [SerializeField] private IEnvironment _env;
-        [SerializeField] private GameObject _spriteContainer;
-        [SerializeField] private Color fadedColor;
-        [SerializeField] private Color defaultColor;
         [SerializeField] private Animator animator;
 
         private bool faded;
@@ -42,7 +40,6 @@ namespace Com.Technitaur.GreenBean.Interactables
         {
             waypoints = null;
             waypoints = GameObject.FindObjectsOfType<Waypoint>();
-            defaultColor = Color.white;
             currentDirection = startDirection;
         }
         
@@ -59,7 +56,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             GameStatus.OnPlayerDied -= StopMoving;
         }
         
-        public void StopMoving()
+        public virtual void StopMoving()
         {
             animator.enabled = false;
             SetNewDirection(Vector2Int.zero);
