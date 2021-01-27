@@ -17,7 +17,7 @@ namespace Com.Technitaur.GreenBean.Player
         [SerializeField] private Sprite[] climbingRopeFrames;
         [SerializeField] private Sprite[] fallingDeathFrames;
         [SerializeField] private Sprite[] mobDeathFrames;
-        [SerializeField] private Sprite[] fireDeathFrames;
+        [SerializeField] private GameObject smokeParticle;
 
         private int ticks;
         private bool swap;
@@ -116,6 +116,12 @@ namespace Com.Technitaur.GreenBean.Player
                     swap = !swap;
                 }
             }
+        }
+        
+        public void FireDeath()
+        {
+            rend.sprite = null;
+            GameObject.Instantiate(smokeParticle, transform.position - new Vector3(0, 5), Quaternion.identity);
         }
     }
 }
