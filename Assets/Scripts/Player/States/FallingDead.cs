@@ -6,6 +6,13 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class FallingDead : DeathState
     {
+        public override void EnterState(Controller controller, InputHandler.InputData input, AnimationController anim)
+        {
+            base.EnterState(controller, input, anim);
+            reloadDelayPhaseOne = 62;
+            reloadDelayPhaseTwo = 65;
+        }
+
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
         {
             base.FixedUpdate(player, input);

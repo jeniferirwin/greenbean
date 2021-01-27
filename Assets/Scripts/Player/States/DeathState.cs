@@ -13,8 +13,6 @@ namespace Com.Technitaur.GreenBean.Player
         {
             base.EnterState(controller, input, anim);
             Lives.Decrement();
-            reloadDelayPhaseOne = 62;
-            reloadDelayPhaseTwo = 65;
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)

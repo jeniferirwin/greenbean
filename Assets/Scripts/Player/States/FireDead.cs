@@ -6,5 +6,6 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class FireDead : DeathState
     {
+
     }
 }

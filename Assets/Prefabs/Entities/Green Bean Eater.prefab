@@ -868,3 +868,8 @@ MonoBehaviour:
   fallingDeathFrames:
   - {fileID: -1572952771883132052, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
   - {fileID: 8710681542949607846, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  mobDeathFrames:
+  - {fileID: 1717427683634986375, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: -8761101407631704678, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  - {fileID: 652109706874627031, guid: 41f361a71b378284f87e757e0e89d3c4, type: 3}
+  fireDeathFrames: []
