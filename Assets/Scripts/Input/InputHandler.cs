@@ -13,7 +13,7 @@ namespace Com.Technitaur.GreenBean.Input
         public bool isClimbingInIntro;
 
         private bool bufferedJump;
-        private Vector2Int bufferedDir;
+        public Vector2Int bufferedDir;
         private bool bufferedStart;
 
         private bool hLock;
@@ -32,6 +32,10 @@ namespace Com.Technitaur.GreenBean.Input
         {
             inIntro = isInIntro;
             isClimbingInIntro = climbing;
+            if (isInIntro == false && isClimbingInIntro == false)
+            {
+                bufferedDir = new Vector2Int(0,0);
+            }
         }
 
         public InputData GetData()
@@ -41,11 +45,11 @@ namespace Com.Technitaur.GreenBean.Input
             {
                 if (isClimbingInIntro)
                 {
-                    bufferedDir = new Vector2Int(1, -1);
+                    dir = new Vector2Int(1, -1);
                 }
                 else
                 {
-                    bufferedDir = new Vector2Int(0, 0);
+                    dir = new Vector2Int(0, 0);
                 }
             }
             newData.dir = dir;

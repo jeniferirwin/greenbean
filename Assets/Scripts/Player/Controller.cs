@@ -19,8 +19,8 @@ namespace Com.Technitaur.GreenBean.Player
         public const int ropeClimbDownSpeed = 1;
         public const int beltSpeedModifier = 1;
 
-        internal PlayerBaseState state;
-        internal InputHandler inputHandler;
+        public PlayerBaseState state;
+        public InputHandler inputHandler;
         public InputHandler.InputData input;
 
 

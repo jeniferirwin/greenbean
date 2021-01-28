@@ -10,17 +10,6 @@ namespace Com.Technitaur.GreenBean.Intro
 {
     public class IntroAnimator : MonoBehaviour
     {
-        private enum Phase
-        {
-            SlidingDown,
-            FirstJump,
-            WaitingForStart,
-            SecondJump,
-            ThirdJump,
-            FourthJump,
-            GoingDownRope
-        }
-
         public PersistentCycleKeeper cycle = null;
         public InputHandler input = null;
 
@@ -35,12 +24,27 @@ namespace Com.Technitaur.GreenBean.Intro
         internal Jump JumpState = new Jump();
         internal Waiting WaitingState = new Waiting();
         internal ClimbingDownRope ClimbingDownRopeState = new ClimbingDownRope();
-
+        internal EnteringNextRoom EnteringNextRoomState = new EnteringNextRoom();
+        
+        private bool gameStarted;
+        
         private void OnDisable() => input.IntroState(false, false);
 
         private void Awake()
         {
             cycle = GameObject.FindObjectOfType<PersistentCycleKeeper>();
+        }
+        
+        private void OnEnable()
+        {
+            int num;
+            char grade;
+            (grade, num) = RoomLoader.GetCurrentRoomInfo();
+            if (grade == 'A' && num == 10 && !gameStarted)
+            {
+                gameStarted = true;
+                Transition(EnteringNextRoomState);
+            }
         }
 
         public void StartGame(InputAction.CallbackContext context)
@@ -56,6 +60,7 @@ namespace Com.Technitaur.GreenBean.Intro
 
         private void Start()
         {
+            gameStarted = false;
             input.IntroState(true, false);
             transform.position = new Vector2(-148, 46);
             waiting = true;

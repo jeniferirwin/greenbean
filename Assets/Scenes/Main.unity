@@ -1472,6 +1472,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green Bean Eater
       objectReference: {fileID: 0}
+    - target: {fileID: 4958700663040048587, guid: 5be3c308b382c294fa9a3f95298c2a1b,
+        type: 3}
+      propertyPath: frameBufferLength
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5be3c308b382c294fa9a3f95298c2a1b, type: 3}
 --- !u!1 &752721838
