@@ -8,7 +8,7 @@ namespace Com.Technitaur.GreenBean.Interactables
         public delegate void HoloplatformLoaded();
         public static event HoloplatformLoaded OnHoloplatformLoaded;
 
-        [SerializeField] private int length;
+        [SerializeField] private int length = 0;
         
         private SpriteRenderer[] spriteSlots = null;
         private BoxCollider2D coll;

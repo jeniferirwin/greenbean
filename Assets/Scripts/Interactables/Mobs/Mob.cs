@@ -22,14 +22,13 @@ namespace Com.Technitaur.GreenBean.Interactables
         public MobType MobType { get { return mobType; } }
         public bool Faded { get { return faded; } }
 
-        [SerializeField] protected GameObject _spriteContainer;
-        [SerializeField] private MobType mobType;
-        [SerializeField] private float ppf;
-        [SerializeField] private bool canDieToSword;
-        [SerializeField] private int pointValue;
-        [SerializeField] private Vector2Int startDirection;
-        [SerializeField] private IEnvironment _env;
-        [SerializeField] private Animator animator;
+        [SerializeField] protected GameObject _spriteContainer = null;
+        [SerializeField] private MobType mobType = MobType.RollingSkull;
+        [SerializeField] private float ppf = 0;
+        [SerializeField] private bool canDieToSword = false;
+        [SerializeField] private int pointValue = 0;
+        [SerializeField] private Vector2Int startDirection = Vector2Int.zero;
+        [SerializeField] private Animator animator = null;
 
         private bool faded;
         private IWandStatus buffStatus;

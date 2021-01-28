@@ -4,20 +4,12 @@ namespace Com.Technitaur.GreenBean.Interactables
 {
     public class BouncingSkull : Mob
     {
-        [SerializeField] private GameObject _collContainer;
+        [SerializeField] private GameObject _collContainer = null;
         private int[] steps = { 3, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0 };
-        private int idx;
-        private bool dropping;
-        private bool active;
+        private int idx = 0;
+        private bool dropping = false;
+        private bool active = true;
         
-        public override void Start()
-        {
-            base.Start();
-            dropping = false;
-            idx = 0;    
-            active = true;
-        }
-
         public override void StopMoving() => active = false;
         public override void FixedUpdate()
         {

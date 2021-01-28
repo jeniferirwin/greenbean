@@ -9,9 +9,9 @@ namespace Com.Technitaur.GreenBean.Interactables
         public static event KillchainLoaded OnKillchainLoaded;
 
         [SerializeField] private SpriteRenderer rend = null;
-        [SerializeField] private BoxCollider2D coll;
+        [SerializeField] private BoxCollider2D coll = null;
 
-        private KillchainSpriteDB db;
+        private KillchainSpriteDB db = null;
         
         private void Start()
         {
