@@ -39,7 +39,7 @@ namespace Com.Technitaur.GreenBean.Interactables
         {
             waypoints = null;
             waypoints = GameObject.FindObjectsOfType<Waypoint>();
-            currentDirection = startDirection;
+            SetNewDirection(startDirection);
         }
         
         public override void OnEnable()
