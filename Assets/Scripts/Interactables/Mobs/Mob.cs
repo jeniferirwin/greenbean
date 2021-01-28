@@ -65,7 +65,6 @@ namespace Com.Technitaur.GreenBean.Interactables
         private void SetNewDirection(Vector2Int dir)
         {
             currentDirection = dir;
-            Debug.Log($"New direction is X:{dir.x} and Y:{dir.y}");
             if (dir.x >= 0)
             {
                 _spriteContainer.transform.rotation = Quaternion.identity;
