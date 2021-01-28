@@ -28,6 +28,7 @@ namespace Com.Technitaur.GreenBean.Player
                 }
                 else
                 {
+                    player.anim.Orient(-1);
                     player.Transition(player.IdleState);
                 }
             }
@@ -39,6 +40,7 @@ namespace Com.Technitaur.GreenBean.Player
                 }
                 else
                 {
+                    player.anim.Orient(-1);
                     player.Transition(player.IdleState);
                 }
             }

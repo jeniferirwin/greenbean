@@ -6,9 +6,7 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class Controller : MonoBehaviour, IKillable
     {
-        
-        [SerializeField] private AnimationController anim = null;
-
+        public AnimationController anim = null;
         public IEnvironment env;
         public RoomLoader.Direction leavingDir;
 

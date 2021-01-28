@@ -47,10 +47,12 @@ namespace Com.Technitaur.GreenBean.Player
 
                 if (player.env.IsGrounded)
                 {
+                    player.anim.Orient(-1);
                     player.Transition(player.IdleState);
                 }
                 else 
                 {
+                    player.anim.Orient(-1);
                     player.Transition(player.FallingState);
                 }
             }

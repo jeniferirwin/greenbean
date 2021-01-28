@@ -17,6 +17,7 @@ namespace Com.Technitaur.GreenBean.Player
             anim.Slide();
             if (player.IncrementalMove(Vector2Int.down, 2, true, false))
             {
+                player.anim.Orient(-1);
                 player.Transition(player.IdleState);
             }
         }
