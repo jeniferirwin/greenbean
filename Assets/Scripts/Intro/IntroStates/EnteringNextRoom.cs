@@ -11,7 +11,6 @@ namespace Com.Technitaur.GreenBean.Intro
             if (breakpoint) _intro.enabled = false;
             if (_player.transform.position.y < 64)
             {
-                Debug.Log("Reached the breakpoint");
                 _intro.input.IntroState(false, false);
                 breakpoint = true;
                 _player.Transition(_player.FallingState);
