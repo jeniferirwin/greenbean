@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 25
   m_Sprite: {fileID: -5665439017586451948, guid: b4a6be3724ac1a64381ed446ac4a4f65,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -154,14 +154,12 @@ MonoBehaviour:
   rend: {fileID: 3823312254283948821}
   objCollider: {fileID: 3823312254841047308}
   startPosition: {x: 0, y: 0}
+  _spriteContainer: {fileID: 3823312254283948819}
   mobType: 6
   ppf: 0
   canDieToSword: 0
   pointValue: 0
   startDirection: {x: 0, y: 0}
-  _spriteContainer: {fileID: 3823312254283948819}
-  fadedColor: {r: 0.32941177, g: 0.32941177, b: 0.32941177, a: 0}
-  defaultColor: {r: 0, g: 0, b: 0, a: 0}
   animator: {fileID: 3823312254283948820}
 --- !u!50 &3823312254691306815
 Rigidbody2D:

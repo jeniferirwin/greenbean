@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 25
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -176,14 +176,12 @@ MonoBehaviour:
   rend: {fileID: 4158494924939037819}
   objCollider: {fileID: 7653049372632725589}
   startPosition: {x: 0, y: 0}
+  _spriteContainer: {fileID: 7653049372123730454}
   mobType: 0
   ppf: 1
   canDieToSword: 1
   pointValue: 1000
   startDirection: {x: 1, y: 0}
-  _spriteContainer: {fileID: 7653049372123730454}
-  fadedColor: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 0}
-  defaultColor: {r: 1, g: 1, b: 1, a: 0}
   animator: {fileID: 4348389036044364133}
 --- !u!1 &7653049372632725591
 GameObject:

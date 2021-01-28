@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45dfb4fd27e95d459b0fc4b94527ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 0
   rend: {fileID: 2205879066637270871}
   coll: {fileID: 2205879066644416115}
 --- !u!1 &2205879066637270865
@@ -139,7 +138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 25
   m_Sprite: {fileID: 2337641834363543358, guid: f206e02a1ca1a6b428989868c59317f4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

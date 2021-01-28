@@ -183,6 +183,7 @@ MonoBehaviour:
     type: 3}
   rend: {fileID: 5966782341675517296}
   objCollider: {fileID: 5966782342922483644}
+  startPosition: {x: 0, y: 0}
   unlockedBy: 6
 --- !u!1 &5966782342922483645
 GameObject:
