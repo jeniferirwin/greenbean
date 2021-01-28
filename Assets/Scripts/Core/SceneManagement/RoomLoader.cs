@@ -80,13 +80,13 @@ namespace Com.Technitaur.GreenBean.Core
                 {
                     int newNum = num - 1;
                     if (newNum < 1) return 1;
-                    break;
+                    return newNum;
                 }
                 case Direction.Right:
                 {
                     int newNum = num + 1;
                     if (newNum > 11) return 11;
-                    break;
+                    return newNum;
                 }
             }
             return num;
@@ -103,7 +103,15 @@ namespace Com.Technitaur.GreenBean.Core
         {
             var currentRoom = GameObject.FindObjectOfType<RoomData>().gameObject.name;
             var grade = currentRoom[0];
-            var number = currentRoom.Substring(1);
+            string number;
+            if (currentRoom.Contains("("))
+            {
+                number = currentRoom.Substring(1).Split('(')[0];
+            }
+            else
+            {
+                number = currentRoom.Substring(1);
+            }
             if (Int32.TryParse(number, out int num))
             {
                 return (grade, num);
