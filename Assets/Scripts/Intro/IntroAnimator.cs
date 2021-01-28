@@ -4,6 +4,7 @@ using Com.Technitaur.GreenBean.Input;
 using Com.Technitaur.GreenBean.Core;
 using Com.Technitaur.GreenBean.Player;
 using Com.Technitaur.GreenBean.Interactables;
+using Com.Technitaur.GreenBean.Tilemaps;
 
 namespace Com.Technitaur.GreenBean.Intro
 {
@@ -64,6 +65,7 @@ namespace Com.Technitaur.GreenBean.Intro
                 Debug.Log("Environment not found.");
                 return;
             }
+            TileStopper.StopTiles();
             Transition(SlidingDownPoleState);
         }
 

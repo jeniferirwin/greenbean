@@ -103,7 +103,7 @@ namespace Com.Technitaur.GreenBean.Player
                 return false;
             }            
             var xBounds = 160;
-            var yBounds = 100;
+            var yBounds = 112;
             if (transform.position.x >= xBounds)
             {
                 dir = RoomLoader.Direction.Right;

@@ -12,6 +12,15 @@ namespace Com.Technitaur.GreenBean.Tilemaps
         {
             GameStatus.OnPlayerDied += StopTiles;
         }
+        
+        public static void StartTiles()
+        {
+            maps = GameObject.FindObjectsOfType<Tilemap>();
+            foreach (var map in maps)
+            {
+                map.animationFrameRate = 0.5f;
+            }
+        }
 
         public static void StopTiles()
         {
