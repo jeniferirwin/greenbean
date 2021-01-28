@@ -7,7 +7,7 @@ namespace Com.Technitaur.GreenBean.Player
     public class Controller : MonoBehaviour, IKillable
     {
         
-        [SerializeField] private AnimationController anim;
+        [SerializeField] private AnimationController anim = null;
 
         public IEnvironment env;
         public RoomLoader.Direction leavingDir;
@@ -19,9 +19,10 @@ namespace Com.Technitaur.GreenBean.Player
         public const int ropeClimbDownSpeed = 1;
         public const int beltSpeedModifier = 1;
 
-        private PlayerBaseState state;
-        private InputHandler inputHandler;
-        private InputHandler.InputData input;
+        public PlayerBaseState state;
+        public InputHandler inputHandler;
+        public InputHandler.InputData input;
+
 
         public Idle IdleState = new Idle();
         public Walking WalkingState = new Walking();
@@ -96,8 +97,13 @@ namespace Com.Technitaur.GreenBean.Player
         
         private bool IsOutsideBounds(out RoomLoader.Direction dir)
         {
+            if (!inputHandler.isActiveAndEnabled)
+            {
+                dir = RoomLoader.Direction.None;
+                return false;
+            }            
             var xBounds = 160;
-            var yBounds = 100;
+            var yBounds = 112;
             if (transform.position.x >= xBounds)
             {
                 dir = RoomLoader.Direction.Right;

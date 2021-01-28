@@ -8,26 +8,53 @@ namespace Com.Technitaur.GreenBean.Input
         public int frameBufferLength;
         public Vector2Int dir;
         public bool jump;
+        public bool start;
+        public bool inIntro;
+        public bool isClimbingInIntro;
 
         private bool bufferedJump;
-        private Vector2Int bufferedDir;
+        public Vector2Int bufferedDir;
+        private bool bufferedStart;
 
         private bool hLock;
         private bool vLock;
-        
+
         private int currentFrameBuffer;
-        
+
         public struct InputData
         {
             public Vector2Int dir;
             public bool jump;
+            public bool start;
         }
-        
+
+        public void IntroState(bool isInIntro, bool climbing)
+        {
+            inIntro = isInIntro;
+            isClimbingInIntro = climbing;
+            if (isInIntro == false && isClimbingInIntro == false)
+            {
+                bufferedDir = new Vector2Int(0,0);
+            }
+        }
+
         public InputData GetData()
         {
             InputData newData = new InputData();
+            if (inIntro)
+            {
+                if (isClimbingInIntro)
+                {
+                    dir = new Vector2Int(1, -1);
+                }
+                else
+                {
+                    dir = new Vector2Int(0, 0);
+                }
+            }
             newData.dir = dir;
             newData.jump = jump;
+            newData.start = start;
             return newData;
         }
 
@@ -37,7 +64,7 @@ namespace Com.Technitaur.GreenBean.Input
             vLock = false;
             currentFrameBuffer = frameBufferLength;
         }
-        
+
         private void FixedUpdate()
         {
             if (currentFrameBuffer <= 0)
@@ -45,13 +72,14 @@ namespace Com.Technitaur.GreenBean.Input
                 currentFrameBuffer = frameBufferLength;
                 dir = bufferedDir;
                 jump = bufferedJump;
+                start = bufferedStart;
             }
             else
             {
                 currentFrameBuffer--;
             }
         }
-        
+
         public void OnMovement(InputAction.CallbackContext context)
         {
             Vector2 input = context.ReadValue<Vector2>();
@@ -75,8 +103,25 @@ namespace Com.Technitaur.GreenBean.Input
             if (context.canceled) hLock = false;
         }
 
+        public void OnStart(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                bufferedStart = true;
+            }
+            else if (context.canceled)
+            {
+                bufferedStart = false;
+            }
+        }
         public void OnJump(InputAction.CallbackContext context)
         {
+            if (inIntro)
+            {
+                bufferedJump = false;
+                return;
+            }
+
             if (context.started)
             {
                 bufferedJump = true;

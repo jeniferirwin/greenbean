@@ -5,8 +5,7 @@ namespace Com.Technitaur.GreenBean.Player
 {
     public class Walking : PlayerBaseState
     {
-        private int frame = 0;
-        private int lastX;
+        private int lastX = 0;
 
         public override void EnterState(Controller controller, InputHandler.InputData input, AnimationController anim)
         {

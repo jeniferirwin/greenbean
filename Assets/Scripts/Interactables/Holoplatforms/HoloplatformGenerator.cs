@@ -37,6 +37,7 @@ namespace Com.Technitaur.GreenBean.Interactables
                 slot.transform.parent = slotContainer.transform;
                 slot.transform.localPosition = new Vector2(i * 8, 0f);
                 var rend = slot.AddComponent<SpriteRenderer>();
+                rend.sortingOrder = 10;
                 rend.sprite = null;
             }
         }

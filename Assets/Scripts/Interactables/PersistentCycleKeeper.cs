@@ -54,21 +54,24 @@ namespace Com.Technitaur.GreenBean.Interactables
 
         private void Start()
         {
-            Frame = 0;
-            RoomLoader.OnUnloadingAll += PauseCycle;
-            GameStatus.OnPlayerDied += PauseCycle;
+            Frame = 99; // this is for the intro screen
+            PauseCycle();
         }
         
-        private void PauseCycle()
+        public void PauseCycle()
         {
             HoloplatformAnchor.OnHoloplatformLoaded += StartCycle;
             KillchainAnchor.OnKillchainLoaded += StartCycle;
+            RoomLoader.OnUnloadingAll -= PauseCycle;
+            GameStatus.OnPlayerDied -= PauseCycle;
             gameObject.SetActive(false);
         }
         
         public void StartCycle()
         {
             gameObject.SetActive(true);
+            RoomLoader.OnUnloadingAll += PauseCycle;
+            GameStatus.OnPlayerDied += PauseCycle;
             HoloplatformAnchor.OnHoloplatformLoaded -= StartCycle;
             KillchainAnchor.OnKillchainLoaded -= StartCycle;
         }
