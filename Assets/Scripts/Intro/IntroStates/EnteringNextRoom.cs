@@ -14,6 +14,7 @@ namespace Com.Technitaur.GreenBean.Intro
                 _intro.input.IntroState(false, false);
                 breakpoint = true;
                 _player.anim.Orient(-1);
+                _player.SetLastEnteredState(_player.IdleState);
                 _player.Transition(_player.FallingState);
             }
             else if (_player.state != _player.ClimbingRopeState && _player.env.CanClimbDownRope)

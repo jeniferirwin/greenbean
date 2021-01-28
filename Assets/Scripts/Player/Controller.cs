@@ -10,6 +10,7 @@ namespace Com.Technitaur.GreenBean.Player
         public IEnvironment env;
         public RoomLoader.Direction leavingDir;
         public Quaternion lastRotation;
+        public PlayerBaseState lastEnteredState;
         
         [SerializeField] private SpriteRenderer rend = null;
 
@@ -48,6 +49,14 @@ namespace Com.Technitaur.GreenBean.Player
             lastRotation = rend.gameObject.transform.rotation;
         }
         
+        public void SetLastEnteredState(PlayerBaseState newState)
+        {
+            if (newState == null)
+                lastEnteredState = state;
+            else
+                lastEnteredState = newState;
+        }
+        
         public void ApplyLastSpriteRotation()
         {
             rend.gameObject.transform.rotation = lastRotation;
@@ -55,10 +64,18 @@ namespace Com.Technitaur.GreenBean.Player
         
         public void OnEnable()
         {
-            if (state == null || state == FallingDeadState || state == DeadState || state == FireDeadState)
+            if (state == null)
+            {
+                Transition(IdleState);
+            }
+            else if (state == FallingDeadState || state == DeadState || state == FireDeadState)
             {
                 ApplyLastSpriteRotation();
-                Transition(IdleState);
+                Transition(lastEnteredState);
+            }
+            else
+            {
+                SetLastEnteredState(state);
             }
         }
         
