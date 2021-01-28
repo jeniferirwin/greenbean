@@ -35,7 +35,10 @@ namespace Com.Technitaur.GreenBean.Player
             currentStep = 0;
             tooFar = false;
             startPos = Vector2Int.RoundToInt(controller.gameObject.transform.position);
-            anim.Orient(input.dir.x);
+            if (input.dir.x != 0)
+            {
+                anim.Orient(input.dir.x);
+            }
             anim.Jump();
             IncrementalJump(controller);
         }
@@ -82,7 +85,7 @@ namespace Com.Technitaur.GreenBean.Player
             {
                 player.Transition(player.SlidingState);
             }
-            
+
             if (currentStep < 3) return;
             if (player.env.CanClimbUpRope || player.env.CanClimbDownRope)
             {
