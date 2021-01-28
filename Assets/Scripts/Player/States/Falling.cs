@@ -11,6 +11,7 @@ namespace Com.Technitaur.GreenBean.Player
         {
             base.EnterState(player, input, anim);
             startingPosition = Vector3Int.RoundToInt(player.gameObject.transform.position);
+            player.SetLastSpriteRotation();
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)

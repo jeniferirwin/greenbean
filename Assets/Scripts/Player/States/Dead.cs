@@ -11,6 +11,7 @@ namespace Com.Technitaur.GreenBean.Player
             base.EnterState(controller, input, anim);
             reloadDelayPhaseOne = 31;
             reloadDelayPhaseTwo = 65;
+            controller.SetLastSpriteRotation();
         }
         
         public override void FixedUpdate(Controller player, InputHandler.InputData input)

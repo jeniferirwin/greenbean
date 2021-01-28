@@ -12,6 +12,7 @@ namespace Com.Technitaur.GreenBean.Player
         public override void EnterState(Controller controller, InputHandler.InputData input, AnimationController anim)
         {
             base.EnterState(controller, input, anim);
+            anim.Orient(1);
             Lives.Decrement();
         }
 

@@ -9,6 +9,9 @@ namespace Com.Technitaur.GreenBean.Player
         public AnimationController anim = null;
         public IEnvironment env;
         public RoomLoader.Direction leavingDir;
+        public Quaternion lastRotation;
+        
+        [SerializeField] private SpriteRenderer rend = null;
 
         public const int walkSpeed = 2;
         public const int fallSpeed = 4;
@@ -40,8 +43,19 @@ namespace Com.Technitaur.GreenBean.Player
             RoomLoader.lastSpawnPos = Vector2Int.RoundToInt(transform.position);
         }
         
+        public void SetLastSpriteRotation()
+        {
+            lastRotation = rend.gameObject.transform.rotation;
+        }
+        
+        public void ApplyLastSpriteRotation()
+        {
+            rend.gameObject.transform.rotation = lastRotation;
+        }
+        
         public void OnEnable()
         {
+            ApplyLastSpriteRotation();
             Transition(IdleState);
         }
         

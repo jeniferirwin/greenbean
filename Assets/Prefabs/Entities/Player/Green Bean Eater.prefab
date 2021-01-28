@@ -187,6 +187,7 @@ MonoBehaviour:
   start: 0
   inIntro: 0
   isClimbingInIntro: 0
+  bufferedDir: {x: 0, y: 0}
 --- !u!114 &4958700663040048586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +325,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 2147947688379078932}
   leavingDir: 0
+  lastRotation: {x: 0, y: 0, z: 0, w: 0}
+  rend: {fileID: 4958700664412042905}
+  inputHandler: {fileID: 4958700663040048587}
 --- !u!50 &4958700663040048590
 Rigidbody2D:
   serializedVersion: 4
