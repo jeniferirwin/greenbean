@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8963601502347a4db48a597feb90d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 5
+  level: 1
 --- !u!114 &8426866164617817570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,11 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c33866761087e24597a09ba7f452f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: 3
-  up: 0
-  down: 0
-  left: 0
-  right: 3
+  RoomName: 2
 --- !u!1 &1868137330611909199
 GameObject:
   m_ObjectHideFlags: 0

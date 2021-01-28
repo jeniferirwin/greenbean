@@ -60,11 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c33866761087e24597a09ba7f452f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: 4
-  up: 0
-  down: 0
-  left: 0
-  right: 0
+  RoomName: 4
 --- !u!1 &1868137330611909199
 GameObject:
   m_ObjectHideFlags: 0

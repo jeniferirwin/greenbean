@@ -9,7 +9,7 @@ namespace Com.Technitaur.GreenBean.Interactables
         private struct TrackedObject
         {
             public string name;
-            public Room room;
+            public string room;
             public Vector2Int pos;
             public bool isDirty;
         }
@@ -66,9 +66,9 @@ namespace Com.Technitaur.GreenBean.Interactables
             return newObj;
         }
         
-        private Room FindCurrentRoom()
+        private string FindCurrentRoom()
         {
-            return GameObject.FindObjectOfType<RoomData>().RoomName;
+            return GameObject.FindObjectOfType<RoomData>().gameObject.name;
         }
     }
 }

@@ -120,14 +120,6 @@ namespace Com.Technitaur.GreenBean.Core
         }
 
         public static void ReloadCurrentRoom(GameObject player) => Load(Direction.None, player);
-        public static void Reload(Room room, GameObject player)
-        {
-            player.SetActive(false);
-            UnloadAll();
-            InstantiateRoomPrefab(room);
-            player.transform.position = (Vector2)lastSpawnPos;
-            player.SetActive(true);
-        }
 
         private static void SetPlayerPosition(GameObject player, Direction direction)
         {
@@ -147,11 +139,6 @@ namespace Com.Technitaur.GreenBean.Core
             }
             lastSpawnPos = newPos;
             player.transform.position = (Vector2)newPos;
-        }
-
-        private static void InstantiateRoomPrefab(Room room)
-        {
-            var path = $"Rooms/{room.ToString()}";
         }
 
         private static void UnloadAll()
