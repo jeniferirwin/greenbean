@@ -175,7 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c33866761087e24597a09ba7f452f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomName: 3
 --- !u!1 &1745843363981591853
 GameObject:
   m_ObjectHideFlags: 0
