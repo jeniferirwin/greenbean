@@ -27,7 +27,6 @@ namespace Com.Technitaur.GreenBean.Intro
             if (!_player.env.IsGrounded) return;
             else
             {
-                Debug.Log($"Jumps left: {_intro.jumps}");
                 if (_intro.jumps <= 1)         
                 {
                     _intro.Transition(_intro.ClimbingDownRopeState);
@@ -38,7 +37,6 @@ namespace Com.Technitaur.GreenBean.Intro
                 }
                 else
                 {
-                    Debug.Log("??");
                     _intro.jumps--;
                     _intro.Transition(_intro.JumpState);
                 }

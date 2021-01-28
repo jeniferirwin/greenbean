@@ -175,11 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c33866761087e24597a09ba7f452f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: 3
-  up: 0
-  down: 0
-  left: 0
-  right: 3
+  RoomName: 3
 --- !u!1 &1745843363981591853
 GameObject:
   m_ObjectHideFlags: 0
@@ -5219,7 +5215,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 200
+  m_SortingOrder: 30
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 3.5, y: 3.5, z: 0}
   m_MaxChunkCount: 16
