@@ -25,16 +25,20 @@ namespace Com.Technitaur.GreenBean.Intro
         internal Waiting WaitingState = new Waiting();
         internal ClimbingDownRope ClimbingDownRopeState = new ClimbingDownRope();
         internal EnteringNextRoom EnteringNextRoomState = new EnteringNextRoom();
-        
+
         private bool gameStarted;
-        
-        private void OnDisable() => input.IntroState(false, false);
+
+        private void OnDisable()
+        {
+            input.IntroState(false, false);
+            RoomLoader.lastSpawnPos = new Vector2Int(4, 32);
+        }
 
         private void Awake()
         {
             cycle = GameObject.FindObjectOfType<PersistentCycleKeeper>();
         }
-        
+
         private void OnEnable()
         {
             int num;
