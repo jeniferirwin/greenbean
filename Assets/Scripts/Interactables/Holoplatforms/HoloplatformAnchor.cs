@@ -24,6 +24,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             spriteSlots = gameObject.GetComponentsInChildren<SpriteRenderer>();
             coll = gameObject.GetComponentInChildren<BoxCollider2D>(includeInactive:true);
             OnHoloplatformLoaded?.Invoke();
+            TurnOff();
         }
         
         private void BeSureToLikeAndSubscribe()

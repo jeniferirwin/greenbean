@@ -18,6 +18,7 @@ namespace Com.Technitaur.GreenBean.Intro
             if (_intro.waiting) return;
             else
             {
+                GameObject.FindObjectOfType<FakeHolo>().Hide();
                 _intro.cycle.StartCycle();
                 TileStopper.StartTiles();
                 StartFlasher.StopFlashing();

@@ -57,7 +57,7 @@ namespace Com.Technitaur.GreenBean.Intro
         private void Start()
         {
             input.IntroState(true, false);
-            transform.position = new Vector2(-148, 100);
+            transform.position = new Vector2(-148, 46);
             waiting = true;
             _env = GetComponent<IEnvironment>();
             if (_env == null)

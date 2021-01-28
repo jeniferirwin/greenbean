@@ -54,7 +54,7 @@ namespace Com.Technitaur.GreenBean.Interactables
 
         private void Start()
         {
-            Frame = 101; // this is for the intro screen
+            Frame = 99; // this is for the intro screen
             PauseCycle();
         }
         
