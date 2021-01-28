@@ -27,18 +27,20 @@ namespace Com.Technitaur.GreenBean.Intro
             if (!_player.env.IsGrounded) return;
             else
             {
-                if (_intro.jumps == 0)         
+                Debug.Log($"Jumps left: {_intro.jumps}");
+                if (_intro.jumps <= 1)         
                 {
                     _intro.Transition(_intro.ClimbingDownRopeState);
                 }
-                else if (_intro.jumps == 2)
+                else if (_intro.jumps == 4)
                 {
                     _intro.Transition(_intro.WaitingState);
                 }
                 else
                 {
-                    _intro.Transition(_intro.JumpState);
+                    Debug.Log("??");
                     _intro.jumps--;
+                    _intro.Transition(_intro.JumpState);
                 }
             }
         }

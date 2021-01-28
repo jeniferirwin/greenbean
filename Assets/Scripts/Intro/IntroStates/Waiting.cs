@@ -11,6 +11,7 @@ namespace Com.Technitaur.GreenBean.Intro
             else
             {
                 _intro.cycle.StartCycle();
+                _intro.jumps--;
                 _intro.Transition(_intro.JumpState);
             }
         }

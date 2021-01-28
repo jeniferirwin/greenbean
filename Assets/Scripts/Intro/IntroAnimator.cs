@@ -21,13 +21,13 @@ namespace Com.Technitaur.GreenBean.Intro
         }
 
         public PersistentCycleKeeper cycle = null;
+        public InputHandler input = null;
 
-        [SerializeField] private InputHandler _input = null;
         [SerializeField] private Controller _player = null;
         [SerializeField] private IEnvironment _env = null;
 
         private IntroBaseState state;
-        internal int jumps = 2;
+        internal int jumps = 4;
         internal bool waiting;
 
         internal SlidingDownPole SlidingDownPoleState = new SlidingDownPole();
@@ -35,7 +35,7 @@ namespace Com.Technitaur.GreenBean.Intro
         internal Waiting WaitingState = new Waiting();
         internal ClimbingDownRope ClimbingDownRopeState = new ClimbingDownRope();
 
-        private void OnDisable() => _input.IntroState(false);
+        private void OnDisable() => input.IntroState(false, false);
 
         private void Awake()
         {
@@ -44,10 +44,9 @@ namespace Com.Technitaur.GreenBean.Intro
 
         public void StartGame(InputAction.CallbackContext context)
         {
-            Debug.Log("Start pressed.");
             if (context.started)
             {
-                if (state == WaitingState)
+                if (state == WaitingState && waiting == true)
                 {
                     waiting = false;
                 }
@@ -56,7 +55,7 @@ namespace Com.Technitaur.GreenBean.Intro
 
         private void Start()
         {
-            _input.IntroState(true);
+            input.IntroState(true, false);
             transform.position = new Vector2(-148, 100);
             waiting = true;
             _env = GetComponent<IEnvironment>();

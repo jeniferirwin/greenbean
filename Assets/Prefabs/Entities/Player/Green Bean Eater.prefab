@@ -186,6 +186,7 @@ MonoBehaviour:
   jump: 0
   start: 0
   inIntro: 0
+  isClimbingInIntro: 0
 --- !u!114 &4958700663040048586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f8c79d39fd51441afe48c61300e81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 4958700663040048587}
+  cycle: {fileID: 0}
+  input: {fileID: 4958700663040048587}
   _player: {fileID: 4958700663040048584}
 --- !u!1 &4958700663047128680
 GameObject:
