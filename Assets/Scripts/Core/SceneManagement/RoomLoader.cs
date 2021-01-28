@@ -25,49 +25,90 @@ namespace Com.Technitaur.GreenBean.Core
         {
             player.SetActive(false);
             UnloadAll();
-            FindRoomPrefab(direction);
+            GetNextRoomPrefab(direction);
             SetPlayerPosition(player, direction);
             player.SetActive(true);
         }
-        
-        public static GameObject FindRoomPrefab(Direction direction)
+
+        public static GameObject GetNextRoomPrefab(Direction direction)
         {
-            var currentRoom = GameObject.FindObjectOfType<RoomData>();
-            string roomName = currentRoom.name;
-            char colorGrade = roomName[0];
-            string alphabet = "YZABCDEFGHIJ";
-            int idx = alphabet.IndexOf(colorGrade);
-            int roomNumber = 0;
-            if (roomName[1].ToString() == "1") roomNumber += 10;
-            if (Int32.TryParse(roomName[2].ToString(), out int num)) roomNumber += num;
-            char upDirection = alphabet[idx - 1];
-            char downDirection = alphabet[idx + 1];
-            char neutYDirection = alphabet[idx];
-            int leftDirection = roomNumber - 1;
-            int rightDirection = roomNumber + 1;
-            int neutXDirection = roomNumber;
-            string newName = "";
+            char grade;
+            int num;
+            (grade, num) = GetCurrentRoomInfo();
+            return CreateRoom(GetNextRoomName(grade, num, direction));
+        }
+
+        public static string GetNextRoomName(char grade, int num, Direction direction)
+        {
+            var newGrade = GetNextRoomGrade(grade, direction);
+            var newNumber = GetNextRoomNumber(num, direction);
+            return newGrade + newNumber.ToString();
+        }
+
+        public static char GetNextRoomGrade(char grade, Direction direction)
+        {
+            string gradeArray = "YZABCDEFGHIJK";
+            int newIDX;
+
             switch (direction)
             {
                 case Direction.Up:
-                    newName = upDirection + roomNumber.ToString().PadLeft(2,'0');
+                    newIDX = gradeArray.IndexOf(grade) - 1;
                     break;
                 case Direction.Down:
-                    newName = downDirection + roomNumber.ToString().PadLeft(2,'0');
+                    newIDX = gradeArray.IndexOf(grade) + 1;
                     break;
                 case Direction.Left:
-                    newName = neutYDirection + leftDirection.ToString().PadLeft(2,'0');
-                    break;
                 case Direction.Right:
-                    newName = neutYDirection + rightDirection.ToString().PadLeft(2,'0');
-                    break;
                 default:
-                    newName = neutYDirection + neutXDirection.ToString().PadLeft(2,'0');
+                    newIDX = gradeArray.IndexOf(grade);
                     break;
             }
+            return gradeArray[newIDX];
+        }
+
+        public static int GetNextRoomNumber(int num, Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Up:
+                case Direction.Down:
+                {
+                    return num;
+                }
+                case Direction.Left:
+                {
+                    int newNum = num - 1;
+                    if (newNum < 1) return 1;
+                    break;
+                }
+                case Direction.Right:
+                {
+                    int newNum = num + 1;
+                    if (newNum > 11) return 11;
+                    break;
+                }
+            }
+            return num;
+        }
+
+        public static GameObject CreateRoom(string newName)
+        {
             var pos = Vector3.zero;
             var rot = Quaternion.identity;
             return GameObject.Instantiate(Resources.Load<GameObject>($"Rooms/{newName}"), pos, rot);
+        }
+
+        public static (char, int) GetCurrentRoomInfo()
+        {
+            var currentRoom = GameObject.FindObjectOfType<RoomData>().gameObject.name;
+            var grade = currentRoom[0];
+            var number = currentRoom.Substring(1);
+            if (Int32.TryParse(number, out int num))
+            {
+                return (grade, num);
+            }
+            return ('A', 10);
         }
 
         public static void ReloadCurrentRoom(GameObject player) => Load(Direction.None, player);
@@ -84,7 +125,7 @@ namespace Com.Technitaur.GreenBean.Core
         {
             if (direction == Direction.None)
             {
-                player.transform.position = (Vector2) lastSpawnPos;
+                player.transform.position = (Vector2)lastSpawnPos;
                 return;
             }
             var newPos = Vector2Int.RoundToInt(player.transform.position);
