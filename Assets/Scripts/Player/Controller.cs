@@ -55,8 +55,11 @@ namespace Com.Technitaur.GreenBean.Player
         
         public void OnEnable()
         {
-            ApplyLastSpriteRotation();
-            Transition(IdleState);
+            if (state == null || state == FallingDeadState || state == DeadState || state == FireDeadState)
+            {
+                ApplyLastSpriteRotation();
+                Transition(IdleState);
+            }
         }
         
         public void DieInAFire()
