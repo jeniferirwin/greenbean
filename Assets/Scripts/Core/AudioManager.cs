@@ -89,7 +89,7 @@ namespace Com.Technitaur.GreenBean.Core
 
         public static void EmitOnce(Sound sound)
         {
-            if (lastSound == sound)
+            if (lastSound == sound || lastSound == Sound.PoleSlide)
             {
                 oneShotSource.Stop();
             }
