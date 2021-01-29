@@ -18,9 +18,6 @@ namespace Com.Technitaur.GreenBean.Core
         public delegate void UnloadingAll();
         public static event UnloadingAll OnUnloadingAll;
 
-        public delegate void FoundCyclicObjects();
-        public static event FoundCyclicObjects OnFoundCyclicObjects;
-
         public static void Load(Direction direction, GameObject player)
         {
             player.SetActive(false);
