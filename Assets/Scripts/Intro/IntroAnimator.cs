@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Com.Technitaur.GreenBean.Input;
 using Com.Technitaur.GreenBean.Core;
 using Com.Technitaur.GreenBean.Player;
@@ -55,27 +56,41 @@ namespace Com.Technitaur.GreenBean.Intro
         {
             if (context.started)
             {
-                if (state == WaitingState && waiting == true)
-                {
-                    waiting = false;
-                }
+                StartGame();
+            }
+        }
+
+        public void StartGame()
+        {
+            if (state == WaitingState && waiting == true)
+            {
+                waiting = false;
             }
         }
 
         private void Start()
         {
             gameStarted = false;
-            input.IntroState(true, false);
-            transform.position = new Vector2(-148, 46);
-            waiting = true;
-            _env = GetComponent<IEnvironment>();
-            if (_env == null)
+            if (SceneManager.GetActiveScene().name == "Main")
             {
-                Debug.Log("Environment not found.");
-                return;
+                input.IntroState(true, false);
+                transform.position = new Vector2(-148, 46);
+                waiting = true;
+                _env = GetComponent<IEnvironment>();
+                if (_env == null)
+                {
+                    Debug.Log("Environment not found.");
+                    return;
+                }
+                TileStopper.StopTiles();
+                Transition(SlidingDownPoleState);
             }
-            TileStopper.StopTiles();
-            Transition(SlidingDownPoleState);
+            else
+            {
+                cycle.StartCycle();
+                StartGame();
+                this.enabled = false;
+            }
         }
 
         internal void Transition(IntroBaseState state)
