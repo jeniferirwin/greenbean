@@ -25,6 +25,16 @@ namespace Com.Technitaur.GreenBean.Player
         public InputHandler inputHandler;
         public InputHandler.InputData input;
 
+        [SerializeField] internal AudioClip jumping;
+        [SerializeField] internal AudioClip killMob;
+        [SerializeField] internal AudioClip landing;
+        [SerializeField] internal AudioClip mobDeath;
+        [SerializeField] internal AudioClip newLife;
+        [SerializeField] internal AudioClip openDoor;
+        [SerializeField] internal AudioClip collect;
+        [SerializeField] internal AudioClip poleSlide;
+        [SerializeField] internal AudioClip footSteps;
+        internal AudioSource source;
 
         public Idle IdleState = new Idle();
         public Walking WalkingState = new Walking();
@@ -41,6 +51,11 @@ namespace Com.Technitaur.GreenBean.Player
         {
             inputHandler = GetComponent<InputHandler>();
             env = GetComponent<IEnvironment>();
+            source = FindObjectOfType<AudioSource>();
+            if (source == null)
+            {
+                Debug.Log("Audio not found.");
+            }
             RoomLoader.lastSpawnPos = Vector2Int.RoundToInt(transform.position);
         }
         

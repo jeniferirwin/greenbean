@@ -328,6 +328,15 @@ MonoBehaviour:
   lastRotation: {x: 0, y: 0, z: 0, w: 0}
   rend: {fileID: 4958700664412042905}
   inputHandler: {fileID: 4958700663040048587}
+  jumping: {fileID: 8300000, guid: ae9029a5b303c0e49a52403d254cbb9b, type: 3}
+  killMob: {fileID: 8300000, guid: 1e155a4d883c3804b91a04166834b29d, type: 3}
+  landing: {fileID: 8300000, guid: 50bd9330bc454cc41a912f7911e65ae3, type: 3}
+  mobDeath: {fileID: 8300000, guid: b5be3821e51b855478a3fd5572802469, type: 3}
+  newLife: {fileID: 8300000, guid: f3603698587b87542b2e3822c61dd11e, type: 3}
+  openDoor: {fileID: 8300000, guid: 07fce9c987ab9bf4a86778471463dade, type: 3}
+  collect: {fileID: 8300000, guid: a13673a47d40a184bbca510c32fb08ec, type: 3}
+  poleSlide: {fileID: 8300000, guid: 3afe64641a7809944969c22b1d887a23, type: 3}
+  footSteps: {fileID: 8300000, guid: 420d3c2c1a359a84595fb36674629937, type: 3}
 --- !u!50 &4958700663040048590
 Rigidbody2D:
   serializedVersion: 4

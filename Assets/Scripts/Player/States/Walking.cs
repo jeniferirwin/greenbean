@@ -12,39 +12,54 @@ namespace Com.Technitaur.GreenBean.Player
             base.EnterState(controller, input, anim);
             lastX = input.dir.x;
             anim.Orient(input.dir.x);
+            controller.source.clip = controller.footSteps;
+            controller.source.loop = true;
+            controller.source.Play();
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
         {
             if (input.dir.x == 0)
             {
+                player.source.loop = false;
+                player.source.Stop();
                 player.Transition(player.IdleState);
                 return;
             }
 
             if (input.jump)
             {
+                player.source.loop = false;
+                player.source.Stop();
                 player.Transition(player.JumpingState);
                 return;
             }
 
             if (input.dir.y > 0 && player.env.CanClimbUpLadder)
             {
+                player.source.loop = false;
+                player.source.Stop();
                 player.Transition(player.ClimbingLadderState);
                 return;
             }
             if (input.dir.y < 0 && player.env.CanClimbDownLadder)
             {
+                player.source.loop = false;
+                player.source.Stop();
                 player.Transition(player.ClimbingLadderState);
                 return;
             }
             if (input.dir.y > 0 && player.env.CanClimbUpRope)
             {
+                player.source.loop = false;
+                player.source.Stop();
                 player.Transition(player.ClimbingRopeState);
                 return;
             }
             if (input.dir.y < 0 && player.env.CanClimbDownRope)
             {
+                player.source.loop = false;
+                player.source.Stop();
                 player.Transition(player.ClimbingRopeState);
                 return;
             }
@@ -57,6 +72,8 @@ namespace Com.Technitaur.GreenBean.Player
             if (dir.x > 0 && player.env.IsOnRightBelt) speed = 3;
             if (player.IncrementalMove(dir, speed, false, true))
             {
+                player.source.loop = false;
+                player.source.Stop();
                 player.Transition(player.FallingState);
                 return;
             }

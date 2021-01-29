@@ -12,6 +12,8 @@ namespace Com.Technitaur.GreenBean.Player
             reloadDelayPhaseOne = 31;
             reloadDelayPhaseTwo = 65;
             controller.SetLastSpriteRotation();
+            controller.source.Stop();
+            controller.source.PlayOneShot(controller.mobDeath);
         }
         
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
