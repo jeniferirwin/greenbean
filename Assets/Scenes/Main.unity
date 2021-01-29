@@ -538,7 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 184064187}
 --- !u!1 &208506197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 512554090}
 --- !u!1 &527338695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,6 +2855,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  scorePerExtraLife: 10000
   Score: 0
 --- !u!1 &1093031631
 GameObject:
@@ -3217,7 +3218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 1264571225}
 --- !u!1 &1336915256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,7 +3404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 1417648479}
 --- !u!1 &1428778826
 GameObject:
   m_ObjectHideFlags: 0
@@ -3501,7 +3502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 8
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 1428778828}
 --- !u!1 &1445607008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3629,7 +3630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 10
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 1491136153}
 --- !u!1 &1540374938
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,7 +4088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 9
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 1926952092}
 --- !u!1 &1947097002
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,7 +4186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 1947097004}
 --- !u!1 &1968328657
 GameObject:
   m_ObjectHideFlags: 0
@@ -4317,7 +4318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 1968711809}
 --- !u!1 &1977602937
 GameObject:
   m_ObjectHideFlags: 0
@@ -4527,7 +4528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 2044216475}
 --- !u!1 &2135465044
 GameObject:
   m_ObjectHideFlags: 0
@@ -4625,7 +4626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   activeSprite: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 2135465046}
 --- !u!212 &3508413985868356617
 SpriteRenderer:
   m_ObjectHideFlags: 0

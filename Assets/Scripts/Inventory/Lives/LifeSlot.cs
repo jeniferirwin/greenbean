@@ -11,6 +11,8 @@ namespace Com.Technitaur.GreenBean.Inventory
         
         private void Awake()
         {
+            rend = GetComponent<SpriteRenderer>();
+            activeSprite = rend.sprite;
             Lives.OnLivesChanged += CheckSlot;
         }
         
@@ -21,8 +23,6 @@ namespace Com.Technitaur.GreenBean.Inventory
         
         private void Start()
         {
-            rend = GetComponent<SpriteRenderer>();
-            activeSprite = rend.sprite;
             CheckSlot(Lives.Amount);
         }
         

@@ -16,8 +16,10 @@ namespace Com.Technitaur.GreenBean.Inventory
         public Sprite[] Sprites = new Sprite[NUM_SPRITES];
         public GameObject[] Slots = new GameObject[MAX_SLOTS];
         public SpriteRenderer[] Renderers = new SpriteRenderer[MAX_SLOTS];
+        public int scorePerExtraLife = 10000;
 
         public int Score;
+        private int scoreToNextLife = 0;
 
         public void Start()
         {
@@ -27,6 +29,7 @@ namespace Com.Technitaur.GreenBean.Inventory
             {
                 Renderers[i] = Slots[i].GetComponent<SpriteRenderer>();
             }
+            scoreToNextLife = scorePerExtraLife;
             UpdateScore();
         }
         
@@ -40,6 +43,16 @@ namespace Com.Technitaur.GreenBean.Inventory
         {
             Score += worth;
             UpdateScore();
+            scoreToNextLife -= worth;
+            Debug.Log($"Next life in {scoreToNextLife} points.");
+            if (scoreToNextLife <= 0)
+            {
+                scoreToNextLife = scorePerExtraLife - Mathf.Abs(scoreToNextLife);
+                Debug.Log($"Next life in {scoreToNextLife} points.");
+                AudioManager.StopOneShot();
+                AudioManager.EmitOnce(AudioManager.Sound.GainLife);
+                Lives.Increment();
+            }
         }
 
         public void UpdateScore()

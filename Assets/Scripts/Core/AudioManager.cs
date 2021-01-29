@@ -99,7 +99,7 @@ namespace Com.Technitaur.GreenBean.Core
             oneShotSource.PlayOneShot(ParseSoundType(sound));
             lastSound = sound;
         }
-
+        
         public static void EmitContinuous(Sound sound)
         {
             if (isMuted) return;
@@ -110,6 +110,11 @@ namespace Com.Technitaur.GreenBean.Core
         public static void StopEmitting()
         {
             continuousSource.Stop();
+        }
+
+        public static void StopOneShot()
+        {
+            oneShotSource.Stop();
         }
     }
 }
