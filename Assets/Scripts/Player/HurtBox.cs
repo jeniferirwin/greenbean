@@ -26,6 +26,7 @@ namespace Com.Technitaur.GreenBean.Player
                 mobInfo.Kill();
                 if (!mobInfo.CanDieToSword || !_inv.Consume(ItemType.Sword, worth))
                 {
+                    AudioManager.StopEmitting();
                     playerInfo.Kill();
                 }
                 else
