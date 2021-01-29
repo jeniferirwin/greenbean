@@ -36,7 +36,7 @@ namespace Com.Technitaur.GreenBean.Player
             }
             if (other.gameObject.CompareTag("Killchain"))
             {
-                Debug.Log("Oh no!");
+                AudioManager.StopEmitting();
                 player.Transition(player.DeadState);
             }
         }
