@@ -16,9 +16,15 @@ namespace Com.Technitaur.GreenBean.Inventory
         {
             PlayerInventory.OnInventoryUpdate += UpdateSlot;
         }
+        
+        public void OnDestroy()
+        {
+            PlayerInventory.OnInventoryUpdate -= UpdateSlot;
+        }
 
         public void Clear()
         {
+            if (anim == null) return;
             anim.enabled = false;
             rend.sprite = null;
         }

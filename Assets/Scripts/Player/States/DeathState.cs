@@ -25,13 +25,16 @@ namespace Com.Technitaur.GreenBean.Player
             }
             anim.ClearSprite();
             GameStatus.DeclareDead();
+            if (Lives.Amount < 0)
+            {
+                GameStatus.GameOver();
+            }
             if (reloadDelayPhaseTwo > 0)
             {
                 reloadDelayPhaseTwo--;
                 return;
             }
-            // TODO: Make this process a little nicer, we should probably have a global 'get this room'
-            RoomLoader.ReloadCurrentRoom(player.gameObject);
+            if (Lives.Amount >= 0) RoomLoader.ReloadCurrentRoom(player.gameObject);
         }
     }
 }

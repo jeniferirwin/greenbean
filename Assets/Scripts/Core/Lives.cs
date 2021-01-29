@@ -15,13 +15,13 @@ namespace Com.Technitaur.GreenBean.Core
             {
                 return amount;
             }
-            private set
+            set
             {
                 amount = value;
             }
         }
         
-        public static void Start()
+        public static void OnEnable()
         {
             UpdateLives();
         }

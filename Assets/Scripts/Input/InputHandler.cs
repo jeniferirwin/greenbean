@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Input
 {
@@ -82,6 +83,7 @@ namespace Com.Technitaur.GreenBean.Input
 
         public void OnMovement(InputAction.CallbackContext context)
         {
+            if (GameStatus.gameIsOver) return;
             Vector2 input = context.ReadValue<Vector2>();
             int x = (int)Mathf.Ceil(input.x);
             int y = (int)Mathf.Ceil(input.y);
@@ -93,6 +95,7 @@ namespace Com.Technitaur.GreenBean.Input
 
         public void OnVerticalLock(InputAction.CallbackContext context)
         {
+            if (GameStatus.gameIsOver) GameStatus.ReloadGame();
             if (context.started) vLock = true;
             if (context.canceled) vLock = false;
         }

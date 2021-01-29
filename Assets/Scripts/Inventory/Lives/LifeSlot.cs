@@ -14,6 +14,11 @@ namespace Com.Technitaur.GreenBean.Inventory
             Lives.OnLivesChanged += CheckSlot;
         }
         
+        private void OnDestroy()
+        {
+            Lives.OnLivesChanged -= CheckSlot;
+        }
+        
         private void Start()
         {
             rend = GetComponent<SpriteRenderer>();

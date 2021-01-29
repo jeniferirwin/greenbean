@@ -14,6 +14,14 @@ namespace Com.Technitaur.GreenBean.Intro
             rend.enabled = false;    
         }
         
+        public void OnDestroy()
+        {
+            started = false;
+            rend.enabled = false;
+            finished = false;
+            frame = 32;
+        }
+        
         public static void StartFlashing()
         {
             started = true;

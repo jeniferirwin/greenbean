@@ -30,6 +30,12 @@ namespace Com.Technitaur.GreenBean.Inventory
             UpdateScore();
         }
         
+        public void OnDestroy()
+        {
+            Inventory.Events.OnItemConsumed -= AddScore;
+            Inventory.Events.OnItemPickedUp -= AddScore;
+        }
+        
         public void AddScore(ItemType itemType, int worth)
         {
             Score += worth;

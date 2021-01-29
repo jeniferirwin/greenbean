@@ -58,6 +58,15 @@ namespace Com.Technitaur.GreenBean.Interactables
             PauseCycle();
         }
         
+        private void OnDestroy()
+        {
+            Frame = 99;
+            HoloplatformAnchor.OnHoloplatformLoaded -= StartCycle;
+            KillchainAnchor.OnKillchainLoaded -= StartCycle;
+            RoomLoader.OnUnloadingAll -= PauseCycle;
+            GameStatus.OnPlayerDied -= PauseCycle;
+        }
+        
         public void PauseCycle()
         {
             HoloplatformAnchor.OnHoloplatformLoaded += StartCycle;
@@ -69,6 +78,7 @@ namespace Com.Technitaur.GreenBean.Interactables
         
         public void StartCycle()
         {
+            if (gameObject == null) return;
             gameObject.SetActive(true);
             RoomLoader.OnUnloadingAll += PauseCycle;
             GameStatus.OnPlayerDied += PauseCycle;

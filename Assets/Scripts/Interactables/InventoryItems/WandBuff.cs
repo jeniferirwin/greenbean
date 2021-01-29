@@ -21,7 +21,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             FadeMobs(true);
         }
 
-        private void OnDisable()
+        private void DisableWand()
         {
             FadeMobs(false);
             _inv.Consume(ItemType.Wand);
@@ -34,6 +34,7 @@ namespace Com.Technitaur.GreenBean.Interactables
                 timer -= Time.deltaTime;
                 return;
             }
+            DisableWand();
             gameObject.SetActive(false);
         }
         
