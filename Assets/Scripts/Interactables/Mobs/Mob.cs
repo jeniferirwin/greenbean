@@ -58,7 +58,7 @@ namespace Com.Technitaur.GreenBean.Interactables
         public virtual void StopMoving()
         {
             animator.enabled = false;
-            SetNewDirection(Vector2Int.zero);
+            mobType = MobType.Snake;
         }
         
         private void SetNewDirection(Vector2Int dir)

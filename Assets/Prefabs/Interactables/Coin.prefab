@@ -103,8 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracker: {fileID: 0}
-  dirtySprite: {fileID: 2813356486045828731, guid: 35ca94fe734188c4eb6af96041795733,
-    type: 3}
+  dirtySprite: {fileID: 0}
   cleanSprite: {fileID: -5141307082286268907, guid: 35ca94fe734188c4eb6af96041795733,
     type: 3}
   rend: {fileID: 4045257522947425011}
