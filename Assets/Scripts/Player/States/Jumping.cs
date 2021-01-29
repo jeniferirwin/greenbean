@@ -40,6 +40,9 @@ namespace Com.Technitaur.GreenBean.Player
                 anim.Orient(input.dir.x);
             }
             anim.Jump();
+            controller.source.Stop();
+            controller.source.loop = false;
+            controller.source.PlayOneShot(controller.jumping);
             IncrementalJump(controller);
         }
 
