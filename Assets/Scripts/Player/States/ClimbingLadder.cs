@@ -12,6 +12,7 @@ namespace Com.Technitaur.GreenBean.Player
             bool snapDir = player.env.LadderSnapRight;
             Vector2Int snapped = player.env.HorizontalSnap(rounded, snapDir);
             player.gameObject.transform.position = (Vector3Int)snapped;
+            player.anim.Orient(-1);
             if (input.dir.y < 0 && player.env.CanClimbDownLadder)
             {
                 player.gameObject.transform.position -= new Vector3(0, 4, 0);
@@ -28,7 +29,6 @@ namespace Com.Technitaur.GreenBean.Player
                 }
                 else
                 {
-                    player.anim.Orient(-1);
                     player.Transition(player.IdleState);
                 }
             }
@@ -40,7 +40,6 @@ namespace Com.Technitaur.GreenBean.Player
                 }
                 else
                 {
-                    player.anim.Orient(-1);
                     player.Transition(player.IdleState);
                 }
             }

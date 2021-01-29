@@ -14,6 +14,7 @@ namespace Com.Technitaur.GreenBean.Player
             base.EnterState(controller, input, anim);
             var pos = controller.gameObject.transform.position;
             var rounded = Vector2Int.RoundToInt(pos);
+            controller.anim.Orient(-1);
             controller.gameObject.transform.position = (Vector2) controller.env.CenterXSnap(rounded);
         }
 
