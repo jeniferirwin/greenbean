@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Com.Technitaur.GreenBean.Input;
+using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Player
 {
@@ -10,6 +11,7 @@ namespace Com.Technitaur.GreenBean.Player
             base.EnterState(player, input, anim);
             var loc = Vector2Int.RoundToInt(player.gameObject.transform.position);
             player.gameObject.transform.position = (Vector2) player.env.CenterXYSnap(loc);
+            AudioManager.EmitOnce(AudioManager.Sound.PoleSlide);
             player.anim.Orient(-1);
         }
 
@@ -18,6 +20,7 @@ namespace Com.Technitaur.GreenBean.Player
             anim.Slide();
             if (player.IncrementalMove(Vector2Int.down, 2, true, false))
             {
+                AudioManager.EmitOnce(AudioManager.Sound.Land);
                 player.Transition(player.IdleState);
             }
         }

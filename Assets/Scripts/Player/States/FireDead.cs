@@ -13,6 +13,7 @@ namespace Com.Technitaur.GreenBean.Player
             reloadDelayPhaseOne = 63;
             reloadDelayPhaseTwo = 65;
             anim.FireDeath();
+            AudioManager.EmitOnce(AudioManager.Sound.Die);
         }
     }
 }

@@ -28,6 +28,10 @@ namespace Com.Technitaur.GreenBean.Player
                 {
                     playerInfo.Kill();
                 }
+                else
+                {
+                    AudioManager.EmitOnce(AudioManager.Sound.KillMob);
+                }
             }
             if (other.gameObject.CompareTag("Killchain"))
             {

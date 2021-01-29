@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Com.Technitaur.GreenBean.Input;
+using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Player
 {
@@ -40,9 +41,7 @@ namespace Com.Technitaur.GreenBean.Player
                 anim.Orient(input.dir.x);
             }
             anim.Jump();
-            controller.source.Stop();
-            controller.source.loop = false;
-            controller.source.PlayOneShot(controller.jumping);
+            AudioManager.EmitOnce(AudioManager.Sound.Jump);
             IncrementalJump(controller);
         }
 
@@ -63,6 +62,7 @@ namespace Com.Technitaur.GreenBean.Player
                 }
                 else
                 {
+                    AudioManager.EmitOnce(AudioManager.Sound.Land);
                     player.Transition(player.IdleState);
                     return;
                 }
@@ -77,6 +77,7 @@ namespace Com.Technitaur.GreenBean.Player
                 }
                 else
                 {
+                    AudioManager.EmitOnce(AudioManager.Sound.Land);
                     player.Transition(player.IdleState);
                     return;
                 }

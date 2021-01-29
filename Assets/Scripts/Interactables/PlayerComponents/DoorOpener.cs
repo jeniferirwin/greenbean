@@ -24,6 +24,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             if (TryConsumeKey(door.UnlockedBy))
             {
                 door.SetDirty();
+                AudioManager.EmitOnce(AudioManager.Sound.OpenDoor);
             }
         }
 

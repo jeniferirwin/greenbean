@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Com.Technitaur.GreenBean.Input;
+using Com.Technitaur.GreenBean.Core;
 
 namespace Com.Technitaur.GreenBean.Player
 {
@@ -29,6 +30,7 @@ namespace Com.Technitaur.GreenBean.Player
                 }
                 else
                 {
+                    AudioManager.EmitOnce(AudioManager.Sound.Land);
                     player.Transition(player.IdleState);
                 }
             }
@@ -40,6 +42,7 @@ namespace Com.Technitaur.GreenBean.Player
                 }
                 else
                 {
+                    AudioManager.EmitOnce(AudioManager.Sound.Land);
                     player.Transition(player.IdleState);
                 }
             }

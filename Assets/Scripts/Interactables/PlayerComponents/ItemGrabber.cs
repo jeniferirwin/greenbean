@@ -7,11 +7,13 @@ namespace Com.Technitaur.GreenBean.Interactables
     public class ItemGrabber : MonoBehaviour
     {
         [SerializeField] private BoxCollider2D grabber;
+        private AudioSource source;
         
         private IInventory _inventory;
         
         private void Start()
         {
+            source = GameObject.FindObjectOfType<AudioSource>();
             _inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<IInventory>();
         }
 
@@ -24,6 +26,7 @@ namespace Com.Technitaur.GreenBean.Interactables
             {
                 _inventory.Add(item);
                 item.OnPickup();
+                AudioManager.EmitOnce(AudioManager.Sound.Pickup);
                 if (item.ItemType == ItemType.Coin)
                 {
                     _inventory.Consume(ItemType.Coin);
