@@ -10,6 +10,7 @@ namespace Com.Technitaur.GreenBean.Player
             base.EnterState(player, input, anim);
             var loc = Vector2Int.RoundToInt(player.gameObject.transform.position);
             player.gameObject.transform.position = (Vector2) player.env.CenterXYSnap(loc);
+            player.anim.Orient(-1);
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
@@ -17,7 +18,6 @@ namespace Com.Technitaur.GreenBean.Player
             anim.Slide();
             if (player.IncrementalMove(Vector2Int.down, 2, true, false))
             {
-                player.anim.Orient(-1);
                 player.Transition(player.IdleState);
             }
         }
