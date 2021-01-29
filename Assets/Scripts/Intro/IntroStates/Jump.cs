@@ -9,6 +9,7 @@ namespace Com.Technitaur.GreenBean.Intro
     {
         internal override void EnterState(Controller player, IntroAnimator intro)
         {
+            AudioManager.isMuted = false;
             base.EnterState(player, intro);
             _player.input = GenerateInput();
             _player.Transition(player.JumpingState);

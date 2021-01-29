@@ -6,6 +6,7 @@ namespace Com.Technitaur.GreenBean.Core
     {
         internal static AudioSource continuousSource = null;
         internal static AudioSource oneShotSource = null;
+        public static bool isMuted = true;
 
         public AudioClip jumping = null;
         public AudioClip killMob = null;
@@ -43,6 +44,7 @@ namespace Com.Technitaur.GreenBean.Core
 
         private void Awake()
         {
+            isMuted = true;
             oneShotSource = GameObject.Find("OneShotAudio").GetComponent<AudioSource>();
             continuousSource = GameObject.Find("ContinuousAudio").GetComponent<AudioSource>();
             p_jumping = jumping;
@@ -89,6 +91,7 @@ namespace Com.Technitaur.GreenBean.Core
 
         public static void EmitOnce(Sound sound)
         {
+            if (isMuted) return;
             if (lastSound == sound || lastSound == Sound.PoleSlide)
             {
                 oneShotSource.Stop();
@@ -99,6 +102,7 @@ namespace Com.Technitaur.GreenBean.Core
 
         public static void EmitContinuous(Sound sound)
         {
+            if (isMuted) return;
             continuousSource.clip = ParseSoundType(sound);
             continuousSource.Play();
         }
