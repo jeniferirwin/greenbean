@@ -11,6 +11,9 @@ namespace Com.Technitaur.GreenBean.Player
             base.EnterState(controller, input, anim);
             reloadDelayPhaseOne = 62;
             reloadDelayPhaseTwo = 65;
+            controller.source.Stop();
+            controller.source.loop = false;
+            controller.source.PlayOneShot(controller.landing);
         }
 
         public override void FixedUpdate(Controller player, InputHandler.InputData input)
