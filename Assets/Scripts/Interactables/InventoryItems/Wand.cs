@@ -23,10 +23,5 @@ namespace Com.Technitaur.GreenBean.Interactables
             var status = GameObject.Find("WandStatus").GetComponent<IWandStatus>();
             status.ActivateBuff();
         }
-
-        public void OnConsume()
-        {
-            // TODO: figure out if I even need this function
-        }
     }
 }

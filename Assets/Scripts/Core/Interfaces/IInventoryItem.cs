@@ -11,6 +11,5 @@ namespace Com.Technitaur.GreenBean.Core
         Sprite Sprite { get; }
         
         void OnPickup();
-        void OnConsume();
     }
 }

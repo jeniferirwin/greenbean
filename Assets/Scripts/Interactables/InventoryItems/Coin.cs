@@ -21,10 +21,5 @@ namespace Com.Technitaur.GreenBean.Interactables
         {
             SetDirty();
         }
-
-        public void OnConsume()
-        {
-            // TODO: figure out if I even need this function
-        }
     }
 }
