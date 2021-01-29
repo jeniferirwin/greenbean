@@ -7,6 +7,7 @@ namespace Com.Technitaur.GreenBean.Intro
         [SerializeField] private SpriteRenderer rend = null;
         private int frame = 32;
         private static bool started = false;
+        private static bool finished = false;
         
         public void Start()
         {
@@ -21,10 +22,12 @@ namespace Com.Technitaur.GreenBean.Intro
         public static void StopFlashing()
         {
             started = false;
+            finished = true;
         }
 
         public void FixedUpdate()
         {
+            if (finished && rend.enabled == false) rend.enabled = true;
             if (!started) return;
             if (rend.enabled == true && frame < 1)
             {

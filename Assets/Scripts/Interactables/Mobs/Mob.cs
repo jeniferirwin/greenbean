@@ -87,6 +87,7 @@ namespace Com.Technitaur.GreenBean.Interactables
 
         public virtual void Move(Vector2Int dir)
         {
+            if (mobType == MobType.Snake) return;
             for (int i = 1; i <= ppf; i++)
             {
                 Vector2 lastPos = transform.position;
@@ -141,16 +142,13 @@ namespace Com.Technitaur.GreenBean.Interactables
                 }
                 else if (currentDirection.y != 0)
                 {
-                    Debug.Log("Trying to choose horizontal...");
                     if (way.left && currentDirection.x < 0)
                     {
-                        Debug.Log("Setting left.");
                         SetNewDirection(Vector2Int.left);
                         return;
                     }
                     if (way.right && currentDirection.x > 0)
                     {
-                        Debug.Log("Setting right.");
                         SetNewDirection(Vector2Int.right);
                         return;
                     }
