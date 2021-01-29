@@ -24,7 +24,7 @@ namespace Com.Technitaur.GreenBean.Player
                 var worth = mobInfo.PointValue;
                 var playerInfo = player.GetComponent<IKillable>();
                 mobInfo.Kill();
-                if (!_inv.Consume(ItemType.Sword, worth))
+                if (!mobInfo.CanDieToSword || !_inv.Consume(ItemType.Sword, worth))
                 {
                     playerInfo.Kill();
                 }
