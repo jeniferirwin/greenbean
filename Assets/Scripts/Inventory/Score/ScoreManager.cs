@@ -44,11 +44,9 @@ namespace Com.Technitaur.GreenBean.Inventory
             Score += worth;
             UpdateScore();
             scoreToNextLife -= worth;
-            Debug.Log($"Next life in {scoreToNextLife} points.");
             if (scoreToNextLife <= 0)
             {
                 scoreToNextLife = scorePerExtraLife - Mathf.Abs(scoreToNextLife);
-                Debug.Log($"Next life in {scoreToNextLife} points.");
                 AudioManager.StopOneShot();
                 AudioManager.EmitOnce(AudioManager.Sound.GainLife);
                 Lives.Increment();
