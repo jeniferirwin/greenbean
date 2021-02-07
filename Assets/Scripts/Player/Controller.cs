@@ -41,6 +41,7 @@ namespace Com.Technitaur.GreenBean.Player
             inputHandler = GetComponent<InputHandler>();
             env = GetComponent<IEnvironment>();
             RoomLoader.lastSpawnPos = Vector2Int.RoundToInt(transform.position);
+            SetLastEnteredState(IdleState);
         }
         
         public void SetLastSpriteRotation()
